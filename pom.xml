@@ -28,9 +28,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.1</version>
 				<configuration>
-					<release>20</release>
-					<encoding>UTF-8</encoding>
-				</configuration>
+					<target>1.8</target>
+					<source>1.8</source>
+<!--					<release>20</release>-->
+		            <debug>true</debug>
+		            <debuglevel>lines,vars,source</debuglevel>
+  				</configuration>
 			</plugin>
 			<!-- Copy project dependency -->
 			<plugin>

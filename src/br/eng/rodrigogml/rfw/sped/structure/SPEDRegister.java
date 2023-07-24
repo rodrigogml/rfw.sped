@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -17,6 +18,7 @@ import br.eng.rodrigogml.rfw.kernel.dataformatters.RFWCPFOrCNPJDataFormatter;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWValidationException;
+import br.eng.rodrigogml.rfw.kernel.utils.RUDateTime;
 import br.eng.rodrigogml.rfw.kernel.utils.RUDocValidation;
 import br.eng.rodrigogml.rfw.kernel.utils.RUMail;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
@@ -88,6 +90,12 @@ public abstract class SPEDRegister {
             }
             convValue = LocaleConverter.formatBigDecimal((BigDecimal) value, SPEDLOCALE, 0, (ann.decimals() >= 0 ? ann.decimals() : 0), false);
             convValue = convValue.replaceAll("\\.", ","); // Troca o . de decimal para ,
+          } else if (f.getType().equals(LocalDate.class)) {
+            if (ann.maxLength() == 8) {
+              convValue = RUDateTime.formatToddMMyyyy((LocalDate) value);
+            } else {
+              throw new RFWValidationException("RFW_000004", new String[] { f.getName(), this.get01_Register(), "" + ann.decimals() });
+            }
           } else if (f.getType().equals(Date.class)) {
             if (ann.maxLength() == 8) {
               convValue = new SimpleDateFormat("ddMMyyyy").format((Date) value);
