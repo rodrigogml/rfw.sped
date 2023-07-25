@@ -49,11 +49,15 @@ import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalK990;
 /**
  * Description: Classe para auxiliar na montagem e manipulação do arquivo do SPED Fiscal através da estrutura {@link SPEDFiscalFile}.<br>
  *
- * @author Rodrigo Leitão
- * @since 10.0 (22 de jul. de 2023)
+ * @author Rodrigo GML
+ * @since 1.0.0 (22 de jul. de 2023)
+ * @version 1.0.0 - Rodrigo GML-(...)
  */
 public class SPEDFiscalBuilder {
 
+  /**
+   * Construtor privado para classe exclusiva com métodos estáticos.
+   */
   private SPEDFiscalBuilder() {
   }
 
