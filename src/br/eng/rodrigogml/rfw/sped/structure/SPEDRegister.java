@@ -93,6 +93,8 @@ public abstract class SPEDRegister {
           } else if (f.getType().equals(LocalDate.class)) {
             if (ann.maxLength() == 8) {
               convValue = RUDateTime.formatToddMMyyyy((LocalDate) value);
+            } else if (ann.maxLength() == 6) {
+              convValue = RUDateTime.formatLocalDate((LocalDate) value, "MMyyyy");
             } else {
               throw new RFWValidationException("RFW_000004", new String[] { f.getName(), this.get01_Register(), "" + ann.decimals() });
             }
