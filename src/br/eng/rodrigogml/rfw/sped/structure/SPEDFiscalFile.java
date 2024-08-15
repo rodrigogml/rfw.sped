@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure;
 import java.util.HashSet;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
+import br.eng.rodrigogml.rfw.kernel.utils.RUString;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0990;
@@ -185,7 +186,7 @@ public class SPEDFiscalFile {
     // Encerramento do Arquivo
     this.r9999.writeFileRegister(buff);
 
-    return buff.toString();
+    return RUString.removeAccents(buff.toString());
   }
 
   /**

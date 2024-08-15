@@ -1,6 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
+import br.eng.rodrigogml.rfw.kernel.utils.RUString;
 import br.eng.rodrigogml.rfw.sped.structure.contrib.SPEDContrib0000;
 import br.eng.rodrigogml.rfw.sped.structure.contrib.SPEDContrib0001;
 import br.eng.rodrigogml.rfw.sped.structure.contrib.SPEDContrib0990;
@@ -192,7 +193,7 @@ public class SPEDContribFile {
     // Encerramento do Arquivo
     this.r9999.writeFileRegister(buff);
 
-    return buff.toString();
+    return RUString.removeAccents(buff.toString());
   }
 
   /**
