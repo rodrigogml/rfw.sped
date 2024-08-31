@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContrib0000 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * Código da versão do leiaute conforme a tabela 3.1.1. N 003* - S
    */

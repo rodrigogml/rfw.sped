@@ -1,5 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure;
 
+import java.io.Serializable;
+
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.utils.RUString;
 import br.eng.rodrigogml.rfw.sped.structure.contrib.SPEDContrib0000;
@@ -31,7 +33,12 @@ import br.eng.rodrigogml.rfw.sped.structure.contrib.SPEDContribP990;
  * @author Rodrigo Leitão
  * @since 10.0 (22 de jul. de 2023)
  */
-public class SPEDContribFile {
+public class SPEDContribFile implements Serializable {
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = -6119697279535045836L;
 
   /**
    * REGISTRO 0000: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica<br>

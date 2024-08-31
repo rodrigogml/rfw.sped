@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribC481 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * Código da Situação Tributária referente ao PIS/PASEP N 002* - S
    */

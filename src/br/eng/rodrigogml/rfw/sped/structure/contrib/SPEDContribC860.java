@@ -15,6 +15,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribC860 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * REGISTRO C870: RESUMO DIÁRIO DE DOCUMENTOS EMITIDOS POR EQUIPAMENTO SAT-CF-E (CÓDIGO 59) – PIS/PASEP E COFINS<br>
    * Segundo documentação: "3. No caso de ocorrência de venda com CST distintos, deve ser gerado um registro para cada CST. Como também, no caso de a operação tributável incidir a alíquotas distintas;", por tanto a chave se faz pelos campos que distinguem cada venda:<br>

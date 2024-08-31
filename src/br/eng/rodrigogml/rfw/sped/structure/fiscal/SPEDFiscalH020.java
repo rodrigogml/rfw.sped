@@ -13,6 +13,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalH020 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O
    */

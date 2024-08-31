@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribC870 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * Código do item (campo 02 do Registro 0200) C 060 - N
    */

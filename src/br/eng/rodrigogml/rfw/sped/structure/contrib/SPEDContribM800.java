@@ -15,6 +15,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribM800 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * REGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, NÃO ALCANÇADAS PELA INCIDÊNCIA DA CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM SUSPENSÃO – COFINS<br>
    * Chave: NAT_REC

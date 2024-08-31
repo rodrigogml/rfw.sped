@@ -12,6 +12,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContrib9900 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * 02 REG_BLC Registro que será totalizado no próximo campo. C 004 - O
    */

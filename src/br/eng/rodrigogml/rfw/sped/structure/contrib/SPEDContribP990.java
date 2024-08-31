@@ -12,6 +12,7 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribP990 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
   /**
    * Quantidade total de linhas do Bloco P N - - S
    */

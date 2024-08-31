@@ -12,6 +12,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField.SPEDFIELDTYPE;
  */
 public class SPEDFiscal0150 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * 02 COD_PART Código de identificação do participante no arquivo. C 060 - O
    */

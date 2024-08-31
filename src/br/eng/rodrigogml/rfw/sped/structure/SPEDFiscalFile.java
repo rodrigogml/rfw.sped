@@ -1,5 +1,6 @@
 package br.eng.rodrigogml.rfw.sped.structure;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
@@ -31,7 +32,9 @@ import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalK990;
  * @author Rodrigo Leitão
  * @since 10.0 (22 de jul. de 2023)
  */
-public class SPEDFiscalFile {
+public class SPEDFiscalFile implements Serializable {
+
+  private static final long serialVersionUID = -8840157009790781701L;
 
   /**
    * Esta lista permite o controle de quais objetos já foram sumarizados em registros "pai". Por exemplo, o registro C405 tem os filhos C420 e C410, ambos chamam o método makeC405(...) que além de criar sumarizam valores no C405. Esta lista permite que o método makeC405 crie objetos de controle para saber quais objetos já foram sumarizados evitando que o valor seja adicionado duas vezes.<br>

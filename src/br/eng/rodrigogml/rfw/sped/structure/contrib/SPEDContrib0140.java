@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContrib0140 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE<br>
    * Chave: CNPJ ou CPF dependendo do tipo do participante.

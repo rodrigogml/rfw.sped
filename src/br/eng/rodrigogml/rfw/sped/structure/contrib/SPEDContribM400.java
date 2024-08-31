@@ -15,6 +15,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribM400 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * REGISTRO M410: DETALHAMENTO DAS RECEITAS ISENTAS, NÃO ALCANÇADAS PELA INCIDÊNCIA DA CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM SUSPENSÃO – PIS/PASEP<br>
    * <b>ATENÇÃO:</B> Note que este registro deve ser distinto para cada "NAT_REC + COD_CTA + DESC_COMPL" conforme a documentação. Mas como BIS ainda não tem suporte para o número da conta nem desconto complementar, estamos usando como chave apenas a NAT_REC<br>

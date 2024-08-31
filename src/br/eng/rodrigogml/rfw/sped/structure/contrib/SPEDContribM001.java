@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribM001 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * REGISTRO M100: CRÉDITO DE PIS/PASEP RELATIVO AO PERÍODO<br>
    * Chave: r02_COD_CRED

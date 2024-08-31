@@ -11,6 +11,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalG990 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * 02 QTD_LIN_G Quantidade total de linhas do Bloco G N - - O O
    */

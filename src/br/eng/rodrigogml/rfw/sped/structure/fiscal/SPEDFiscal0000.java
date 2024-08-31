@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField.SPEDFIELDTYPE;
  */
 public class SPEDFiscal0000 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
    * Tabela:<br>

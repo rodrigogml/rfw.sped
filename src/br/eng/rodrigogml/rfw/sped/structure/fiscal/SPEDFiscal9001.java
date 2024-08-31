@@ -13,6 +13,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscal9001 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   private final LinkedHashMap<String, SPEDFiscal9900> r9900 = new LinkedHashMap<String, SPEDFiscal9900>();
 
   /**

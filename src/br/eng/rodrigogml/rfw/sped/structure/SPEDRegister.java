@@ -1,5 +1,6 @@
 package br.eng.rodrigogml.rfw.sped.structure;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -29,7 +30,9 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  * @author Rodrigo Leitão
  * @since 7.1.0 (30 de mai de 2017)
  */
-public abstract class SPEDRegister {
+public abstract class SPEDRegister implements Serializable {
+
+  private static final long serialVersionUID = -136773754833764622L;
 
   private static final Locale SPEDLOCALE = new Locale("pt", "BR");
 

@@ -13,6 +13,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalH001 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * REGISTRO H005: TOTAIS DO INVENTÁRIO<br>
    * Chave: ID do inventário: {@link StockInventoryVO} usado para a geração do registro.

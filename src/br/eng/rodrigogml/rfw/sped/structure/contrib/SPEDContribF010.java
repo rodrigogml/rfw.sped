@@ -12,6 +12,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribF010 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * Número de inscrição do estabelecimento no CNPJ. N 014* - S
    */

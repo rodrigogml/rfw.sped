@@ -13,6 +13,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalC116 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * Código do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O
    */

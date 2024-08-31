@@ -13,6 +13,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalC113 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * 02 IND_OPER Indicador do tipo de operação: 0- Entrada/aquisição; 1- Saída/prestação C 001* - O O
    */

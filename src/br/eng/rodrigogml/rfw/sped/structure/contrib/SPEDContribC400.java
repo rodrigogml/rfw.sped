@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribC400 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * C405: REDUÇÃO Z (CÓDIGO 02, 2D e 60)<br>
    * Chave: CRZ.

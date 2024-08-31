@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContrib0145 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   /**
    * Código indicador da incidência tributária no período:
    * <li>1 – Contribuição Previdenciária apurada no período, exclusivamente com base na Receita Bruta;

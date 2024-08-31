@@ -11,6 +11,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalE001 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * REGISTRO E100: PERÍODO DA APURAÇÃO DO ICMS.
    */

@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDContribC170 extends SPEDRegister {
 
+  private static final long serialVersionUID = -4577645791345055257L;
+
   public SPEDContribC170(SPEDContribC100 parent) {
     this.parent = parent;
   }

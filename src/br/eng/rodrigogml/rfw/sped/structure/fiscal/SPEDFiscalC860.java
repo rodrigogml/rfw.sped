@@ -14,6 +14,8 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
  */
 public class SPEDFiscalC860 extends SPEDRegister {
 
+  private static final long serialVersionUID = 6202927272082549003L;
+
   /**
    * REGISTRO C890: RESUMO DIÁRIO DO CF-E-SAT (CÓDIGO 59) POR EQUIPAMENTO SAT-CF-E<br>
    * Chave: CST_ICMS, CFOP e ALIQ_ICMS. Separados por "|". O registro c890 é agrupado dentro do C860 e deve ser único de acordo com as mesmas condições do C860 e mais CST do ICMS, CFOP e Alíquota do ICMS.
