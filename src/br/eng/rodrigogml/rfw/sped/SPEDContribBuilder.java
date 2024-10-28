@@ -387,7 +387,7 @@ public class SPEDContribBuilder {
     final Field[] fields = reg.getClass().getDeclaredFields();
     Arrays.sort(fields, SPEDRegister.fieldComparator);
 
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
+    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizamos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
@@ -498,12 +498,12 @@ public class SPEDContribBuilder {
       if (tm200 != null) {
         for (SPEDContribM210 tm210 : tm200.getRm210().values()) {
           // Totaliza o Registro R13
-          BigDecimal tot = tm210.getR08_VL_CONT_APUR();
-          if (tm210.getR09_VL_AJUS_ACRES() != null) tot = tot.add(tm210.getR09_VL_AJUS_ACRES());
-          if (tm210.getR10_VL_AJUS_REDUC() != null) tot = tot.subtract(tm210.getR10_VL_AJUS_REDUC());
-          if (tm210.getR11_VL_CONT_DIFER() != null) tot = tot.subtract(tm210.getR11_VL_CONT_DIFER());
-          if (tm210.getR12_VL_CONT_DIFER_ANT() != null) tot = tot.subtract(tm210.getR12_VL_CONT_DIFER_ANT());
-          tm210.setR13_VL_CONT_PER(tot);
+          BigDecimal tot = tm210.getR11_VL_CONT_APUR();
+          if (tm210.getR12_VL_AJUS_ACRES() != null) tot = tot.add(tm210.getR12_VL_AJUS_ACRES());
+          if (tm210.getR13_VL_AJUS_REDUC() != null) tot = tot.subtract(tm210.getR13_VL_AJUS_REDUC());
+          if (tm210.getR14_VL_CONT_DIFER() != null) tot = tot.subtract(tm210.getR14_VL_CONT_DIFER());
+          if (tm210.getR15_VL_CONT_DIFER_ANT() != null) tot = tot.subtract(tm210.getR15_VL_CONT_DIFER_ANT());
+          tm210.setR16_VL_CONT_PER(tot);
 
           switch (tm210.getR02_COD_CONT()) {
             case "01":
@@ -553,12 +553,12 @@ public class SPEDContribBuilder {
       if (tm600 != null) {
         for (SPEDContribM610 tm610 : tm600.getRm610().values()) {
           // Totaliza o Registro R13
-          BigDecimal tot = tm610.getR08_VL_CONT_APUR();
-          if (tm610.getR09_VL_AJUS_ACRES() != null) tot = tot.add(tm610.getR09_VL_AJUS_ACRES());
-          if (tm610.getR10_VL_AJUS_REDUC() != null) tot = tot.subtract(tm610.getR10_VL_AJUS_REDUC());
-          if (tm610.getR11_VL_CONT_DIFER() != null) tot = tot.subtract(tm610.getR11_VL_CONT_DIFER());
-          if (tm610.getR12_VL_CONT_DIFER_ANT() != null) tot = tot.subtract(tm610.getR12_VL_CONT_DIFER_ANT());
-          tm610.setR13_VL_CONT_PER(tot);
+          BigDecimal tot = tm610.getR11_VL_CONT_APUR();
+          if (tm610.getR12_VL_AJUS_ACRES() != null) tot = tot.add(tm610.getR12_VL_AJUS_ACRES());
+          if (tm610.getR13_VL_AJUS_REDUC() != null) tot = tot.subtract(tm610.getR13_VL_AJUS_REDUC());
+          if (tm610.getR14_VL_CONT_DIFER() != null) tot = tot.subtract(tm610.getR14_VL_CONT_DIFER());
+          if (tm610.getR15_VL_CONT_DIFER_ANT() != null) tot = tot.subtract(tm610.getR15_VL_CONT_DIFER_ANT());
+          tm610.setR16_VL_CONT_PER(tot);
 
           switch (tm610.getR02_COD_CONT()) {
             case "01":

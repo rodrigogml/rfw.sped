@@ -16,6 +16,7 @@ public class SPEDFiscalE001 extends SPEDRegister {
   /**
    * REGISTRO E100: PERÍODO DA APURAÇÃO DO ICMS.
    */
+  // TODO rodrigogml o relacionamento do registro E100 com o E001 é de 1:N, foi mal feito esta estrutura, necessário alterar para uma hash, a chave de unicidade é ambas as datas de início e fim do período do registro filho.
   private SPEDFiscalE100 re100 = null;
 
   /**

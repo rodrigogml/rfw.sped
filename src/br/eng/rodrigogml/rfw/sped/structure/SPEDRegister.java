@@ -46,6 +46,14 @@ public abstract class SPEDRegister implements Serializable {
   public abstract String get01_Register();
 
   /**
+   * Este método deve ser sobreescrito pelas implementações dos registros que têm campos que podem ser calculados automaticamente a partir do valor de outros.<br>
+   * Os cálculos desses campos devem ser feitos dentro deste método e, seguindo a conveção, os campos que têm seu valor calculado por este método devem ter o sufixo '''_AUTO''', conforme documentado em: https://wiki.rodrigogml.eng.br/index.php/Estrutura_de_Classes#SPEDRegister.<br>
+   * Este método também deve calcular o valor dos seus registros filhos recursivamente.
+   */
+  public void calculateFields() {
+  }
+
+  /**
    * Método responsável por escrever o conteúdo deste (clase que estedeu esta classe) no formado texto para exportar no arquivo do SPED.
    *
    * @param buff StringBuilder para escrita do conteúdo desse registro no formado texto (formato do SPED)

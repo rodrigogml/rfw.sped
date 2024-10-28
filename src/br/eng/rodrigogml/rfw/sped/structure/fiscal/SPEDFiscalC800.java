@@ -17,10 +17,16 @@ public class SPEDFiscalC800 extends SPEDRegister {
   private static final long serialVersionUID = 6202927272082549003L;
 
   /**
-   * C405: REDUÇÃO Z (CÓDIGO 02, 2D e 60)<br>
-   * Chave: CRZ.
+   * REGISTRO C850: REGISTRO ANALÍTICO DO CF-E-SAT (CODIGO 59)<br>
+   * Chave: cst + "|" + ciVO.getCfop() + "|" + taxRatio.
    */
   private final LinkedHashMap<String, SPEDFiscalC850> rc850 = new LinkedHashMap<String, SPEDFiscalC850>();
+
+  /**
+   * REGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)<br>
+   * Chave: COD_OBS.
+   */
+  private final LinkedHashMap<String, SPEDFiscalC855> rc855 = new LinkedHashMap<String, SPEDFiscalC855>();
 
   /**
    * Código do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O
@@ -421,4 +427,16 @@ public class SPEDFiscalC800 extends SPEDRegister {
   public LinkedHashMap<String, SPEDFiscalC850> getRc850() {
     return rc850;
   }
+
+  /**
+   * # rEGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)<br>
+   * Chave: COD_OBS.
+   *
+   * @return the rEGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)<br>
+   *         Chave: COD_OBS
+   */
+  public LinkedHashMap<String, SPEDFiscalC855> getRc855() {
+    return rc855;
+  }
+
 }

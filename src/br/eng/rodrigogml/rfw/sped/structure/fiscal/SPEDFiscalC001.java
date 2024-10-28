@@ -17,7 +17,7 @@ public class SPEDFiscalC001 extends SPEDRegister {
 
   /**
    * REGISTRO C100: NOTA FISCAL (CÓDIGO 01), NOTA FISCAL AVULSA (CÓDIGO 1B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65)<br>
-   * Chave: Para NFe: CHV_NFE. Separados por "|".
+   * Chave: "|" + R05_COD_MOD + "|" R04_COD_PART + "|" + R08_NUM_DOC + "|" + R09_CHV_NFE + "|".
    */
   private final LinkedHashMap<String, SPEDFiscalC100> rc100 = new LinkedHashMap<String, SPEDFiscalC100>();
 
