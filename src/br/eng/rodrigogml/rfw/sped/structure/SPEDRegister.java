@@ -19,9 +19,9 @@ import br.eng.rodrigogml.rfw.kernel.dataformatters.RFWCPFOrCNPJDataFormatter;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWValidationException;
-import br.eng.rodrigogml.rfw.kernel.utils.RUDateTime;
-import br.eng.rodrigogml.rfw.kernel.utils.RUDocValidation;
+import br.eng.rodrigogml.rfw.kernel.utils.RUDV;
 import br.eng.rodrigogml.rfw.kernel.utils.RUMail;
+import br.eng.rodrigogml.rfw.kernel.utils.RUTypes;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 
 /**
@@ -103,9 +103,9 @@ public abstract class SPEDRegister implements Serializable {
             convValue = convValue.replaceAll("\\.", ","); // Troca o . de decimal para ,
           } else if (f.getType().equals(LocalDate.class)) {
             if (ann.maxLength() == 8) {
-              convValue = RUDateTime.formatToddMMyyyy((LocalDate) value);
+              convValue = RUTypes.formatToddMMyyyy((LocalDate) value);
             } else if (ann.maxLength() == 6) {
-              convValue = RUDateTime.formatLocalDate((LocalDate) value, "MMyyyy");
+              convValue = RUTypes.formatLocalDate((LocalDate) value, "MMyyyy");
             } else {
               throw new RFWValidationException("RFW_000004", new String[] { f.getName(), this.get01_Register(), "" + ann.decimals() });
             }
@@ -135,14 +135,14 @@ public abstract class SPEDRegister implements Serializable {
               break;
             case CNPJ:
               try {
-                RUDocValidation.validateCNPJ(convValue);
+                RUDV.validateCNPJ(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000270", new String[] { convValue, f.getName(), this.get01_Register() });
               }
               break;
             case CPF:
               try {
-                RUDocValidation.validateCPF(convValue);
+                RUDV.validateCPF(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000271", new String[] { convValue, f.getName(), this.get01_Register() });
               }
@@ -156,14 +156,14 @@ public abstract class SPEDRegister implements Serializable {
               break;
             case IE:
               try {
-                RUDocValidation.validateIE(convValue);
+                RUDV.validateIE(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000273", new String[] { convValue, f.getName(), this.get01_Register() });
               }
               break;
             case UF:
               try {
-                RUDocValidation.validateUF(convValue);
+                RUDV.validateUF(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000274", new String[] { convValue, f.getName(), this.get01_Register() });
               }
