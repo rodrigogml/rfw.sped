@@ -5,26 +5,26 @@ import java.util.HashSet;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.utils.RUString;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0000;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal1001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal1990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9999;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalD001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalD990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalG001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalG990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalH001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalH990;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalK001;
-import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalK990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0000;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
 /**
  * Description: Objeto que representa um arquivo do SPEDFiscal.
