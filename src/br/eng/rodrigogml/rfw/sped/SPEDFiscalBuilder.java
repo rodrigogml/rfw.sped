@@ -1,11 +1,19 @@
 package br.eng.rodrigogml.rfw.sped;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
 
+import br.eng.rodrigogml.rfw.kernel.RFW;
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.preprocess.PreProcess;
 import br.eng.rodrigogml.rfw.sped.structure.SPEDFiscalFile;
+import br.eng.rodrigogml.rfw.sped.structure.SPEDRegister;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal0005;
@@ -16,16 +24,24 @@ import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal1010;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal1990;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9001;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9900;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9990;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscal9999;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC100;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC190;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC400;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC405;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC420;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC800;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC850;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalC990;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalD001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalD990;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE100;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE110;
+import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE116;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalE990;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalG001;
 import br.eng.rodrigogml.rfw.sped.structure.fiscal.SPEDFiscalG990;
@@ -695,59 +711,6 @@ public class SPEDFiscalBuilder {
     return r0000;
   }
 
-  // public static SPEDFiscal9900 addChild9900(SPEDFiscal9001 r9001, String block, Integer count) throws RFWException {
-  // SPEDFiscal9900 r9900 = r9001.getR9900().get(block);
-  // if (r9900 == null) {
-  // r9900 = new SPEDFiscal9900();
-  // r9001.getR9900().put(block, r9900);
-  // }
-  // r9900.setR02_REG_BLC(block);
-  // r9900.setR03_QTD_REG_BLC(count);
-  //
-  // return r9900;
-  // }
-
-  // public static void recursive9900Creater(SPEDFiscalFile sped, SPEDFiscal9001 r9001, SPEDRegister reg) throws RFWException {
-  // // Itera os registros de "sped"
-  // final Field[] fields = reg.getClass().getDeclaredFields();
-  // Arrays.sort(fields, SPEDRegister.fieldComparator);
-  //
-  // // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
-  // for (int i = 0; i < fields.length; i++) {
-  // Field f = fields[i];
-  // if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
-  // Object value = null;
-  // try {
-  // Method mGet = reg.getClass().getMethod("getR" + f.getName().substring(1));
-  // value = mGet.invoke(reg);
-  // } catch (Exception e) {
-  // throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
-  // }
-  // if (value != null) {
-  // SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
-  // if (regCounter == null) {
-  // regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
-  // r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
-  // }
-  // if (value instanceof LinkedHashMap) {
-  // for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-  // }
-  // } else if (value instanceof ArrayList) {
-  // for (Object spedReg : (ArrayList<?>) value) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-  // }
-  // } else if (value instanceof SPEDRegister) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) value));
-  // }
-  // }
-  // }
-  // }
-  // }
-
   /**
    * REGISTRO E110: APURAÇÃO DO ICMS – OPERAÇÕES PRÓPRIAS<Br>
    * <br>
@@ -940,76 +903,311 @@ public class SPEDFiscalBuilder {
     return r0005;
   }
 
-  // /**
-  // * Cria um registro automático, que conta todos os registros do {@link SPEDFiscalFile} automaticamente e cria os filhos 9900.
-  // *
-  // * @param sped
-  // * @return
-  // * @throws RFWException
-  // */
-  // @SuppressWarnings({ "rawtypes", "unchecked" })
-  // public static SPEDFiscal9001 add9001(SPEDFiscalFile sped) throws RFWException {
-  // /*
-  // * ATENÇÃO: Este método sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo é recontabilizado.
-  // */
-  // SPEDFiscal9001 r9001 = new SPEDFiscal9001();
-  // r9001.setR02_IND_MOV("0");
-  //
-  // // Já nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado
-  // sped.setR9001(r9001);
-  //
-  // // Itera os registros de "sped"
-  // final Field[] fields = sped.getClass().getDeclaredFields();
-  // Arrays.sort(fields, SPEDRegister.fieldComparator);
-  //
-  // // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
-  // for (int i = 0; i < fields.length; i++) {
-  // Field f = fields[i];
-  // if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
-  // Object value = null;
-  // try {
-  // Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
-  // value = mGet.invoke(sped);
-  // } catch (Exception e) {
-  // throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
-  // }
-  // if (value != null) {
-  // SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
-  // if (regCounter == null) {
-  // regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
-  // r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
-  // }
-  // if (value instanceof LinkedHashMap) {
-  // for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-  // }
-  // } else if (value instanceof ArrayList) {
-  // for (Object spedReg : (ArrayList<?>) value) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-  // }
-  // } else if (value instanceof SPEDRegister) {
-  // regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-  // recursive9900Creater(sped, r9001, ((SPEDRegister) value));
-  // }
-  // }
-  // }
-  // }
-  //
-  // // Remove todos os contadores registros que foram criados mas terminaram com contagem 0 - isso ocorre nos atributos com coleções vazias
-  // final ArrayList mirrorList = new ArrayList(r9001.getR9900().values());
-  // for (int i = 0; i < mirrorList.size(); i++) {
-  // final SPEDFiscal9900 treg = (SPEDFiscal9900) mirrorList.get(i);
-  // if (treg.getR03_QTD_REG_BLC() == 0) {
-  // r9001.getR9900().remove(treg.getR02_REG_BLC());
-  // }
-  // }
-  //
-  // // Depois de todos contabilizados atualizamos a quantidade do próprio registro 9900, dpeois que os zerados foram removidos
-  // r9001.getR9900().get("9900").setR03_QTD_REG_BLC(r9001.getR9900().size());
-  //
-  // return r9001;
-  // }
+  /**
+   * Rotina que realiza o cálculo dos campos de somatórias com os registros escritos.
+   *
+   * @throws RFWException
+   */
+  public static void updateCalcFields(SPEDFiscalFile sped) throws RFWException {
+    final LocalDate startDate = sped.getR0000().getR04_DT_INI();
+    final LocalDate endDate = sped.getR0000().getR05_DT_FIN();
 
+    /*
+     * BLOCO E: APURAÇÃO DO ICMS E DO IPI
+     */
+    {
+      SPEDFiscalE001 re001 = SPEDFiscalBuilder.addE001(sped, true);
+      SPEDFiscalE100 re100 = SPEDFiscalBuilder.addE100(re001, startDate, endDate);
+      final SPEDFiscalE110 re110 = SPEDFiscalBuilder.addE110(re100, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
+
+      BigDecimal totDebit = BigDecimal.ZERO;
+      BigDecimal totCredit = BigDecimal.ZERO;
+
+      { // Para calcular o total de imposto devido vamos varrer toda a declaração já feita no sped e calcular com base em vários registros.
+        // =======> C420 - Vamos iterar os registros C420 para obter todos os valores de vendas tributadas dos Cupons Fiscais
+        for (SPEDFiscalC400 rc400 : sped.getRC001().getRc400().values()) {
+          for (SPEDFiscalC405 rc405 : rc400.getRc405().values()) {
+            for (SPEDFiscalC420 rc420 : rc405.getRc420().values()) {
+              if (rc420.getR02_COD_TOT_PAR().startsWith("T")) {
+                // Se o totalizador começa com "T" é um totalizador de vendas tributas, o que vêm depois do "T" é a alíquota usada para o cálculo do débito do ICMS. Ex: "T0320"
+                BigDecimal taxRatio = new BigDecimal(rc420.getR02_COD_TOT_PAR().substring(1)).divide(RFW.BIGHUNDRED, 2, RFW.getRoundingMode());
+                totDebit = totDebit.add(taxRatio.multiply(rc420.getR03_VLR_ACUM_TOT()).divide(RFW.BIGHUNDRED, 2, RFW.getRoundingMode()));
+              }
+            }
+          }
+        }
+
+        // =======> C850 (Somamos o C850 ao invés do C890 porque este só está presente para empresas do PERFIL_A)
+        for (SPEDFiscalC800 rc800 : sped.getRC001().getRc800().values()) {
+          for (SPEDFiscalC850 rc850 : rc800.getRc850().values()) {
+            totDebit = totDebit.add(rc850.getR07_VL_ICMS());
+          }
+        }
+      }
+      { // Para calcular o total de imposto creditável vamos varrer toda a declaração já feita no sped
+        // =======> C190
+        for (SPEDFiscalC100 rc100 : sped.getRC001().getRc100().values()) {
+          for (SPEDFiscalC190 rc190 : rc100.getRc190().values()) {
+            totCredit = totCredit.add(rc190.getR07_VL_ICMS());
+          }
+        }
+      }
+      re110.setR02_VL_TOT_DEBITOS(totDebit);
+      re110.setR06_VL_TOT_CREDITOS(totCredit);
+      BigDecimal sldCredorTransp = BigDecimal.ZERO;
+      {
+        BigDecimal sldApurado = re110.getR02_VL_TOT_DEBITOS();
+        sldApurado = sldApurado.subtract(re110.getR06_VL_TOT_CREDITOS());
+        sldApurado = sldApurado.subtract(re110.getR08_VL_TOT_AJ_CREDITOS());
+        if (sldApurado.signum() > 0) {
+          re110.setR11_VL_SLD_APURADO(sldApurado);
+        } else {
+          re110.setR11_VL_SLD_APURADO(BigDecimal.ZERO);
+          sldCredorTransp = sldApurado.negate();
+        }
+      }
+      re110.setR12_VL_TOT_DED(BigDecimal.ZERO);
+      re110.setR13_VL_ICMS_RECOLHER(re110.getR11_VL_SLD_APURADO().subtract(re110.getR12_VL_TOT_DED()));
+      re110.setR14_VL_SLD_CREDOR_TRANSPORTAR(sldCredorTransp);
+      re110.setR15_DEB_ESP(BigDecimal.ZERO);
+
+      // Se o valor para pagamento ficou positivo, geramos a obrigação de pagamento
+      if (re110.getR13_VL_ICMS_RECOLHER().signum() > 0) {
+        LocalDate dueDate = endDate.withDayOfMonth(25).plusMonths(1);
+        // final Calendar gc = GregorianCalendar.getInstance();
+        // gc.setTime(endDate);
+        // gc.set(Calendar.DAY_OF_MONTH, 25);
+        // gc.add(Calendar.MONTH, 1); // Código de antes de converter para LocalDate (Guardado para caso de erro, pode ser apagado quando o novo código for testado)
+
+        // Código Recolhimento Gare ICMS: 046-2 ICMS - Regime periódico de apuração
+        SPEDFiscalBuilder.recursiveE116Creator(re110, "000", re110.getR13_VL_ICMS_RECOLHER(), dueDate, "046-2", null, null, null, null, startDate);
+      }
+
+    }
+
+    // Atualiza as contagens de linhas por bloco
+    updateCloseRegistersLineCount(sped);
+  }
+
+  public static SPEDFiscalE116 recursiveE116Creator(SPEDFiscalE110 re110, String codOR, BigDecimal vlOr, LocalDate dtVcto, String codRec, String numProc, String indProc, String proc, String txtCompl, LocalDate mesRef) throws RFWException {
+    SPEDFiscalE116 re116 = re110.getRe116();
+    if (re116 == null) {
+      re116 = new SPEDFiscalE116();
+      re110.setRe116(re116);
+    }
+
+    re116.setR02_COD_OR(codOR);
+    re116.setR03_VL_OR(vlOr);
+    re116.setR04_DT_VCTO(dtVcto);
+    re116.setR05_COD_REC(codRec);
+    re116.setR06_NUM_PROC(numProc);
+    re116.setR07_IND_PROC(indProc);
+    re116.setR08_PROC(proc);
+    re116.setR09_TXT_COMPL(txtCompl);
+    re116.setR10_MES_REF(mesRef);
+
+    return re116;
+  }
+
+  /**
+   * Este método atualiza os atributos de quantidade de linhas dos registros de fechamento de blocos e arquivo.<br>
+   * Note que ele só atualiza se o registro existir, nenhum registro novo é criado.<br>
+   * <br>
+   * Atualmente ele atualiza os seguintes blocos:<br>
+   * <li>REGISTRO 0990: ENCERRAMENTO DO BLOCO 0</li><br>
+   * <li>REGISTRO C990: ENCERRAMENTO DO BLOCO C</li><br>
+   *
+   * @throws RFWException
+   */
+  public static void updateCloseRegistersLineCount(SPEDFiscalFile sped) throws RFWException {
+    int totalfile = 0;
+    int block = 0;
+
+    // Bloco 0
+    if (sped.getR0001() == null) SPEDFiscalBuilder.add0001(sped, false);
+    if (sped.getR0990() == null) SPEDFiscalBuilder.add0990(sped, 0);
+    totalfile += block = sped.getR0001().countRegisters() + 2; // Soma o registo de fechamento que não está incluso + Soma 1 porque o registro 0000 faz parte deste total
+    sped.getR0990().setR02_QTD_LIN_0(block);
+
+    // Bloco C
+    if (sped.getRC001() == null) SPEDFiscalBuilder.addC001(sped, false);
+    if (sped.getRC990() == null) SPEDFiscalBuilder.addC990(sped, 0);
+    totalfile += block = sped.getRC001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRC990().setR02_QTD_LIN_C(block);
+
+    // Bloco D
+    if (sped.getRD001() == null) SPEDFiscalBuilder.addD001(sped, false);
+    if (sped.getRD990() == null) SPEDFiscalBuilder.addD990(sped, 0);
+    totalfile += block = sped.getRD001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRD990().setR02_QTD_LIN_D(block);
+
+    // Bloco E
+    if (sped.getRE001() == null) SPEDFiscalBuilder.addE001(sped, false);
+    if (sped.getRE990() == null) SPEDFiscalBuilder.addE990(sped, 0);
+    totalfile += block = sped.getRE001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRE990().setR02_QTD_LIN_E(block);
+
+    // Bloco G
+    if (sped.getRG001() == null) SPEDFiscalBuilder.addG001(sped, false);
+    if (sped.getRG990() == null) SPEDFiscalBuilder.addG990(sped, 0);
+    totalfile += block = sped.getRG001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRG990().setR02_QTD_LIN_G(block);
+
+    // Bloco H
+    if (sped.getRH001() == null) SPEDFiscalBuilder.addH001(sped, false);
+    if (sped.getRH990() == null) SPEDFiscalBuilder.addH990(sped, 0);
+    totalfile += block = sped.getRH001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRH990().setR02_QTD_LIN_H(block);
+
+    // Bloco K
+    if (sped.getRK001() == null) SPEDFiscalBuilder.addK001(sped, false);
+    if (sped.getRK990() == null) SPEDFiscalBuilder.addK990(sped, 0);
+    totalfile += block = sped.getRK001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getRK990().setR02_QTD_LIN_K(block);
+
+    // Bloco 1
+    if (sped.getR1001() == null) SPEDFiscalBuilder.add1001(sped, false);
+    if (sped.getR1990() == null) SPEDFiscalBuilder.add1990(sped, 0);
+    totalfile += block = sped.getR1001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    sped.getR1990().setR02_QTD_LIN_1(block);
+
+    // ENCERRAMENTO DO ARQUIVO - Cria o registro para que seja contabilizado no bloco 9, mas só o atualiza no final, depois que o bloco 9 for escrito.
+    if (sped.getR9999() == null) SPEDFiscalBuilder.add9999(sped, 0);
+
+    // Bloco 9
+    if (sped.getR9990() == null) SPEDFiscalBuilder.add9990(sped, 0); // Cria o fechamento antes para que seja contabilizado no método abaixo
+    // SPEDFiscalBuilder.add9001(sped, true); // Cria o bloco 9 sobre todos os registros criados
+    SPEDFiscalBuilder.add9001(sped); // Cria o bloco 9 sobre todos os registros criados
+
+    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que não está incluso. E soma o "9999" segundo o manual: "... Para este cálculo, o registro 9999, apesar de não pertencer ao Bloco 9, também deve ser contabilizado nesta soma."
+    sped.getR9990().setR02_QTD_LIN_9(block);
+
+    // ENCERRAMENTO DO ARQUIVO - atualização do conteúdo
+    sped.getR9999().setR02_QTD_LIN(totalfile);
+  }
+
+  /**
+   * Cria um registro automático, que conta todos os registros do {@link SPEDFiscalFile} automaticamente e cria os filhos 9900.
+   *
+   * @param sped
+   * @return
+   * @throws RFWException
+   */
+  @SuppressWarnings({ "rawtypes", "unchecked" })
+  public static SPEDFiscal9001 add9001(SPEDFiscalFile sped) throws RFWException {
+    /*
+     * ATENÇÃO: Este método sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo é recontabilizado.
+     */
+    SPEDFiscal9001 r9001 = new SPEDFiscal9001();
+    r9001.setR02_IND_MOV("0");
+
+    // Já nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado
+    sped.setR9001(r9001);
+
+    // Itera os registros de "sped"
+    final Field[] fields = sped.getClass().getDeclaredFields();
+    Arrays.sort(fields, SPEDRegister.fieldComparator);
+
+    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
+    for (int i = 0; i < fields.length; i++) {
+      Field f = fields[i];
+      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
+        Object value = null;
+        try {
+          Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
+          value = mGet.invoke(sped);
+        } catch (Exception e) {
+          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
+        }
+        if (value != null) {
+          SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
+          if (regCounter == null) {
+            regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
+            r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
+          }
+          if (value instanceof LinkedHashMap) {
+            for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
+              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
+            }
+          } else if (value instanceof ArrayList) {
+            for (Object spedReg : (ArrayList<?>) value) {
+              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
+            }
+          } else if (value instanceof SPEDRegister) {
+            regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+            recursive9900Creater(sped, r9001, ((SPEDRegister) value));
+          }
+        }
+      }
+    }
+
+    // Remove todos os contadores registros que foram criados mas terminaram com contagem 0 - isso ocorre nos atributos com coleções vazias
+    final ArrayList mirrorList = new ArrayList(r9001.getR9900().values());
+    for (int i = 0; i < mirrorList.size(); i++) {
+      final SPEDFiscal9900 treg = (SPEDFiscal9900) mirrorList.get(i);
+      if (treg.getR03_QTD_REG_BLC() == 0) {
+        r9001.getR9900().remove(treg.getR02_REG_BLC());
+      }
+    }
+
+    // Depois de todos contabilizados atualizamos a quantidade do próprio registro 9900, dpeois que os zerados foram removidos
+    r9001.getR9900().get("9900").setR03_QTD_REG_BLC(r9001.getR9900().size());
+
+    return r9001;
+  }
+
+  public static SPEDFiscal9900 addChild9900(SPEDFiscal9001 r9001, String block, Integer count) throws RFWException {
+    SPEDFiscal9900 r9900 = r9001.getR9900().get(block);
+    if (r9900 == null) {
+      r9900 = new SPEDFiscal9900();
+      r9001.getR9900().put(block, r9900);
+    }
+    r9900.setR02_REG_BLC(block);
+    r9900.setR03_QTD_REG_BLC(count);
+
+    return r9900;
+  }
+
+  public static void recursive9900Creater(SPEDFiscalFile sped, SPEDFiscal9001 r9001, SPEDRegister reg) throws RFWException {
+    // Itera os registros de "sped"
+    final Field[] fields = reg.getClass().getDeclaredFields();
+    Arrays.sort(fields, SPEDRegister.fieldComparator);
+
+    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
+    for (int i = 0; i < fields.length; i++) {
+      Field f = fields[i];
+      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
+        Object value = null;
+        try {
+          Method mGet = reg.getClass().getMethod("getR" + f.getName().substring(1));
+          value = mGet.invoke(reg);
+        } catch (Exception e) {
+          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
+        }
+        if (value != null) {
+          SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
+          if (regCounter == null) {
+            regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
+            r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
+          }
+          if (value instanceof LinkedHashMap) {
+            for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
+              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
+            }
+          } else if (value instanceof ArrayList) {
+            for (Object spedReg : (ArrayList<?>) value) {
+              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
+            }
+          } else if (value instanceof SPEDRegister) {
+            regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+            recursive9900Creater(sped, r9001, ((SPEDRegister) value));
+          }
+        }
+      }
+    }
+  }
 }
