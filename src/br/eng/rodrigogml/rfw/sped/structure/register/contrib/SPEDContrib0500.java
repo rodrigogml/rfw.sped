@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField.SPEDFIELDTYPE;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -16,6 +17,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContrib0500 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContrib0500(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 DT_ALT Data da inclusão/alteração N 008* - O

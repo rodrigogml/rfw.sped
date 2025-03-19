@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -14,6 +15,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscal0200 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscal0200(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 COD_ITEM Código do item C 060 - O

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.LinkedHashMap;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -17,10 +18,14 @@ public class SPEDFiscalH005 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
 
+  public SPEDFiscalH005(SPEDFile spedFile) {
+    super(spedFile);
+  }
+
   /**
    * REGISTRO H010: INVENTÁRIO
    */
-  private final LinkedHashMap<Long, SPEDFiscalH010> rh010 = new LinkedHashMap<Long, SPEDFiscalH010>();
+  private final LinkedHashMap<String, SPEDFiscalH010> rh010 = new LinkedHashMap<String, SPEDFiscalH010>();
 
   /**
    * 02 DT_INV Data do inventário N 008* - O
@@ -131,7 +136,7 @@ public class SPEDFiscalH005 extends SPEDRegister {
    *
    * @return the rEGISTRO H010: INVENTÁRIO
    */
-  public LinkedHashMap<Long, SPEDFiscalH010> getRh010() {
+  public LinkedHashMap<String, SPEDFiscalH010> getRh010() {
     return rh010;
   }
 

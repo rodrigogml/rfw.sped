@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -16,6 +17,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContribM100 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContribM100(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * REGISTRO M105: DETALHAMENTO DA BASE DE CALCULO DO CRÉDITO APURADO NO PERÍODO – PIS/PASEP<br>

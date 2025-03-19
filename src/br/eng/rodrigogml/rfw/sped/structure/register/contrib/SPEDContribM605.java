@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.contrib;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -15,6 +16,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContribM605 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContribM605(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * Informar o número do campo do registro “M600” (Campo 08 (contribuição não cumulativa) ou Campo 12 (contribuição cumulativa)), objeto de detalhamento neste registro. C 002* - S

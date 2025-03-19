@@ -1,54 +1,25 @@
 package br.eng.rodrigogml.rfw.sped;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.time.ZoneOffset;
 
-import br.eng.rodrigogml.rfw.kernel.RFW;
-import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
-import br.eng.rodrigogml.rfw.kernel.preprocess.PreProcess;
-import br.eng.rodrigogml.rfw.sped.structure.SPEDFiscalFile;
-import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0005;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0100;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0460;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0190;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0200;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9900;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC190;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC400;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC405;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC420;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC800;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC850;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC990;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD990;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE100;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE110;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE116;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE990;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH005;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH010;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH020;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK100;
 
 /**
  * Description: Classe para auxiliar na montagem e manipulação do arquivo do SPED Fiscal através da estrutura {@link SPEDFiscalFile}.<br>
@@ -66,431 +37,6 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * Este método finaliza um arquivo para ser exportado. A finalização inclui os seguintes passos:<br>
-   * <li>Criar e/ou atualizar os blocos de nível hierarquico 0 do arquivo. Corrigindo os valores dos blocos de abertura (indicando se tem conteúdo ou não) e atualizando o total de registros no seu registro de fechamento.</li>
-   *
-   * @param sped
-   */
-  public static void finalizeFile(SPEDFiscalFile sped) {
-
-  }
-
-  /**
-   * REGISTRO 0001: ABERTURA DO BLOCO 0<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent flag para indicar se o bloco tem conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal0001 add0001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscal0001 r0001 = sped.getR0001();
-    if (r0001 == null) {
-      r0001 = new SPEDFiscal0001();
-      sped.setR0001(r0001);
-
-      if (hasContent) {
-        r0001.setR02_IND_MOV("0");
-      } else {
-        r0001.setR02_IND_MOV("1");
-      }
-    }
-    return r0001;
-  }
-
-  public static SPEDFiscalC100 addC100(SPEDFiscalC001 rc001, boolean r02_IND_OPER, boolean r03_IND_EMIT, String r04_COD_PART, String r05_COD_MOD, String r06_COD_SIT, String r07_SER, String r08_NUM_DOC, String r09_CHV_NFE, LocalDate r10_DT_DOC, LocalDate r11_DT_E_S, BigDecimal r12_VL_DOC, String r13_IND_PGTO, BigDecimal r14_VL_DESC, BigDecimal r15_VL_ABAT_NT, BigDecimal r16_VL_MERC, String r17_IND_FRT, BigDecimal r18_VL_FRT, BigDecimal r19_VL_SEG, BigDecimal r20_VL_OUT_DA, BigDecimal r21_VL_BC_ICMS, BigDecimal r22_VL_ICMS, BigDecimal r23_VL_BC_ICMS_ST, BigDecimal r24_VL_ICMS_ST, BigDecimal r25_VL_IPI, BigDecimal r26_VL_PIS, BigDecimal r27_VL_COFINS, BigDecimal r28_VL_PIS_ST, BigDecimal r29_VL_COFINS_ST) throws RFWException {
-    String rc100Key = "|";
-    rc100Key += PreProcess.coalesce(r05_COD_MOD, "") + "|";
-    rc100Key += PreProcess.coalesce(r04_COD_PART, "") + "|";
-    rc100Key += PreProcess.coalesce(r08_NUM_DOC, "") + "|";
-    rc100Key += PreProcess.coalesce(r09_CHV_NFE, "") + "|";
-
-    SPEDFiscalC100 rc100 = rc001.getRc100().get(rc100Key);
-    if (rc100 == null) {
-      rc100 = new SPEDFiscalC100();
-      rc001.getRc100().put(rc100Key, rc100);
-    }
-
-    if (r02_IND_OPER) {
-      rc100.setR02_IND_OPER("0");
-    } else {
-      rc100.setR02_IND_OPER("1");
-    }
-    if (r03_IND_EMIT) {
-      rc100.setR03_IND_EMIT("0");
-    } else {
-      rc100.setR03_IND_EMIT("1");
-    }
-    rc100.setR04_COD_PART(r04_COD_PART);
-    rc100.setR05_COD_MOD(r05_COD_MOD);
-    rc100.setR06_COD_SIT(r06_COD_SIT);
-    rc100.setR07_SER(r07_SER);
-    rc100.setR08_NUM_DOC(r08_NUM_DOC);
-    rc100.setR09_CHV_NFE(r09_CHV_NFE);
-    rc100.setR10_DT_DOC(r10_DT_DOC);
-    rc100.setR11_DT_E_S(r11_DT_E_S);
-    rc100.setR12_VL_DOC(r12_VL_DOC);
-    rc100.setR13_IND_PGTO(r13_IND_PGTO);
-    rc100.setR14_VL_DESC(r14_VL_DESC);
-    rc100.setR15_VL_ABAT_NT(r15_VL_ABAT_NT);
-    rc100.setR16_VL_MERC(r16_VL_MERC);
-    rc100.setR17_IND_FRT(r17_IND_FRT);
-    rc100.setR18_VL_FRT(r18_VL_FRT);
-    rc100.setR19_VL_SEG(r19_VL_SEG);
-    rc100.setR20_VL_OUT_DA(r20_VL_OUT_DA);
-    rc100.setR21_VL_BC_ICMS(r21_VL_BC_ICMS);
-    rc100.setR22_VL_ICMS(r22_VL_ICMS);
-    rc100.setR23_VL_BC_ICMS_ST(r23_VL_BC_ICMS_ST);
-    rc100.setR24_VL_ICMS_ST(r24_VL_ICMS_ST);
-    rc100.setR25_VL_IPI(r25_VL_IPI);
-    rc100.setR26_VL_PIS(r26_VL_PIS);
-    rc100.setR27_VL_COFINS(r27_VL_COFINS);
-    rc100.setR28_VL_PIS_ST(r28_VL_PIS_ST);
-    rc100.setR29_VL_COFINS_ST(r29_VL_COFINS_ST);
-
-    return rc100;
-  }
-
-  /**
-   * REGISTRO 0990: ENCERRAMENTO DO BLOCO 0<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas (registros) a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco. Para este cálculo, o registro 0000, mesmo não pertencendo ao bloco 0, deve ser somado.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal0990 add0990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscal0990 r0990 = sped.getR0990();
-    if (r0990 == null) {
-      r0990 = new SPEDFiscal0990();
-      sped.setR0990(r0990);
-
-    }
-    r0990.setR02_QTD_LIN_0(lineCount);
-    return r0990;
-  }
-
-  /**
-   * REGISTRO C001: ABERTURA DO BLOCO C<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalC001 addC001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalC001 rc001 = sped.getRC001();
-    if (rc001 == null) {
-      rc001 = new SPEDFiscalC001();
-      sped.setRC001(rc001);
-
-      if (hasContent) {
-        rc001.setR02_IND_MOV("0");
-      } else {
-        rc001.setR02_IND_MOV("1");
-      }
-    }
-    return rc001;
-  }
-
-  /**
-   * REGISTRO C990: ENCERRAMENTO DO BLOCO C<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalC990 addC990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalC990 rC990 = sped.getRC990();
-    if (rC990 == null) {
-      rC990 = new SPEDFiscalC990();
-      sped.setRC990(rC990);
-
-    }
-    rC990.setR02_QTD_LIN_C(lineCount);
-    return rC990;
-  }
-
-  /**
-   * REGISTRO D001: ABERTURA DO BLOCO D<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalD001 addD001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalD001 rd001 = sped.getRD001();
-    if (rd001 == null) {
-      rd001 = new SPEDFiscalD001();
-      sped.setRD001(rd001);
-
-      if (hasContent) {
-        rd001.setR02_IND_MOV("0");
-      } else {
-        rd001.setR02_IND_MOV("1");
-      }
-    }
-    return rd001;
-  }
-
-  /**
-   * REGISTRO D990: ENCERRAMENTO DO BLOCO D<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalD990 addD990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalD990 rd990 = sped.getRD990();
-    if (rd990 == null) {
-      rd990 = new SPEDFiscalD990();
-      sped.setRD990(rd990);
-
-    }
-    rd990.setR02_QTD_LIN_D(lineCount);
-    return rd990;
-  }
-
-  /**
-   * REGISTRO E001: ABERTURA DO BLOCO E<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalE001 addE001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalE001 re001 = sped.getRE001();
-    if (re001 == null) {
-      re001 = new SPEDFiscalE001();
-      sped.setRE001(re001);
-
-      if (hasContent) {
-        re001.setR02_IND_MOV("0");
-      } else {
-        re001.setR02_IND_MOV("1");
-      }
-    }
-    return re001;
-  }
-
-  /**
-   * REGISTRO E990: ENCERRAMENTO DO BLOCO E<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalE990 addE990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalE990 re990 = sped.getRE990();
-    if (re990 == null) {
-      re990 = new SPEDFiscalE990();
-      sped.setRE990(re990);
-
-    }
-    re990.setR02_QTD_LIN_E(lineCount);
-    return re990;
-  }
-
-  /**
-   * REGISTRO G001: ABERTURA DO BLOCO G<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalG001 addG001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalG001 rg001 = sped.getRG001();
-    if (rg001 == null) {
-      rg001 = new SPEDFiscalG001();
-      sped.setRG001(rg001);
-
-      if (hasContent) {
-        rg001.setR02_IND_MOV("0");
-      } else {
-        rg001.setR02_IND_MOV("1");
-      }
-    }
-
-    return rg001;
-  }
-
-  /**
-   * REGISTRO G990: ENCERRAMENTO DO BLOCO G<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalG990 addG990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalG990 rg990 = sped.getRG990();
-    if (rg990 == null) {
-      rg990 = new SPEDFiscalG990();
-      sped.setRG990(rg990);
-
-    }
-    rg990.setR02_QTD_LIN_G(lineCount);
-    return rg990;
-  }
-
-  /**
-   * REGISTRO H001: ABERTURA DO BLOCO H<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalH001 addH001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalH001 rh001 = sped.getRH001();
-
-    if (rh001 == null) {
-      rh001 = new SPEDFiscalH001();
-      sped.setRH001(rh001);
-
-      if (hasContent) {
-        rh001.setR02_IND_MOV("0");
-      } else {
-        rh001.setR02_IND_MOV("1");
-      }
-    }
-
-    return rh001;
-  }
-
-  /**
-   * REGISTRO H990: ENCERRAMENTO DO BLOCO H<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalH990 addH990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalH990 rh990 = sped.getRH990();
-    if (rh990 == null) {
-      rh990 = new SPEDFiscalH990();
-      sped.setRH990(rh990);
-
-    }
-    rh990.setR02_QTD_LIN_H(lineCount);
-    return rh990;
-  }
-
-  /**
-   * REGISTRO K001: ABERTURA DO BLOCO K<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalK001 addK001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalK001 rk001 = sped.getRK001();
-    if (rk001 == null) {
-      rk001 = new SPEDFiscalK001();
-      sped.setRK001(rk001);
-
-      if (hasContent) {
-        rk001.setR02_IND_MOV("0");
-      } else {
-        rk001.setR02_IND_MOV("1");
-      }
-    }
-
-    return rk001;
-  }
-
-  /**
-   * REGISTRO K990: ENCERRAMENTO DO BLOCO K<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalK990 addK990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscalK990 rk990 = sped.getRK990();
-    if (rk990 == null) {
-      rk990 = new SPEDFiscalK990();
-      sped.setRK990(rk990);
-
-    }
-    rk990.setR02_QTD_LIN_K(lineCount);
-    return rk990;
-  }
-
-  /**
    * REGISTRO 1001: ABERTURA DO BLOCO 1<Br>
    * <Br>
    * Observações:
@@ -499,291 +45,16 @@ public class SPEDFiscalBuilder {
    * <br>
    *
    * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
    * @return
    * @throws RFWException
    */
-  public static SPEDFiscal1001 add1001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
+  public static SPEDFiscal1001 add1001(SPEDFiscalFile sped) throws RFWException {
     SPEDFiscal1001 r1001 = sped.getR1001();
     if (r1001 == null) {
-      r1001 = new SPEDFiscal1001();
+      r1001 = new SPEDFiscal1001(sped);
       sped.setR1001(r1001);
-
-      if (hasContent) {
-        r1001.setR02_IND_MOV("0");
-      } else {
-        r1001.setR02_IND_MOV("1");
-      }
     }
     return r1001;
-  }
-
-  /**
-   * REGISTRO 1990: ENCERRAMENTO DO BLOCO 1<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal1990 add1990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscal1990 r1990 = sped.getR1990();
-    if (r1990 == null) {
-      r1990 = new SPEDFiscal1990();
-      sped.setR1990(r1990);
-
-    }
-    r1990.setR02_QTD_LIN_1(lineCount);
-    return r1990;
-  }
-
-  /**
-   * REGISTRO 9001: ABERTURA DO BLOCO 9<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal9001 add9001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscal9001 r9001 = sped.getR9001();
-    if (r9001 == null) {
-      r9001 = new SPEDFiscal9001();
-      sped.setR9001(r9001);
-
-      if (hasContent) {
-        r9001.setR02_IND_MOV("0");
-      } else {
-        r9001.setR02_IND_MOV("1");
-      }
-    }
-    return r9001;
-  }
-
-  /**
-   * REGISTRO 9990: ENCERRAMENTO DO BLOCO 9<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal9990 add9990(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscal9990 r9990 = sped.getR9990();
-    if (r9990 == null) {
-      r9990 = new SPEDFiscal9990();
-      sped.setR9990(r9990);
-
-    }
-    r9990.setR02_QTD_LIN_9(lineCount);
-    return r9990;
-  }
-
-  /**
-   * REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL<Br>
-   * <Br>
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 0</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param lineCount quantidade de linhas a ser informada deve considerar também os próprios registros de abertura e encerramento do bloco.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal9999 add9999(SPEDFiscalFile sped, int lineCount) throws RFWException {
-    SPEDFiscal9999 r9999 = sped.getR9999();
-    if (r9999 == null) {
-      r9999 = new SPEDFiscal9999();
-      sped.setR9999(r9999);
-
-    }
-    r9999.setR02_QTD_LIN(lineCount);
-    return r9999;
-  }
-
-  /**
-   * REGISTRO 0100: DADOS DO CONTABILISTA<br>
-   * <br>
-   *
-   * Observações: Registro obrigatório
-   * <li>Nível hierárquico - 0</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   *
-   * @param r0001 Registro 0001
-   * @param r02_NOME
-   * @param r03_CPF
-   * @param r04_CRC
-   * @param r05_CNPJ
-   * @param r06_CEP
-   * @param r07_END
-   * @param r08_NUM
-   * @param r09_COMPL
-   * @param r10_BAIRRO
-   * @param r11_FONE
-   * @param r12_FAX
-   * @param r13_EMAIL
-   * @param r14_COD_MUN
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal0100 add0100(SPEDFiscal0001 r0001, String r02_NOME, String r03_CPF, String r04_CRC, String r05_CNPJ, String r06_CEP, String r07_END, String r08_NUM, String r09_COMPL, String r10_BAIRRO, String r11_FONE, String r12_FAX, String r13_EMAIL, String r14_COD_MUN) throws RFWException {
-    SPEDFiscal0100 r0100 = r0001.getR0100();
-    if (r0100 == null) {
-      r0100 = new SPEDFiscal0100();
-      r0001.setR0100(r0100);
-    }
-
-    r0100.setR02_NOME(r02_NOME);
-    r0100.setR03_CPF(r03_CPF);
-    r0100.setR04_CRC(r04_CRC);
-    r0100.setR05_CNPJ(r05_CNPJ);
-    r0100.setR06_CEP(r06_CEP);
-    r0100.setR07_END(r07_END);
-    r0100.setR08_NUM(r08_NUM);
-    r0100.setR09_COMPL(r09_COMPL);
-    r0100.setR10_BAIRRO(r10_BAIRRO);
-    r0100.setR11_FONE(r11_FONE);
-    r0100.setR12_FAX(r12_FAX);
-    r0100.setR13_EMAIL(r13_EMAIL);
-    r0100.setR14_COD_MUN(r14_COD_MUN);
-    return r0100;
-  }
-
-  /**
-   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA ENTIDADE<br>
-   * <br>
-   * Observações:
-   * <li>Nível hierárquico - 0</li>
-   * <li>Ocorrência - um por arquivo.</li>
-   *
-   * @param sped
-   * @param r03_COD_FIN
-   * @param r04_DT_INI
-   * @param r05_DT_FIN
-   * @param r06_NOME
-   * @param r07_CNPJ
-   * @param r08_CPF
-   * @param r09_UF
-   * @param r10_IE
-   * @param r11_COD_MUN
-   * @param r12_IM
-   * @param r13_SUFRAMA
-   * @param r14_IND_PERFIL
-   * @param r15_IND_ATIV
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal0000 add0000(SPEDFiscalFile sped, Integer r03_COD_FIN, LocalDate r04_DT_INI, LocalDate r05_DT_FIN, String r06_NOME, String r07_CNPJ, String r08_CPF, String r09_UF, String r10_IE, String r11_COD_MUN, String r12_IM, String r13_SUFRAMA, String r14_IND_PERFIL, String r15_IND_ATIV) throws RFWException {
-    SPEDFiscal0000 r0000 = sped.getR0000();
-    if (r0000 == null) {
-      r0000 = new SPEDFiscal0000();
-      sped.setR0000(r0000);
-    }
-
-    r0000.setR02_COD_VER("017");
-    r0000.setR03_COD_FIN(r03_COD_FIN);
-    r0000.setR04_DT_INI(r04_DT_INI);
-    r0000.setR05_DT_FIN(r05_DT_FIN);
-    r0000.setR06_NOME(r06_NOME);
-    r0000.setR07_CNPJ(r07_CNPJ);
-    r0000.setR08_CPF(r08_CPF);
-    r0000.setR09_UF(r09_UF);
-    r0000.setR10_IE(r10_IE);
-    r0000.setR11_COD_MUN(r11_COD_MUN);
-    r0000.setR12_IM(r12_IM);
-    r0000.setR13_SUFRAMA(r13_SUFRAMA);
-    r0000.setR14_IND_PERFIL(r14_IND_PERFIL);
-    r0000.setR15_IND_ATIV(r15_IND_ATIV);
-    return r0000;
-  }
-
-  /**
-   * REGISTRO E110: APURAÇÃO DO ICMS – OPERAÇÕES PRÓPRIAS<Br>
-   * <br>
-   * <li>Observações:</li>
-   * <li>Nível hierárquico – 3 – registro obrigatório</li>
-   * <li>Ocorrência – um por período</li>
-   *
-   * @param re100
-   * @param r02_VL_TOT_DEBITOS
-   * @param r03_VL_AJ_DEBITOS
-   * @param r05_VL_ESTORNOS_CRED
-   * @param r06_VL_TOT_CREDITOS
-   * @param r07_VL_AJ_CREDITOS
-   * @param r09_VL_ESTORNOS_DEB
-   * @param r10_VL_SLD_CREDOR_ANT
-   * @param r11_VL_SLD_APURADO
-   * @param r12_VL_TOT_DED
-   * @param r13_VL_ICMS_RECOLHER
-   * @param r14_VL_SLD_CREDOR_TRANSPORTAR
-   * @param r15_DEB_ESP
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalE110 addE110(SPEDFiscalE100 re100, BigDecimal r02_VL_TOT_DEBITOS, BigDecimal r03_VL_AJ_DEBITOS, BigDecimal r05_VL_ESTORNOS_CRED, BigDecimal r06_VL_TOT_CREDITOS, BigDecimal r07_VL_AJ_CREDITOS, BigDecimal r09_VL_ESTORNOS_DEB, BigDecimal r10_VL_SLD_CREDOR_ANT, BigDecimal r11_VL_SLD_APURADO, BigDecimal r12_VL_TOT_DED, BigDecimal r13_VL_ICMS_RECOLHER, BigDecimal r14_VL_SLD_CREDOR_TRANSPORTAR, BigDecimal r15_DEB_ESP) throws RFWException {
-    SPEDFiscalE110 re110 = re100.getRe110();
-
-    if (re110 == null) {
-      re110 = new SPEDFiscalE110();
-      re100.setRe110(re110);
-    }
-    re110.setR02_VL_TOT_DEBITOS(r02_VL_TOT_DEBITOS);
-    re110.setR03_VL_AJ_DEBITOS(r03_VL_AJ_DEBITOS);
-    re110.setR04_VL_TOT_AJ_DEBITOS(r03_VL_AJ_DEBITOS);
-    re110.setR05_VL_ESTORNOS_CRED(r05_VL_ESTORNOS_CRED);
-    re110.setR06_VL_TOT_CREDITOS(r06_VL_TOT_CREDITOS);
-    re110.setR07_VL_AJ_CREDITOS(r07_VL_AJ_CREDITOS);
-    re110.setR08_VL_TOT_AJ_CREDITOS(r07_VL_AJ_CREDITOS);
-    re110.setR09_VL_ESTORNOS_DEB(r09_VL_ESTORNOS_DEB);
-    re110.setR10_VL_SLD_CREDOR_ANT(r10_VL_SLD_CREDOR_ANT);
-    re110.setR11_VL_SLD_APURADO(r11_VL_SLD_APURADO);
-    re110.setR12_VL_TOT_DED(r12_VL_TOT_DED);
-    re110.setR13_VL_ICMS_RECOLHER(r13_VL_ICMS_RECOLHER);
-    re110.setR14_VL_SLD_CREDOR_TRANSPORTAR(r14_VL_SLD_CREDOR_TRANSPORTAR);
-    re110.setR15_DEB_ESP(r15_DEB_ESP);
-
-    return re110;
-  }
-
-  /**
-   * REGISTRO E100: PERÍODO DA APURAÇÃO DO ICMS<Br>
-   * <br>
-   * <li>Observações:</li>
-   * <li>Nível hierárquico – 2</li>
-   * <li>Ocorrência – 1:N</li>
-   * <li></li>
-   *
-   * @param re001 Registro E001
-   * @param dt_ini
-   * @param dt_fin
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalE100 addE100(SPEDFiscalE001 re001, LocalDate dt_ini, LocalDate dt_fin) throws RFWException {
-    SPEDFiscalE100 re100 = re001.getRe100();
-    if (re100 == null) {
-      re100 = new SPEDFiscalE100();
-      re001.setRe100(re100);
-    }
-
-    re100.setR02_DT_INI(dt_ini);
-    re100.setR03_DT_FIN(dt_fin);
-
-    return re100;
   }
 
   /**
@@ -796,26 +67,26 @@ public class SPEDFiscalBuilder {
    * <li>
    *
    * @param r1001 Registro 1001
-   * @param indExp
-   * @param indCCRF
-   * @param indComb
-   * @param indUsina
-   * @param indVA
-   * @param indEE
-   * @param indCart
-   * @param infForm
-   * @param indAER
-   * @param indGIAF1
-   * @param indGIAF3
-   * @param indGIAF4
-   * @param indRestRessarcComplICMS
+   * @param indExp Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período?
+   * @param indCCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz?
+   * @param indComb Reg. 1300 – É comércio varejista de combustíveis com movimentação e/ou estoque no período?
+   * @param indUsina Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com movimentação e/ou estoque no período?
+   * @param indVA Reg 1400 - Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro?
+   * @param indEE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF?
+   * @param indCart Reg 1601 - Realizou vendas com instrumentos eletrônicos de pagamento?
+   * @param infForm Reg. 1700 - Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de utilização de documentos fiscais?
+   * @param indAER Reg 1800 - A empresa prestou serviços de transporte aéreo de cargas e de passageiros?
+   * @param indGIAF1 Reg. 1960 - Possui informações GIAF1?
+   * @param indGIAF3 Reg. 1970 - Possui informações GIAF3?
+   * @param indGIAF4 Reg. 1980 - Possui informações GIAF4?
+   * @param indRestRessarcComplICMS Reg. 1250 – Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS?
    * @return
    * @throws RFWException
    */
   public static SPEDFiscal1010 add1010(SPEDFiscal1001 r1001, boolean indExp, boolean indCCRF, boolean indComb, boolean indUsina, boolean indVA, boolean indEE, boolean indCart, boolean infForm, boolean indAER, boolean indGIAF1, boolean indGIAF3, boolean indGIAF4, boolean indRestRessarcComplICMS) throws RFWException {
     SPEDFiscal1010 r1010 = r1001.getR1010();
     if (r1010 == null) {
-      r1010 = new SPEDFiscal1010();
+      r1010 = new SPEDFiscal1010(r1001.getSpedFile());
       r1001.setR1010(r1010);
     }
 
@@ -837,29 +108,72 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0460: TABELA DE OBSERVAÇÕES DO LANÇAMENTO FISCAL<br>
+   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA ENTIDADE<br>
    * <br>
-   * <li>Observações:</li>
-   * <li>Nível hierárquico - 2</li>
-   * <li>Ocorrência –vários (por arquivo)</li>
+   * Observações:
+   * <li>Nível hierárquico - 0</li>
+   * <li>Ocorrência - um por arquivo.</li>
    *
-   * @param r0001 Registro 0001
-   * @param cod_obs
-   * @param txt
+   * @param sped Arquivo SPED.
+   * @param r03_COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto.
+   * @param r04_DT_INI Data inicial das informações contidas no arquivo.
+   * @param r05_DT_FIN Data final das informações contidas no arquivo.
+   * @param r06_NOME Nome empresarial da entidade.
+   * @param r07_CNPJ Número de inscrição da entidade no CNPJ.
+   * @param r08_CPF Número de inscrição da entidade no CPF.
+   * @param r09_UF Sigla da unidade da federação da entidade.
+   * @param r10_IE Inscrição Estadual da entidade.
+   * @param r11_COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE.
+   * @param r12_IM Inscrição Municipal da entidade.
+   * @param r13_SUFRAMA Inscrição da entidade na SUFRAMA.
+   * @param r14_IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B.; C – Perfil C.
+   * @param r15_IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros.
    * @return
    * @throws RFWException
    */
-  public static SPEDFiscal0460 add0460(SPEDFiscal0001 r0001, String cod_obs, String txt) throws RFWException {
-    SPEDFiscal0460 r0460 = r0001.getR0460().get(cod_obs);
-    if (r0460 == null) {
-      r0460 = new SPEDFiscal0460();
-      r0001.getR0460().put(cod_obs, r0460);
+  public static SPEDFiscal0000 add0000(SPEDFiscalFile sped, Integer r03_COD_FIN, LocalDate r04_DT_INI, LocalDate r05_DT_FIN, String r06_NOME, String r07_CNPJ, String r08_CPF, String r09_UF, String r10_IE, String r11_COD_MUN, String r12_IM, String r13_SUFRAMA, String r14_IND_PERFIL, String r15_IND_ATIV) throws RFWException {
+    SPEDFiscal0000 r0000 = sped.getR0000();
+    if (r0000 == null) {
+      r0000 = new SPEDFiscal0000(sped);
+      sped.setR0000(r0000);
     }
 
-    r0460.setR02_COD_OBS(cod_obs);
-    r0460.setR03_TXT(txt);
+    r0000.setR02_COD_VER("017"); // Código da versão depende do código implementado, por isso é definido como constante no código.
+    r0000.setR03_COD_FIN(r03_COD_FIN);
+    r0000.setR04_DT_INI(r04_DT_INI);
+    r0000.setR05_DT_FIN(r05_DT_FIN);
+    r0000.setR06_NOME(r06_NOME);
+    r0000.setR07_CNPJ(r07_CNPJ);
+    r0000.setR08_CPF(r08_CPF);
+    r0000.setR09_UF(r09_UF);
+    r0000.setR10_IE(r10_IE);
+    r0000.setR11_COD_MUN(r11_COD_MUN);
+    r0000.setR12_IM(r12_IM);
+    r0000.setR13_SUFRAMA(r13_SUFRAMA);
+    r0000.setR14_IND_PERFIL(r14_IND_PERFIL);
+    r0000.setR15_IND_ATIV(r15_IND_ATIV);
+    return r0000;
+  }
 
-    return r0460;
+  /**
+   * REGISTRO 0001: ABERTURA DO BLOCO 0<Br>
+   * <Br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li><Br>
+   * <br>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0001 add0001(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscal0001 r0001 = sped.getR0001();
+    if (r0001 == null) {
+      r0001 = new SPEDFiscal0001(sped);
+      sped.setR0001(r0001);
+    }
+    return r0001;
   }
 
   /**
@@ -870,24 +184,23 @@ public class SPEDFiscalBuilder {
    * <li>Nível hierárquico - 2</li>
    * <li>Ocorrência – um por arquivo</li>
    *
-   * @param r0001
-   * @param r02_FANTASIA
-   * @param r03_CEP
-   * @param r04_END
-   * @param r05_NUM
-   * @param r06_COMPL
-   * @param r07_BAIRRO
-   * @param r08_FONE
-   * @param r09_FAX
-   * @param r10_EMAIL
+   * @param r0001 Registro pai.
+   * @param r02_FANTASIA Nome de fantasia associado ao nome empresarial.
+   * @param r03_CEP Código de Endereçamento Postal.
+   * @param r04_END Logradouro e endereço do imóvel.
+   * @param r05_NUM Número do imóvel.
+   * @param r06_COMPL Dados complementares do endereço.
+   * @param r07_BAIRRO Bairro em que o imóvel está situado.
+   * @param r08_FONE Número do telefone (DDD+FONE).
+   * @param r09_FAX Número do fax.
+   * @param r10_EMAIL Endereço do correio eletrônico.
    * @return
    * @throws RFWException
-   * @throws RFWException
    */
-  public static SPEDFiscal0005 add0005(SPEDFiscal0001 r0001, String r02_FANTASIA, String r03_CEP, String r04_END, String r05_NUM, String r06_COMPL, String r07_BAIRRO, String r08_FONE, String r09_FAX, String r10_EMAIL) throws RFWException, RFWException {
+  public static SPEDFiscal0005 add0005(SPEDFiscal0001 r0001, String r02_FANTASIA, String r03_CEP, String r04_END, String r05_NUM, String r06_COMPL, String r07_BAIRRO, String r08_FONE, String r09_FAX, String r10_EMAIL) throws RFWException {
     SPEDFiscal0005 r0005 = r0001.getR0005();
     if (r0005 == null) {
-      r0005 = new SPEDFiscal0005();
+      r0005 = new SPEDFiscal0005(r0001.getSpedFile());
       r0001.setR0005(r0005);
     }
 
@@ -904,310 +217,371 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * Rotina que realiza o cálculo dos campos de somatórias com os registros escritos.
-   *
-   * @throws RFWException
-   */
-  public static void updateCalcFields(SPEDFiscalFile sped) throws RFWException {
-    final LocalDate startDate = sped.getR0000().getR04_DT_INI();
-    final LocalDate endDate = sped.getR0000().getR05_DT_FIN();
-
-    /*
-     * BLOCO E: APURAÇÃO DO ICMS E DO IPI
-     */
-    {
-      SPEDFiscalE001 re001 = SPEDFiscalBuilder.addE001(sped, true);
-      SPEDFiscalE100 re100 = SPEDFiscalBuilder.addE100(re001, startDate, endDate);
-      final SPEDFiscalE110 re110 = SPEDFiscalBuilder.addE110(re100, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
-
-      BigDecimal totDebit = BigDecimal.ZERO;
-      BigDecimal totCredit = BigDecimal.ZERO;
-
-      { // Para calcular o total de imposto devido vamos varrer toda a declaração já feita no sped e calcular com base em vários registros.
-        // =======> C420 - Vamos iterar os registros C420 para obter todos os valores de vendas tributadas dos Cupons Fiscais
-        for (SPEDFiscalC400 rc400 : sped.getRC001().getRc400().values()) {
-          for (SPEDFiscalC405 rc405 : rc400.getRc405().values()) {
-            for (SPEDFiscalC420 rc420 : rc405.getRc420().values()) {
-              if (rc420.getR02_COD_TOT_PAR().startsWith("T")) {
-                // Se o totalizador começa com "T" é um totalizador de vendas tributas, o que vêm depois do "T" é a alíquota usada para o cálculo do débito do ICMS. Ex: "T0320"
-                BigDecimal taxRatio = new BigDecimal(rc420.getR02_COD_TOT_PAR().substring(1)).divide(RFW.BIGHUNDRED, 2, RFW.getRoundingMode());
-                totDebit = totDebit.add(taxRatio.multiply(rc420.getR03_VLR_ACUM_TOT()).divide(RFW.BIGHUNDRED, 2, RFW.getRoundingMode()));
-              }
-            }
-          }
-        }
-
-        // =======> C850 (Somamos o C850 ao invés do C890 porque este só está presente para empresas do PERFIL_A)
-        for (SPEDFiscalC800 rc800 : sped.getRC001().getRc800().values()) {
-          for (SPEDFiscalC850 rc850 : rc800.getRc850().values()) {
-            totDebit = totDebit.add(rc850.getR07_VL_ICMS());
-          }
-        }
-      }
-      { // Para calcular o total de imposto creditável vamos varrer toda a declaração já feita no sped
-        // =======> C190
-        for (SPEDFiscalC100 rc100 : sped.getRC001().getRc100().values()) {
-          for (SPEDFiscalC190 rc190 : rc100.getRc190().values()) {
-            totCredit = totCredit.add(rc190.getR07_VL_ICMS());
-          }
-        }
-      }
-      re110.setR02_VL_TOT_DEBITOS(totDebit);
-      re110.setR06_VL_TOT_CREDITOS(totCredit);
-      BigDecimal sldCredorTransp = BigDecimal.ZERO;
-      {
-        BigDecimal sldApurado = re110.getR02_VL_TOT_DEBITOS();
-        sldApurado = sldApurado.subtract(re110.getR06_VL_TOT_CREDITOS());
-        sldApurado = sldApurado.subtract(re110.getR08_VL_TOT_AJ_CREDITOS());
-        if (sldApurado.signum() > 0) {
-          re110.setR11_VL_SLD_APURADO(sldApurado);
-        } else {
-          re110.setR11_VL_SLD_APURADO(BigDecimal.ZERO);
-          sldCredorTransp = sldApurado.negate();
-        }
-      }
-      re110.setR12_VL_TOT_DED(BigDecimal.ZERO);
-      re110.setR13_VL_ICMS_RECOLHER(re110.getR11_VL_SLD_APURADO().subtract(re110.getR12_VL_TOT_DED()));
-      re110.setR14_VL_SLD_CREDOR_TRANSPORTAR(sldCredorTransp);
-      re110.setR15_DEB_ESP(BigDecimal.ZERO);
-
-      // Se o valor para pagamento ficou positivo, geramos a obrigação de pagamento
-      if (re110.getR13_VL_ICMS_RECOLHER().signum() > 0) {
-        LocalDate dueDate = endDate.withDayOfMonth(25).plusMonths(1);
-        // final Calendar gc = GregorianCalendar.getInstance();
-        // gc.setTime(endDate);
-        // gc.set(Calendar.DAY_OF_MONTH, 25);
-        // gc.add(Calendar.MONTH, 1); // Código de antes de converter para LocalDate (Guardado para caso de erro, pode ser apagado quando o novo código for testado)
-
-        // Código Recolhimento Gare ICMS: 046-2 ICMS - Regime periódico de apuração
-        SPEDFiscalBuilder.recursiveE116Creator(re110, "000", re110.getR13_VL_ICMS_RECOLHER(), dueDate, "046-2", null, null, null, null, startDate);
-      }
-
-    }
-
-    // Atualiza as contagens de linhas por bloco
-    updateCloseRegistersLineCount(sped);
-  }
-
-  public static SPEDFiscalE116 recursiveE116Creator(SPEDFiscalE110 re110, String codOR, BigDecimal vlOr, LocalDate dtVcto, String codRec, String numProc, String indProc, String proc, String txtCompl, LocalDate mesRef) throws RFWException {
-    SPEDFiscalE116 re116 = re110.getRe116();
-    if (re116 == null) {
-      re116 = new SPEDFiscalE116();
-      re110.setRe116(re116);
-    }
-
-    re116.setR02_COD_OR(codOR);
-    re116.setR03_VL_OR(vlOr);
-    re116.setR04_DT_VCTO(dtVcto);
-    re116.setR05_COD_REC(codRec);
-    re116.setR06_NUM_PROC(numProc);
-    re116.setR07_IND_PROC(indProc);
-    re116.setR08_PROC(proc);
-    re116.setR09_TXT_COMPL(txtCompl);
-    re116.setR10_MES_REF(mesRef);
-
-    return re116;
-  }
-
-  /**
-   * Este método atualiza os atributos de quantidade de linhas dos registros de fechamento de blocos e arquivo.<br>
-   * Note que ele só atualiza se o registro existir, nenhum registro novo é criado.<br>
+   * REGISTRO 0100: DADOS DO CONTABILISTA<br>
    * <br>
-   * Atualmente ele atualiza os seguintes blocos:<br>
-   * <li>REGISTRO 0990: ENCERRAMENTO DO BLOCO 0</li><br>
-   * <li>REGISTRO C990: ENCERRAMENTO DO BLOCO C</li><br>
    *
-   * @throws RFWException
-   */
-  public static void updateCloseRegistersLineCount(SPEDFiscalFile sped) throws RFWException {
-    int totalfile = 0;
-    int block = 0;
-
-    // Bloco 0
-    if (sped.getR0001() == null) SPEDFiscalBuilder.add0001(sped, false);
-    if (sped.getR0990() == null) SPEDFiscalBuilder.add0990(sped, 0);
-    totalfile += block = sped.getR0001().countRegisters() + 2; // Soma o registo de fechamento que não está incluso + Soma 1 porque o registro 0000 faz parte deste total
-    sped.getR0990().setR02_QTD_LIN_0(block);
-
-    // Bloco C
-    if (sped.getRC001() == null) SPEDFiscalBuilder.addC001(sped, false);
-    if (sped.getRC990() == null) SPEDFiscalBuilder.addC990(sped, 0);
-    totalfile += block = sped.getRC001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRC990().setR02_QTD_LIN_C(block);
-
-    // Bloco D
-    if (sped.getRD001() == null) SPEDFiscalBuilder.addD001(sped, false);
-    if (sped.getRD990() == null) SPEDFiscalBuilder.addD990(sped, 0);
-    totalfile += block = sped.getRD001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRD990().setR02_QTD_LIN_D(block);
-
-    // Bloco E
-    if (sped.getRE001() == null) SPEDFiscalBuilder.addE001(sped, false);
-    if (sped.getRE990() == null) SPEDFiscalBuilder.addE990(sped, 0);
-    totalfile += block = sped.getRE001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRE990().setR02_QTD_LIN_E(block);
-
-    // Bloco G
-    if (sped.getRG001() == null) SPEDFiscalBuilder.addG001(sped, false);
-    if (sped.getRG990() == null) SPEDFiscalBuilder.addG990(sped, 0);
-    totalfile += block = sped.getRG001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRG990().setR02_QTD_LIN_G(block);
-
-    // Bloco H
-    if (sped.getRH001() == null) SPEDFiscalBuilder.addH001(sped, false);
-    if (sped.getRH990() == null) SPEDFiscalBuilder.addH990(sped, 0);
-    totalfile += block = sped.getRH001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRH990().setR02_QTD_LIN_H(block);
-
-    // Bloco K
-    if (sped.getRK001() == null) SPEDFiscalBuilder.addK001(sped, false);
-    if (sped.getRK990() == null) SPEDFiscalBuilder.addK990(sped, 0);
-    totalfile += block = sped.getRK001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getRK990().setR02_QTD_LIN_K(block);
-
-    // Bloco 1
-    if (sped.getR1001() == null) SPEDFiscalBuilder.add1001(sped, false);
-    if (sped.getR1990() == null) SPEDFiscalBuilder.add1990(sped, 0);
-    totalfile += block = sped.getR1001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
-    sped.getR1990().setR02_QTD_LIN_1(block);
-
-    // ENCERRAMENTO DO ARQUIVO - Cria o registro para que seja contabilizado no bloco 9, mas só o atualiza no final, depois que o bloco 9 for escrito.
-    if (sped.getR9999() == null) SPEDFiscalBuilder.add9999(sped, 0);
-
-    // Bloco 9
-    if (sped.getR9990() == null) SPEDFiscalBuilder.add9990(sped, 0); // Cria o fechamento antes para que seja contabilizado no método abaixo
-    // SPEDFiscalBuilder.add9001(sped, true); // Cria o bloco 9 sobre todos os registros criados
-    SPEDFiscalBuilder.add9001(sped); // Cria o bloco 9 sobre todos os registros criados
-
-    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que não está incluso. E soma o "9999" segundo o manual: "... Para este cálculo, o registro 9999, apesar de não pertencer ao Bloco 9, também deve ser contabilizado nesta soma."
-    sped.getR9990().setR02_QTD_LIN_9(block);
-
-    // ENCERRAMENTO DO ARQUIVO - atualização do conteúdo
-    sped.getR9999().setR02_QTD_LIN(totalfile);
-  }
-
-  /**
-   * Cria um registro automático, que conta todos os registros do {@link SPEDFiscalFile} automaticamente e cria os filhos 9900.
+   * Observações: Registro obrigatório
+   * <li>Nível hierárquico - 0</li>
+   * <li>Ocorrência – um por arquivo</li><Br>
    *
-   * @param sped
+   * @param r0001 Registro pai.
+   * @param r02_NOME Nome do contabilista.
+   * @param r03_CPF Número de inscrição do contabilista no CPF.
+   * @param r04_CRC Número de inscrição do contabilista no Conselho Regional de Contabilidade.
+   * @param r05_CNPJ Número de inscrição do escritório de contabilidade no CNPJ, se houver.
+   * @param r06_CEP Código de Endereçamento Postal.
+   * @param r07_END Logradouro e endereço do imóvel.
+   * @param r08_NUM Número do imóvel.
+   * @param r09_COMPL Dados complementares do endereço.
+   * @param r10_BAIRRO Bairro em que o imóvel está situado.
+   * @param r11_FONE Número do telefone (DDD+FONE).
+   * @param r12_FAX Número do fax.
+   * @param r13_EMAIL Endereço do correio eletrônico.
+   * @param r14_COD_MUN Código do município, conforme tabela IBGE.
    * @return
    * @throws RFWException
    */
-  @SuppressWarnings({ "rawtypes", "unchecked" })
-  public static SPEDFiscal9001 add9001(SPEDFiscalFile sped) throws RFWException {
-    /*
-     * ATENÇÃO: Este método sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo é recontabilizado.
-     */
-    SPEDFiscal9001 r9001 = new SPEDFiscal9001();
-    r9001.setR02_IND_MOV("0");
-
-    // Já nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado
-    sped.setR9001(r9001);
-
-    // Itera os registros de "sped"
-    final Field[] fields = sped.getClass().getDeclaredFields();
-    Arrays.sort(fields, SPEDRegister.fieldComparator);
-
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
-    for (int i = 0; i < fields.length; i++) {
-      Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
-        Object value = null;
-        try {
-          Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
-          value = mGet.invoke(sped);
-        } catch (Exception e) {
-          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
-        }
-        if (value != null) {
-          SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
-          if (regCounter == null) {
-            regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
-            r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
-          }
-          if (value instanceof LinkedHashMap) {
-            for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-            }
-          } else if (value instanceof ArrayList) {
-            for (Object spedReg : (ArrayList<?>) value) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-            }
-          } else if (value instanceof SPEDRegister) {
-            regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-            recursive9900Creater(sped, r9001, ((SPEDRegister) value));
-          }
-        }
-      }
+  public static SPEDFiscal0100 add0100(SPEDFiscal0001 r0001, String r02_NOME, String r03_CPF, String r04_CRC, String r05_CNPJ, String r06_CEP, String r07_END, String r08_NUM, String r09_COMPL, String r10_BAIRRO, String r11_FONE, String r12_FAX, String r13_EMAIL, String r14_COD_MUN) throws RFWException {
+    SPEDFiscal0100 r0100 = r0001.getR0100();
+    if (r0100 == null) {
+      r0100 = new SPEDFiscal0100(r0001.getSpedFile());
+      r0001.setR0100(r0100);
     }
 
-    // Remove todos os contadores registros que foram criados mas terminaram com contagem 0 - isso ocorre nos atributos com coleções vazias
-    final ArrayList mirrorList = new ArrayList(r9001.getR9900().values());
-    for (int i = 0; i < mirrorList.size(); i++) {
-      final SPEDFiscal9900 treg = (SPEDFiscal9900) mirrorList.get(i);
-      if (treg.getR03_QTD_REG_BLC() == 0) {
-        r9001.getR9900().remove(treg.getR02_REG_BLC());
-      }
-    }
-
-    // Depois de todos contabilizados atualizamos a quantidade do próprio registro 9900, dpeois que os zerados foram removidos
-    r9001.getR9900().get("9900").setR03_QTD_REG_BLC(r9001.getR9900().size());
-
-    return r9001;
+    r0100.setR02_NOME(r02_NOME);
+    r0100.setR03_CPF(r03_CPF);
+    r0100.setR04_CRC(r04_CRC);
+    r0100.setR05_CNPJ(r05_CNPJ);
+    r0100.setR06_CEP(r06_CEP);
+    r0100.setR07_END(r07_END);
+    r0100.setR08_NUM(r08_NUM);
+    r0100.setR09_COMPL(r09_COMPL);
+    r0100.setR10_BAIRRO(r10_BAIRRO);
+    r0100.setR11_FONE(r11_FONE);
+    r0100.setR12_FAX(r12_FAX);
+    r0100.setR13_EMAIL(r13_EMAIL);
+    r0100.setR14_COD_MUN(r14_COD_MUN);
+    return r0100;
   }
 
-  public static SPEDFiscal9900 addChild9900(SPEDFiscal9001 r9001, String block, Integer count) throws RFWException {
-    SPEDFiscal9900 r9900 = r9001.getR9900().get(block);
-    if (r9900 == null) {
-      r9900 = new SPEDFiscal9900();
-      r9001.getR9900().put(block, r9900);
+  /**
+   * REGISTRO H001: ABERTURA DO BLOCO H<Br>
+   * <Br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li><Br>
+   * <br>
+   *
+   * @param sped Arquivo do SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalH001 addH001(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalH001 rh001 = sped.getRH001();
+    if (rh001 == null) {
+      rh001 = new SPEDFiscalH001(sped);
+      sped.setRH001(rh001);
     }
-    r9900.setR02_REG_BLC(block);
-    r9900.setR03_QTD_REG_BLC(count);
-
-    return r9900;
+    return rh001;
   }
 
-  public static void recursive9900Creater(SPEDFiscalFile sped, SPEDFiscal9001 r9001, SPEDRegister reg) throws RFWException {
-    // Itera os registros de "sped"
-    final Field[] fields = reg.getClass().getDeclaredFields();
-    Arrays.sort(fields, SPEDRegister.fieldComparator);
-
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
-    for (int i = 0; i < fields.length; i++) {
-      Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
-        Object value = null;
-        try {
-          Method mGet = reg.getClass().getMethod("getR" + f.getName().substring(1));
-          value = mGet.invoke(reg);
-        } catch (Exception e) {
-          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
-        }
-        if (value != null) {
-          SPEDFiscal9900 regCounter = r9001.getR9900().get(f.getName().substring(1).toUpperCase());
-          if (regCounter == null) {
-            regCounter = addChild9900(r9001, f.getName().substring(1).toUpperCase(), 0);
-            r9001.getR9900().put(f.getName().substring(1).toUpperCase(), regCounter);
-          }
-          if (value instanceof LinkedHashMap) {
-            for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-            }
-          } else if (value instanceof ArrayList) {
-            for (Object spedReg : (ArrayList<?>) value) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-              recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
-            }
-          } else if (value instanceof SPEDRegister) {
-            regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
-            recursive9900Creater(sped, r9001, ((SPEDRegister) value));
-          }
-        }
-      }
+  /**
+   * REGISTRO H005: TOTAIS DO INVENTÁRIO<br>
+   * <Br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência – 1:N</li><Br>
+   * <Br>
+   *
+   * @param rh001 Registro pai.
+   * @param uniqueID Identificador único do registro para identificação do registro internamente no desenvolvimento. Conteúdo não é enviado ou escrito no conteúdo do arquivo SPED.
+   * @param r02_DT_INV Data do inventário.
+   * @param r03_VL_INV Valor total do estoque.
+   * @param r04_MOT_INV Informe o motivo do Inventário:
+   *          <li>01 – No final no período;</li>
+   *          <li>02 – Na mudança de forma de tributação da mercadoria (ICMS);</li>
+   *          <li>03 – Na solicitação da baixa cadastral, paralisação temporária e outras situações;</li>
+   *          <li>04 – Na alteração de regime de pagamento – condição do contribuinte;</li>
+   *          <li>05 – Por determinação dos fiscos;</li>
+   *          <li>06 – Para controle das mercadorias sujeitas ao regime de substituição tributária – restituição/ ressarcimento/ complementação.</li>
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalH005 addH005(SPEDFiscalH001 rh001, String uniqueID, LocalDate r02_DT_INV, BigDecimal r03_VL_INV, String r04_MOT_INV) throws RFWException {
+    SPEDFiscalH005 rh005 = rh001.getRh005().get(uniqueID);
+    if (rh005 == null) {
+      rh005 = new SPEDFiscalH005(rh001.getSpedFile());
+      rh001.getRh005().put(uniqueID, rh005);
     }
+
+    rh005.setR02_DT_INV(r02_DT_INV);
+    rh005.setR03_VL_INV(r03_VL_INV);
+    rh005.setR04_MOT_INV(r04_MOT_INV);
+    return rh005;
+  }
+
+  /**
+   * REGISTRO H010: INVENTÁRIO.<bR>
+   * Observações:
+   * <li>Nível hierárquico - 3</li>
+   * <li>Ocorrência - 1:N</li>
+   *
+   * @param rh005 Registro pai.
+   * @param uniqueID Identificador único do registro para identificação do registro internamente no desenvolvimento. Conteúdo não é enviado ou escrito no conteúdo do arquivo SPED.
+   * @param r02_COD_ITEM Código do item (campo 02 do Registro 0200).
+   * @param r03_UNID Unidade do item.
+   * @param r04_QTD Quantidade do item.
+   * @param r05_VL_UNIT Valor unitário do item.
+   * @param r06_VL_ITEM Valor do item.
+   * @param r07_IND_PROP Indicador de propriedade/posse do item:
+   *          <li>0- Item de propriedade do informante e em seu poder;
+   *          <li>1- Item de propriedade do informante em posse de terceiros;
+   *          <li>2- Item de propriedade de terceiros em posse do informante
+   * @param r08_COD_PART Código do participante (campo 02 do Registro 0150):
+   *          <li>proprietário/possuidor que não seja o informante do arquivo
+   * @param r09_TXT_COMPL Descrição complementar
+   * @param r10_COD_CTA Código da conta analítica contábil debitada/creditada
+   * @param r11_VL_ITEM_IR Valor do item para efeitos do Imposto de Renda.
+   * @return
+   * @throws RFWException
+   * @throws RFWException
+   */
+  public static SPEDFiscalH010 addH010(SPEDFiscalH005 rh005, String uniqueID, String r02_COD_ITEM, String r03_UNID, BigDecimal r04_QTD, BigDecimal r05_VL_UNIT, BigDecimal r06_VL_ITEM, String r07_IND_PROP, String r08_COD_PART, String r09_TXT_COMPL, String r10_COD_CTA, BigDecimal r11_VL_ITEM_IR) throws RFWException, RFWException {
+    SPEDFiscalH010 rh010 = rh005.getRh010().get(uniqueID);
+    if (rh010 == null) {
+      rh010 = new SPEDFiscalH010(rh005.getSpedFile());
+      rh005.getRh010().put(uniqueID, rh010);
+    }
+    rh010.setR02_COD_ITEM(r02_COD_ITEM);
+    rh010.setR03_UNID(r03_UNID);
+    rh010.setR04_QTD(r04_QTD);
+    rh010.setR05_VL_UNIT(r05_VL_UNIT);
+    rh010.setR06_VL_ITEM(r06_VL_ITEM);
+    rh010.setR07_IND_PROP(r07_IND_PROP);
+    rh010.setR08_COD_PART(r08_COD_PART);
+    rh010.setR09_TXT_COMPL(r09_TXT_COMPL);
+    rh010.setR10_COD_CTA(r10_COD_CTA);
+    rh010.setR11_VL_ITEM_IR(r11_VL_ITEM_IR);
+
+    return rh010;
+  }
+
+  /**
+   * REGISTRO 0190: IDENTIFICAÇÃO DAS UNIDADES DE MEDIDA<br>
+   * Observações:
+   * <li>Nível hierárquico: 2</li>
+   * <li>Ocorrência: vários por arquivo</li>
+   *
+   * @param r0001 Registro pai.
+   * @param unitSymbol Simbolo da Unidade de metida (uniqueID).
+   * @param unitName Descrição / Nome da unidade de medida.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0190 add0190(SPEDFiscal0001 r0001, String unitSymbol, String unitName) throws RFWException {
+    SPEDFiscal0190 r0190 = r0001.getR0190().get(unitSymbol);
+    if (r0190 == null) {
+      r0190 = new SPEDFiscal0190(r0001.getSpedFile());
+      r0001.getR0190().put(unitSymbol, r0190);
+      r0190.setR02_UNID(unitSymbol);
+      r0190.setR03_DESCR(unitName);
+    }
+    return r0190;
+  }
+
+  /**
+   * REGISTRO 0200: TABELA DE IDENTIFICAÇÃO DO ITEM (PRODUTO E SERVIÇOS)<br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência - vários (por arquivo)</li>
+   * <li>Tenta criar o registro 0190 para registrar a unidade de medida mencionada no atributo r06.
+   *
+   *
+   * @param sped Arquivo SPED.
+   * @param r02_COD_ITEM Código do item. (uniqueID)
+   * @param r03_DESCR_ITEM Descrição do item.
+   * @param r04_COD_BARRA Representação alfanumérico do código de barra do produto, se houver.
+   * @param r05_COD_ANT_ITEM Código anterior do item com relação à última informação apresentada
+   * @param r06_UNID_INV Unidade de medida utilizada na quantificação de estoques.
+   * @param r07_TIPO_ITEM Tipo do item – Atividades Industriais, Comerciais e Serviços:
+   *          <li>00 – Mercadoria para Revenda;
+   *          <li>01 – Matéria-prima;
+   *          <li>02 – Embalagem;
+   *          <li>03 – Produto em Processo;
+   *          <li>04 – Produto Acabado;
+   *          <li>05 – Subproduto;
+   *          <li>06 – Produto Intermediário;
+   *          <li>07 – Material de Uso e Consumo;
+   *          <li>08 – Ativo Imobilizado;
+   *          <li>09 – Serviços;
+   *          <li>10 – Outros insumos;
+   *          <li>99 – Outras
+   * @param r08_COD_NCM Código da Nomenclatura Comum do Mercosul
+   * @param r09_EX_IPI Código EX, conforme a TIPI
+   * @param r10_COD_GEN Código do gênero do item, conforme a Tabela 4.2.1
+   * @param r11_COD_LST Código do serviço conforme lista do Anexo I da Lei Complementar Federal nº 116/03.
+   * @param r12_ALIQ_ICMS Alíquota de ICMS aplicável ao item nas operações internas
+   * @param r13_CEST Código Especificador da Substituição Tributária
+   * @param r190_r03_DESCR Descrição da unidade de medida:<br>
+   *          <li>Utilizado em conjunto com outras informações para tentar gerar automaticamente o Registro 0190.</li>
+   *
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0200 add0200(SPEDFiscalFile sped, String r02_COD_ITEM, String r03_DESCR_ITEM, String r04_COD_BARRA, String r05_COD_ANT_ITEM, String r06_UNID_INV, String r07_TIPO_ITEM, String r08_COD_NCM, String r09_EX_IPI, String r10_COD_GEN, String r11_COD_LST, BigDecimal r12_ALIQ_ICMS, String r13_CEST, String r190_r03_DESCR) throws RFWException {
+    final SPEDFiscal0001 r0001 = SPEDFiscalBuilder.add0001(sped);
+
+    add0190(sped.getR0001(), r06_UNID_INV, r190_r03_DESCR);
+
+    SPEDFiscal0200 r0200 = r0001.getR0200().get(r02_COD_ITEM);
+    if (r0200 == null) {
+      r0200 = new SPEDFiscal0200(sped);
+      r0001.getR0200().put(r02_COD_ITEM, r0200);
+    }
+
+    r0200.setR02_COD_ITEM(r02_COD_ITEM);
+    r0200.setR03_DESCR_ITEM(r03_DESCR_ITEM);
+    r0200.setR04_COD_BARRA(r04_COD_BARRA);
+    r0200.setR05_COD_ANT_ITEM(r05_COD_ANT_ITEM);
+    r0200.setR06_UNID_INV(r06_UNID_INV);
+    r0200.setR07_TIPO_ITEM(r07_TIPO_ITEM);
+    r0200.setR08_COD_NCM(r08_COD_NCM);
+    r0200.setR09_EX_IPI(r09_EX_IPI);
+    r0200.setR10_COD_GEN(r10_COD_GEN);
+    r0200.setR11_COD_LST(r11_COD_LST);
+    r0200.setR12_ALIQ_ICMS(r12_ALIQ_ICMS);
+    r0200.setR13_CEST(r13_CEST);
+    return r0200;
+  }
+
+  /**
+   * REGISTRO 0200: TABELA DE IDENTIFICAÇÃO DO ITEM (PRODUTO E SERVIÇOS)<br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência - vários (por arquivo)</li>
+   * <li>Por receber o registro 0190 diretamente, o atributo R06 é extraído diretamente do registro de unidade de medida.
+   *
+   * @param r0190 Registro 0190 com as informações da unidade de medida do item.
+   * @param r02_COD_ITEM Código do item. (uniqueID)
+   * @param r03_DESCR_ITEM Descrição do item.
+   * @param r04_COD_BARRA Representação alfanumérico do código de barra do produto, se houver.
+   * @param r05_COD_ANT_ITEM Código anterior do item com relação à última informação apresentada
+   * @param r07_TIPO_ITEM Tipo do item – Atividades Industriais, Comerciais e Serviços:
+   *          <li>00 – Mercadoria para Revenda;
+   *          <li>01 – Matéria-prima;
+   *          <li>02 – Embalagem;
+   *          <li>03 – Produto em Processo;
+   *          <li>04 – Produto Acabado;
+   *          <li>05 – Subproduto;
+   *          <li>06 – Produto Intermediário;
+   *          <li>07 – Material de Uso e Consumo;
+   *          <li>08 – Ativo Imobilizado;
+   *          <li>09 – Serviços;
+   *          <li>10 – Outros insumos;
+   *          <li>99 – Outras
+   * @param r08_COD_NCM Código da Nomenclatura Comum do Mercosul
+   * @param r09_EX_IPI Código EX, conforme a TIPI
+   * @param r10_COD_GEN Código do gênero do item, conforme a Tabela 4.2.1
+   * @param r11_COD_LST Código do serviço conforme lista do Anexo I da Lei Complementar Federal nº 116/03.
+   * @param r12_ALIQ_ICMS Alíquota de ICMS aplicável ao item nas operações internas
+   * @param r13_CEST Código Especificador da Substituição Tributária
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0200 add0200(SPEDFiscal0190 r0190, String r02_COD_ITEM, String r03_DESCR_ITEM, String r04_COD_BARRA, String r05_COD_ANT_ITEM, String r07_TIPO_ITEM, String r08_COD_NCM, String r09_EX_IPI, String r10_COD_GEN, String r11_COD_LST, BigDecimal r12_ALIQ_ICMS, String r13_CEST) throws RFWException {
+    final SPEDFiscal0001 r0001 = SPEDFiscalBuilder.add0001((SPEDFiscalFile) r0190.getSpedFile());
+
+    SPEDFiscal0200 r0200 = r0001.getR0200().get(r02_COD_ITEM);
+    if (r0200 == null) {
+      r0200 = new SPEDFiscal0200(r0190.getSpedFile());
+      r0001.getR0200().put(r02_COD_ITEM, r0200);
+    }
+
+    r0200.setR02_COD_ITEM(r02_COD_ITEM);
+    r0200.setR03_DESCR_ITEM(r03_DESCR_ITEM);
+    r0200.setR04_COD_BARRA(r04_COD_BARRA);
+    r0200.setR05_COD_ANT_ITEM(r05_COD_ANT_ITEM);
+    r0200.setR06_UNID_INV(r0190.getR02_UNID());
+    r0200.setR07_TIPO_ITEM(r07_TIPO_ITEM);
+    r0200.setR08_COD_NCM(r08_COD_NCM);
+    r0200.setR09_EX_IPI(r09_EX_IPI);
+    r0200.setR10_COD_GEN(r10_COD_GEN);
+    r0200.setR11_COD_LST(r11_COD_LST);
+    r0200.setR12_ALIQ_ICMS(r12_ALIQ_ICMS);
+    r0200.setR13_CEST(r13_CEST);
+    return r0200;
+  }
+
+  /**
+   * REGISTRO H020: INFORMAÇÃO COMPLEMENTAR DO INVENTÁRIO Observações:
+   * <li>Nível hierárquico: 2</li>
+   * <li>Ocorrência: vários por arquivo</li>
+   *
+   * @param r02_CST_ICMS
+   * @param r03_BC_ICMS
+   * @param r04_VL_ICMS
+   *
+   * @param rh010 Registro pai.
+   * @param r02_CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1
+   * @param r03_BC_ICMS Informe a base de cálculo do ICMS
+   * @param r04_VL_ICMS Informe o valor do ICMS a ser debitado ou creditado
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalH020 addH020(SPEDFiscalH010 rh010, String r02_CST_ICMS, BigDecimal r03_BC_ICMS, BigDecimal r04_VL_ICMS) throws RFWException {
+    SPEDFiscalH020 rh020 = new SPEDFiscalH020(rh010.getSpedFile());
+    rh010.getRh020().add(rh020);
+    rh020.setR02_CST_ICMS(r02_CST_ICMS);
+    rh020.setR03_BC_ICMS(r03_BC_ICMS);
+    rh020.setR04_VL_ICMS(r04_VL_ICMS);
+    return rh020;
+  }
+
+  /**
+   * REGISTRO K001: ABERTURA DO BLOCO K<Br>
+   * <Br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li><Br>
+   * <br>
+   *
+   * @param sped Arquivo do SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalK001 addK001(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalK001 rk001 = sped.getRK001();
+    if (rk001 == null) {
+      rk001 = new SPEDFiscalK001(sped);
+      sped.setRK001(rk001);
+    }
+    return rk001;
+  }
+
+  /**
+   * REGISTRO K100: PERÍODO DE APURAÇÃO DO ICMS/IPI<br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência – Vários</li>
+   *
+   * @param rk001 Registro Pai
+   * @param r02_DT_INI Data inicial a que a apuração se refere
+   * @param r03_DT_FIN Data final a que a apuração se refere
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalK100 addK100(SPEDFiscalK001 rk001, LocalDate r02_DT_INI, LocalDate r03_DT_FIN) throws RFWException {
+    SPEDFiscal0000 r0000 = ((SPEDFiscalFile) rk001.getSpedFile()).getR0000();
+
+    String uniqueID = r0000.getR04_DT_INI().atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli() + "|" + r0000.getR05_DT_FIN().atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();
+
+    SPEDFiscalK100 rk100 = rk001.getRk100().get(uniqueID);
+    if (rk100 == null) {
+      rk100 = new SPEDFiscalK100(rk001.getSpedFile());
+      rk001.getRk100().put(uniqueID, rk100);
+      rk100.setR02_DT_INI(r02_DT_INI);
+      rk100.setR03_DT_FIN(r03_DT_FIN);
+    }
+    return rk100;
   }
 }

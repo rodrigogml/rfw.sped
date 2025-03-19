@@ -2,7 +2,9 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import java.util.LinkedHashMap;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -14,6 +16,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscalH001 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscalH001(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * REGISTRO H005: TOTAIS DO INVENTÁRIO<br>
@@ -72,5 +78,16 @@ public class SPEDFiscalH001 extends SPEDRegister {
    */
   public LinkedHashMap<String, SPEDFiscalH005> getRh005() {
     return rh005;
+  }
+
+  @Override
+  public boolean calculateFields(String uuid) throws RFWException {
+    boolean calculated = super.calculateFields(uuid);
+    if (calculated) {
+      // Verifica se há conteúdo nos registros
+      boolean hasContent = !rh005.isEmpty();
+      r02_IND_MOV = hasContent ? "0" : "1";
+    }
+    return calculated;
   }
 }

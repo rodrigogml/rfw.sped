@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.contrib;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -16,14 +17,15 @@ public class SPEDContribC170 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
 
-  public SPEDContribC170(SPEDContribC100 parent) {
-    this.parent = parent;
-  }
-
   /**
    * Salva referência para o registro pai.
    */
   private final SPEDContribC100 parent;
+
+  public SPEDContribC170(SPEDFile spedFile, SPEDContribC100 parent) {
+    super(spedFile);
+    this.parent = parent;
+  }
 
   /**
    * Número seqüencial do item no documento fiscal N 003 - S

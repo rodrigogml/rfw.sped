@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.LinkedHashMap;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -12,6 +13,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscalK100 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscalK100(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 DT_INI Data inicial a que a apuração se refere N 8 - O

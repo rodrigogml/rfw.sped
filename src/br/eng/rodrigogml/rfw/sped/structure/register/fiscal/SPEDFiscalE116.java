@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -51,6 +52,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscalE116 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscalE116(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 COD_OR Código da obrigação a recolher, conforme a Tabela 5.4 C 003* - O

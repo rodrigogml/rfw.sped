@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.contrib;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -15,6 +16,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContribM105 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContribM105(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * Código da Base de Cálculo do Crédito apurado no período, conforme a Tabela 4.3.7. C 002* - S

@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
-import br.eng.rodrigogml.rfw.sped.structure.SPEDContribFile;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDContribFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0110;
@@ -68,7 +68,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib0001 make0001(SPEDContribFile sped, boolean hasContent) {
     SPEDContrib0001 r0001 = sped.getR0001();
     if (r0001 == null) {
-      r0001 = new SPEDContrib0001();
+      r0001 = new SPEDContrib0001(sped);
       sped.setR0001(r0001);
       if (hasContent) {
         r0001.setR02_IND_MOV("0");
@@ -82,7 +82,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib0990 make0990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContrib0990 r0990 = sped.getR0990();
     if (r0990 == null) {
-      r0990 = new SPEDContrib0990();
+      r0990 = new SPEDContrib0990(sped);
       sped.setR0990(r0990);
       r0990.setR02_QTD_LIN_0(lineCount);
     }
@@ -92,7 +92,7 @@ public class SPEDContribBuilder {
   public static SPEDContribA001 makeA001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribA001 rA001 = sped.getRA001();
     if (rA001 == null) {
-      rA001 = new SPEDContribA001();
+      rA001 = new SPEDContribA001(sped);
       sped.setrA001(rA001);
       if (hasContent) {
         rA001.setR02_IND_MOV("0");
@@ -106,7 +106,7 @@ public class SPEDContribBuilder {
   public static SPEDContribA990 makeA990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribA990 ra990 = sped.getRA990();
     if (ra990 == null) {
-      ra990 = new SPEDContribA990();
+      ra990 = new SPEDContribA990(sped);
       sped.setrA990(ra990);
       ra990.setR02_QTD_LIN_A(lineCount);
     }
@@ -116,7 +116,7 @@ public class SPEDContribBuilder {
   public static SPEDContribC001 makeC001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribC001 rC001 = sped.getRC001();
     if (rC001 == null) {
-      rC001 = new SPEDContribC001();
+      rC001 = new SPEDContribC001(sped);
       sped.setrC001(rC001);
       if (hasContent) {
         rC001.setR02_IND_MOV("0");
@@ -130,7 +130,7 @@ public class SPEDContribBuilder {
   public static SPEDContribC990 makeC990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribC990 rc990 = sped.getRC990();
     if (rc990 == null) {
-      rc990 = new SPEDContribC990();
+      rc990 = new SPEDContribC990(sped);
       sped.setrC990(rc990);
       rc990.setR02_QTD_LIN_C(lineCount);
     }
@@ -140,7 +140,7 @@ public class SPEDContribBuilder {
   public static SPEDContribD001 makeD001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribD001 rD001 = sped.getRD001();
     if (rD001 == null) {
-      rD001 = new SPEDContribD001();
+      rD001 = new SPEDContribD001(sped);
       sped.setrD001(rD001);
       if (hasContent) {
         rD001.setR02_IND_MOV("0");
@@ -154,7 +154,7 @@ public class SPEDContribBuilder {
   public static SPEDContribD990 makeD990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribD990 rd990 = sped.getRD990();
     if (rd990 == null) {
-      rd990 = new SPEDContribD990();
+      rd990 = new SPEDContribD990(sped);
       sped.setrD990(rd990);
       rd990.setR02_QTD_LIN_D(lineCount);
     }
@@ -164,7 +164,7 @@ public class SPEDContribBuilder {
   public static SPEDContribF990 makeF990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribF990 rf990 = sped.getRF990();
     if (rf990 == null) {
-      rf990 = new SPEDContribF990();
+      rf990 = new SPEDContribF990(sped);
       sped.setrF990(rf990);
       rf990.setR02_QTD_LIN_F(lineCount);
     }
@@ -174,7 +174,7 @@ public class SPEDContribBuilder {
   public static SPEDContribI990 makeI990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribI990 ri990 = sped.getRI990();
     if (ri990 == null) {
-      ri990 = new SPEDContribI990();
+      ri990 = new SPEDContribI990(sped);
       sped.setrI990(ri990);
       ri990.setR02_QTD_LIN_I(lineCount);
     }
@@ -184,7 +184,7 @@ public class SPEDContribBuilder {
   public static SPEDContribI001 makeI001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribI001 rI001 = sped.getRI001();
     if (rI001 == null) {
-      rI001 = new SPEDContribI001();
+      rI001 = new SPEDContribI001(sped);
       sped.setrI001(rI001);
       if (hasContent) {
         rI001.setR02_IND_MOV("0");
@@ -198,7 +198,7 @@ public class SPEDContribBuilder {
   public static SPEDContribP001 makeP001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribP001 rP001 = sped.getRP001();
     if (rP001 == null) {
-      rP001 = new SPEDContribP001();
+      rP001 = new SPEDContribP001(sped);
       sped.setrP001(rP001);
       if (hasContent) {
         rP001.setR02_IND_MOV("0");
@@ -212,7 +212,7 @@ public class SPEDContribBuilder {
   public static SPEDContribF001 makeF001(SPEDContribFile sped, boolean hasContent) {
     SPEDContribF001 rF001 = sped.getRF001();
     if (rF001 == null) {
-      rF001 = new SPEDContribF001();
+      rF001 = new SPEDContribF001(sped);
       sped.setrF001(rF001);
       if (hasContent) {
         rF001.setR02_IND_MOV("0");
@@ -226,7 +226,7 @@ public class SPEDContribBuilder {
   public static SPEDContribM990 makeM990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribM990 rm990 = sped.getRM990();
     if (rm990 == null) {
-      rm990 = new SPEDContribM990();
+      rm990 = new SPEDContribM990(sped);
       sped.setrM990(rm990);
       rm990.setR02_QTD_LIN_M(lineCount);
     }
@@ -236,7 +236,7 @@ public class SPEDContribBuilder {
   public static SPEDContribP990 makeP990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContribP990 rp990 = sped.getRP990();
     if (rp990 == null) {
-      rp990 = new SPEDContribP990();
+      rp990 = new SPEDContribP990(sped);
       sped.setrP990(rp990);
       rp990.setR02_QTD_LIN_P(lineCount);
     }
@@ -246,7 +246,7 @@ public class SPEDContribBuilder {
   public static SPEDContribM001 makeM001(SPEDContribFile sped, boolean hasContent) throws RFWException {
     SPEDContribM001 rm001 = sped.getRM001();
     if (rm001 == null) {
-      rm001 = new SPEDContribM001();
+      rm001 = new SPEDContribM001(sped);
       sped.setrM001(rm001);
       if (hasContent) {
         rm001.setR02_IND_MOV("0");
@@ -260,7 +260,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib1001 make1001(SPEDContribFile sped, boolean hasContent) throws RFWException {
     SPEDContrib1001 r1001 = sped.getR1001();
     if (r1001 == null) {
-      r1001 = new SPEDContrib1001();
+      r1001 = new SPEDContrib1001(sped);
       sped.setR1001(r1001);
 
       if (hasContent) {
@@ -275,7 +275,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib1990 make1990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContrib1990 r1990 = sped.getR1990();
     if (r1990 == null) {
-      r1990 = new SPEDContrib1990();
+      r1990 = new SPEDContrib1990(sped);
       sped.setR1990(r1990);
       r1990.setR02_QTD_LIN_1(lineCount);
     }
@@ -285,7 +285,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib9990 make9990(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContrib9990 r9990 = sped.getR9990();
     if (r9990 == null) {
-      r9990 = new SPEDContrib9990();
+      r9990 = new SPEDContrib9990(sped);
       sped.setR9990(r9990);
       r9990.setR02_QTD_LIN_9(lineCount);
     }
@@ -295,7 +295,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib9999 make9999(SPEDContribFile sped, int lineCount) throws RFWException {
     SPEDContrib9999 r9999 = sped.getR9999();
     if (r9999 == null) {
-      r9999 = new SPEDContrib9999();
+      r9999 = new SPEDContrib9999(sped);
       sped.setR9999(r9999);
       r9999.setR02_QTD_LIN(lineCount);
     }
@@ -310,7 +310,7 @@ public class SPEDContribBuilder {
     /*
      * ATENÇÃO: Este método sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo é recontabilizado.
      */
-    SPEDContrib9001 r9001 = new SPEDContrib9001();
+    SPEDContrib9001 r9001 = new SPEDContrib9001(sped);
     r9001.setR02_IND_MOV("0");
 
     // Já nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado
@@ -373,7 +373,7 @@ public class SPEDContribBuilder {
   public static SPEDContrib9900 makeChild9900(SPEDContrib9001 r9001, String block, Integer count) throws RFWException {
     SPEDContrib9900 r9900 = r9001.getR9900().get(block);
     if (r9900 == null) {
-      r9900 = new SPEDContrib9900();
+      r9900 = new SPEDContrib9900(r9001.getSpedFile());
       r9001.getR9900().put(block, r9900);
     }
     r9900.setR02_REG_BLC(block);
@@ -533,14 +533,14 @@ public class SPEDContribBuilder {
         { // =======> REGISTRO M205: CONTRIBUIÇÃO PARA O PIS/PASEP A RECOLHER – DETALHAMENTO POR CÓDIGO DE RECEITA
           // Cria os registro M205 dependendo dos valores definidos no M200
           if (tm200.getR12_VL_CONT_CUM_REC().compareTo(BigDecimal.ZERO) > 0) {
-            SPEDContribM205 tm205 = new SPEDContribM205();
+            SPEDContribM205 tm205 = new SPEDContribM205(sped);
             tm205.setR02_NUM_CAMPO("12");
             tm205.setR03_COD_REC("810902");
             tm205.setR04_VL_DEBITO(tm200.getR12_VL_CONT_CUM_REC());
             tm200.getRm205().put("12", tm205);
           }
           if (tm200.getR08_VL_CONT_NC_REC().compareTo(BigDecimal.ZERO) > 0) {
-            SPEDContribM205 tm205 = new SPEDContribM205();
+            SPEDContribM205 tm205 = new SPEDContribM205(sped);
             tm205.setR02_NUM_CAMPO("08");
             tm205.setR03_COD_REC("691201");
             tm205.setR04_VL_DEBITO(tm200.getR08_VL_CONT_NC_REC());
@@ -588,14 +588,14 @@ public class SPEDContribBuilder {
         { // =======> REGISTRO M205: CONTRIBUIÇÃO PARA O PIS/PASEP A RECOLHER – DETALHAMENTO POR CÓDIGO DE RECEITA
           // Cria os registro M205 dependendo dos valores definidos no M200
           if (tm600.getR12_VL_CONT_CUM_REC().compareTo(BigDecimal.ZERO) > 0) {
-            SPEDContribM605 tm605 = new SPEDContribM605();
+            SPEDContribM605 tm605 = new SPEDContribM605(sped);
             tm605.setR02_NUM_CAMPO("12");
             tm605.setR03_COD_REC("217201");
             tm605.setR04_VL_DEBITO(tm600.getR12_VL_CONT_CUM_REC());
             tm600.getRm605().put("12", tm605);
           }
           if (tm600.getR08_VL_CONT_NC_REC().compareTo(BigDecimal.ZERO) > 0) {
-            SPEDContribM605 tm605 = new SPEDContribM605();
+            SPEDContribM605 tm605 = new SPEDContribM605(sped);
             tm605.setR02_NUM_CAMPO("08");
             tm605.setR03_COD_REC("585601");
             tm605.setR04_VL_DEBITO(tm600.getR08_VL_CONT_NC_REC());

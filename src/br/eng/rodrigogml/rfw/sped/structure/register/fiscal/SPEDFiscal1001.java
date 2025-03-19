@@ -1,6 +1,8 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -12,6 +14,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscal1001 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscal1001(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * REGISTRO 1010: OBRIGATORIEDADE DE REGISTROS DO BLOCO 1.
@@ -25,7 +31,7 @@ public class SPEDFiscal1001 extends SPEDRegister {
    * N 001 - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
-  private String r02_IND_MOV = null;
+  private String r02_IND_MOV_AUTO = null;
 
   @Override
   public String get01_Register() {
@@ -42,8 +48,8 @@ public class SPEDFiscal1001 extends SPEDRegister {
    *         0- Bloco com dados informados;<br>
    *         1- Bloco sem dados informados
    */
-  public String getR02_IND_MOV() {
-    return r02_IND_MOV;
+  public String getR02_IND_MOV_AUTO() {
+    return r02_IND_MOV_AUTO;
   }
 
   /**
@@ -52,12 +58,12 @@ public class SPEDFiscal1001 extends SPEDRegister {
    * 1- Bloco sem dados informados.<Br>
    * N 001 - O.
    *
-   * @param r02_IND_MOV the new 02 IND_MOV Indicador de movimento:<br>
+   * @param r02_IND_MOV_AUTO the new 02 IND_MOV Indicador de movimento:<br>
    *          0- Bloco com dados informados;<br>
    *          1- Bloco sem dados informados
    */
-  public void setR02_IND_MOV(String r02_IND_MOV) {
-    this.r02_IND_MOV = r02_IND_MOV;
+  public void setR02_IND_MOV_AUTO(String r02_IND_MOV_AUTO) {
+    this.r02_IND_MOV_AUTO = r02_IND_MOV_AUTO;
   }
 
   /**
@@ -76,6 +82,19 @@ public class SPEDFiscal1001 extends SPEDRegister {
    */
   public void setR1010(SPEDFiscal1010 r1010) {
     this.r1010 = r1010;
+  }
+
+  @Override
+  public boolean calculateFields(String uuid) throws RFWException {
+    boolean calculated = super.calculateFields(uuid);
+    if (calculated) {
+      if (this.r1010 != null) {
+        this.r02_IND_MOV_AUTO = "0";
+      } else {
+        this.r02_IND_MOV_AUTO = "1";
+      }
+    }
+    return calculated;
   }
 
 }

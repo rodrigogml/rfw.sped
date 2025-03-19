@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -14,6 +15,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscalC850 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscalC850(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1 N 003 - O

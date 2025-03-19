@@ -1,6 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -12,6 +13,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscalE990 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscalE990(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 QTD_LIN_E Quantidade total de linhas do Bloco E N - - O O

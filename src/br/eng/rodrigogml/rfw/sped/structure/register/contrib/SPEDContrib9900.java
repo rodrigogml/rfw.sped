@@ -1,6 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.contrib;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -13,6 +14,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContrib9900 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContrib9900(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 REG_BLC Registro que será totalizado no próximo campo. C 004 - O

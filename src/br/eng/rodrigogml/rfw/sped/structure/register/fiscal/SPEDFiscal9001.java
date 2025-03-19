@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 import java.util.LinkedHashMap;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -14,6 +15,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscal9001 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscal9001(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   private final LinkedHashMap<String, SPEDFiscal9900> r9900 = new LinkedHashMap<String, SPEDFiscal9900>();
 

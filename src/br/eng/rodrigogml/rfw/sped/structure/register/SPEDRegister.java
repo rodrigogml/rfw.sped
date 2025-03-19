@@ -24,6 +24,7 @@ import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
 import br.eng.rodrigogml.rfw.kernel.utils.RUMail;
 import br.eng.rodrigogml.rfw.kernel.utils.RUTypes;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 
 /**
  * Description: Esta classe cria a sistemática de base para criar os registros dos arquivos do SPED. Permite montar o arquivo de forma estrutural, campo a campo, até o momento da escrita. Permitindo sua manipulação e validação pelas annotations de definição.<br>
@@ -42,12 +43,26 @@ public abstract class SPEDRegister implements Serializable {
    */
   private String lastUUID = null;
 
+  /**
+   * Referência para o arquivo SPED à qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos métodos de cálculo e validação que precisam navegar no arquivo.
+   */
+  private final SPEDFile spedFile;
+
   public static final Comparator<Field> fieldComparator = new Comparator<Field>() {
     @Override
     public int compare(Field o1, Field o2) {
       return o1.getName().compareTo(o2.getName());
     }
   };
+
+  /**
+   * Cria um novo registro.
+   *
+   * @param spedFile Referência para o arquivo SPED ao qual o registro pertence.
+   */
+  public SPEDRegister(SPEDFile spedFile) {
+    this.spedFile = spedFile;
+  }
 
   public abstract String get01_Register();
 
@@ -280,5 +295,14 @@ public abstract class SPEDRegister implements Serializable {
     } catch (RFWException e) {
       return RFWBundle.get(e);
     }
+  }
+
+  /**
+   * # referência para o arquivo SPED à qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos métodos de cálculo e validação que precisam navegar no arquivo.
+   *
+   * @return the referência para o arquivo SPED à qual esse registro pertence
+   */
+  public SPEDFile getSpedFile() {
+    return spedFile;
   }
 }

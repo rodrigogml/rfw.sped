@@ -1,4 +1,4 @@
-package br.eng.rodrigogml.rfw.sped.structure;
+package br.eng.rodrigogml.rfw.sped.structure.file;
 
 import java.io.Serializable;
 
@@ -33,7 +33,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContribP990;
  * @author Rodrigo Leitão
  * @since 10.0 (22 de jul. de 2023)
  */
-public class SPEDContribFile implements Serializable {
+public class SPEDContribFile implements Serializable, SPEDFile {
 
   /**
    *

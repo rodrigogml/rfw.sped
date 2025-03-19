@@ -3,6 +3,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.contrib;
 import java.math.BigDecimal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -15,6 +16,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDContrib0111 extends SPEDRegister {
 
   private static final long serialVersionUID = -4577645791345055257L;
+
+  public SPEDContrib0111(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * Receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S

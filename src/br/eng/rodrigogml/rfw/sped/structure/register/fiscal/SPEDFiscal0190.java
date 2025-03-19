@@ -1,6 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -12,6 +13,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscal0190 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscal0190(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * 02 UNID Código da unidade de medida C 006 - O

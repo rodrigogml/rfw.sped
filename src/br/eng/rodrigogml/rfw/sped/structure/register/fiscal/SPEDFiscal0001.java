@@ -2,7 +2,9 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import java.util.LinkedHashMap;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -14,6 +16,10 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 public class SPEDFiscal0001 extends SPEDRegister {
 
   private static final long serialVersionUID = 6202927272082549003L;
+
+  public SPEDFiscal0001(SPEDFile spedFile) {
+    super(spedFile);
+  }
 
   /**
    * REGISTRO 0005: DADOS COMPLEMENTARES DA ENTIDADE
@@ -206,4 +212,24 @@ public class SPEDFiscal0001 extends SPEDRegister {
   public LinkedHashMap<String, SPEDFiscal0500> getR0500() {
     return r0500;
   }
+
+  @Override
+  public boolean calculateFields(String uuid) throws RFWException {
+    boolean calculated = super.calculateFields(uuid);
+    if (calculated) {
+      // Verifica se há conteúdo nos registros
+      boolean hasContent = r0005 != null ||
+          r0100 != null ||
+          !r0150.isEmpty() ||
+          !r0190.isEmpty() ||
+          !r0200.isEmpty() ||
+          !r0400.isEmpty() ||
+          !r0450.isEmpty() ||
+          !r0460.isEmpty() ||
+          !r0500.isEmpty();
+      r02_IND_MOV = hasContent ? "0" : "1";
+    }
+    return calculated;
+  }
+
 }
