@@ -4,16 +4,34 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 
+import br.eng.rodrigogml.rfw.kernel.RFW;
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
+import br.eng.rodrigogml.rfw.kernel.preprocess.PreProcess;
+import br.eng.rodrigogml.rfw.kernel.utils.RUTypes;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0005;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0100;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0150;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0190;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0200;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0400;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0450;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0460;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0500;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC800;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC850;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC855;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC857;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC860;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC890;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH005;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH010;
@@ -346,7 +364,7 @@ public class SPEDFiscalBuilder {
    * @throws RFWException
    * @throws RFWException
    */
-  public static SPEDFiscalH010 addH010(SPEDFiscalH005 rh005, String uniqueID, String r02_COD_ITEM, String r03_UNID, BigDecimal r04_QTD, BigDecimal r05_VL_UNIT, BigDecimal r06_VL_ITEM, String r07_IND_PROP, String r08_COD_PART, String r09_TXT_COMPL, String r10_COD_CTA, BigDecimal r11_VL_ITEM_IR) throws RFWException, RFWException {
+  public static SPEDFiscalH010 addH010(SPEDFiscalH005 rh005, String uniqueID, String r02_COD_ITEM, String r03_UNID, BigDecimal r04_QTD, BigDecimal r05_VL_UNIT, BigDecimal r06_VL_ITEM, String r07_IND_PROP, String r08_COD_PART, String r09_TXT_COMPL, String r10_COD_CTA, BigDecimal r11_VL_ITEM_IR) throws RFWException {
     SPEDFiscalH010 rh010 = rh005.getRh010().get(uniqueID);
     if (rh010 == null) {
       rh010 = new SPEDFiscalH010(rh005.getSpedFile());
@@ -393,8 +411,9 @@ public class SPEDFiscalBuilder {
    * REGISTRO 0200: TABELA DE IDENTIFICAÇÃO DO ITEM (PRODUTO E SERVIÇOS)<br>
    * Observações:
    * <li>Nível hierárquico - 2</li>
-   * <li>Ocorrência - vários (por arquivo)</li>
-   * <li>Tenta criar o registro 0190 para registrar a unidade de medida mencionada no atributo r06.
+   * <li>Ocorrência - vários (por arquivo)</li> <Br>
+   * <bR>
+   * Tenta criar o registro 0190 para registrar a unidade de medida mencionada no atributo r06.
    *
    *
    * @param sped Arquivo SPED.
@@ -583,5 +602,578 @@ public class SPEDFiscalBuilder {
       rk100.setR03_DT_FIN(r03_DT_FIN);
     }
     return rk100;
+  }
+
+  /**
+   * REGISTRO C850: REGISTRO ANALÍTICO DO CF-E-SAT (CODIGO 59)<bR>
+   * Observações:
+   * <li>Nível hierárquico: 3</li>
+   * <li>Ocorrência – 1:N</li><Br>
+   * <Br>
+   * A documentação determinar que esse registro não deve se repetir para os mesmos: r02_CST_ICMS, r03_CFOP e r04_ALIQ_ICMS. Logo, o método considera o valor recebido nos três arqumentos para gerar a chave de unicidade e identificação no registro pai, com o seguinte código:<br>
+   * <code>String uniqueID = r02_CST_ICMS + "|" + r03_CFOP + "|" + r04_ALIQ_ICMS.setScale(2, RFW.getRoundingMode()).toString();</code><Br>
+   * <Br>
+   * Considerando:
+   * <li>r04_ALIQ_ICMS - se passado nulo, será substituído por BigDecimal.Zero para gerar a chave.</li> <Br>
+   * <br>
+   *
+   * @param rc800 Registro pai.
+   * @param r02_CST_ICMS Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1.
+   * @param r03_CFOP Código Fiscal de Operação e Prestação do agrupamento de itens.
+   * @param r04_ALIQ_ICMS Alíquota do ICMS.
+   * @param r05_VL_OPR_SUM (O valor deste atributo é sumarizado com o valor já existente do mesmo registro) “Valor total do CF-e” na combinação de CST_ICMS, CFOP e alíquota do ICMS, correspondente ao somatório do valor líquido dos itens.
+   * @param r06_VL_BC_ICMS_SUM (O valor deste atributo é sumarizado com o valor já existente do mesmo registro) Valor acumulado da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP, e alíquota do ICMS.
+   * @param r07_VL_ICMS_SUM (O valor deste atributo é sumarizado com o valor já existente do mesmo registro) Parcela correspondente ao “Valor do ICMS” referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
+   * @param r08_COD_OBS Código da observação do lançamento fiscal (campo 02 do registro 0460)
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC850 addC850(SPEDFiscalC800 rc800, String r02_CST_ICMS, String r03_CFOP, BigDecimal r04_ALIQ_ICMS, BigDecimal r05_VL_OPR_SUM, BigDecimal r06_VL_BC_ICMS_SUM, BigDecimal r07_VL_ICMS_SUM, String r08_COD_OBS) throws RFWException {
+    PreProcess.requiredNonNullCritical(r02_CST_ICMS, "r02_CST_ICMS não pode ser nulo!");
+    PreProcess.requiredNonNullCritical(r03_CFOP, "r03_CFOP não pode ser nulo!");
+
+    if (r04_ALIQ_ICMS == null) r04_ALIQ_ICMS = BigDecimal.ZERO;
+
+    String uniqueID = r02_CST_ICMS + "|" + r03_CFOP + "|" + r04_ALIQ_ICMS.setScale(2, RFW.getRoundingMode()).toString();
+    SPEDFiscalC850 rc850 = rc800.getRc850().get(uniqueID);
+    if (rc850 == null) {
+      rc850 = new SPEDFiscalC850(rc800.getSpedFile());
+      rc800.getRc850().put(uniqueID, rc850);
+
+      // Por fazer parte da chave os atributos R02, R03 e R04 nunca são alterados e por isso estão dentro do IF de criação do Registro
+      rc850.setR02_CST_ICMS(r02_CST_ICMS);
+      rc850.setR03_CFOP(r03_CFOP);
+      rc850.setR04_ALIQ_ICMS(r04_ALIQ_ICMS);
+      rc850.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme lógica abaixo
+      rc850.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lógica abaixo
+      rc850.setR07_VL_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lógica abaixo
+    }
+
+    if (r05_VL_OPR_SUM != null) rc850.setR05_VL_OPR(rc850.getR05_VL_OPR().add(r05_VL_OPR_SUM));
+    if (r06_VL_BC_ICMS_SUM != null) rc850.setR06_VL_BC_ICMS(rc850.getR06_VL_BC_ICMS().add(r06_VL_BC_ICMS_SUM));
+    if (r07_VL_ICMS_SUM != null) rc850.setR07_VL_ICMS(rc850.getR07_VL_ICMS().add(r07_VL_ICMS_SUM));
+    rc850.setR08_COD_OBS(r08_COD_OBS);
+
+    return rc850;
+  }
+
+  /**
+   * REGISTRO C800: CUPOM FISCAL ELETRÔNICO – SAT (CF-E-SAT) (CÓDIGO 59)<br>
+   * Observações:
+   * <li>Nível hierárquico: 2</li>
+   * <li>Ocorrência: Vários</li> <br>
+   * <br>
+   * Este método não substitui nenhum valor caso o registro já esteja criado para a chave única.<Br>
+   * <br>
+   * Embora a documentação defina: "Não poderão ser informados dois ou mais registros com a mesma combinação de COD_SIT + NUM_CFE + NUM_SAT + DT_DOC.", apenas a utilização dos campos "NUM_CFE + NUM_SAT" são suficientes para identificar o registro, e são eles os utilizados como chave única durante a criação da uniqueID. Com o código:<br>
+   * <code>final String uniqueID = r04_NUM_CFE + "|" + r10_NR_SAT;</code>
+   *
+   * @param rc001 Registro pai.
+   * @param r02_COD_MOD Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r03_COD_SIT Código da situação do documento fiscal, conforme a Tabela 4.1.2
+   * @param r04_NUM_CFE Número do Cupom Fiscal Eletrônico
+   * @param r05_DT_DOC Data da emissão do Cupom Fiscal Eletrônico
+   * @param r06_VL_CFE Valor total do Cupom Fiscal Eletrônico
+   * @param r07_VL_PIS Valor total do PIS
+   * @param r08_VL_COFINS Valor total da COFINS
+   * @param r09_CNPJ_CPF CNPJ ou CPF do destinatário
+   * @param r10_NR_SAT Número de Série do equipamento SAT
+   * @param r11_CHV_CFE Chave do Cupom Fiscal Eletrônico
+   * @param r12_VL_DESC Valor total de descontos
+   * @param r13_VL_MERC Valor total das mercadorias e serviços
+   * @param r14_VL_OUT_DA Valor total de outras despesas acessórias e acréscimos
+   * @param r15_VL_ICMS Valor do ICMS
+   * @param r16_VL_PIS_ST Valor total do PIS retido por subst. trib.
+   * @param r17_VL_COFINS_ST Valor total da COFINS retido por subst. trib.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC800 addC800(SPEDFiscalC001 rc001, String r02_COD_MOD, String r03_COD_SIT, Long r04_NUM_CFE, LocalDate r05_DT_DOC, BigDecimal r06_VL_CFE, BigDecimal r07_VL_PIS, BigDecimal r08_VL_COFINS, String r09_CNPJ_CPF, String r10_NR_SAT, String r11_CHV_CFE, BigDecimal r12_VL_DESC, BigDecimal r13_VL_MERC, BigDecimal r14_VL_OUT_DA, BigDecimal r15_VL_ICMS, BigDecimal r16_VL_PIS_ST, BigDecimal r17_VL_COFINS_ST) throws RFWException {
+    final String uniqueID = r04_NUM_CFE + "|" + r10_NR_SAT; // Só esses dois valores já garantem a unicidade do registro
+    SPEDFiscalC800 rc800 = rc001.getRc800().get(uniqueID);
+    if (rc800 == null) {
+      rc800 = new SPEDFiscalC800(rc001.getSpedFile());
+      rc001.getRc800().put(uniqueID, rc800);
+
+      rc800.setR02_COD_MOD(r02_COD_MOD);
+      rc800.setR03_COD_SIT(r03_COD_SIT);
+      rc800.setR04_NUM_CFE(r04_NUM_CFE);
+
+      rc800.setR10_NR_SAT(r10_NR_SAT);
+      rc800.setR11_CHV_CFE(r11_CHV_CFE);
+
+      // Este campos só devem ser escriturados para cupons vendidos
+      if ("00".equals(r03_COD_SIT)) { // 00 = Documento regular
+        rc800.setR05_DT_DOC(RUTypes.formatToddMMyyyy(r05_DT_DOC));
+        rc800.setR06_VL_CFE(r06_VL_CFE);
+        rc800.setR07_VL_PIS(r07_VL_PIS);
+        rc800.setR08_VL_COFINS(r08_VL_COFINS);
+        rc800.setR09_CNPJ_CPF(r09_CNPJ_CPF);
+        rc800.setR12_VL_DESC(r12_VL_DESC);
+        rc800.setR13_VL_MERC(r13_VL_MERC);
+        rc800.setR14_VL_OUT_DA(r14_VL_OUT_DA);
+        rc800.setR15_VL_ICMS(r15_VL_ICMS);
+        rc800.setR16_VL_PIS_ST(r16_VL_PIS_ST);
+        rc800.setR17_VL_COFINS_ST(r17_VL_COFINS_ST);
+      }
+    }
+    return rc800;
+  }
+
+  /**
+   * REGISTRO C001: ABERTURA DO BLOCO C<Br>
+   * <Br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li><Br>
+   * <br>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC001 addC001(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalC001 rc001 = sped.getRC001();
+    if (rc001 == null) {
+      rc001 = new SPEDFiscalC001(sped);
+      sped.setRC001(rc001);
+    }
+    return rc001;
+  }
+
+  /**
+   * REGISTRO 0460: TABELA DE OBSERVAÇÕES DO LANÇAMENTO FISCAL<br>
+   * <br>
+   * <li>Observações:</li>
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência –vários (por arquivo)</li>
+   *
+   * @param r0001 Registro pai.
+   * @param r02_COD_OBS Código da Observação do lançamento fiscal.
+   * @param r03_TXT Descrição da observação vinculada ao lançamento fiscal.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0460 add0460(SPEDFiscal0001 r0001, String r02_COD_OBS, String r03_TXT) throws RFWException {
+    SPEDFiscal0460 r0460 = r0001.getR0460().get(r02_COD_OBS);
+    if (r0460 == null) {
+      r0460 = new SPEDFiscal0460(r0001.getSpedFile());
+      r0001.getR0460().put(r02_COD_OBS, r0460);
+      r0460.setR02_COD_OBS(r02_COD_OBS);
+      r0460.setR03_TXT(r03_TXT);
+    }
+    return r0460;
+  }
+
+  /**
+   * REGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)<Br>
+   * Observações:<Br>
+   * <li>Nível hierárquico - 3</li>
+   * <li>Ocorrência - 1:N</li>
+   *
+   * @param rc800 Registro pai.
+   * @param r02_COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460)
+   * @param r03_TXT_COMPL Descrição complementar do código de observação.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC855 addC855(SPEDFiscalC800 rc800, String r02_COD_OBS, String r03_TXT_COMPL) throws RFWException {
+    SPEDFiscalC855 rc855 = rc800.getRc855().get(r02_COD_OBS);
+    if (rc855 == null) {
+      rc855 = new SPEDFiscalC855(rc800.getSpedFile());
+      rc800.getRc855().put(r02_COD_OBS, rc855);
+      rc855.setR02_COD_OBS(r02_COD_OBS);
+      rc855.setR03_TXT_COMPL(r03_TXT_COMPL);
+    }
+    return rc855;
+  }
+
+  /**
+   * REGISTRO C857: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<bR>
+   * Observações:
+   * <li>Nível hierárquico - 4</li>
+   * <li>Ocorrência - 1:N</li> <Br>
+   * <bR>
+   * O uniqueID para identificar o registro é criado a partir do valor de r02_COD_AJ. Sempre que um registro existente for encontrado, os valores dos campos r05_VL_BC_ICMS_SUM e r07_VL_ICMS_SUM são acumulados com os valores já existentes no registro.
+   *
+   * @param rc855 Registro pai.
+   * @param r02_COD_AJ Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3.
+   * @param r03_DESCR_COMPL_AJ Descrição complementar do ajuste do documento fiscal
+   * @param r04_COD_ITEM Código do item (campo 02 do Registro 0200)
+   * @param r05_VL_BC_ICMS_SUM Base de cálculo do ICMS ou do ICMS ST.
+   * @param r06_ALIQ_ICMS Alíquota do ICMS.
+   * @param r07_VL_ICMS_SUM Valor do ICMS ou do ICMS ST
+   * @param r08_VL_OUTROS Outros valores
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC857 addC857(SPEDFiscalC855 rc855, String r02_COD_AJ, String r03_DESCR_COMPL_AJ, String r04_COD_ITEM, BigDecimal r05_VL_BC_ICMS_SUM, BigDecimal r06_ALIQ_ICMS, BigDecimal r07_VL_ICMS_SUM, BigDecimal r08_VL_OUTROS) throws RFWException {
+    SPEDFiscalC857 rc857 = rc855.getRc857().get(r02_COD_AJ);
+    if (rc857 == null) {
+      rc857 = new SPEDFiscalC857(rc855.getSpedFile());
+      rc855.getRc857().put(r02_COD_AJ, rc857);
+      rc857.setR02_COD_AJ(r02_COD_AJ);
+      rc857.setR03_DESCR_COMPL_AJ(r03_DESCR_COMPL_AJ);
+      rc857.setR04_COD_ITEM(r04_COD_ITEM);
+      rc857.setR05_VL_BC_ICMS(BigDecimal.ZERO);
+      rc857.setR06_ALIQ_ICMS(r06_ALIQ_ICMS);
+      rc857.setR07_VL_ICMS(BigDecimal.ZERO);
+      rc857.setR08_VL_OUTROS(r08_VL_OUTROS);
+    }
+
+    if (r05_VL_BC_ICMS_SUM != null) rc857.setR05_VL_BC_ICMS(rc857.getR05_VL_BC_ICMS().add(r05_VL_BC_ICMS_SUM));
+    if (r07_VL_ICMS_SUM != null) rc857.setR07_VL_ICMS(rc857.getR07_VL_ICMS().add(r07_VL_ICMS_SUM));
+    return rc857;
+  }
+
+  /**
+   * REGISTRO C890: RESUMO DIÁRIO DO CF-E-SAT (CÓDIGO 59) POR EQUIPAMENTO SATCF-E<br>
+   * Observações:
+   * <li>Nível hierárquico: 3</li>
+   * <li>Ocorrência - 1:N</li> <bR>
+   * <bR>
+   * O campo VL_ICMS - Parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS, é calculado automaticamente a partir da multiplicação dos campos r04_ALIQ_ICMS e r06_VL_BC_ICMS.<Br>
+   * <br>
+   *
+   * @param rc860 Registro pai.
+   * @param r02_CST_ICMS Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1
+   * @param r03_CFOP Código Fiscal de Operação e Prestação do agrupamento de itens
+   * @param r04_ALIQ_ICMS Alíquota do ICMS
+   * @param r05_VL_OPR_SUM “Valor total do CF-e” na combinação de CST_ICMS, CFOP e ALÍQUOTA DO ICMS, correspondente ao somatório do valor líquido dos itens
+   * @param r06_VL_BC_ICMS Valor acumulado da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e ALÍQUOTA DO ICMS.
+   * @param r08_COD_OBS Código da observação do lançamento fiscal (campo 02 do registro 0460)
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC890 addC890(SPEDFiscalC860 rc860, String r02_CST_ICMS, String r03_CFOP, BigDecimal r04_ALIQ_ICMS, BigDecimal r05_VL_OPR_SUM, BigDecimal r06_VL_BC_ICMS, String r08_COD_OBS) throws RFWException {
+    if (r04_ALIQ_ICMS == null) r04_ALIQ_ICMS = BigDecimal.ZERO;
+    String uniqueID = r02_CST_ICMS + "|" + r03_CFOP + "|" + r04_ALIQ_ICMS.setScale(2, RFW.getRoundingMode()).toString();
+    SPEDFiscalC890 rc890 = rc860.getRc890().get(uniqueID);
+    if (rc890 == null) {
+      rc890 = new SPEDFiscalC890(rc860.getSpedFile());
+      rc860.getRc890().put(uniqueID, rc890);
+
+      rc890.setR02_CST_ICMS(r02_CST_ICMS);
+      rc890.setR03_CFOP(r03_CFOP);
+      rc890.setR04_ALIQ_ICMS(r04_ALIQ_ICMS);
+      rc890.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme lógica abaixo
+      rc890.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lógica abaixo
+      rc890.setR07_VL_ICMS_AUTO(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lógica abaixo
+      rc890.setR08_COD_OBS(r08_COD_OBS);
+    }
+
+    rc890.setR05_VL_OPR(rc890.getR05_VL_OPR().add(r05_VL_OPR_SUM));
+    rc890.setR06_VL_BC_ICMS(rc890.getR06_VL_BC_ICMS().add(r06_VL_BC_ICMS));
+
+    return rc890;
+  }
+
+  /**
+   * REGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CF-E <br>
+   * Observações:
+   * <li>Nível hierárquico: 2</li>
+   * <li>Ocorrência - vários (por arquivo)</li> <Br>
+   * <br>
+   * O registro é identificado pelo valor do atributo r03_NR_SAT, e sempre quem este método for chamado passando o mesmo valor de r03_NR_SAT, o 'range' de número do documento (definidos pelos campos r05 e r06) são atualizados de forma que o range definido no registro inclua do número de documento mais baixo até o mais alto recebido.<Br>
+   * <bR>
+   *
+   * @param rc001 Registro pai.
+   * @param r02_COD_MOD Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r03_NR_SAT Número de Série do equipamento SAT
+   * @param r04_DT_DOC Data de emissão dos documentos fiscais
+   * @param r05_DOC_INI Número do documento inicial
+   * @param r06_DOC_FIM Número do documento final
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC860 addC860(SPEDFiscalC001 rc001, String r02_COD_MOD, String r03_NR_SAT, LocalDate r04_DT_DOC, Long r05_DOC_INI, Long r06_DOC_FIM) throws RFWException {
+    SPEDFiscalC860 rc860 = new SPEDFiscalC860(rc001.getSpedFile());
+    rc860 = rc001.getRc860().get(r03_NR_SAT);
+    if (rc860 == null) {
+      rc860 = new SPEDFiscalC860(rc001.getSpedFile());
+      rc001.getRc860().put(r03_NR_SAT, rc860);
+
+      rc860.setR02_COD_MOD(r02_COD_MOD);
+      rc860.setR03_NR_SAT(r03_NR_SAT);
+      rc860.setR04_DT_DOC(r04_DT_DOC);
+      rc860.setR05_DOC_INI(r05_DOC_INI); // O documento inicial deve ser atualizado depois conforme novos cupons forem sendo adicionados aos registros filhos
+      rc860.setR06_DOC_FIM(r06_DOC_FIM);// O documento final deve ser atualizado depois conforme novos cupons forem sendo adicionados aos registros filhos
+    } else {
+      // Caso já existia, atualizamos os campos de "cupom incial" e "cupom final" para incluir a numeração deste cupom dentro do "range" definido no registro
+      if (rc860.getR05_DOC_INI().compareTo(r05_DOC_INI) > 0) rc860.setR05_DOC_INI(r05_DOC_INI);
+      if (rc860.getR06_DOC_FIM().compareTo(r06_DOC_FIM) < 0) rc860.setR06_DOC_FIM(r06_DOC_FIM);
+    }
+
+    return rc860;
+  }
+
+  /**
+   * REGISTRO C100: NOTA FISCAL (CÓDIGO 01), NOTA FISCAL AVULSA (CÓDIGO 1B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65).<br>
+   * Observações:
+   * <li>Nível hierárquico – 2</li>
+   * <li>Ocorrência – vários (por arquivo)</li><br>
+   * <br>
+   *
+   * @param rc001 Registro pai.
+   * @param r02_IND_OPER Indicador do tipo de operação: 0 - Entrada; 1 - Saída
+   * @param r03_IND_EMIT Indicador do emitente do documento fiscal: 0 - Emissão própria; 1 - Terceiros
+   * @param r04_COD_PART Código do participante (campo 02 do Registro 0150):
+   *          <li>- do emitente do documento ou do remetente das mercadorias, no caso de entradas;
+   *          <li>- do adquirente, no caso de saídas
+   * @param r05_COD_MOD Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r06_COD_SIT Código da situação do documento fiscal, conforme a Tabela 4.1.2
+   * @param r07_SER Série do documento fiscal
+   * @param r08_NUM_DOC Número do documento fiscal
+   * @param r09_CHV_NFE Chave da Nota Fiscal Eletrônica
+   * @param r10_DT_DOC Data da emissão do documento fiscal
+   * @param r11_DT_E_S Data da entrada ou da saída
+   * @param r12_VL_DOC Valor total do documento fiscal
+   * @param r13_IND_PGTO Indicador do tipo de pagamento: 0 - À vista; 1 - A prazo; 9 - Sem pagamento<bR>
+   *          Obs.: A partir de 01/07/2012 passará a ser: Indicador do tipo de pagamento: 0 - À vista; 1 - A prazo; 2 - Outros
+   * @param r14_VL_DESC Valor total do desconto
+   * @param r15_VL_ABAT_NT Abatimento não tributado e não comercial Por exemplo: desconto ICMS nas remessas para ZFM.
+   * @param r16_VL_MERC Valor total das mercadorias e serviços
+   * @param r17_IND_FRT Obs: A partir de 01/01/2018 passará a ser: Indicador do tipo de frete:
+   *          <li>0 - Contratação do Frete por conta do Remetente (CIF);
+   *          <li>1 - Contratação do Frete por conta do Destinatário (FOB);
+   *          <li>2 - Contratação do Frete por conta de Terceiros;
+   *          <li>3 - Transporte Próprio por conta do Remetente;
+   *          <li>4 - Transporte Próprio por conta do Destinatário;
+   *          <li>9 - Sem Ocorrência de Transporte.
+   * @param r18_VL_FRT Valor do frete indicado no documento fiscal
+   * @param r19_VL_SEG Valor do seguro indicado no documento fiscal
+   * @param r20_VL_OUT_DA Valor de outras despesas acessórias
+   * @param r21_VL_BC_ICMS Valor da base de cálculo do ICMS
+   * @param r22_VL_ICMS Valor do ICMS
+   * @param r23_VL_BC_ICMS_ST Valor da base de cálculo do ICMS substituição tributária
+   * @param r24_VL_ICMS_ST Valor do ICMS retido por substituição tributária
+   * @param r25_VL_IPI Valor total do IPI
+   * @param r26_VL_PIS Valor total do PIS
+   * @param r27_VL_COFINS Valor total da COFINS
+   * @param r28_VL_PIS_ST Valor total do PIS retido por substituição tributária
+   * @param r29_VL_COFINS_ST Valor total da COFINS retido por substituição tributária
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC100 addC100(SPEDFiscalC001 rc001, String r02_IND_OPER, String r03_IND_EMIT, String r04_COD_PART, String r05_COD_MOD, String r06_COD_SIT, String r07_SER, String r08_NUM_DOC, String r09_CHV_NFE, LocalDate r10_DT_DOC, LocalDate r11_DT_E_S, BigDecimal r12_VL_DOC, String r13_IND_PGTO, BigDecimal r14_VL_DESC, BigDecimal r15_VL_ABAT_NT, BigDecimal r16_VL_MERC, String r17_IND_FRT, BigDecimal r18_VL_FRT, BigDecimal r19_VL_SEG, BigDecimal r20_VL_OUT_DA, BigDecimal r21_VL_BC_ICMS, BigDecimal r22_VL_ICMS, BigDecimal r23_VL_BC_ICMS_ST, BigDecimal r24_VL_ICMS_ST, BigDecimal r25_VL_IPI, BigDecimal r26_VL_PIS, BigDecimal r27_VL_COFINS, BigDecimal r28_VL_PIS_ST, BigDecimal r29_VL_COFINS_ST) throws RFWException {
+    String uniqueID = null;
+    switch (r05_COD_MOD) {
+      case "01": // Modelo 1/1A - Nota de Talão equivalente a NFe
+        uniqueID = "MODEL01|" + r04_COD_PART + "|" + r08_NUM_DOC;
+        break;
+      case "55": // NFe
+        uniqueID = "MODEL55|" + r09_CHV_NFE;
+        break;
+      case "65": // NFCe
+        // Ainda não preparado
+        break;
+    }
+    if (uniqueID == null) {
+      throw new RFWCriticalException("RFW.SPED não preparado para trabalhar com o modelo de NF '${0}' no registro C100!", new String[] { r05_COD_MOD });
+    }
+
+    SPEDFiscalC100 rc100 = rc001.getRc100().get(uniqueID);
+    if (rc100 == null) {
+      rc100 = new SPEDFiscalC100(rc001.getSpedFile());
+      rc001.getRc100().put(uniqueID, rc100);
+
+      rc100.setR02_IND_OPER(r02_IND_OPER);
+      rc100.setR03_IND_EMIT(r03_IND_EMIT);
+      rc100.setR04_COD_PART(r04_COD_PART);
+      rc100.setR05_COD_MOD(r05_COD_MOD);
+      rc100.setR06_COD_SIT(r06_COD_SIT);
+      rc100.setR07_SER(r07_SER);
+      rc100.setR08_NUM_DOC(r08_NUM_DOC);
+      rc100.setR09_CHV_NFE(r09_CHV_NFE);
+      rc100.setR10_DT_DOC(r10_DT_DOC);
+      rc100.setR11_DT_E_S(r11_DT_E_S);
+      rc100.setR12_VL_DOC(r12_VL_DOC);
+      rc100.setR13_IND_PGTO(r13_IND_PGTO);
+      rc100.setR14_VL_DESC(r14_VL_DESC);
+      rc100.setR15_VL_ABAT_NT(r15_VL_ABAT_NT);
+      rc100.setR16_VL_MERC(r16_VL_MERC);
+      rc100.setR17_IND_FRT(r17_IND_FRT);
+      rc100.setR18_VL_FRT(r18_VL_FRT);
+      rc100.setR19_VL_SEG(r19_VL_SEG);
+      rc100.setR20_VL_OUT_DA(r20_VL_OUT_DA);
+      rc100.setR21_VL_BC_ICMS(r21_VL_BC_ICMS);
+      rc100.setR22_VL_ICMS(r22_VL_ICMS);
+      rc100.setR23_VL_BC_ICMS_ST(r23_VL_BC_ICMS_ST);
+      rc100.setR24_VL_ICMS_ST(r24_VL_ICMS_ST);
+      rc100.setR25_VL_IPI(r25_VL_IPI);
+      rc100.setR26_VL_PIS(r26_VL_PIS);
+      rc100.setR27_VL_COFINS(r27_VL_COFINS);
+      rc100.setR28_VL_PIS_ST(r28_VL_PIS_ST);
+      rc100.setR29_VL_COFINS_ST(r29_VL_COFINS_ST);
+    }
+    return rc100;
+  }
+
+  /**
+   * REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE<bR>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência –vários por arquivo</li><br>
+   * <br>
+   * Não permite dois registros com o mesmo CPF ou CNPJ, assim o registro é identificado pelo documento informado em r05_CNPJ ou r06_CPF.
+   *
+   * @param r0001 Registro pai.
+   * @param r02_COD_PART Código de identificação do participante no arquivo.
+   * @param r03_NOME Nome pessoal ou empresarial do participante.
+   * @param r04_COD_PAIS Código do país do participante, conforme a tabela indicada no item 3.2.1
+   * @param r05_CNPJ CNPJ do participante.
+   * @param r06_CPF CPF do participante.
+   * @param r07_IE Inscrição Estadual do participante.
+   * @param r08_COD_MUN Código do município, conforme a tabela IBGE
+   * @param r09_SUFRAMA Número de inscrição do participante na SUFRAMA.
+   * @param r10_END Logradouro e endereço do imóvel
+   * @param r11_NUM Número do imóvel
+   * @param r12_COMPL Dados complementares do endereço
+   * @param r13_BAIRRO Bairro em que o imóvel está situado
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0150 add0150(SPEDFiscal0001 r0001, String r02_COD_PART, String r03_NOME, String r04_COD_PAIS, String r05_CNPJ, String r06_CPF, String r07_IE, String r08_COD_MUN, String r09_SUFRAMA, String r10_END, String r11_NUM, String r12_COMPL, String r13_BAIRRO) throws RFWException {
+    SPEDFiscal0150 r0150 = null;
+    String doc = r05_CNPJ;
+    if (r05_CNPJ == null) doc = r06_CPF;
+    r0150 = r0001.getR0150().get(doc);
+    if (r0150 == null) {
+      r0150 = new SPEDFiscal0150(r0001.getSpedFile());
+      r0001.getR0150().put(r02_COD_PART, r0150);
+      r0150.setR02_COD_PART(r02_COD_PART);
+      r0150.setR03_NOME(r03_NOME);
+      r0150.setR04_COD_PAIS(r04_COD_PAIS);
+      r0150.setR05_CNPJ(r05_CNPJ);
+      r0150.setR06_CPF(r06_CPF);
+      r0150.setR07_IE(r07_IE);
+      r0150.setR08_COD_MUN(r08_COD_MUN);
+      r0150.setR09_SUFRAMA(r09_SUFRAMA);
+      r0150.setR10_END(r10_END);
+      r0150.setR11_NUM(r11_NUM);
+      r0150.setR12_COMPL(r12_COMPL);
+      r0150.setR13_BAIRRO(r13_BAIRRO);
+    }
+    return r0150;
+  }
+
+  /**
+   * REGISTRO 0500: PLANO DE CONTAS CONTÁBEIS<br>
+   * <br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência - vários (por arquivo)</li><br>
+   * <bR>
+   * Registro único por r06_COD_CTA. Caso o mesmo r06_COD_CTA seja passado de um registro existente, será retornado o registro existente e nenhum novo será criado.
+   *
+   * @param r0001 Registro pai.
+   * @param r02_DT_ALT Data da inclusão/alteração
+   * @param r03_COD_NAT_CC Código da natureza da conta/grupo de contas:
+   *          <li>01 - Contas de ativo;
+   *          <li>02 - Contas de passivo;
+   *          <li>03 - Patrimônio líquido;
+   *          <li>04 - Contas de resultado;
+   *          <li>05 - Contas de compensação;
+   *          <li>09 - Outras.
+   * @param r04_IND_CTA Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
+   * @param r05_NÍVEL Nível da conta analítica/grupo de contas.
+   * @param r06_COD_CTA Código da conta analítica/grupo de contas.
+   * @param r07_NOME_CTA Nome da conta analítica/grupo de contas
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0500 add0500(SPEDFiscal0001 r0001, LocalDate r02_DT_ALT, String r03_COD_NAT_CC, String r04_IND_CTA, String r05_NÍVEL, String r06_COD_CTA, String r07_NOME_CTA) throws RFWException {
+    SPEDFiscal0500 r0500 = r0001.getR0500().get(r06_COD_CTA);
+    if (r0500 == null) {
+      r0500 = new SPEDFiscal0500(r0001.getSpedFile());
+      r0001.getR0500().put(r06_COD_CTA, r0500);
+      r0500.setR02_DT_ALT(r02_DT_ALT);
+      r0500.setR03_COD_NAT_CC(r03_COD_NAT_CC);
+      r0500.setR04_IND_CTA(r04_IND_CTA);
+      r0500.setR05_NÍVEL(r05_NÍVEL);
+      r0500.setR06_COD_CTA(r06_COD_CTA);
+      r0500.setR07_NOME_CTA(r07_NOME_CTA);
+    }
+    return r0500;
+  }
+
+  /**
+   * REGISTRO 0400: TABELA DE NATUREZA DA OPERAÇÃO/PRESTAÇÃO<bR>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência – vários (por arquivo)</li> <br>
+   * <br>
+   * Registro único por r02_COD_NAT. Caso o mesmo r02_COD_NAT seja passado de um registro existente, será retornado o registro existente e nenhum novo será criado.
+   *
+   * @param r0001 Registro pai.
+   * @param r02_COD_NAT Código da natureza da operação/prestação
+   * @param r03_DESCR_NAT Descrição da natureza da operação/prestação
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0400 add0400(SPEDFiscal0001 r0001, String r02_COD_NAT, String r03_DESCR_NAT) throws RFWException {
+    SPEDFiscal0400 r0400 = r0001.getR0400().get(r02_COD_NAT);
+    if (r0400 == null) {
+      r0400 = new SPEDFiscal0400(r0001.getSpedFile());
+      r0001.getR0400().put(r02_COD_NAT, r0400);
+      r0400.setR02_COD_NAT(r02_COD_NAT);
+      r0400.setR03_DESCR_NAT(r03_DESCR_NAT);
+    }
+
+    return r0400;
+  }
+
+  /**
+   * REGISTRO 0450: TABELA DE INFORMAÇÃO COMPLEMENTAR DO DOCUMENTO FISCAL<br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência –vários (por arquivo)</li>
+   *
+   * <br>
+   * <bR>
+   * Registro único por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, será retornado o registro existente e nenhum novo será criado.
+   *
+   *
+   * @param r0001 Registro pai.
+   * @param r02_COD_INF Código da informação complementar do documento fiscal.
+   * @param r03_TXT Texto livre da informação complementar existente no documento fiscal, inclusive espécie de normas legais, poder normativo, número, capitulação, data e demais referências pertinentes com indicações referentes ao tributo.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0450 add(SPEDFiscal0001 r0001, String r02_COD_INF, String r03_TXT) throws RFWException {
+    SPEDFiscal0450 r0450 = r0001.getR0450().get(r02_COD_INF);
+    if (r0450 == null) {
+      r0450 = new SPEDFiscal0450(r0001.getSpedFile());
+      r0001.getR0450().put(r02_COD_INF, r0450);
+      r0450.setR02_COD_INF(r02_COD_INF);
+      r0450.setR03_TXT(r03_TXT);
+    }
+    return r0450;
+  }
+
+  /**
+   * REGISTRO C110: INFORMAÇÃO COMPLEMENTAR DA NOTA FISCAL (CÓDIGO 01, 1B, 04 e 55).<br>
+   * Observações:
+   * <li>Nível hierárquico - 3</li>
+   * <li>Ocorrência - 1:N</li> <br>
+   * <bR>
+   * Registro único por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, será retornado o registro existente e nenhum novo será criado.
+   *
+   *
+   * @param rc100 Registro pai.
+   * @param r02_COD_INF Código da informação complementar do documento fiscal (campo 02 do Registro 0450)
+   * @param r03_TXT_COMPL Descrição complementar do código de referência
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC110 addC110(SPEDFiscalC100 rc100, String r02_COD_INF, String r03_TXT_COMPL) throws RFWException {
+    SPEDFiscalC110 rc110 = rc100.getRc110().get(r02_COD_INF);
+    if (rc110 == null) {
+      rc110 = new SPEDFiscalC110(rc100.getSpedFile());
+      rc100.getRc110().put(r02_COD_INF, rc110);
+      rc110.setR02_COD_INF(r02_COD_INF);
+      rc110.setR03_TXT_COMPL(r03_TXT_COMPL);
+    }
+    return rc110;
   }
 }

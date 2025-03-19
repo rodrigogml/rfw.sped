@@ -14,8 +14,6 @@ import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.preprocess.PreProcess;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0460;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
@@ -143,34 +141,6 @@ public class SPEDFiscalBuilderOLD {
     }
     r0990.setR02_QTD_LIN_0(lineCount);
     return r0990;
-  }
-
-  /**
-   * REGISTRO C001: ABERTURA DO BLOCO C<Br>
-   * <Br>
-   * Observações:
-   * <li>Nível hierárquico - 1</li>
-   * <li>Ocorrência – um por arquivo</li><Br>
-   * <br>
-   *
-   * @param sped Arquivo do SPED.
-   * @param hasContent Flag para indicar se o bloco tem ou não conteúdo.
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscalC001 addC001(SPEDFiscalFile sped, boolean hasContent) throws RFWException {
-    SPEDFiscalC001 rc001 = sped.getRC001();
-    if (rc001 == null) {
-      rc001 = new SPEDFiscalC001(sped);
-      sped.setRC001(rc001);
-
-      if (hasContent) {
-        rc001.setR02_IND_MOV("0");
-      } else {
-        rc001.setR02_IND_MOV("1");
-      }
-    }
-    return rc001;
   }
 
   /**
@@ -566,32 +536,6 @@ public class SPEDFiscalBuilderOLD {
     re100.setR03_DT_FIN(dt_fin);
 
     return re100;
-  }
-
-  /**
-   * REGISTRO 0460: TABELA DE OBSERVAÇÕES DO LANÇAMENTO FISCAL<br>
-   * <br>
-   * <li>Observações:</li>
-   * <li>Nível hierárquico - 2</li>
-   * <li>Ocorrência –vários (por arquivo)</li>
-   *
-   * @param r0001 Registro 0001
-   * @param cod_obs
-   * @param txt
-   * @return
-   * @throws RFWException
-   */
-  public static SPEDFiscal0460 add0460(SPEDFiscal0001 r0001, String cod_obs, String txt) throws RFWException {
-    SPEDFiscal0460 r0460 = r0001.getR0460().get(cod_obs);
-    if (r0460 == null) {
-      r0460 = new SPEDFiscal0460(r0001.getSpedFile());
-      r0001.getR0460().put(cod_obs, r0460);
-    }
-
-    r0460.setR02_COD_OBS(cod_obs);
-    r0460.setR03_TXT(txt);
-
-    return r0460;
   }
 
   /**

@@ -2,6 +2,7 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import java.util.LinkedHashMap;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
@@ -130,4 +131,17 @@ public class SPEDFiscalC001 extends SPEDRegister {
     return rc860;
   }
 
+  @Override
+  public boolean calculateFields(String uuid) throws RFWException {
+    boolean calculated = super.calculateFields(uuid);
+    if (calculated) {
+      // Verifica se há conteúdo nos registros
+      boolean hasContent = !rc100.isEmpty() ||
+          !rc400.isEmpty() ||
+          !rc800.isEmpty() ||
+          !rc860.isEmpty();
+      r02_IND_MOV = hasContent ? "0" : "1";
+    }
+    return calculated;
+  }
 }

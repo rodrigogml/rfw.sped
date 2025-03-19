@@ -2,6 +2,8 @@ package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
 import java.math.BigDecimal;
 
+import br.eng.rodrigogml.rfw.kernel.RFW;
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
@@ -54,7 +56,7 @@ public class SPEDFiscalC890 extends SPEDRegister {
    * Parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS. N - 02 O
    */
   @SPEDField(decimals = 2, required = true, maxLength = 10)
-  private BigDecimal r07_VL_ICMS = null;
+  private BigDecimal r07_VL_ICMS_AUTO = null;
 
   /**
    * Código da observação do lançamento fiscal (campo 02 do registro 0460) C 006 - OC
@@ -162,17 +164,17 @@ public class SPEDFiscalC890 extends SPEDRegister {
    *
    * @return the parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
    */
-  public BigDecimal getR07_VL_ICMS() {
-    return r07_VL_ICMS;
+  public BigDecimal getR07_VL_ICMS_AUTO() {
+    return r07_VL_ICMS_AUTO;
   }
 
   /**
    * Define o parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS. N - 02 O.
    *
-   * @param r07_VL_ICMS the new parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
+   * @param r07_VL_ICMS_AUTO the new parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
    */
-  public void setR07_VL_ICMS(BigDecimal r07_VL_ICMS) {
-    this.r07_VL_ICMS = r07_VL_ICMS;
+  public void setR07_VL_ICMS_AUTO(BigDecimal r07_VL_ICMS_AUTO) {
+    this.r07_VL_ICMS_AUTO = r07_VL_ICMS_AUTO;
   }
 
   /**
@@ -191,6 +193,16 @@ public class SPEDFiscalC890 extends SPEDRegister {
    */
   public void setR08_COD_OBS(String r08_COD_OBS) {
     this.r08_COD_OBS = r08_COD_OBS;
+  }
+
+  @Override
+  public boolean calculateFields(String uuid) throws RFWException {
+    boolean calculated = super.calculateFields(uuid);
+    if (calculated) {
+      // Realizar as operações de cálculo do registro
+      setR07_VL_ICMS_AUTO(getR06_VL_BC_ICMS().multiply(getR04_ALIQ_ICMS()).setScale(2, RFW.getRoundingMode()));
+    }
+    return calculated;
   }
 
 }
