@@ -85,16 +85,16 @@ public class SPEDFiscal1001 extends SPEDRegister {
   }
 
   @Override
-  public boolean calculateFields(String uuid) throws RFWException {
-    boolean calculated = super.calculateFields(uuid);
-    if (calculated) {
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) {
+      super.calculate(uuid);
+
       if (this.r1010 != null) {
         this.r02_IND_MOV_AUTO = "0";
       } else {
         this.r02_IND_MOV_AUTO = "1";
       }
     }
-    return calculated;
   }
 
 }

@@ -26,6 +26,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC114;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC800;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC850;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC855;
@@ -1140,7 +1141,7 @@ public class SPEDFiscalBuilder {
    * @return
    * @throws RFWException
    */
-  public static SPEDFiscal0450 add(SPEDFiscal0001 r0001, String r02_COD_INF, String r03_TXT) throws RFWException {
+  public static SPEDFiscal0450 add0450(SPEDFiscal0001 r0001, String r02_COD_INF, String r03_TXT) throws RFWException {
     SPEDFiscal0450 r0450 = r0001.getR0450().get(r02_COD_INF);
     if (r0450 == null) {
       r0450 = new SPEDFiscal0450(r0001.getSpedFile());
@@ -1175,5 +1176,34 @@ public class SPEDFiscalBuilder {
       rc110.setR03_TXT_COMPL(r03_TXT_COMPL);
     }
     return rc110;
+  }
+
+  /**
+   * REGISTRO C114: CUPOM FISCAL REFERENCIADO<br>
+   * Observações:
+   * <li>Nível hierárquico - 4</li>
+   * <li>Ocorrência - 1:N</li><br>
+   * <bR>
+   * Embora a documentação defina "Não podem ser informados para um mesmo documento fiscal, dois ou mais registros com a mesma combinação de conteúdo nos campos ECF_FAB, NUM_DOC e DT_DOC", a implementação atual dos objetos não valida nem busca uma uniqueID para evitar duplicatas.<br>
+   * Para evitar quebra do código e por se tratar basicamente de ECF (em desuso) optei por não alterar a implementação até que haja necessidade.
+   *
+   * @param rc110 Registro pai.
+   * @param r02_COD_MOD Código do modelo do documento fiscal, conforme a tabela indicada no item 4.1.1
+   * @param r03ecf_FAB Número de série de fabricação do ECF
+   * @param r04_ECF_CX Número do caixa atribuído ao ECF
+   * @param r05_NUM_DOC Número do documento fiscal
+   * @param r06_DT_DOC Data da emissão do documento fiscal
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC114 addC114(SPEDFiscalC110 rc110, String r02_COD_MOD, String r03ecf_FAB, Integer r04_ECF_CX, Long r05_NUM_DOC, LocalDate r06_DT_DOC) throws RFWException {
+    SPEDFiscalC114 rc114 = new SPEDFiscalC114(rc110.getSpedFile());
+    rc110.getRc114().add(rc114);
+    rc114.setR02_COD_MOD(r02_COD_MOD);
+    rc114.setR03_ECF_FAB(r03ecf_FAB);
+    rc114.setR04_ECF_CX(r04_ECF_CX);
+    rc114.setR05_NUM_DOC(r05_NUM_DOC);
+    rc114.setR06_DT_DOC(r06_DT_DOC);
+    return rc114;
   }
 }

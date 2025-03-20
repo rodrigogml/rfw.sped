@@ -6,7 +6,6 @@ import java.util.HashSet;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
 import br.eng.rodrigogml.rfw.kernel.utils.RUString;
-import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
@@ -154,46 +153,46 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   public void calculateFields() throws RFWException {
     String uuid = RUGenerators.generateUUID();
 
-    if (this.r0000 != null) this.r0000.calculateFields(uuid);
+    if (this.r0000 != null) this.r0000.calculate(uuid);
 
     // Bloco 0
-    if (this.r0001 != null) this.r0001.calculateFields(uuid);
-    if (this.r0990 != null) this.r0990.calculateFields(uuid);
+    if (this.r0001 != null) this.r0001.calculate(uuid);
+    if (this.r0990 != null) this.r0990.calculate(uuid);
 
     // Bloco C
-    if (this.rC001 != null) this.rC001.calculateFields(uuid);
-    if (this.rC990 != null) this.rC990.calculateFields(uuid);
+    if (this.rC001 != null) this.rC001.calculate(uuid);
+    if (this.rC990 != null) this.rC990.calculate(uuid);
 
     // Bloco D
-    if (this.rD001 != null) this.rD001.calculateFields(uuid);
-    if (this.rD990 != null) this.rD990.calculateFields(uuid);
+    if (this.rD001 != null) this.rD001.calculate(uuid);
+    if (this.rD990 != null) this.rD990.calculate(uuid);
 
     // Bloco E
-    if (this.rE001 != null) this.rE001.calculateFields(uuid);
-    if (this.rE990 != null) this.rE990.calculateFields(uuid);
+    if (this.rE001 != null) this.rE001.calculate(uuid);
+    if (this.rE990 != null) this.rE990.calculate(uuid);
 
     // Bloco G
-    if (this.rG001 != null) this.rG001.calculateFields(uuid);
-    if (this.rG990 != null) this.rG990.calculateFields(uuid);
+    if (this.rG001 != null) this.rG001.calculate(uuid);
+    if (this.rG990 != null) this.rG990.calculate(uuid);
 
     // Bloco H
-    if (this.rH001 != null) this.rH001.calculateFields(uuid);
-    if (this.rH990 != null) this.rH990.calculateFields(uuid);
+    if (this.rH001 != null) this.rH001.calculate(uuid);
+    if (this.rH990 != null) this.rH990.calculate(uuid);
 
     // Bloco K
-    if (this.rK001 != null) this.rK001.calculateFields(uuid);
-    if (this.rK990 != null) this.rK990.calculateFields(uuid);
+    if (this.rK001 != null) this.rK001.calculate(uuid);
+    if (this.rK990 != null) this.rK990.calculate(uuid);
 
     // Bloco 1
-    if (this.r1001 != null) this.r1001.calculateFields(uuid);
-    if (this.r1990 != null) this.r1990.calculateFields(uuid);
+    if (this.r1001 != null) this.r1001.calculate(uuid);
+    if (this.r1990 != null) this.r1990.calculate(uuid);
 
     // Bloco 9
-    if (this.r9001 != null) this.r9001.calculateFields(uuid);
-    if (this.r9990 != null) this.r9990.calculateFields(uuid);
+    if (this.r9001 != null) this.r9001.calculate(uuid);
+    if (this.r9990 != null) this.r9990.calculate(uuid);
 
     // Encerramento do Arquivo
-    if (this.r9999 != null) this.r9999.calculateFields(uuid);
+    if (this.r9999 != null) this.r9999.calculate(uuid);
   }
 
   /**

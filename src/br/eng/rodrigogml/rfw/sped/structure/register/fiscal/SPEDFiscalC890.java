@@ -196,13 +196,12 @@ public class SPEDFiscalC890 extends SPEDRegister {
   }
 
   @Override
-  public boolean calculateFields(String uuid) throws RFWException {
-    boolean calculated = super.calculateFields(uuid);
-    if (calculated) {
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) {
+      super.calculate(uuid);
       // Realizar as operações de cálculo do registro
       setR07_VL_ICMS_AUTO(getR06_VL_BC_ICMS().multiply(getR04_ALIQ_ICMS()).setScale(2, RFW.getRoundingMode()));
     }
-    return calculated;
   }
 
 }

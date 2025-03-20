@@ -79,14 +79,51 @@ public abstract class SPEDRegister implements Serializable {
    * @param uuid Identificador único da 'rodade de cálculo'. Caso o UUID passado seja o último recebido desde o último cálculo, nenhuma atualização é feita. Se for passado nulo, o cálculo será realizado de qualquer forma (força o cálculo).<Br>
    *          O objetivo deste UUID é que em casos que múltiplos registros solicitam a atualização do regsitros (de forma recursiba, ou pelas dependências múltiplas com o registro) o mesmo UUID evita a repetição do cáluclo.<bR>
    *          Esse UUID pode ser gerado, por exemplo, por {@link RUGenerators#generateUUID()}.
-   * @return boleano indicando se o cálculo foi realizado ou não.
    */
-  public boolean calculateFields(String uuid) throws RFWException {
-    if (uuid == null || !uuid.equals(this.lastUUID)) {
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) {
       if (uuid == null) this.lastUUID = uuid;
-      return true;
-    } else {
-      return false;
+      calculateChildren(uuid);
+    }
+  }
+
+  /**
+   * Método recursivo por reflexão para chamar o método {@link #calculate(String)} de todos os registros filhos do registro atual.<Br>
+   * Deve ser chamado em algum ponto do método {@link #calculate(String)}, seja depois ou antes de calcular os valores do campo do próprio registro. A depender se o registro depende dos valores dos registros filhos, ou vice versa. <br>
+   * <br>
+   * Este método deve ser chamado só internamente para a recursão a partir do método {@link #calculate(String)}, e receber o mesmo UUID.
+   *
+   * @param uuid Meso UUID recebido no método calculate
+   * @throws RFWException
+   */
+  void calculateChildren(String uuid) throws RFWException {
+    // Obtemos os campos/atributos da classe e organizamos ele de forma alfabética para garantir que teremos eles na ordem para escrever no arquivo.
+    Field[] fields = this.getClass().getDeclaredFields();
+    Arrays.sort(fields, fieldComparator);
+
+    // Iteramos os métodos de atributos de subregistros, padrão "r????"
+    for (int i = 0; i < fields.length; i++) {
+      Field f = fields[i];
+      if (f.getName().matches("r[A-Za-z0-9]{4}")) {
+        Object value = null;
+        try {
+          Method mGet = this.getClass().getMethod("getR" + f.getName().substring(1));
+          value = mGet.invoke(this);
+        } catch (Exception e) {
+          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
+        }
+        if (value instanceof LinkedHashMap) {
+          for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
+            ((SPEDRegister) spedReg).calculate(uuid);
+          }
+        } else if (value instanceof ArrayList) {
+          for (Object spedReg : (ArrayList<?>) value) {
+            ((SPEDRegister) spedReg).calculate(uuid);
+          }
+        } else if (value instanceof SPEDRegister) {
+          ((SPEDRegister) value).calculate(uuid);
+        }
+      }
     }
   }
 
@@ -304,5 +341,9 @@ public abstract class SPEDRegister implements Serializable {
    */
   public SPEDFile getSpedFile() {
     return spedFile;
+  }
+
+  protected String getLastUUID() {
+    return lastUUID;
   }
 }

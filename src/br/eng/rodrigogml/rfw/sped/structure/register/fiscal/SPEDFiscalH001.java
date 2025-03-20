@@ -81,13 +81,12 @@ public class SPEDFiscalH001 extends SPEDRegister {
   }
 
   @Override
-  public boolean calculateFields(String uuid) throws RFWException {
-    boolean calculated = super.calculateFields(uuid);
-    if (calculated) {
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) {
+      super.calculate(uuid);
       // Verifica se há conteúdo nos registros
       boolean hasContent = !rh005.isEmpty();
       r02_IND_MOV = hasContent ? "0" : "1";
     }
-    return calculated;
   }
 }
