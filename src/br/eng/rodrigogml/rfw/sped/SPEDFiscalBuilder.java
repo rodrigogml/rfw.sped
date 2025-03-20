@@ -21,6 +21,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0400;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0450;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0460;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0500;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
@@ -1205,5 +1206,25 @@ public class SPEDFiscalBuilder {
     rc114.setR05_NUM_DOC(r05_NUM_DOC);
     rc114.setR06_DT_DOC(r06_DT_DOC);
     return rc114;
+  }
+
+  /**
+   * REGISTRO 0990: ENCERRAMENTO DO BLOCO 0<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped
+   * @param lineCount
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal0990 add0990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscal0990 r0990 = sped.getR0990();
+    if (r0990 == null) {
+      r0990 = new SPEDFiscal0990(sped);
+      sped.setR0990(r0990);
+    }
+    return r0990;
   }
 }

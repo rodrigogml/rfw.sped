@@ -6,6 +6,7 @@ import java.util.HashSet;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
 import br.eng.rodrigogml.rfw.kernel.utils.RUString;
+import br.eng.rodrigogml.rfw.sped.SPEDFiscalBuilder;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0000;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
@@ -153,6 +154,10 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   public void calculateFields() throws RFWException {
     String uuid = RUGenerators.generateUUID();
 
+    // Completa os registros de rodapés se ainda não existirem
+    if (this.r0001 != null && this.r0990 == null) this.r0990 = SPEDFiscalBuilder.add0990(this);
+
+    // Abertura do Arquivo
     if (this.r0000 != null) this.r0000.calculate(uuid);
 
     // Bloco 0
@@ -211,8 +216,10 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     this.r0000.writeFileRegister(buff);
 
     // Bloco 0
-    this.r0001.writeFileRegister(buff);
-    this.r0990.writeFileRegister(buff);
+    if (this.r0001 != null) {
+      this.r0001.writeFileRegister(buff);
+      this.r0990.writeFileRegister(buff);
+    }
 
     // Bloco C
     this.rC001.writeFileRegister(buff);
