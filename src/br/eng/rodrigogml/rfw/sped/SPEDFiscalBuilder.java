@@ -24,6 +24,8 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0500;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
@@ -34,12 +36,18 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC855;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC857;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC860;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC890;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH005;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH020;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK100;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
 /**
  * Description: Classe para auxiliar na montagem e manipulação do arquivo do SPED Fiscal através da estrutura {@link SPEDFiscalFile}.<br>
@@ -1214,8 +1222,7 @@ public class SPEDFiscalBuilder {
    * <li>Nível hierárquico - 1</li>
    * <li>Ocorrência – um por arquivo</li>
    *
-   * @param sped
-   * @param lineCount
+   * @param sped Arquivo SPED.
    * @return
    * @throws RFWException
    */
@@ -1227,4 +1234,157 @@ public class SPEDFiscalBuilder {
     }
     return r0990;
   }
+
+  /**
+   * REGISTRO C990: ENCERRAMENTO DO BLOCO C<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC990 addC990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalC990 rC990 = sped.getRC990();
+    if (rC990 == null) {
+      rC990 = new SPEDFiscalC990(sped);
+      sped.setRC990(rC990);
+    }
+    return rC990;
+  }
+
+  /**
+   * REGISTRO D990: ENCERRAMENTO DO BLOCO D<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalD990 addD990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalD990 rD990 = sped.getRD990();
+    if (rD990 == null) {
+      rD990 = new SPEDFiscalD990(sped);
+      sped.setRD990(rD990);
+    }
+    return rD990;
+  }
+
+  /**
+   * REGISTRO E990: ENCERRAMENTO DO BLOCO E<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalE990 addE990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalE990 rE990 = sped.getRE990();
+    if (rE990 == null) {
+      rE990 = new SPEDFiscalE990(sped);
+      sped.setRE990(rE990);
+    }
+    return rE990;
+  }
+
+  /**
+   * REGISTRO G990: ENCERRAMENTO DO BLOCO G<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalG990 addG990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalG990 rG990 = sped.getRG990();
+    if (rG990 == null) {
+      rG990 = new SPEDFiscalG990(sped);
+      sped.setRG990(rG990);
+    }
+    return rG990;
+  }
+
+  /**
+   * REGISTRO H990: ENCERRAMENTO DO BLOCO H<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalH990 addH990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalH990 rH990 = sped.getRH990();
+    if (rH990 == null) {
+      rH990 = new SPEDFiscalH990(sped);
+      sped.setRH990(rH990);
+    }
+    return rH990;
+  }
+
+  /**
+   * REGISTRO K990: ENCERRAMENTO DO BLOCO K<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalK990 addK990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalK990 rK990 = sped.getRK990();
+    if (rK990 == null) {
+      rK990 = new SPEDFiscalK990(sped);
+      sped.setRK990(rK990);
+    }
+    return rK990;
+  }
+
+  /**
+   * REGISTRO 1990: ENCERRAMENTO DO BLOCO 1<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal1990 add1990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscal1990 r1990 = sped.getR1990();
+    if (r1990 == null) {
+      r1990 = new SPEDFiscal1990(sped);
+      sped.setR1990(r1990);
+    }
+    return r1990;
+  }
+
+  /**
+   * REGISTRO 9990: ENCERRAMENTO DO BLOCO 9<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal9990 add9990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscal9990 r9990 = sped.getR9990();
+    if (r9990 == null) {
+      r9990 = new SPEDFiscal9990(sped);
+      sped.setR9990(r9990);
+    }
+    return r9990;
+  }
+
 }
