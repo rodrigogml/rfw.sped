@@ -1,7 +1,9 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -22,7 +24,7 @@ public class SPEDFiscalD990 extends SPEDRegister {
    * 02 QTD_LIN_D Quantidade total de linhas do Bloco D N - - O O
    */
   @SPEDField(maxLength = 255)
-  private Integer r02_QTD_LIN_D = null;
+  private Integer r02_QTD_LIN_D_AUTO = null;
 
   @Override
   public String get01_Register() {
@@ -34,8 +36,8 @@ public class SPEDFiscalD990 extends SPEDRegister {
    *
    * @return the 02 QTD_LIN_D Quantidade total de linhas do Bloco D N - - O O
    */
-  public Integer getR02_QTD_LIN_D() {
-    return r02_QTD_LIN_D;
+  public Integer getR02_QTD_LIN_D_AUTO() {
+    return r02_QTD_LIN_D_AUTO;
   }
 
   /**
@@ -43,8 +45,16 @@ public class SPEDFiscalD990 extends SPEDRegister {
    *
    * @param r02_QTD_LIN_0 the new 02 QTD_LIN_D Quantidade total de linhas do Bloco D N - - O O
    */
-  public void setR02_QTD_LIN_D(Integer r02_QTD_LIN_0) {
-    this.r02_QTD_LIN_D = r02_QTD_LIN_0;
+  public void setR02_QTD_LIN_D_AUTO(Integer r02_QTD_LIN_0) {
+    this.r02_QTD_LIN_D_AUTO = r02_QTD_LIN_0;
   }
 
+  @Override
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da última rodada de cálculo, devemos realizar os cálculos.
+      super.calculate(uuid); // Chama o cálculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+      int totalRegisters = ((SPEDFiscalFile) this.getSpedFile()).getRD001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+      this.r02_QTD_LIN_D_AUTO = totalRegisters;
+    }
+  }
 }

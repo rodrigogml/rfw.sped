@@ -26,6 +26,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
@@ -1385,6 +1386,25 @@ public class SPEDFiscalBuilder {
       sped.setR9990(r9990);
     }
     return r9990;
+  }
+
+  /**
+   * REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscal9999 add9999(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscal9999 r9999 = sped.getR9999();
+    if (r9999 == null) {
+      r9999 = new SPEDFiscal9999(sped);
+      sped.setR9999(r9999);
+    }
+    return r9999;
   }
 
 }

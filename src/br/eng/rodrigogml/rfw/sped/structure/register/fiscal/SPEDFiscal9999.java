@@ -1,7 +1,9 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -47,4 +49,21 @@ public class SPEDFiscal9999 extends SPEDRegister {
     this.r02_QTD_LIN = r02_QTD_LIN_0;
   }
 
+  @Override
+  public void calculate(String uuid) throws RFWException {
+    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da última rodada de cálculo, devemos realizar os cálculos.
+      super.calculate(uuid); // Chama o cálculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+      int totalRegisters = 1; // Soma o registo de fechamento que não está incluso
+      if (((SPEDFiscalFile) this.getSpedFile()).getR0990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR0990().getR02_QTD_LIN_0_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRC990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRC990().getR02_QTD_LIN_C_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRD990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRD990().getR02_QTD_LIN_D_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRE990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRE990().getR02_QTD_LIN_E_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRG990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRG990().getR02_QTD_LIN_G_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRH990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRH990().getR02_QTD_LIN_H_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getRK990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRK990().getR02_QTD_LIN_K_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getR1990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR1990().getR02_QTD_LIN_1_AUTO();
+      if (((SPEDFiscalFile) this.getSpedFile()).getR9990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR9990().getR02_QTD_LIN_9_AUTO();
+      this.r02_QTD_LIN = totalRegisters;
+    }
+  }
 }

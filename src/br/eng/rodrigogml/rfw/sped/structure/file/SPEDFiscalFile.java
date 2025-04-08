@@ -164,17 +164,7 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     if (this.rK001 != null && this.rK990 == null) this.rK990 = SPEDFiscalBuilder.addK990(this);
     if (this.r1001 != null && this.r1990 == null) this.r1990 = SPEDFiscalBuilder.add1990(this);
     if (this.r9001 != null && this.r9990 == null) this.r9990 = SPEDFiscalBuilder.add9990(this);
-    if (this.r0000 != null && this.r9999 == null) this.r0990 = SPEDFiscalBuilder.add0990(this);
-
-    if (this.rC990 != null) this.rC990.calculate(uuid);
-    if (this.rD990 != null) this.rD990.calculate(uuid);
-    if (this.rE990 != null) this.rE990.calculate(uuid);
-    if (this.rG990 != null) this.rG990.calculate(uuid);
-    if (this.rH990 != null) this.rH990.calculate(uuid);
-    if (this.rK990 != null) this.rK990.calculate(uuid);
-    if (this.r1990 != null) this.r1990.calculate(uuid);
-    if (this.r9990 != null) this.r9990.calculate(uuid);
-    if (this.r9999 != null) this.r9999.calculate(uuid);
+    if (this.r0000 != null && this.r9999 == null) this.r9999 = SPEDFiscalBuilder.add9999(this);
 
     // Abertura do Arquivo
     if (this.r0000 != null) this.r0000.calculate(uuid);
@@ -241,37 +231,52 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     }
 
     // Bloco C
-    this.rC001.writeFileRegister(buff);
-    this.rC990.writeFileRegister(buff);
+    if (this.rC001 != null) {
+      this.rC001.writeFileRegister(buff);
+      this.rC990.writeFileRegister(buff);
+    }
 
     // Bloco D
-    this.rD001.writeFileRegister(buff);
-    this.rD990.writeFileRegister(buff);
+    if (this.rD001 != null) {
+      this.rD001.writeFileRegister(buff);
+      this.rD990.writeFileRegister(buff);
+    }
 
     // Bloco E
-    this.rE001.writeFileRegister(buff);
-    this.rE990.writeFileRegister(buff);
+    if (this.rE001 != null) {
+      this.rE001.writeFileRegister(buff);
+      this.rE990.writeFileRegister(buff);
+    }
 
     // Bloco G
-    this.rG001.writeFileRegister(buff);
-    this.rG990.writeFileRegister(buff);
+    if (this.rG001 != null) {
+      this.rG001.writeFileRegister(buff);
+      this.rG990.writeFileRegister(buff);
+    }
 
     // Bloco H
-    this.rH001.writeFileRegister(buff);
-    this.rH990.writeFileRegister(buff);
+    if (this.rH001 != null) {
+      this.rH001.writeFileRegister(buff);
+      this.rH990.writeFileRegister(buff);
+    }
 
     // Bloco K
-    this.rK001.writeFileRegister(buff);
-    this.rK990.writeFileRegister(buff);
+    if (this.rK001 != null) {
+      this.rK001.writeFileRegister(buff);
+      this.rK990.writeFileRegister(buff);
+    }
 
     // Bloco 1
-    this.r1001.writeFileRegister(buff);
-    this.r1990.writeFileRegister(buff);
+    if (this.r1001 != null) {
+      this.r1001.writeFileRegister(buff);
+      this.r1990.writeFileRegister(buff);
+    }
 
     // Bloco 9
-    this.r9001.writeFileRegister(buff);
-    this.r9990.writeFileRegister(buff);
-
+    if (this.r9001 != null) {
+      this.r9001.writeFileRegister(buff);
+      this.r9990.writeFileRegister(buff);
+    }
     // Encerramento do Arquivo
     this.r9999.writeFileRegister(buff);
 
