@@ -25,6 +25,8 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal0990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9900;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
@@ -1407,4 +1409,38 @@ public class SPEDFiscalBuilder {
     return r9999;
   }
 
+  /**
+   * REGISTRO 9001: ABERTURA DO BLOCO 9.<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por Arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   */
+  public static SPEDFiscal9001 add9001(SPEDFiscalFile sped) {
+    if (sped.getR9001() == null) {
+      sped.setR9001(new SPEDFiscal9001(sped));
+    }
+    return sped.getR9001();
+  }
+
+  /**
+   * REGISTRO 9900: REGISTROS DO ARQUIVO. <br>
+   * Observações:
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência – vários (por arquivo)</li>
+   *
+   * @param sped Arquivo SPED.
+   * @param r02_REG_BLC Registro que será totalizado no próximo campo. C 004 - O
+   */
+  public static SPEDFiscal9900 add9900(SPEDFiscalFile sped, String r02_REG_BLC) {
+    SPEDFiscal9001 r9001 = add9001(sped);
+    SPEDFiscal9900 r9900 = r9001.getR9900_AUTO().get(r02_REG_BLC);
+    if (r9900 == null) {
+      r9900 = new SPEDFiscal9900(sped);
+      r9001.getR9900_AUTO().put(r02_REG_BLC, r9900);
+      r9900.setR02_REG_BLC(r02_REG_BLC);
+    }
+    return r9900;
+  }
 }

@@ -1,7 +1,12 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
+import java.lang.reflect.Method;
+
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
+import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
+import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFiscalFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
@@ -28,7 +33,7 @@ public class SPEDFiscal9900 extends SPEDRegister {
    * 03 QTD_REG_BLC Total de registros do tipo informado no campo anterior. N - - O
    */
   @SPEDField(maxLength = 255)
-  private Integer r03_QTD_REG_BLC = null;
+  private Integer r03_QTD_REG_BLC_AUTO = null;
 
   @Override
   public String get01_Register() {
@@ -58,8 +63,8 @@ public class SPEDFiscal9900 extends SPEDRegister {
    *
    * @return the 03 QTD_REG_BLC Total de registros do tipo informado no campo anterior
    */
-  public Integer getR03_QTD_REG_BLC() {
-    return r03_QTD_REG_BLC;
+  public Integer getR03_QTD_REG_BLC_AUTO() {
+    return r03_QTD_REG_BLC_AUTO;
   }
 
   /**
@@ -67,8 +72,26 @@ public class SPEDFiscal9900 extends SPEDRegister {
    *
    * @param r03_QTD_REG_BLC the new 03 QTD_REG_BLC Total de registros do tipo informado no campo anterior
    */
-  public void setR03_QTD_REG_BLC(Integer r03_QTD_REG_BLC) {
-    this.r03_QTD_REG_BLC = r03_QTD_REG_BLC;
+  public void setR03_QTD_REG_BLC_AUTO(Integer r03_QTD_REG_BLC) {
+    this.r03_QTD_REG_BLC_AUTO = r03_QTD_REG_BLC;
+  }
+
+  @Override
+  public void calculate(String uuid) throws RFWException {
+    try {
+      if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da última rodada de cálculo, devemos realizar os cálculos.
+        super.calculate(uuid); // Chama o cálculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+        SPEDFiscalFile file = (SPEDFiscalFile) this.getSpedFile();
+        Method m = SPEDFiscalFile.class.getMethod("getR" + this.getR02_REG_BLC());
+        SPEDRegister reg = (SPEDRegister) m.invoke(file);
+        int totalRegisters = reg.countRegisters();
+        this.r03_QTD_REG_BLC_AUTO = totalRegisters;
+      }
+    } catch (RFWException e) {
+      throw e;
+    } catch (Exception e) {
+      throw new RFWCriticalException("Falha ao calcular valores automáticos do Registro SPED: ${0} / ${1}", new String[] { this.getClass().getName(), this.getR02_REG_BLC() });
+    }
   }
 
 }

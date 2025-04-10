@@ -82,7 +82,7 @@ public abstract class SPEDRegister implements Serializable {
    */
   public void calculate(String uuid) throws RFWException {
     if (uuid == null || !uuid.equals(this.getLastUUID())) {
-      if (uuid == null) this.lastUUID = uuid;
+      if (uuid != null) this.lastUUID = uuid;
       calculateChildren(uuid);
     }
   }
@@ -104,7 +104,7 @@ public abstract class SPEDRegister implements Serializable {
     // Iteramos os métodos de atributos de subregistros, padrão "r????"
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) {
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) {
         Object value = null;
         try {
           Method mGet = this.getClass().getMethod("getR" + f.getName().substring(1));
@@ -268,7 +268,7 @@ public abstract class SPEDRegister implements Serializable {
     // Iteramos os métodos de atributos de subregistros, padrão "r????"
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) {
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) {
         Object value = null;
         try {
           Method mGet = this.getClass().getMethod("getR" + f.getName().substring(1));
@@ -299,7 +299,7 @@ public abstract class SPEDRegister implements Serializable {
     // Iteramos os métodos encontrados, e se estiverem no padrão "r##_" escrevemos no Buffer de acordo com as definições da sua annotation
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
         Object value = null;
         try {
           Method mGet = this.getClass().getMethod("getR" + f.getName().substring(1));

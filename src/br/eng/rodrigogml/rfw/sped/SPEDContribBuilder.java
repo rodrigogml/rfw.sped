@@ -323,7 +323,7 @@ public class SPEDContribBuilder {
     // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
         Object value = null;
         try {
           Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
@@ -390,7 +390,7 @@ public class SPEDContribBuilder {
     // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizamos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[A-Za-z0-9]{4}")) { // Atributos de subatributos
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
         Object value = null;
         try {
           Method mGet = reg.getClass().getMethod("getR" + f.getName().substring(1));

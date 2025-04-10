@@ -154,17 +154,21 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   public void calculateFields() throws RFWException {
     String uuid = RUGenerators.generateUUID();
 
-    // Completa os registros de rodapés se ainda não existirem
-    if (this.r0001 != null && this.r0990 == null) this.r0990 = SPEDFiscalBuilder.add0990(this);
-    if (this.rC001 != null && this.rC990 == null) this.rC990 = SPEDFiscalBuilder.addC990(this);
-    if (this.rD001 != null && this.rD990 == null) this.rD990 = SPEDFiscalBuilder.addD990(this);
-    if (this.rE001 != null && this.rE990 == null) this.rE990 = SPEDFiscalBuilder.addE990(this);
-    if (this.rG001 != null && this.rG990 == null) this.rG990 = SPEDFiscalBuilder.addG990(this);
-    if (this.rH001 != null && this.rH990 == null) this.rH990 = SPEDFiscalBuilder.addH990(this);
-    if (this.rK001 != null && this.rK990 == null) this.rK990 = SPEDFiscalBuilder.addK990(this);
-    if (this.r1001 != null && this.r1990 == null) this.r1990 = SPEDFiscalBuilder.add1990(this);
-    if (this.r9001 != null && this.r9990 == null) this.r9990 = SPEDFiscalBuilder.add9990(this);
-    if (this.r0000 != null && this.r9999 == null) this.r9999 = SPEDFiscalBuilder.add9999(this);
+    // Sempre adicionamos o registro 9001 (contadores) Automaticamente
+    SPEDFiscalBuilder.add9001(this);
+
+    // Completa os registros de rodapés e contadores 9900 de cada bloco, se forem necessários e ainda não existirem
+    if (this.r0000 != null) SPEDFiscalBuilder.add0990(this);
+    if (this.r0001 != null) SPEDFiscalBuilder.add0990(this);
+    if (this.rC001 != null) SPEDFiscalBuilder.addC990(this);
+    if (this.rD001 != null) SPEDFiscalBuilder.addD990(this);
+    if (this.rE001 != null) SPEDFiscalBuilder.addE990(this);
+    if (this.rG001 != null) SPEDFiscalBuilder.addG990(this);
+    if (this.rH001 != null) SPEDFiscalBuilder.addH990(this);
+    if (this.rK001 != null) SPEDFiscalBuilder.addK990(this);
+    if (this.r1001 != null) SPEDFiscalBuilder.add1990(this);
+    if (this.r9001 != null) SPEDFiscalBuilder.add9990(this);
+    if (this.r0000 != null) SPEDFiscalBuilder.add9999(this);
 
     // Abertura do Arquivo
     if (this.r0000 != null) this.r0000.calculate(uuid);
@@ -204,6 +208,9 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     // Bloco 9
     if (this.r9001 != null) this.r9001.calculate(uuid);
     if (this.r9990 != null) this.r9990.calculate(uuid);
+
+    // Calcula o registro 9001 depois que todos foram recalculados
+    this.r9001.calculate(uuid);
 
     // Encerramento do Arquivo
     if (this.r9999 != null) this.r9999.calculate(uuid);

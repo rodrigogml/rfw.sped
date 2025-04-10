@@ -52,7 +52,7 @@ public class SPEDFiscalC001 extends SPEDRegister {
    * N 001 - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
-  private String r02_IND_MOV = null;
+  private String r02_IND_MOV_AUTO = null;
 
   @Override
   public String get01_Register() {
@@ -69,8 +69,8 @@ public class SPEDFiscalC001 extends SPEDRegister {
    *         0- Bloco com dados informados;<br>
    *         1- Bloco sem dados informados
    */
-  public String getR02_IND_MOV() {
-    return r02_IND_MOV;
+  public String getR02_IND_MOV_AUTO() {
+    return r02_IND_MOV_AUTO;
   }
 
   /**
@@ -83,8 +83,8 @@ public class SPEDFiscalC001 extends SPEDRegister {
    *          0- Bloco com dados informados;<br>
    *          1- Bloco sem dados informados
    */
-  public void setR02_IND_MOV(String r02_IND_MOV) {
-    this.r02_IND_MOV = r02_IND_MOV;
+  public void setR02_IND_MOV_AUTO(String r02_IND_MOV) {
+    this.r02_IND_MOV_AUTO = r02_IND_MOV;
   }
 
   /**
@@ -140,7 +140,7 @@ public class SPEDFiscalC001 extends SPEDRegister {
           !rc400.isEmpty() ||
           !rc800.isEmpty() ||
           !rc860.isEmpty();
-      r02_IND_MOV = hasContent ? "0" : "1";
+      r02_IND_MOV_AUTO = hasContent ? "0" : "1";
     }
   }
 }
