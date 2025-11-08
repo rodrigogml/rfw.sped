@@ -19,7 +19,7 @@ import br.eng.rodrigogml.rfw.kernel.dataformatters.RFWCPFOrCNPJDataFormatter;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWValidationException;
-import br.eng.rodrigogml.rfw.kernel.utils.RUDocVal;
+import br.eng.rodrigogml.rfw.kernel.utils.RUValueValidation;
 import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
 import br.eng.rodrigogml.rfw.kernel.utils.RUMail;
 import br.eng.rodrigogml.rfw.kernel.utils.RUTypes;
@@ -209,14 +209,14 @@ public abstract class SPEDRegister implements Serializable {
               break;
             case CNPJ:
               try {
-                RUDocVal.validateCNPJ(convValue);
+                RUValueValidation.validateCNPJ(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000270", new String[] { convValue, f.getName(), this.get01_Register() });
               }
               break;
             case CPF:
               try {
-                RUDocVal.validateCPF(convValue);
+                RUValueValidation.validateCPF(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000271", new String[] { convValue, f.getName(), this.get01_Register() });
               }
@@ -230,14 +230,14 @@ public abstract class SPEDRegister implements Serializable {
               break;
             case IE:
               try {
-                RUDocVal.validateIE(convValue);
+                RUValueValidation.validateIE(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000273", new String[] { convValue, f.getName(), this.get01_Register() });
               }
               break;
             case UF:
               try {
-                RUDocVal.validateUF(convValue);
+                RUValueValidation.validateUF(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000274", new String[] { convValue, f.getName(), this.get01_Register() });
               }
