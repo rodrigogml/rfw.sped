@@ -19,10 +19,9 @@ import br.eng.rodrigogml.rfw.kernel.dataformatters.RFWCPFOrCNPJDataFormatter;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWValidationException;
-import br.eng.rodrigogml.rfw.kernel.utils.RUValueValidation;
 import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
-import br.eng.rodrigogml.rfw.kernel.utils.RUMail;
 import br.eng.rodrigogml.rfw.kernel.utils.RUTypes;
+import br.eng.rodrigogml.rfw.kernel.utils.RUValueValidation;
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 
@@ -223,7 +222,7 @@ public abstract class SPEDRegister implements Serializable {
               break;
             case EMAIL:
               try {
-                RUMail.validateMailAddress(convValue);
+                RUValueValidation.validateMailAddress(convValue);
               } catch (Exception e) {
                 throw new RFWValidationException("BISModules_000272", new String[] { convValue, f.getName(), this.get01_Register() });
               }
