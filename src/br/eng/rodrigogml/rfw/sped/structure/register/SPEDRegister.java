@@ -176,7 +176,7 @@ public abstract class SPEDRegister implements Serializable {
             convValue = convValue.replaceAll("\\.", ","); // Troca o . de decimal para ,
           } else if (f.getType().equals(LocalDate.class)) {
             if (ann.maxLength() == 8) {
-              convValue = RUTypes.formatToddMMyyyy((LocalDate) value);
+              convValue = RUTypes.formatDateDayMonthYear((LocalDate) value);
             } else if (ann.maxLength() == 6) {
               convValue = RUTypes.formatLocalDate((LocalDate) value, "MMyyyy");
             } else {

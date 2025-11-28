@@ -717,7 +717,7 @@ public class SPEDFiscalBuilder {
 
       // Este campos só devem ser escriturados para cupons vendidos
       if ("00".equals(r03_COD_SIT)) { // 00 = Documento regular
-        rc800.setR05_DT_DOC(RUTypes.formatToddMMyyyy(r05_DT_DOC));
+        rc800.setR05_DT_DOC(RUTypes.formatDateDayMonthYear(r05_DT_DOC));
         rc800.setR06_VL_CFE(r06_VL_CFE);
         rc800.setR07_VL_PIS(r07_VL_PIS);
         rc800.setR08_VL_COFINS(r08_VL_COFINS);
