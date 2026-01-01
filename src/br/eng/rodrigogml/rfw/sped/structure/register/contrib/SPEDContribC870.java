@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C870: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR EQUIPAMENTO SAT-CF-E (C”DIGO 59) ñ PIS/PASEP E COFINS.<br>
+ * Description: REGISTRO C870: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR EQUIPAMENTO SAT-CF-E (C√ìDIGO 59) ‚Äì PIS/PASEP E COFINS.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,13 +22,13 @@ public class SPEDContribC870 extends SPEDRegister {
   }
 
   /**
-   * CÛdigo do item (campo 02 do Registro 0200) C 060 - N
+   * C√≥digo do item (campo 02 do Registro 0200) C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r02_COD_ITEM = null;
 
   /**
-   * CÛdigo fiscal de operaÁ„o e prestaÁ„o N 004* - S
+   * C√≥digo fiscal de opera√ß√£o e presta√ß√£o N 004* - S
    */
   @SPEDField(maxLength = 4, minLength = 4, required = true)
   private String r03_CFOP = null;
@@ -40,25 +40,25 @@ public class SPEDContribC870 extends SPEDRegister {
   private BigDecimal r04_VL_ITEM = null;
 
   /**
-   * Valor da exclus„o/desconto comercial dos itens N - 02 N
+   * Valor da exclus√£o/desconto comercial dos itens N - 02 N
    */
   @SPEDField(maxLength = 20, decimals = 2, required = true)
   private BigDecimal r05_VL_DESC = null;
 
   /**
-   * CÛdigo da SituaÁ„o Tribut·ria referente ao PIS/PASEP N 002* - S
+   * C√≥digo da Situa√ß√£o Tribut√°ria referente ao PIS/PASEP N 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r06_CST_PIS = null;
 
   /**
-   * Valor da base de c·lculo do PIS/PASEP N 02 N
+   * Valor da base de c√°lculo do PIS/PASEP N 02 N
    */
   @SPEDField(maxLength = 20, decimals = 2, required = false)
   private BigDecimal r07_VL_BC_PIS = null;
 
   /**
-   * AlÌquota do PIS/PASEP (em percentual) N 008 04 N
+   * Al√≠quota do PIS/PASEP (em percentual) N 008 04 N
    */
   @SPEDField(maxLength = 8, decimals = 4, required = false)
   private BigDecimal r08_ALIQ_PIS = null;
@@ -70,19 +70,19 @@ public class SPEDContribC870 extends SPEDRegister {
   private BigDecimal r09_VL_PIS = null;
 
   /**
-   * CÛdigo da SituaÁ„o Tribut·ria referente a COFINS N 002* - S
+   * C√≥digo da Situa√ß√£o Tribut√°ria referente a COFINS N 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r10_CST_COFINS = null;
 
   /**
-   * Valor da base de c·lculo da COFINS N 02 N
+   * Valor da base de c√°lculo da COFINS N 02 N
    */
   @SPEDField(maxLength = 20, decimals = 2, required = false)
   private BigDecimal r11_VL_BC_COFINS = null;
 
   /**
-   * AlÌquota da COFINS (em percentual) N 008 04 N
+   * Al√≠quota da COFINS (em percentual) N 008 04 N
    */
   @SPEDField(maxLength = 8, decimals = 4, required = false)
   private BigDecimal r12_ALIQ_COFINS = null;
@@ -94,7 +94,7 @@ public class SPEDContribC870 extends SPEDRegister {
   private BigDecimal r13_VL_COFINS = null;
 
   /**
-   * CÛdigo da conta analÌtica cont·bil debitada/creditada C 060 - N
+   * C√≥digo da conta anal√≠tica cont√°bil debitada/creditada C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r14_COD_CTA = null;
@@ -105,36 +105,36 @@ public class SPEDContribC870 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo do item (campo 02 do Registro 0200) C 060 - N.
+   * Recupera o c√≥digo do item (campo 02 do Registro 0200) C 060 - N.
    *
-   * @return the cÛdigo do item (campo 02 do Registro 0200) C 060 - N
+   * @return the c√≥digo do item (campo 02 do Registro 0200) C 060 - N
    */
   public String getR02_COD_ITEM() {
     return r02_COD_ITEM;
   }
 
   /**
-   * Define o cÛdigo do item (campo 02 do Registro 0200) C 060 - N.
+   * Define o c√≥digo do item (campo 02 do Registro 0200) C 060 - N.
    *
-   * @param r02_COD_ITEM the new cÛdigo do item (campo 02 do Registro 0200) C 060 - N
+   * @param r02_COD_ITEM the new c√≥digo do item (campo 02 do Registro 0200) C 060 - N
    */
   public void setR02_COD_ITEM(String r02_COD_ITEM) {
     this.r02_COD_ITEM = r02_COD_ITEM;
   }
 
   /**
-   * Recupera o cÛdigo fiscal de operaÁ„o e prestaÁ„o N 004* - S.
+   * Recupera o c√≥digo fiscal de opera√ß√£o e presta√ß√£o N 004* - S.
    *
-   * @return the cÛdigo fiscal de operaÁ„o e prestaÁ„o N 004* - S
+   * @return the c√≥digo fiscal de opera√ß√£o e presta√ß√£o N 004* - S
    */
   public String getR03_CFOP() {
     return r03_CFOP;
   }
 
   /**
-   * Define o cÛdigo fiscal de operaÁ„o e prestaÁ„o N 004* - S.
+   * Define o c√≥digo fiscal de opera√ß√£o e presta√ß√£o N 004* - S.
    *
-   * @param r03_CFOP the new cÛdigo fiscal de operaÁ„o e prestaÁ„o N 004* - S
+   * @param r03_CFOP the new c√≥digo fiscal de opera√ß√£o e presta√ß√£o N 004* - S
    */
   public void setR03_CFOP(String r03_CFOP) {
     this.r03_CFOP = r03_CFOP;
@@ -159,72 +159,72 @@ public class SPEDContribC870 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor da exclus„o/desconto comercial dos itens N - 02 N.
+   * Recupera o valor da exclus√£o/desconto comercial dos itens N - 02 N.
    *
-   * @return the valor da exclus„o/desconto comercial dos itens N - 02 N
+   * @return the valor da exclus√£o/desconto comercial dos itens N - 02 N
    */
   public BigDecimal getR05_VL_DESC() {
     return r05_VL_DESC;
   }
 
   /**
-   * Define o valor da exclus„o/desconto comercial dos itens N - 02 N.
+   * Define o valor da exclus√£o/desconto comercial dos itens N - 02 N.
    *
-   * @param r05_VL_DESC the new valor da exclus„o/desconto comercial dos itens N - 02 N
+   * @param r05_VL_DESC the new valor da exclus√£o/desconto comercial dos itens N - 02 N
    */
   public void setR05_VL_DESC(BigDecimal r05_VL_DESC) {
     this.r05_VL_DESC = r05_VL_DESC;
   }
 
   /**
-   * Recupera o cÛdigo da SituaÁ„o Tribut·ria referente ao PIS/PASEP N 002* - S.
+   * Recupera o c√≥digo da Situa√ß√£o Tribut√°ria referente ao PIS/PASEP N 002* - S.
    *
-   * @return the cÛdigo da SituaÁ„o Tribut·ria referente ao PIS/PASEP N 002* - S
+   * @return the c√≥digo da Situa√ß√£o Tribut√°ria referente ao PIS/PASEP N 002* - S
    */
   public String getR06_CST_PIS() {
     return r06_CST_PIS;
   }
 
   /**
-   * Define o cÛdigo da SituaÁ„o Tribut·ria referente ao PIS/PASEP N 002* - S.
+   * Define o c√≥digo da Situa√ß√£o Tribut√°ria referente ao PIS/PASEP N 002* - S.
    *
-   * @param r06_CST_PIS the new cÛdigo da SituaÁ„o Tribut·ria referente ao PIS/PASEP N 002* - S
+   * @param r06_CST_PIS the new c√≥digo da Situa√ß√£o Tribut√°ria referente ao PIS/PASEP N 002* - S
    */
   public void setR06_CST_PIS(String r06_CST_PIS) {
     this.r06_CST_PIS = r06_CST_PIS;
   }
 
   /**
-   * Recupera o valor da base de c·lculo do PIS/PASEP N 02 N.
+   * Recupera o valor da base de c√°lculo do PIS/PASEP N 02 N.
    *
-   * @return the valor da base de c·lculo do PIS/PASEP N 02 N
+   * @return the valor da base de c√°lculo do PIS/PASEP N 02 N
    */
   public BigDecimal getR07_VL_BC_PIS() {
     return r07_VL_BC_PIS;
   }
 
   /**
-   * Define o valor da base de c·lculo do PIS/PASEP N 02 N.
+   * Define o valor da base de c√°lculo do PIS/PASEP N 02 N.
    *
-   * @param r07_VL_BC_PIS the new valor da base de c·lculo do PIS/PASEP N 02 N
+   * @param r07_VL_BC_PIS the new valor da base de c√°lculo do PIS/PASEP N 02 N
    */
   public void setR07_VL_BC_PIS(BigDecimal r07_VL_BC_PIS) {
     this.r07_VL_BC_PIS = r07_VL_BC_PIS;
   }
 
   /**
-   * Recupera o alÌquota do PIS/PASEP (em percentual) N 008 04 N.
+   * Recupera o al√≠quota do PIS/PASEP (em percentual) N 008 04 N.
    *
-   * @return the alÌquota do PIS/PASEP (em percentual) N 008 04 N
+   * @return the al√≠quota do PIS/PASEP (em percentual) N 008 04 N
    */
   public BigDecimal getR08_ALIQ_PIS() {
     return r08_ALIQ_PIS;
   }
 
   /**
-   * Define o alÌquota do PIS/PASEP (em percentual) N 008 04 N.
+   * Define o al√≠quota do PIS/PASEP (em percentual) N 008 04 N.
    *
-   * @param r08_ALIQ_PIS the new alÌquota do PIS/PASEP (em percentual) N 008 04 N
+   * @param r08_ALIQ_PIS the new al√≠quota do PIS/PASEP (em percentual) N 008 04 N
    */
   public void setR08_ALIQ_PIS(BigDecimal r08_ALIQ_PIS) {
     this.r08_ALIQ_PIS = r08_ALIQ_PIS;
@@ -249,54 +249,54 @@ public class SPEDContribC870 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo da SituaÁ„o Tribut·ria referente a COFINS N 002* - S.
+   * Recupera o c√≥digo da Situa√ß√£o Tribut√°ria referente a COFINS N 002* - S.
    *
-   * @return the cÛdigo da SituaÁ„o Tribut·ria referente a COFINS N 002* - S
+   * @return the c√≥digo da Situa√ß√£o Tribut√°ria referente a COFINS N 002* - S
    */
   public String getR10_CST_COFINS() {
     return r10_CST_COFINS;
   }
 
   /**
-   * Define o cÛdigo da SituaÁ„o Tribut·ria referente a COFINS N 002* - S.
+   * Define o c√≥digo da Situa√ß√£o Tribut√°ria referente a COFINS N 002* - S.
    *
-   * @param r10_CST_COFINS the new cÛdigo da SituaÁ„o Tribut·ria referente a COFINS N 002* - S
+   * @param r10_CST_COFINS the new c√≥digo da Situa√ß√£o Tribut√°ria referente a COFINS N 002* - S
    */
   public void setR10_CST_COFINS(String r10_CST_COFINS) {
     this.r10_CST_COFINS = r10_CST_COFINS;
   }
 
   /**
-   * Recupera o valor da base de c·lculo da COFINS N 02 N.
+   * Recupera o valor da base de c√°lculo da COFINS N 02 N.
    *
-   * @return the valor da base de c·lculo da COFINS N 02 N
+   * @return the valor da base de c√°lculo da COFINS N 02 N
    */
   public BigDecimal getR11_VL_BC_COFINS() {
     return r11_VL_BC_COFINS;
   }
 
   /**
-   * Define o valor da base de c·lculo da COFINS N 02 N.
+   * Define o valor da base de c√°lculo da COFINS N 02 N.
    *
-   * @param r11_VL_BC_COFINS the new valor da base de c·lculo da COFINS N 02 N
+   * @param r11_VL_BC_COFINS the new valor da base de c√°lculo da COFINS N 02 N
    */
   public void setR11_VL_BC_COFINS(BigDecimal r11_VL_BC_COFINS) {
     this.r11_VL_BC_COFINS = r11_VL_BC_COFINS;
   }
 
   /**
-   * Recupera o alÌquota da COFINS (em percentual) N 008 04 N.
+   * Recupera o al√≠quota da COFINS (em percentual) N 008 04 N.
    *
-   * @return the alÌquota da COFINS (em percentual) N 008 04 N
+   * @return the al√≠quota da COFINS (em percentual) N 008 04 N
    */
   public BigDecimal getR12_ALIQ_COFINS() {
     return r12_ALIQ_COFINS;
   }
 
   /**
-   * Define o alÌquota da COFINS (em percentual) N 008 04 N.
+   * Define o al√≠quota da COFINS (em percentual) N 008 04 N.
    *
-   * @param r12_ALIQ_COFINS the new alÌquota da COFINS (em percentual) N 008 04 N
+   * @param r12_ALIQ_COFINS the new al√≠quota da COFINS (em percentual) N 008 04 N
    */
   public void setR12_ALIQ_COFINS(BigDecimal r12_ALIQ_COFINS) {
     this.r12_ALIQ_COFINS = r12_ALIQ_COFINS;
@@ -321,18 +321,18 @@ public class SPEDContribC870 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo da conta analÌtica cont·bil debitada/creditada C 060 - N.
+   * Recupera o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada C 060 - N.
    *
-   * @return the cÛdigo da conta analÌtica cont·bil debitada/creditada C 060 - N
+   * @return the c√≥digo da conta anal√≠tica cont√°bil debitada/creditada C 060 - N
    */
   public String getR14_COD_CTA() {
     return r14_COD_CTA;
   }
 
   /**
-   * Define o cÛdigo da conta analÌtica cont·bil debitada/creditada C 060 - N.
+   * Define o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada C 060 - N.
    *
-   * @param r14_COD_CTA the new cÛdigo da conta analÌtica cont·bil debitada/creditada C 060 - N
+   * @param r14_COD_CTA the new c√≥digo da conta anal√≠tica cont√°bil debitada/creditada C 060 - N
    */
   public void setR14_COD_CTA(String r14_COD_CTA) {
     this.r14_COD_CTA = r14_COD_CTA;

@@ -9,9 +9,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO H005: TOTAIS DO INVENT¡RIO.<br>
+ * Description: REGISTRO H005: TOTAIS DO INVENT√ÅRIO.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalH005 extends SPEDRegister {
@@ -23,12 +23,12 @@ public class SPEDFiscalH005 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO H010: INVENT¡RIO
+   * REGISTRO H010: INVENT√ÅRIO
    */
   private final LinkedHashMap<String, SPEDFiscalH010> rh010 = new LinkedHashMap<String, SPEDFiscalH010>();
 
   /**
-   * 02 DT_INV Data do invent·rio N 008* - O
+   * 02 DT_INV Data do invent√°rio N 008* - O
    */
   @SPEDField(maxLength = 8, minLength = 8)
   private LocalDate r02_DT_INV = null;
@@ -40,12 +40,12 @@ public class SPEDFiscalH005 extends SPEDRegister {
   private BigDecimal r03_VL_INV = null;
 
   /**
-   * 04 MOT_INV Informe o motivo do Invent·rio:<br>
-   * 01 ñ No final no perÌodo;<br>
-   * 02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);<br>
-   * 03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;<br>
-   * 04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;<br>
-   * 05 ñ Por determinaÁ„o dos fiscos. C 002* - O<br>
+   * 04 MOT_INV Informe o motivo do Invent√°rio:<br>
+   * 01 ‚Äì No final no per√≠odo;<br>
+   * 02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);<br>
+   * 03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;<br>
+   * 04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;<br>
+   * 05 ‚Äì Por determina√ß√£o dos fiscos. C 002* - O<br>
    */
   @SPEDField(maxLength = 2, minLength = 2)
   private String r04_MOT_INV = null;
@@ -56,18 +56,18 @@ public class SPEDFiscalH005 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 DT_INV Data do invent·rio N 008* - O.
+   * Recupera o 02 DT_INV Data do invent√°rio N 008* - O.
    *
-   * @return the 02 DT_INV Data do invent·rio N 008* - O
+   * @return the 02 DT_INV Data do invent√°rio N 008* - O
    */
   public LocalDate getR02_DT_INV() {
     return r02_DT_INV;
   }
 
   /**
-   * Define o 02 DT_INV Data do invent·rio N 008* - O.
+   * Define o 02 DT_INV Data do invent√°rio N 008* - O.
    *
-   * @param r02_DT_INV the new 02 DT_INV Data do invent·rio N 008* - O
+   * @param r02_DT_INV the new 02 DT_INV Data do invent√°rio N 008* - O
    */
   public void setR02_DT_INV(LocalDate r02_DT_INV) {
     this.r02_DT_INV = r02_DT_INV;
@@ -92,49 +92,49 @@ public class SPEDFiscalH005 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 04 MOT_INV Informe o motivo do Invent·rio:<br>
-   * 01 ñ No final no perÌodo;<br>
-   * 02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);<br>
-   * 03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;<br>
-   * 04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;<br>
-   * 05 ñ Por determinaÁ„o dos fiscos. C 002* - O<br>
+   * Recupera o 04 MOT_INV Informe o motivo do Invent√°rio:<br>
+   * 01 ‚Äì No final no per√≠odo;<br>
+   * 02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);<br>
+   * 03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;<br>
+   * 04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;<br>
+   * 05 ‚Äì Por determina√ß√£o dos fiscos. C 002* - O<br>
    * .
    *
-   * @return the 04 MOT_INV Informe o motivo do Invent·rio:<br>
-   *         01 ñ No final no perÌodo;<br>
-   *         02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);<br>
-   *         03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;<br>
-   *         04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;<br>
-   *         05 ñ Por determinaÁ„o dos fiscos
+   * @return the 04 MOT_INV Informe o motivo do Invent√°rio:<br>
+   *         01 ‚Äì No final no per√≠odo;<br>
+   *         02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);<br>
+   *         03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;<br>
+   *         04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;<br>
+   *         05 ‚Äì Por determina√ß√£o dos fiscos
    */
   public String getR04_MOT_INV() {
     return r04_MOT_INV;
   }
 
   /**
-   * Define o 04 MOT_INV Informe o motivo do Invent·rio:<br>
-   * 01 ñ No final no perÌodo;<br>
-   * 02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);<br>
-   * 03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;<br>
-   * 04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;<br>
-   * 05 ñ Por determinaÁ„o dos fiscos. C 002* - O<br>
+   * Define o 04 MOT_INV Informe o motivo do Invent√°rio:<br>
+   * 01 ‚Äì No final no per√≠odo;<br>
+   * 02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);<br>
+   * 03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;<br>
+   * 04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;<br>
+   * 05 ‚Äì Por determina√ß√£o dos fiscos. C 002* - O<br>
    * .
    *
-   * @param r04_MOT_INV the new 04 MOT_INV Informe o motivo do Invent·rio:<br>
-   *          01 ñ No final no perÌodo;<br>
-   *          02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);<br>
-   *          03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;<br>
-   *          04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;<br>
-   *          05 ñ Por determinaÁ„o dos fiscos
+   * @param r04_MOT_INV the new 04 MOT_INV Informe o motivo do Invent√°rio:<br>
+   *          01 ‚Äì No final no per√≠odo;<br>
+   *          02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);<br>
+   *          03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;<br>
+   *          04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;<br>
+   *          05 ‚Äì Por determina√ß√£o dos fiscos
    */
   public void setR04_MOT_INV(String r04_MOT_INV) {
     this.r04_MOT_INV = r04_MOT_INV;
   }
 
   /**
-   * Recupera o rEGISTRO H010: INVENT¡RIO.
+   * Recupera o rEGISTRO H010: INVENT√ÅRIO.
    *
-   * @return the rEGISTRO H010: INVENT¡RIO
+   * @return the rEGISTRO H010: INVENT√ÅRIO
    */
   public LinkedHashMap<String, SPEDFiscalH010> getRh010() {
     return rh010;

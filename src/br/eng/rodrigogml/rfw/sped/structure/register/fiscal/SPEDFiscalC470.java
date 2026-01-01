@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C470: ITENS DO DOCUMENTO FISCAL EMITIDO POR ECF (C”DIGO 02 e 2D.<br>
+ * Description: REGISTRO C470: ITENS DO DOCUMENTO FISCAL EMITIDO POR ECF (C√ìDIGO 02 e 2D.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC470 extends SPEDRegister {
@@ -21,7 +21,7 @@ public class SPEDFiscalC470 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_ITEM CÛdigo do item (campo 02 do Registro 0200) C 060 - O
+   * 02 COD_ITEM C√≥digo do item (campo 02 do Registro 0200) C 060 - O
    */
   @SPEDField(maxLength = 60)
   private String r02_COD_ITEM = null;
@@ -51,19 +51,19 @@ public class SPEDFiscalC470 extends SPEDRegister {
   private BigDecimal r06_VL_ITEM = null;
 
   /**
-   * 07 CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1. N 003* - O
+   * 07 CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1. N 003* - O
    */
   @SPEDField(maxLength = 3, minLength = 3)
   private String r07_CST_ICMS = null;
 
   /**
-   * 08 CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o N 004* - O
+   * 08 CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o N 004* - O
    */
   @SPEDField(maxLength = 4, minLength = 4)
   private String r08_CFOP = null;
 
   /**
-   * 09 ALIQ_ICMS AlÌquota do ICMS ñ Carga tribut·ria efetiva em percentual N 006 02 OC
+   * 09 ALIQ_ICMS Al√≠quota do ICMS ‚Äì Carga tribut√°ria efetiva em percentual N 006 02 OC
    */
   @SPEDField(maxLength = 6, decimals = 2, required = false)
   private BigDecimal r09_ALIQ_ICMS = null;
@@ -86,18 +86,18 @@ public class SPEDFiscalC470 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_ITEM CÛdigo do item (campo 02 do Registro 0200) C 060 - O.
+   * Recupera o 02 COD_ITEM C√≥digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @return the 02 COD_ITEM CÛdigo do item (campo 02 do Registro 0200) C 060 - O
+   * @return the 02 COD_ITEM C√≥digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public String getR02_COD_ITEM() {
     return r02_COD_ITEM;
   }
 
   /**
-   * Define o 02 COD_ITEM CÛdigo do item (campo 02 do Registro 0200) C 060 - O.
+   * Define o 02 COD_ITEM C√≥digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @param r02_COD_ITEM the new 02 COD_ITEM CÛdigo do item (campo 02 do Registro 0200) C 060 - O
+   * @param r02_COD_ITEM the new 02 COD_ITEM C√≥digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public void setR02_COD_ITEM(String r02_COD_ITEM) {
     this.r02_COD_ITEM = r02_COD_ITEM;
@@ -176,54 +176,54 @@ public class SPEDFiscalC470 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 07 CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1. N 003* - O.
+   * Recupera o 07 CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1. N 003* - O.
    *
-   * @return the 07 CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4
+   * @return the 07 CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4
    */
   public String getR07_CST_ICMS() {
     return r07_CST_ICMS;
   }
 
   /**
-   * Define o 07 CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1. N 003* - O.
+   * Define o 07 CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1. N 003* - O.
    *
-   * @param r07_CST_ICMS the new 07 CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4
+   * @param r07_CST_ICMS the new 07 CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4
    */
   public void setR07_CST_ICMS(String r07_CST_ICMS) {
     this.r07_CST_ICMS = r07_CST_ICMS;
   }
 
   /**
-   * Recupera o 08 CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o N 004* - O.
+   * Recupera o 08 CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o N 004* - O.
    *
-   * @return the 08 CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o N 004* - O
+   * @return the 08 CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o N 004* - O
    */
   public String getR08_CFOP() {
     return r08_CFOP;
   }
 
   /**
-   * Define o 08 CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o N 004* - O.
+   * Define o 08 CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o N 004* - O.
    *
-   * @param r08_CFOP the new 08 CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o N 004* - O
+   * @param r08_CFOP the new 08 CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o N 004* - O
    */
   public void setR08_CFOP(String r08_CFOP) {
     this.r08_CFOP = r08_CFOP;
   }
 
   /**
-   * Recupera o 09 ALIQ_ICMS AlÌquota do ICMS ñ Carga tribut·ria efetiva em percentual N 006 02 OC.
+   * Recupera o 09 ALIQ_ICMS Al√≠quota do ICMS ‚Äì Carga tribut√°ria efetiva em percentual N 006 02 OC.
    *
-   * @return the 09 ALIQ_ICMS AlÌquota do ICMS ñ Carga tribut·ria efetiva em percentual N 006 02 OC
+   * @return the 09 ALIQ_ICMS Al√≠quota do ICMS ‚Äì Carga tribut√°ria efetiva em percentual N 006 02 OC
    */
   public BigDecimal getR09_ALIQ_ICMS() {
     return r09_ALIQ_ICMS;
   }
 
   /**
-   * Define o 09 ALIQ_ICMS AlÌquota do ICMS ñ Carga tribut·ria efetiva em percentual N 006 02 OC.
+   * Define o 09 ALIQ_ICMS Al√≠quota do ICMS ‚Äì Carga tribut√°ria efetiva em percentual N 006 02 OC.
    *
-   * @param r09_ALIQ_ICMS the new 09 ALIQ_ICMS AlÌquota do ICMS ñ Carga tribut·ria efetiva em percentual N 006 02 OC
+   * @param r09_ALIQ_ICMS the new 09 ALIQ_ICMS Al√≠quota do ICMS ‚Äì Carga tribut√°ria efetiva em percentual N 006 02 OC
    */
   public void setR09_ALIQ_ICMS(BigDecimal r09_ALIQ_ICMS) {
     this.r09_ALIQ_ICMS = r09_ALIQ_ICMS;

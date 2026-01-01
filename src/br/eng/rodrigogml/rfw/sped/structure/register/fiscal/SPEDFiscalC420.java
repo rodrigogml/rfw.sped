@@ -8,9 +8,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C420: REGISTRO DOS TOTALIZADORES PARCIAIS DA REDU«√O Z (COD 02, 2D e 60).<br>
+ * Description: REGISTRO C420: REGISTRO DOS TOTALIZADORES PARCIAIS DA REDU√á√ÉO Z (COD 02, 2D e 60).<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC420 extends SPEDRegister {
@@ -22,31 +22,31 @@ public class SPEDFiscalC420 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI¡RIO (C”DIGO 02 e 2D)<br>
+   * REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI√ÅRIO (C√ìDIGO 02 e 2D)<br>
    * Chave: COD_ITEM e UNID. Separados por "|".
    */
   private final LinkedHashMap<String, SPEDFiscalC425> rc425 = new LinkedHashMap<String, SPEDFiscalC425>();
 
   /**
-   * 02 COD_TOT_PAR CÛdigo do totalizador, conforme Tabela 4.4.6 C 007 - O
+   * 02 COD_TOT_PAR C√≥digo do totalizador, conforme Tabela 4.4.6 C 007 - O
    */
   @SPEDField(maxLength = 7)
   private String r02_COD_TOT_PAR = null;
 
   /**
-   * 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo ‡ respectiva ReduÁ„o Z. N - 02 O
+   * 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo √† respectiva Redu√ß√£o Z. N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r03_VLR_ACUM_TOT = null;
 
   /**
-   * 04 NR_TOT N˙mero do totalizador quando ocorrer mais de uma situaÁ„o com a mesma carga tribut·ria efetiva. N 002 - OC
+   * 04 NR_TOT N√∫mero do totalizador quando ocorrer mais de uma situa√ß√£o com a mesma carga tribut√°ria efetiva. N 002 - OC
    */
   @SPEDField(maxLength = 2, required = false)
   private String r04_NR_TOT = null;
 
   /**
-   * 05 DESCR_NR_TOT DescriÁ„o da situaÁ„o tribut·ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut·ria efetiva. C - - OC
+   * 05 DESCR_NR_TOT Descri√ß√£o da situa√ß√£o tribut√°ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut√°ria efetiva. C - - OC
    */
   @SPEDField(maxLength = 1000, required = false)
   private String r05_DESCR_NR_TOT = null;
@@ -57,82 +57,82 @@ public class SPEDFiscalC420 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_TOT_PAR CÛdigo do totalizador, conforme Tabela 4.4.6 C 007 - O.
+   * Recupera o 02 COD_TOT_PAR C√≥digo do totalizador, conforme Tabela 4.4.6 C 007 - O.
    *
-   * @return the 02 COD_TOT_PAR CÛdigo do totalizador, conforme Tabela 4
+   * @return the 02 COD_TOT_PAR C√≥digo do totalizador, conforme Tabela 4
    */
   public String getR02_COD_TOT_PAR() {
     return r02_COD_TOT_PAR;
   }
 
   /**
-   * Define o 02 COD_TOT_PAR CÛdigo do totalizador, conforme Tabela 4.4.6 C 007 - O.
+   * Define o 02 COD_TOT_PAR C√≥digo do totalizador, conforme Tabela 4.4.6 C 007 - O.
    *
-   * @param r02_COD_TOT_PAR the new 02 COD_TOT_PAR CÛdigo do totalizador, conforme Tabela 4
+   * @param r02_COD_TOT_PAR the new 02 COD_TOT_PAR C√≥digo do totalizador, conforme Tabela 4
    */
   public void setR02_COD_TOT_PAR(String r02_COD_TOT_PAR) {
     this.r02_COD_TOT_PAR = r02_COD_TOT_PAR;
   }
 
   /**
-   * Recupera o 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo ‡ respectiva ReduÁ„o Z. N - 02 O.
+   * Recupera o 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo √† respectiva Redu√ß√£o Z. N - 02 O.
    *
-   * @return the 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo ‡ respectiva ReduÁ„o Z
+   * @return the 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo √† respectiva Redu√ß√£o Z
    */
   public BigDecimal getR03_VLR_ACUM_TOT() {
     return r03_VLR_ACUM_TOT;
   }
 
   /**
-   * Define o 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo ‡ respectiva ReduÁ„o Z. N - 02 O.
+   * Define o 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo √† respectiva Redu√ß√£o Z. N - 02 O.
    *
-   * @param r03_VLR_ACUM_TOT the new 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo ‡ respectiva ReduÁ„o Z
+   * @param r03_VLR_ACUM_TOT the new 03 VLR_ACUM_TOT Valor acumulado no totalizador, relativo √† respectiva Redu√ß√£o Z
    */
   public void setR03_VLR_ACUM_TOT(BigDecimal r03_VLR_ACUM_TOT) {
     this.r03_VLR_ACUM_TOT = r03_VLR_ACUM_TOT;
   }
 
   /**
-   * Recupera o 04 NR_TOT N˙mero do totalizador quando ocorrer mais de uma situaÁ„o com a mesma carga tribut·ria efetiva. N 002 - OC.
+   * Recupera o 04 NR_TOT N√∫mero do totalizador quando ocorrer mais de uma situa√ß√£o com a mesma carga tribut√°ria efetiva. N 002 - OC.
    *
-   * @return the 04 NR_TOT N˙mero do totalizador quando ocorrer mais de uma situaÁ„o com a mesma carga tribut·ria efetiva
+   * @return the 04 NR_TOT N√∫mero do totalizador quando ocorrer mais de uma situa√ß√£o com a mesma carga tribut√°ria efetiva
    */
   public String getR04_NR_TOT() {
     return r04_NR_TOT;
   }
 
   /**
-   * Define o 04 NR_TOT N˙mero do totalizador quando ocorrer mais de uma situaÁ„o com a mesma carga tribut·ria efetiva. N 002 - OC.
+   * Define o 04 NR_TOT N√∫mero do totalizador quando ocorrer mais de uma situa√ß√£o com a mesma carga tribut√°ria efetiva. N 002 - OC.
    *
-   * @param r04_NR_TOT the new 04 NR_TOT N˙mero do totalizador quando ocorrer mais de uma situaÁ„o com a mesma carga tribut·ria efetiva
+   * @param r04_NR_TOT the new 04 NR_TOT N√∫mero do totalizador quando ocorrer mais de uma situa√ß√£o com a mesma carga tribut√°ria efetiva
    */
   public void setR04_NR_TOT(String r04_NR_TOT) {
     this.r04_NR_TOT = r04_NR_TOT;
   }
 
   /**
-   * Recupera o 05 DESCR_NR_TOT DescriÁ„o da situaÁ„o tribut·ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut·ria efetiva. C - - OC.
+   * Recupera o 05 DESCR_NR_TOT Descri√ß√£o da situa√ß√£o tribut√°ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut√°ria efetiva. C - - OC.
    *
-   * @return the 05 DESCR_NR_TOT DescriÁ„o da situaÁ„o tribut·ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut·ria efetiva
+   * @return the 05 DESCR_NR_TOT Descri√ß√£o da situa√ß√£o tribut√°ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut√°ria efetiva
    */
   public String getR05_DESCR_NR_TOT() {
     return r05_DESCR_NR_TOT;
   }
 
   /**
-   * Define o 05 DESCR_NR_TOT DescriÁ„o da situaÁ„o tribut·ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut·ria efetiva. C - - OC.
+   * Define o 05 DESCR_NR_TOT Descri√ß√£o da situa√ß√£o tribut√°ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut√°ria efetiva. C - - OC.
    *
-   * @param r05_DESCR_NR_TOT the new 05 DESCR_NR_TOT DescriÁ„o da situaÁ„o tribut·ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut·ria efetiva
+   * @param r05_DESCR_NR_TOT the new 05 DESCR_NR_TOT Descri√ß√£o da situa√ß√£o tribut√°ria relativa ao totalizador parcial, quando houver mais de um com a mesma carga tribut√°ria efetiva
    */
   public void setR05_DESCR_NR_TOT(String r05_DESCR_NR_TOT) {
     this.r05_DESCR_NR_TOT = r05_DESCR_NR_TOT;
   }
 
   /**
-   * Recupera o rEGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI¡RIO (C”DIGO 02 e 2D)<br>
+   * Recupera o rEGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI√ÅRIO (C√ìDIGO 02 e 2D)<br>
    * Chave: COD_ITEM e UNID. Separados por "|".
    *
-   * @return the rEGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI¡RIO (C”DIGO 02 e 2D)<br>
+   * @return the rEGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI√ÅRIO (C√ìDIGO 02 e 2D)<br>
    *         Chave: COD_ITEM e UNID
    */
   public LinkedHashMap<String, SPEDFiscalC425> getRc425() {

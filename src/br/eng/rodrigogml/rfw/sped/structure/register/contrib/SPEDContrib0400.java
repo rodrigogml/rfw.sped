@@ -5,7 +5,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0400: TABELA DE NATUREZA DA OPERAÇÃO/PRESTAÇÃO.<br>
+ * Description: REGISTRO 0400: TABELA DE NATUREZA DA OPERAÃ‡ÃƒO/PRESTAÃ‡ÃƒO.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -20,13 +20,13 @@ public class SPEDContrib0400 extends SPEDRegister {
   }
 
   /**
-   * Código da natureza da operação/prestação C 010 - S
+   * CÃ³digo da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C 010 - S
    */
   @SPEDField(maxLength = 10, required = true)
   private String r02_COD_NAT = null;
 
   /**
-   * Descrição da natureza da operação/prestação C - - S
+   * DescriÃ§Ã£o da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C - - S
    */
   @SPEDField(maxLength = 100, required = true)
   private String r03_DESCR_NAT = null;
@@ -37,36 +37,36 @@ public class SPEDContrib0400 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código da natureza da operação/prestação C 010 - S.
+   * Recupera o cÃ³digo da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C 010 - S.
    *
-   * @return the código da natureza da operação/prestação C 010 - S
+   * @return the cÃ³digo da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C 010 - S
    */
   public String getR02_COD_NAT() {
     return r02_COD_NAT;
   }
 
   /**
-   * Define o código da natureza da operação/prestação C 010 - S.
+   * Define o cÃ³digo da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C 010 - S.
    *
-   * @param r02_COD_NAT the new código da natureza da operação/prestação C 010 - S
+   * @param r02_COD_NAT the new cÃ³digo da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C 010 - S
    */
   public void setR02_COD_NAT(String r02_COD_NAT) {
     this.r02_COD_NAT = r02_COD_NAT;
   }
 
   /**
-   * Recupera o descrição da natureza da operação/prestação C - - S.
+   * Recupera o descriÃ§Ã£o da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C - - S.
    *
-   * @return the descrição da natureza da operação/prestação C - - S
+   * @return the descriÃ§Ã£o da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C - - S
    */
   public String getR03_DESCR_NAT() {
     return r03_DESCR_NAT;
   }
 
   /**
-   * Define o descrição da natureza da operação/prestação C - - S.
+   * Define o descriÃ§Ã£o da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C - - S.
    *
-   * @param r03_DESCR_NAT the new descrição da natureza da operação/prestação C - - S
+   * @param r03_DESCR_NAT the new descriÃ§Ã£o da natureza da operaÃ§Ã£o/prestaÃ§Ã£o C - - S
    */
   public void setR03_DESCR_NAT(String r03_DESCR_NAT) {
     this.r03_DESCR_NAT = r03_DESCR_NAT;

@@ -8,7 +8,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE.<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal0150 extends SPEDRegister {
@@ -20,7 +20,7 @@ public class SPEDFiscal0150 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_PART Código de identificação do participante no arquivo. C 060 - O
+   * 02 COD_PART CÃ³digo de identificaÃ§Ã£o do participante no arquivo. C 060 - O
    */
   @SPEDField(maxLength = 60)
   private String r02_COD_PART = null;
@@ -32,7 +32,7 @@ public class SPEDFiscal0150 extends SPEDRegister {
   private String r03_NOME = null;
 
   /**
-   * 04 COD_PAIS Código do país do participante, conforme a tabela indicada no item 3.2.1 N 005 - O
+   * 04 COD_PAIS CÃ³digo do paÃ­s do participante, conforme a tabela indicada no item 3.2.1 N 005 - O
    */
   @SPEDField(maxLength = 5)
   private String r04_COD_PAIS = null;
@@ -50,43 +50,43 @@ public class SPEDFiscal0150 extends SPEDRegister {
   private String r06_CPF = null;
 
   /**
-   * 07 IE Inscrição Estadual do participante. C 014 - OC
+   * 07 IE InscriÃ§Ã£o Estadual do participante. C 014 - OC
    */
   @SPEDField(maxLength = 14, required = false, type = SPEDFIELDTYPE.IE)
   private String r07_IE = null;
 
   /**
-   * 08 COD_MUN Código do município, conforme a tabela IBGE N 007* - OC
+   * 08 COD_MUN CÃ³digo do municÃ­pio, conforme a tabela IBGE N 007* - OC
    */
   @SPEDField(maxLength = 7, minLength = 7, required = false)
   private String r08_COD_MUN = null;
 
   /**
-   * 09 SUFRAMA Número de inscrição do participante na SUFRAMA. C 009* - OC
+   * 09 SUFRAMA NÃºmero de inscriÃ§Ã£o do participante na SUFRAMA. C 009* - OC
    */
   @SPEDField(maxLength = 9, minLength = 9, required = false)
   private String r09_SUFRAMA = null;
 
   /**
-   * 10 END Logradouro e endereço do imóvel C 060 - O
+   * 10 END Logradouro e endereÃ§o do imÃ³vel C 060 - O
    */
   @SPEDField(maxLength = 60)
   private String r10_END = null;
 
   /**
-   * 11 NUM Número do imóvel C 010 - OC
+   * 11 NUM NÃºmero do imÃ³vel C 010 - OC
    */
   @SPEDField(maxLength = 10, required = false)
   private String r11_NUM = null;
 
   /**
-   * 12 COMPL Dados complementares do endereço C 060 - OC
+   * 12 COMPL Dados complementares do endereÃ§o C 060 - OC
    */
   @SPEDField(maxLength = 60, required = false)
   private String r12_COMPL = null;
 
   /**
-   * 13 BAIRRO Bairro em que o imóvel está situado C 060 - OC
+   * 13 BAIRRO Bairro em que o imÃ³vel estÃ¡ situado C 060 - OC
    */
   @SPEDField(maxLength = 60)
   private String r13_BAIRRO = null;
@@ -97,18 +97,18 @@ public class SPEDFiscal0150 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_PART Código de identificação do participante no arquivo. C 060 - O.
+   * Recupera o 02 COD_PART CÃ³digo de identificaÃ§Ã£o do participante no arquivo. C 060 - O.
    *
-   * @return the 02 COD_PART Código de identificação do participante no arquivo
+   * @return the 02 COD_PART CÃ³digo de identificaÃ§Ã£o do participante no arquivo
    */
   public String getR02_COD_PART() {
     return r02_COD_PART;
   }
 
   /**
-   * Define o 02 COD_PART Código de identificação do participante no arquivo. C 060 - O.
+   * Define o 02 COD_PART CÃ³digo de identificaÃ§Ã£o do participante no arquivo. C 060 - O.
    *
-   * @param r02_COD_PART the new 02 COD_PART Código de identificação do participante no arquivo
+   * @param r02_COD_PART the new 02 COD_PART CÃ³digo de identificaÃ§Ã£o do participante no arquivo
    */
   public void setR02_COD_PART(String r02_COD_PART) {
     this.r02_COD_PART = r02_COD_PART;
@@ -133,18 +133,18 @@ public class SPEDFiscal0150 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 04 COD_PAIS Código do país do participante, conforme a tabela indicada no item 3.2.1 N 005 - O.
+   * Recupera o 04 COD_PAIS CÃ³digo do paÃ­s do participante, conforme a tabela indicada no item 3.2.1 N 005 - O.
    *
-   * @return the 04 COD_PAIS Código do país do participante, conforme a tabela indicada no item 3
+   * @return the 04 COD_PAIS CÃ³digo do paÃ­s do participante, conforme a tabela indicada no item 3
    */
   public String getR04_COD_PAIS() {
     return r04_COD_PAIS;
   }
 
   /**
-   * Define o 04 COD_PAIS Código do país do participante, conforme a tabela indicada no item 3.2.1 N 005 - O.
+   * Define o 04 COD_PAIS CÃ³digo do paÃ­s do participante, conforme a tabela indicada no item 3.2.1 N 005 - O.
    *
-   * @param r04_COD_PAIS the new 04 COD_PAIS Código do país do participante, conforme a tabela indicada no item 3
+   * @param r04_COD_PAIS the new 04 COD_PAIS CÃ³digo do paÃ­s do participante, conforme a tabela indicada no item 3
    */
   public void setR04_COD_PAIS(String r04_COD_PAIS) {
     this.r04_COD_PAIS = r04_COD_PAIS;
@@ -187,126 +187,126 @@ public class SPEDFiscal0150 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 07 IE Inscrição Estadual do participante. C 014 - OC.
+   * Recupera o 07 IE InscriÃ§Ã£o Estadual do participante. C 014 - OC.
    *
-   * @return the 07 IE Inscrição Estadual do participante
+   * @return the 07 IE InscriÃ§Ã£o Estadual do participante
    */
   public String getR07_IE() {
     return r07_IE;
   }
 
   /**
-   * Define o 07 IE Inscrição Estadual do participante. C 014 - OC.
+   * Define o 07 IE InscriÃ§Ã£o Estadual do participante. C 014 - OC.
    *
-   * @param r07_IE the new 07 IE Inscrição Estadual do participante
+   * @param r07_IE the new 07 IE InscriÃ§Ã£o Estadual do participante
    */
   public void setR07_IE(String r07_IE) {
     this.r07_IE = r07_IE;
   }
 
   /**
-   * Recupera o 08 COD_MUN Código do município, conforme a tabela IBGE N 007* - OC.
+   * Recupera o 08 COD_MUN CÃ³digo do municÃ­pio, conforme a tabela IBGE N 007* - OC.
    *
-   * @return the 08 COD_MUN Código do município, conforme a tabela IBGE N 007* - OC
+   * @return the 08 COD_MUN CÃ³digo do municÃ­pio, conforme a tabela IBGE N 007* - OC
    */
   public String getR08_COD_MUN() {
     return r08_COD_MUN;
   }
 
   /**
-   * Define o 08 COD_MUN Código do município, conforme a tabela IBGE N 007* - OC.
+   * Define o 08 COD_MUN CÃ³digo do municÃ­pio, conforme a tabela IBGE N 007* - OC.
    *
-   * @param r08_COD_MUN the new 08 COD_MUN Código do município, conforme a tabela IBGE N 007* - OC
+   * @param r08_COD_MUN the new 08 COD_MUN CÃ³digo do municÃ­pio, conforme a tabela IBGE N 007* - OC
    */
   public void setR08_COD_MUN(String r08_COD_MUN) {
     this.r08_COD_MUN = r08_COD_MUN;
   }
 
   /**
-   * Recupera o 09 SUFRAMA Número de inscrição do participante na SUFRAMA. C 009* - OC.
+   * Recupera o 09 SUFRAMA NÃºmero de inscriÃ§Ã£o do participante na SUFRAMA. C 009* - OC.
    *
-   * @return the 09 SUFRAMA Número de inscrição do participante na SUFRAMA
+   * @return the 09 SUFRAMA NÃºmero de inscriÃ§Ã£o do participante na SUFRAMA
    */
   public String getR09_SUFRAMA() {
     return r09_SUFRAMA;
   }
 
   /**
-   * Define o 09 SUFRAMA Número de inscrição do participante na SUFRAMA. C 009* - OC.
+   * Define o 09 SUFRAMA NÃºmero de inscriÃ§Ã£o do participante na SUFRAMA. C 009* - OC.
    *
-   * @param r09_SUFRAMA the new 09 SUFRAMA Número de inscrição do participante na SUFRAMA
+   * @param r09_SUFRAMA the new 09 SUFRAMA NÃºmero de inscriÃ§Ã£o do participante na SUFRAMA
    */
   public void setR09_SUFRAMA(String r09_SUFRAMA) {
     this.r09_SUFRAMA = r09_SUFRAMA;
   }
 
   /**
-   * Recupera o 10 END Logradouro e endereço do imóvel C 060 - O.
+   * Recupera o 10 END Logradouro e endereÃ§o do imÃ³vel C 060 - O.
    *
-   * @return the 10 END Logradouro e endereço do imóvel C 060 - O
+   * @return the 10 END Logradouro e endereÃ§o do imÃ³vel C 060 - O
    */
   public String getR10_END() {
     return r10_END;
   }
 
   /**
-   * Define o 10 END Logradouro e endereço do imóvel C 060 - O.
+   * Define o 10 END Logradouro e endereÃ§o do imÃ³vel C 060 - O.
    *
-   * @param r10_END the new 10 END Logradouro e endereço do imóvel C 060 - O
+   * @param r10_END the new 10 END Logradouro e endereÃ§o do imÃ³vel C 060 - O
    */
   public void setR10_END(String r10_END) {
     this.r10_END = r10_END;
   }
 
   /**
-   * Recupera o 11 NUM Número do imóvel C 010 - OC.
+   * Recupera o 11 NUM NÃºmero do imÃ³vel C 010 - OC.
    *
-   * @return the 11 NUM Número do imóvel C 010 - OC
+   * @return the 11 NUM NÃºmero do imÃ³vel C 010 - OC
    */
   public String getR11_NUM() {
     return r11_NUM;
   }
 
   /**
-   * Define o 11 NUM Número do imóvel C 010 - OC.
+   * Define o 11 NUM NÃºmero do imÃ³vel C 010 - OC.
    *
-   * @param r11_NUM the new 11 NUM Número do imóvel C 010 - OC
+   * @param r11_NUM the new 11 NUM NÃºmero do imÃ³vel C 010 - OC
    */
   public void setR11_NUM(String r11_NUM) {
     this.r11_NUM = r11_NUM;
   }
 
   /**
-   * Recupera o 12 COMPL Dados complementares do endereço C 060 - OC.
+   * Recupera o 12 COMPL Dados complementares do endereÃ§o C 060 - OC.
    *
-   * @return the 12 COMPL Dados complementares do endereço C 060 - OC
+   * @return the 12 COMPL Dados complementares do endereÃ§o C 060 - OC
    */
   public String getR12_COMPL() {
     return r12_COMPL;
   }
 
   /**
-   * Define o 12 COMPL Dados complementares do endereço C 060 - OC.
+   * Define o 12 COMPL Dados complementares do endereÃ§o C 060 - OC.
    *
-   * @param r12_COMPL the new 12 COMPL Dados complementares do endereço C 060 - OC
+   * @param r12_COMPL the new 12 COMPL Dados complementares do endereÃ§o C 060 - OC
    */
   public void setR12_COMPL(String r12_COMPL) {
     this.r12_COMPL = r12_COMPL;
   }
 
   /**
-   * Recupera o 13 BAIRRO Bairro em que o imóvel está situado C 060 - OC.
+   * Recupera o 13 BAIRRO Bairro em que o imÃ³vel estÃ¡ situado C 060 - OC.
    *
-   * @return the 13 BAIRRO Bairro em que o imóvel está situado C 060 - OC
+   * @return the 13 BAIRRO Bairro em que o imÃ³vel estÃ¡ situado C 060 - OC
    */
   public String getR13_BAIRRO() {
     return r13_BAIRRO;
   }
 
   /**
-   * Define o 13 BAIRRO Bairro em que o imóvel está situado C 060 - OC.
+   * Define o 13 BAIRRO Bairro em que o imÃ³vel estÃ¡ situado C 060 - OC.
    *
-   * @param r13_BAIRRO the new 13 BAIRRO Bairro em que o imóvel está situado C 060 - OC
+   * @param r13_BAIRRO the new 13 BAIRRO Bairro em que o imÃ³vel estÃ¡ situado C 060 - OC
    */
   public void setR13_BAIRRO(String r13_BAIRRO) {
     this.r13_BAIRRO = r13_BAIRRO;

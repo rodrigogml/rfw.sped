@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO E001: ABERTURA DO BLOCO E.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalE001 extends SPEDRegister {
@@ -19,9 +19,9 @@ public class SPEDFiscalE001 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO E100: PERÕODO DA APURA«√O DO ICMS.
+   * REGISTRO E100: PER√çODO DA APURA√á√ÉO DO ICMS.
    */
-  // TODO rodrigogml o relacionamento do registro E100 com o E001 È de 1:N, foi mal feito esta estrutura, necess·rio alterar para uma hash, a chave de unicidade È ambas as datas de inÌcio e fim do perÌodo do registro filho.
+  // TODO rodrigogml o relacionamento do registro E100 com o E001 √© de 1:N, foi mal feito esta estrutura, necess√°rio alterar para uma hash, a chave de unicidade √© ambas as datas de in√≠cio e fim do per√≠odo do registro filho.
   private SPEDFiscalE100 re100 = null;
 
   /**
@@ -67,18 +67,18 @@ public class SPEDFiscalE001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO E100: PERÕODO DA APURA«√O DO ICMS.
+   * Recupera o rEGISTRO E100: PER√çODO DA APURA√á√ÉO DO ICMS.
    *
-   * @return the rEGISTRO E100: PERÕODO DA APURA«√O DO ICMS
+   * @return the rEGISTRO E100: PER√çODO DA APURA√á√ÉO DO ICMS
    */
   public SPEDFiscalE100 getRe100() {
     return re100;
   }
 
   /**
-   * Define o rEGISTRO E100: PERÕODO DA APURA«√O DO ICMS.
+   * Define o rEGISTRO E100: PER√çODO DA APURA√á√ÉO DO ICMS.
    *
-   * @param re100 the new rEGISTRO E100: PERÕODO DA APURA«√O DO ICMS
+   * @param re100 the new rEGISTRO E100: PER√çODO DA APURA√á√ÉO DO ICMS
    */
   public void setRe100(SPEDFiscalE100 re100) {
     this.re100 = re100;

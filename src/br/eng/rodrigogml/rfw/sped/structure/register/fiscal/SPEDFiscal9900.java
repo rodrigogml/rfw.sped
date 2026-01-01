@@ -12,7 +12,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 9900: REGISTROS DO ARQUIVO.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal9900 extends SPEDRegister {
@@ -24,7 +24,7 @@ public class SPEDFiscal9900 extends SPEDRegister {
   }
 
   /**
-   * 02 REG_BLC Registro que ser· totalizado no prÛximo campo. C 004 - O
+   * 02 REG_BLC Registro que ser√° totalizado no pr√≥ximo campo. C 004 - O
    */
   @SPEDField(maxLength = 4, minLength = 4)
   private String r02_REG_BLC = null;
@@ -41,18 +41,18 @@ public class SPEDFiscal9900 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 REG_BLC Registro que ser· totalizado no prÛximo campo. C 004 - O.
+   * Recupera o 02 REG_BLC Registro que ser√° totalizado no pr√≥ximo campo. C 004 - O.
    *
-   * @return the 02 REG_BLC Registro que ser· totalizado no prÛximo campo
+   * @return the 02 REG_BLC Registro que ser√° totalizado no pr√≥ximo campo
    */
   public String getR02_REG_BLC() {
     return r02_REG_BLC;
   }
 
   /**
-   * Define o 02 REG_BLC Registro que ser· totalizado no prÛximo campo. C 004 - O.
+   * Define o 02 REG_BLC Registro que ser√° totalizado no pr√≥ximo campo. C 004 - O.
    *
-   * @param r02_REG_BLC the new 02 REG_BLC Registro que ser· totalizado no prÛximo campo
+   * @param r02_REG_BLC the new 02 REG_BLC Registro que ser√° totalizado no pr√≥ximo campo
    */
   public void setR02_REG_BLC(String r02_REG_BLC) {
     this.r02_REG_BLC = r02_REG_BLC;
@@ -79,8 +79,8 @@ public class SPEDFiscal9900 extends SPEDRegister {
   @Override
   public void calculate(String uuid) throws RFWException {
     try {
-      if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da ˙ltima rodada de c·lculo, devemos realizar os c·lculos.
-        super.calculate(uuid); // Chama o c·lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+      if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da √∫ltima rodada de c√°lculo, devemos realizar os c√°lculos.
+        super.calculate(uuid); // Chama o c√°lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
         SPEDFiscalFile file = (SPEDFiscalFile) this.getSpedFile();
         Method m = SPEDFiscalFile.class.getMethod("getR" + this.getR02_REG_BLC());
         SPEDRegister reg = (SPEDRegister) m.invoke(file);
@@ -90,7 +90,7 @@ public class SPEDFiscal9900 extends SPEDRegister {
     } catch (RFWException e) {
       throw e;
     } catch (Exception e) {
-      throw new RFWCriticalException("Falha ao calcular valores autom·ticos do Registro SPED: ${0} / ${1}", new String[] { this.getClass().getName(), this.getR02_REG_BLC() });
+      throw new RFWCriticalException("Falha ao calcular valores autom√°ticos do Registro SPED: ${0} / ${1}", new String[] { this.getClass().getName(), this.getR02_REG_BLC() });
     }
   }
 

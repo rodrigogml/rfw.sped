@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√O ALCAN«ADAS PELA INCID NCIA DA CONTRIBUI«√O, SUJEITAS A ALÕQUOTA ZERO OU DE VENDAS COM SUSPENS√O ñ COFINS.<br>
+ * Description: REGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√ÉO ALCAN√áADAS PELA INCID√äNCIA DA CONTRIBUI√á√ÉO, SUJEITAS A AL√çQUOTA ZERO OU DE VENDAS COM SUSPENS√ÉO ‚Äì COFINS.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,33 +22,33 @@ public class SPEDContribM810 extends SPEDRegister {
   }
 
   /**
-   * Natureza da Receita, conforme relaÁ„o constante nas Tabelas de Detalhamento da Natureza da Receita por SituaÁ„o Tribut·ria abaixo:
-   * <li>Tabela 4.3.10: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas Diferenciadas (CST 04 - Revenda);
-   * <li>Tabela 4.3.11: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas por Unidade de Medida de Produto (CST 04 - Revenda);
-   * <li>Tabela 4.3.12: Produtos Sujeitos ‡ SubstituiÁ„o Tribut·ria da ContribuiÁ„o Social (CST 05 - Revenda);
-   * <li>Tabela 4.3.13: Produtos Sujeitos ‡ AlÌquota Zero da ContribuiÁ„o Social (CST 06);
-   * <li>Tabela 4.3.14: OperaÁıes com IsenÁ„o da ContribuiÁ„o Social (CST 07);
-   * <li>Tabela 4.3.15: OperaÁıes sem IncidÍncia da ContribuiÁ„o Social (CST 08);
-   * <li>Tabela 4.3.16: OperaÁıes com Suspens„o da ContribuiÁ„o Social (CST 09).<br>
+   * Natureza da Receita, conforme rela√ß√£o constante nas Tabelas de Detalhamento da Natureza da Receita por Situa√ß√£o Tribut√°ria abaixo:
+   * <li>Tabela 4.3.10: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas Diferenciadas (CST 04 - Revenda);
+   * <li>Tabela 4.3.11: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas por Unidade de Medida de Produto (CST 04 - Revenda);
+   * <li>Tabela 4.3.12: Produtos Sujeitos √† Substitui√ß√£o Tribut√°ria da Contribui√ß√£o Social (CST 05 - Revenda);
+   * <li>Tabela 4.3.13: Produtos Sujeitos √† Al√≠quota Zero da Contribui√ß√£o Social (CST 06);
+   * <li>Tabela 4.3.14: Opera√ß√µes com Isen√ß√£o da Contribui√ß√£o Social (CST 07);
+   * <li>Tabela 4.3.15: Opera√ß√µes sem Incid√™ncia da Contribui√ß√£o Social (CST 08);
+   * <li>Tabela 4.3.16: Opera√ß√µes com Suspens√£o da Contribui√ß√£o Social (CST 09).<br>
    * C 003* - S
    */
   @SPEDField(maxLength = 3, minLength = 3, required = true)
   private String r02_NAT_REC = null;
 
   /**
-   * Valor da receita bruta no perÌodo, relativo a natureza da receita (NAT_REC) N - 02 S
+   * Valor da receita bruta no per√≠odo, relativo a natureza da receita (NAT_REC) N - 02 S
    */
   @SPEDField(maxLength = 20, decimals = 2, required = true)
   private BigDecimal r03_VL_REC = null;
 
   /**
-   * CÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N
+   * C√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r04_COD_CTA = null;
 
   /**
-   * DescriÁ„o Complementar da Natureza da Receita. C - - N
+   * Descri√ß√£o Complementar da Natureza da Receita. C - - N
    */
   @SPEDField(maxLength = 500, required = false)
   private String r05_DESC_COMPL = null;
@@ -59,17 +59,17 @@ public class SPEDContribM810 extends SPEDRegister {
   }
 
   /**
-   * Recupera o natureza da Receita, conforme relaÁ„o constante nas Tabelas de Detalhamento da Natureza da Receita por SituaÁ„o Tribut·ria abaixo:
-   * <li>Tabela 4.3.10: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas Diferenciadas (CST 04 - Revenda);
-   * <li>Tabela 4.3.11: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas por Unidade de Medida de Produto (CST 04 - Revenda);
-   * <li>Tabela 4.3.12: Produtos Sujeitos ‡ SubstituiÁ„o Tribut·ria da ContribuiÁ„o Social (CST 05 - Revenda);
-   * <li>Tabela 4.3.13: Produtos Sujeitos ‡ AlÌquota Zero da ContribuiÁ„o Social (CST 06);
-   * <li>Tabela 4.3.14: OperaÁıes com IsenÁ„o da ContribuiÁ„o Social (CST 07);
-   * <li>Tabela 4.3.15: OperaÁıes sem IncidÍncia da ContribuiÁ„o Social (CST 08);
-   * <li>Tabela 4.3.16: OperaÁıes com Suspens„o da ContribuiÁ„o Social (CST 09).<br>
+   * Recupera o natureza da Receita, conforme rela√ß√£o constante nas Tabelas de Detalhamento da Natureza da Receita por Situa√ß√£o Tribut√°ria abaixo:
+   * <li>Tabela 4.3.10: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas Diferenciadas (CST 04 - Revenda);
+   * <li>Tabela 4.3.11: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas por Unidade de Medida de Produto (CST 04 - Revenda);
+   * <li>Tabela 4.3.12: Produtos Sujeitos √† Substitui√ß√£o Tribut√°ria da Contribui√ß√£o Social (CST 05 - Revenda);
+   * <li>Tabela 4.3.13: Produtos Sujeitos √† Al√≠quota Zero da Contribui√ß√£o Social (CST 06);
+   * <li>Tabela 4.3.14: Opera√ß√µes com Isen√ß√£o da Contribui√ß√£o Social (CST 07);
+   * <li>Tabela 4.3.15: Opera√ß√µes sem Incid√™ncia da Contribui√ß√£o Social (CST 08);
+   * <li>Tabela 4.3.16: Opera√ß√µes com Suspens√£o da Contribui√ß√£o Social (CST 09).<br>
    * C 003* - S.
    *
-   * @return the natureza da Receita, conforme relaÁ„o constante nas Tabelas de Detalhamento da Natureza da Receita por SituaÁ„o Tribut·ria abaixo:
+   * @return the natureza da Receita, conforme rela√ß√£o constante nas Tabelas de Detalhamento da Natureza da Receita por Situa√ß√£o Tribut√°ria abaixo:
    *         <li>Tabela 4
    */
   public String getR02_NAT_REC() {
@@ -77,17 +77,17 @@ public class SPEDContribM810 extends SPEDRegister {
   }
 
   /**
-   * Define o natureza da Receita, conforme relaÁ„o constante nas Tabelas de Detalhamento da Natureza da Receita por SituaÁ„o Tribut·ria abaixo:
-   * <li>Tabela 4.3.10: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas Diferenciadas (CST 04 - Revenda);
-   * <li>Tabela 4.3.11: Produtos Sujeitos ‡ IncidÍncia Monof·sica da ContribuiÁ„o Social ñ AlÌquotas por Unidade de Medida de Produto (CST 04 - Revenda);
-   * <li>Tabela 4.3.12: Produtos Sujeitos ‡ SubstituiÁ„o Tribut·ria da ContribuiÁ„o Social (CST 05 - Revenda);
-   * <li>Tabela 4.3.13: Produtos Sujeitos ‡ AlÌquota Zero da ContribuiÁ„o Social (CST 06);
-   * <li>Tabela 4.3.14: OperaÁıes com IsenÁ„o da ContribuiÁ„o Social (CST 07);
-   * <li>Tabela 4.3.15: OperaÁıes sem IncidÍncia da ContribuiÁ„o Social (CST 08);
-   * <li>Tabela 4.3.16: OperaÁıes com Suspens„o da ContribuiÁ„o Social (CST 09).<br>
+   * Define o natureza da Receita, conforme rela√ß√£o constante nas Tabelas de Detalhamento da Natureza da Receita por Situa√ß√£o Tribut√°ria abaixo:
+   * <li>Tabela 4.3.10: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas Diferenciadas (CST 04 - Revenda);
+   * <li>Tabela 4.3.11: Produtos Sujeitos √† Incid√™ncia Monof√°sica da Contribui√ß√£o Social ‚Äì Al√≠quotas por Unidade de Medida de Produto (CST 04 - Revenda);
+   * <li>Tabela 4.3.12: Produtos Sujeitos √† Substitui√ß√£o Tribut√°ria da Contribui√ß√£o Social (CST 05 - Revenda);
+   * <li>Tabela 4.3.13: Produtos Sujeitos √† Al√≠quota Zero da Contribui√ß√£o Social (CST 06);
+   * <li>Tabela 4.3.14: Opera√ß√µes com Isen√ß√£o da Contribui√ß√£o Social (CST 07);
+   * <li>Tabela 4.3.15: Opera√ß√µes sem Incid√™ncia da Contribui√ß√£o Social (CST 08);
+   * <li>Tabela 4.3.16: Opera√ß√µes com Suspens√£o da Contribui√ß√£o Social (CST 09).<br>
    * C 003* - S.
    *
-   * @param r02_NAT_REC the new natureza da Receita, conforme relaÁ„o constante nas Tabelas de Detalhamento da Natureza da Receita por SituaÁ„o Tribut·ria abaixo:
+   * @param r02_NAT_REC the new natureza da Receita, conforme rela√ß√£o constante nas Tabelas de Detalhamento da Natureza da Receita por Situa√ß√£o Tribut√°ria abaixo:
    *          <li>Tabela 4
    */
   public void setR02_NAT_REC(String r02_NAT_REC) {
@@ -95,54 +95,54 @@ public class SPEDContribM810 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor da receita bruta no perÌodo, relativo a natureza da receita (NAT_REC) N - 02 S.
+   * Recupera o valor da receita bruta no per√≠odo, relativo a natureza da receita (NAT_REC) N - 02 S.
    *
-   * @return the valor da receita bruta no perÌodo, relativo a natureza da receita (NAT_REC) N - 02 S
+   * @return the valor da receita bruta no per√≠odo, relativo a natureza da receita (NAT_REC) N - 02 S
    */
   public BigDecimal getR03_VL_REC() {
     return r03_VL_REC;
   }
 
   /**
-   * Define o valor da receita bruta no perÌodo, relativo a natureza da receita (NAT_REC) N - 02 S.
+   * Define o valor da receita bruta no per√≠odo, relativo a natureza da receita (NAT_REC) N - 02 S.
    *
-   * @param r03_VL_REC the new valor da receita bruta no perÌodo, relativo a natureza da receita (NAT_REC) N - 02 S
+   * @param r03_VL_REC the new valor da receita bruta no per√≠odo, relativo a natureza da receita (NAT_REC) N - 02 S
    */
   public void setR03_VL_REC(BigDecimal r03_VL_REC) {
     this.r03_VL_REC = r03_VL_REC;
   }
 
   /**
-   * Recupera o cÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N.
+   * Recupera o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N.
    *
-   * @return the cÛdigo da conta analÌtica cont·bil debitada/creditada
+   * @return the c√≥digo da conta anal√≠tica cont√°bil debitada/creditada
    */
   public String getR04_COD_CTA() {
     return r04_COD_CTA;
   }
 
   /**
-   * Define o cÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N.
+   * Define o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N.
    *
-   * @param r04_COD_CTA the new cÛdigo da conta analÌtica cont·bil debitada/creditada
+   * @param r04_COD_CTA the new c√≥digo da conta anal√≠tica cont√°bil debitada/creditada
    */
   public void setR04_COD_CTA(String r04_COD_CTA) {
     this.r04_COD_CTA = r04_COD_CTA;
   }
 
   /**
-   * Recupera o descriÁ„o Complementar da Natureza da Receita. C - - N.
+   * Recupera o descri√ß√£o Complementar da Natureza da Receita. C - - N.
    *
-   * @return the descriÁ„o Complementar da Natureza da Receita
+   * @return the descri√ß√£o Complementar da Natureza da Receita
    */
   public String getR05_DESC_COMPL() {
     return r05_DESC_COMPL;
   }
 
   /**
-   * Define o descriÁ„o Complementar da Natureza da Receita. C - - N.
+   * Define o descri√ß√£o Complementar da Natureza da Receita. C - - N.
    *
-   * @param r05_DESC_COMPL the new descriÁ„o Complementar da Natureza da Receita
+   * @param r05_DESC_COMPL the new descri√ß√£o Complementar da Natureza da Receita
    */
   public void setR05_DESC_COMPL(String r05_DESC_COMPL) {
     this.r05_DESC_COMPL = r05_DESC_COMPL;

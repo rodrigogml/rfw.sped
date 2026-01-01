@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Description: Annotation usada para definir os atirbutos de validaÁ„o dos campos do arquivo de SPED para automaÁ„o dos mÈtodos de escrita e parser do arquivo.<br>
+ * Description: Annotation usada para definir os atirbutos de valida√ß√£o dos campos do arquivo de SPED para automa√ß√£o dos m√©todos de escrita e parser do arquivo.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 7.1.0 (07/02/2016)
  */
 @Retention(RetentionPolicy.RUNTIME)

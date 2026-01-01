@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI罵IO (C覦IGO 02 e 2D).<br>
+ * Description: REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DI脕RIO (C脫DIGO 02 e 2D).<br>
  *
- * @author Rodrigo Leit鉶
+ * @author Rodrigo Leit茫o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC425 extends SPEDRegister {
@@ -21,7 +21,7 @@ public class SPEDFiscalC425 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 060 - O
+   * 02 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 060 - O
    */
   @SPEDField(maxLength = 60)
   private String r02_COD_ITEM = null;
@@ -62,18 +62,18 @@ public class SPEDFiscalC425 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 060 - O.
+   * Recupera o 02 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @return the 02 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 060 - O
+   * @return the 02 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public String getR02_COD_ITEM() {
     return r02_COD_ITEM;
   }
 
   /**
-   * Define o 02 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 060 - O.
+   * Define o 02 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @param r02_COD_ITEM the new 02 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 060 - O
+   * @param r02_COD_ITEM the new 02 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public void setR02_COD_ITEM(String r02_COD_ITEM) {
     this.r02_COD_ITEM = r02_COD_ITEM;

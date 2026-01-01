@@ -8,7 +8,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * REGISTRO H010: INVENTÁRIO
+ * REGISTRO H010: INVENTÃRIO
  */
 public class SPEDFiscalH010 extends SPEDRegister {
 
@@ -19,12 +19,12 @@ public class SPEDFiscalH010 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO H020: Informação complementar do Inventário
+   * REGISTRO H020: InformaÃ§Ã£o complementar do InventÃ¡rio
    */
   private final ArrayList<SPEDFiscalH020> rh020 = new ArrayList<SPEDFiscalH020>();
 
   /**
-   * 02 COD_ITEM Código do item (campo 02 do Registro 0200) C 060 - O
+   * 02 COD_ITEM CÃ³digo do item (campo 02 do Registro 0200) C 060 - O
    */
   @SPEDField(maxLength = 60)
   private String r02_COD_ITEM = null;
@@ -42,7 +42,7 @@ public class SPEDFiscalH010 extends SPEDRegister {
   private BigDecimal r04_QTD = null;
 
   /**
-   * 05 VL_UNIT Valor unitário do item N - 06 O
+   * 05 VL_UNIT Valor unitÃ¡rio do item N - 06 O
    */
   @SPEDField(maxLength = 255, decimals = 6)
   private BigDecimal r05_VL_UNIT = null;
@@ -64,19 +64,19 @@ public class SPEDFiscalH010 extends SPEDRegister {
   private String r07_IND_PROP = null;
 
   /**
-   * 08 COD_PART Código do participante (campo 02 do Registro 0150): proprietário/possuidor que não seja o informante do arquivo C 060 - OC
+   * 08 COD_PART CÃ³digo do participante (campo 02 do Registro 0150): proprietÃ¡rio/possuidor que nÃ£o seja o informante do arquivo C 060 - OC
    */
   @SPEDField(maxLength = 60, required = false)
   private String r08_COD_PART = null;
 
   /**
-   * 09 TXT_COMPL Descrição complementar. C - - OC
+   * 09 TXT_COMPL DescriÃ§Ã£o complementar. C - - OC
    */
   @SPEDField(maxLength = 5000, required = false)
   private String r09_TXT_COMPL = null;
 
   /**
-   * 10 COD_CTA Código da conta analítica contábil debitada/creditada C - - OC
+   * 10 COD_CTA CÃ³digo da conta analÃ­tica contÃ¡bil debitada/creditada C - - OC
    */
   @SPEDField(maxLength = 200, required = false)
   private String r10_COD_CTA = null;
@@ -93,18 +93,18 @@ public class SPEDFiscalH010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_ITEM Código do item (campo 02 do Registro 0200) C 060 - O.
+   * Recupera o 02 COD_ITEM CÃ³digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @return the 02 COD_ITEM Código do item (campo 02 do Registro 0200) C 060 - O
+   * @return the 02 COD_ITEM CÃ³digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public String getR02_COD_ITEM() {
     return r02_COD_ITEM;
   }
 
   /**
-   * Define o 02 COD_ITEM Código do item (campo 02 do Registro 0200) C 060 - O.
+   * Define o 02 COD_ITEM CÃ³digo do item (campo 02 do Registro 0200) C 060 - O.
    *
-   * @param r02_COD_ITEM the new 02 COD_ITEM Código do item (campo 02 do Registro 0200) C 060 - O
+   * @param r02_COD_ITEM the new 02 COD_ITEM CÃ³digo do item (campo 02 do Registro 0200) C 060 - O
    */
   public void setR02_COD_ITEM(String r02_COD_ITEM) {
     this.r02_COD_ITEM = r02_COD_ITEM;
@@ -147,18 +147,18 @@ public class SPEDFiscalH010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 05 VL_UNIT Valor unitário do item N - 06 O.
+   * Recupera o 05 VL_UNIT Valor unitÃ¡rio do item N - 06 O.
    *
-   * @return the 05 VL_UNIT Valor unitário do item N - 06 O
+   * @return the 05 VL_UNIT Valor unitÃ¡rio do item N - 06 O
    */
   public BigDecimal getR05_VL_UNIT() {
     return r05_VL_UNIT;
   }
 
   /**
-   * Define o 05 VL_UNIT Valor unitário do item N - 06 O.
+   * Define o 05 VL_UNIT Valor unitÃ¡rio do item N - 06 O.
    *
-   * @param r05_VL_UNIT the new 05 VL_UNIT Valor unitário do item N - 06 O
+   * @param r05_VL_UNIT the new 05 VL_UNIT Valor unitÃ¡rio do item N - 06 O
    */
   public void setR05_VL_UNIT(BigDecimal r05_VL_UNIT) {
     this.r05_VL_UNIT = r05_VL_UNIT;
@@ -217,54 +217,54 @@ public class SPEDFiscalH010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 08 COD_PART Código do participante (campo 02 do Registro 0150): proprietário/possuidor que não seja o informante do arquivo C 060 - OC.
+   * Recupera o 08 COD_PART CÃ³digo do participante (campo 02 do Registro 0150): proprietÃ¡rio/possuidor que nÃ£o seja o informante do arquivo C 060 - OC.
    *
-   * @return the 08 COD_PART Código do participante (campo 02 do Registro 0150): proprietário/possuidor que não seja o informante do arquivo C 060 - OC
+   * @return the 08 COD_PART CÃ³digo do participante (campo 02 do Registro 0150): proprietÃ¡rio/possuidor que nÃ£o seja o informante do arquivo C 060 - OC
    */
   public String getR08_COD_PART() {
     return r08_COD_PART;
   }
 
   /**
-   * Define o 08 COD_PART Código do participante (campo 02 do Registro 0150): proprietário/possuidor que não seja o informante do arquivo C 060 - OC.
+   * Define o 08 COD_PART CÃ³digo do participante (campo 02 do Registro 0150): proprietÃ¡rio/possuidor que nÃ£o seja o informante do arquivo C 060 - OC.
    *
-   * @param r08_COD_PART the new 08 COD_PART Código do participante (campo 02 do Registro 0150): proprietário/possuidor que não seja o informante do arquivo C 060 - OC
+   * @param r08_COD_PART the new 08 COD_PART CÃ³digo do participante (campo 02 do Registro 0150): proprietÃ¡rio/possuidor que nÃ£o seja o informante do arquivo C 060 - OC
    */
   public void setR08_COD_PART(String r08_COD_PART) {
     this.r08_COD_PART = r08_COD_PART;
   }
 
   /**
-   * Recupera o 09 TXT_COMPL Descrição complementar. C - - OC.
+   * Recupera o 09 TXT_COMPL DescriÃ§Ã£o complementar. C - - OC.
    *
-   * @return the 09 TXT_COMPL Descrição complementar
+   * @return the 09 TXT_COMPL DescriÃ§Ã£o complementar
    */
   public String getR09_TXT_COMPL() {
     return r09_TXT_COMPL;
   }
 
   /**
-   * Define o 09 TXT_COMPL Descrição complementar. C - - OC.
+   * Define o 09 TXT_COMPL DescriÃ§Ã£o complementar. C - - OC.
    *
-   * @param r09_TXT_COMPL the new 09 TXT_COMPL Descrição complementar
+   * @param r09_TXT_COMPL the new 09 TXT_COMPL DescriÃ§Ã£o complementar
    */
   public void setR09_TXT_COMPL(String r09_TXT_COMPL) {
     this.r09_TXT_COMPL = r09_TXT_COMPL;
   }
 
   /**
-   * Recupera o 10 COD_CTA Código da conta analítica contábil debitada/creditada C - - OC.
+   * Recupera o 10 COD_CTA CÃ³digo da conta analÃ­tica contÃ¡bil debitada/creditada C - - OC.
    *
-   * @return the 10 COD_CTA Código da conta analítica contábil debitada/creditada C - - OC
+   * @return the 10 COD_CTA CÃ³digo da conta analÃ­tica contÃ¡bil debitada/creditada C - - OC
    */
   public String getR10_COD_CTA() {
     return r10_COD_CTA;
   }
 
   /**
-   * Define o 10 COD_CTA Código da conta analítica contábil debitada/creditada C - - OC.
+   * Define o 10 COD_CTA CÃ³digo da conta analÃ­tica contÃ¡bil debitada/creditada C - - OC.
    *
-   * @param r10_COD_CTA the new 10 COD_CTA Código da conta analítica contábil debitada/creditada C - - OC
+   * @param r10_COD_CTA the new 10 COD_CTA CÃ³digo da conta analÃ­tica contÃ¡bil debitada/creditada C - - OC
    */
   public void setR10_COD_CTA(String r10_COD_CTA) {
     this.r10_COD_CTA = r10_COD_CTA;
@@ -289,9 +289,9 @@ public class SPEDFiscalH010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO H020: Informação complementar do Inventário.
+   * Recupera o rEGISTRO H020: InformaÃ§Ã£o complementar do InventÃ¡rio.
    *
-   * @return the rEGISTRO H020: Informação complementar do Inventário
+   * @return the rEGISTRO H020: InformaÃ§Ã£o complementar do InventÃ¡rio
    */
   public ArrayList<SPEDFiscalH020> getRh020() {
     return rh020;

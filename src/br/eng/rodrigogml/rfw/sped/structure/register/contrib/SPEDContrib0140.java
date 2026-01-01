@@ -28,29 +28,29 @@ public class SPEDContrib0140 extends SPEDRegister {
   private final LinkedHashMap<String, SPEDContrib0150> r0150 = new LinkedHashMap<String, SPEDContrib0150>();
 
   /**
-   * REGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA<br>
+   * REGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA<br>
    * Chave da Hash: Unidade (campo 02 do registro)
    */
   private final LinkedHashMap<String, SPEDContrib0190> r0190 = new LinkedHashMap<String, SPEDContrib0190>();
 
   /**
-   * REGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * Chave: COD_ITEM. - O CÛdigo do Item È o ID do objeto ItemVO. N„o utilizaremos os cÛdigos dos produtos, mas sim converteremos tudo para a unidade de medida padr„o do Item.
+   * REGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Chave: COD_ITEM. - O C√≥digo do Item √© o ID do objeto ItemVO. N√£o utilizaremos os c√≥digos dos produtos, mas sim converteremos tudo para a unidade de medida padr√£o do Item.
    */
   private final LinkedHashMap<String, SPEDContrib0200> r0200 = new LinkedHashMap<String, SPEDContrib0200>();
 
   /**
-   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O
+   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO
    */
   private final LinkedHashMap<String, SPEDContrib0400> r0400 = new LinkedHashMap<String, SPEDContrib0400>();
 
   /**
-   * REGISTRO 0145: REGIME DE APURA«√O DA CONTRIBUI«√O PREVIDENCI¡RIA SOBRE RECEITA BRUTA
+   * REGISTRO 0145: REGIME DE APURA√á√ÉO DA CONTRIBUI√á√ÉO PREVIDENCI√ÅRIA SOBRE RECEITA BRUTA
    */
   private SPEDContrib0145 r0145 = null;
 
   /**
-   * CÛdigo de identificaÁ„o do estabelecimento C 060 - N
+   * C√≥digo de identifica√ß√£o do estabelecimento C 060 - N
    */
   @SPEDField(maxLength = 2, required = false)
   private String r02_COD_EST = null;
@@ -61,37 +61,37 @@ public class SPEDContrib0140 extends SPEDRegister {
   private String r03_NOME = null;
 
   /**
-   * N˙mero de inscriÁ„o do estabelecimento no CNPJ. N 014* - S
+   * N√∫mero de inscri√ß√£o do estabelecimento no CNPJ. N 014* - S
    */
   @SPEDField(maxLength = 14, minLength = 14, required = true)
   private String r04_CNPJ = null;
 
   /**
-   * Sigla da unidade da federaÁ„o do estabelecimento. C 002* - S
+   * Sigla da unidade da federa√ß√£o do estabelecimento. C 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r05_UF = null;
 
   /**
-   * InscriÁ„o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N
+   * Inscri√ß√£o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N
    */
   @SPEDField(maxLength = 14, required = false)
   private String r06_IE = null;
 
   /**
-   * CÛdigo do municÌpio do domicÌlio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
+   * C√≥digo do munic√≠pio do domic√≠lio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
    */
   @SPEDField(maxLength = 7, minLength = 7, required = true)
   private String r07_COD_MUN = null;
 
   /**
-   * InscriÁ„o Municipal do estabelecimento, se contribuinte do ISS. C - - N
+   * Inscri√ß√£o Municipal do estabelecimento, se contribuinte do ISS. C - - N
    */
   @SPEDField(maxLength = 20, required = false)
   private String r08_IM = null;
 
   /**
-   * InscriÁ„o do estabelecimento na Suframa C 009* - N
+   * Inscri√ß√£o do estabelecimento na Suframa C 009* - N
    */
   @SPEDField(maxLength = 9, minLength = 9, required = false)
   private String r09_SUFRAMA = null;
@@ -102,18 +102,18 @@ public class SPEDContrib0140 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo de identificaÁ„o do estabelecimento C 060 - N.
+   * Recupera o c√≥digo de identifica√ß√£o do estabelecimento C 060 - N.
    *
-   * @return the cÛdigo de identificaÁ„o do estabelecimento C 060 - N
+   * @return the c√≥digo de identifica√ß√£o do estabelecimento C 060 - N
    */
   public String getR02_COD_EST() {
     return r02_COD_EST;
   }
 
   /**
-   * Define o cÛdigo de identificaÁ„o do estabelecimento C 060 - N.
+   * Define o c√≥digo de identifica√ß√£o do estabelecimento C 060 - N.
    *
-   * @param r02_COD_EST the new cÛdigo de identificaÁ„o do estabelecimento C 060 - N
+   * @param r02_COD_EST the new c√≥digo de identifica√ß√£o do estabelecimento C 060 - N
    */
   public void setR02_COD_EST(String r02_COD_EST) {
     this.r02_COD_EST = r02_COD_EST;
@@ -138,108 +138,108 @@ public class SPEDContrib0140 extends SPEDRegister {
   }
 
   /**
-   * Recupera o n˙mero de inscriÁ„o do estabelecimento no CNPJ. N 014* - S.
+   * Recupera o n√∫mero de inscri√ß√£o do estabelecimento no CNPJ. N 014* - S.
    *
-   * @return the n˙mero de inscriÁ„o do estabelecimento no CNPJ
+   * @return the n√∫mero de inscri√ß√£o do estabelecimento no CNPJ
    */
   public String getR04_CNPJ() {
     return r04_CNPJ;
   }
 
   /**
-   * Define o n˙mero de inscriÁ„o do estabelecimento no CNPJ. N 014* - S.
+   * Define o n√∫mero de inscri√ß√£o do estabelecimento no CNPJ. N 014* - S.
    *
-   * @param r04_CNPJ the new n˙mero de inscriÁ„o do estabelecimento no CNPJ
+   * @param r04_CNPJ the new n√∫mero de inscri√ß√£o do estabelecimento no CNPJ
    */
   public void setR04_CNPJ(String r04_CNPJ) {
     this.r04_CNPJ = r04_CNPJ;
   }
 
   /**
-   * Recupera o sigla da unidade da federaÁ„o do estabelecimento. C 002* - S.
+   * Recupera o sigla da unidade da federa√ß√£o do estabelecimento. C 002* - S.
    *
-   * @return the sigla da unidade da federaÁ„o do estabelecimento
+   * @return the sigla da unidade da federa√ß√£o do estabelecimento
    */
   public String getR05_UF() {
     return r05_UF;
   }
 
   /**
-   * Define o sigla da unidade da federaÁ„o do estabelecimento. C 002* - S.
+   * Define o sigla da unidade da federa√ß√£o do estabelecimento. C 002* - S.
    *
-   * @param r05_UF the new sigla da unidade da federaÁ„o do estabelecimento
+   * @param r05_UF the new sigla da unidade da federa√ß√£o do estabelecimento
    */
   public void setR05_UF(String r05_UF) {
     this.r05_UF = r05_UF;
   }
 
   /**
-   * Recupera o inscriÁ„o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N.
+   * Recupera o inscri√ß√£o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N.
    *
-   * @return the inscriÁ„o Estadual do estabelecimento, se contribuinte de ICMS
+   * @return the inscri√ß√£o Estadual do estabelecimento, se contribuinte de ICMS
    */
   public String getR06_IE() {
     return r06_IE;
   }
 
   /**
-   * Define o inscriÁ„o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N.
+   * Define o inscri√ß√£o Estadual do estabelecimento, se contribuinte de ICMS. C 014 - N.
    *
-   * @param r06_IE the new inscriÁ„o Estadual do estabelecimento, se contribuinte de ICMS
+   * @param r06_IE the new inscri√ß√£o Estadual do estabelecimento, se contribuinte de ICMS
    */
   public void setR06_IE(String r06_IE) {
     this.r06_IE = r06_IE;
   }
 
   /**
-   * Recupera o cÛdigo do municÌpio do domicÌlio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S.
+   * Recupera o c√≥digo do munic√≠pio do domic√≠lio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S.
    *
-   * @return the cÛdigo do municÌpio do domicÌlio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
+   * @return the c√≥digo do munic√≠pio do domic√≠lio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
    */
   public String getR07_COD_MUN() {
     return r07_COD_MUN;
   }
 
   /**
-   * Define o cÛdigo do municÌpio do domicÌlio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S.
+   * Define o c√≥digo do munic√≠pio do domic√≠lio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S.
    *
-   * @param r07_COD_MUN the new cÛdigo do municÌpio do domicÌlio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
+   * @param r07_COD_MUN the new c√≥digo do munic√≠pio do domic√≠lio fiscal do estabelecimento, conforme a tabela IBGE N 007* - S
    */
   public void setR07_COD_MUN(String r07_COD_MUN) {
     this.r07_COD_MUN = r07_COD_MUN;
   }
 
   /**
-   * Recupera o inscriÁ„o Municipal do estabelecimento, se contribuinte do ISS. C - - N.
+   * Recupera o inscri√ß√£o Municipal do estabelecimento, se contribuinte do ISS. C - - N.
    *
-   * @return the inscriÁ„o Municipal do estabelecimento, se contribuinte do ISS
+   * @return the inscri√ß√£o Municipal do estabelecimento, se contribuinte do ISS
    */
   public String getR08_IM() {
     return r08_IM;
   }
 
   /**
-   * Define o inscriÁ„o Municipal do estabelecimento, se contribuinte do ISS. C - - N.
+   * Define o inscri√ß√£o Municipal do estabelecimento, se contribuinte do ISS. C - - N.
    *
-   * @param r08_IM the new inscriÁ„o Municipal do estabelecimento, se contribuinte do ISS
+   * @param r08_IM the new inscri√ß√£o Municipal do estabelecimento, se contribuinte do ISS
    */
   public void setR08_IM(String r08_IM) {
     this.r08_IM = r08_IM;
   }
 
   /**
-   * Recupera o inscriÁ„o do estabelecimento na Suframa C 009* - N.
+   * Recupera o inscri√ß√£o do estabelecimento na Suframa C 009* - N.
    *
-   * @return the inscriÁ„o do estabelecimento na Suframa C 009* - N
+   * @return the inscri√ß√£o do estabelecimento na Suframa C 009* - N
    */
   public String getR09_SUFRAMA() {
     return r09_SUFRAMA;
   }
 
   /**
-   * Define o inscriÁ„o do estabelecimento na Suframa C 009* - N.
+   * Define o inscri√ß√£o do estabelecimento na Suframa C 009* - N.
    *
-   * @param r09_SUFRAMA the new inscriÁ„o do estabelecimento na Suframa C 009* - N
+   * @param r09_SUFRAMA the new inscri√ß√£o do estabelecimento na Suframa C 009* - N
    */
   public void setR09_SUFRAMA(String r09_SUFRAMA) {
     this.r09_SUFRAMA = r09_SUFRAMA;
@@ -257,10 +257,10 @@ public class SPEDContrib0140 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA<br>
+   * Recupera o rEGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA<br>
    * Chave da Hash: Unidade (campo 02 do registro).
    *
-   * @return the rEGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA<br>
+   * @return the rEGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA<br>
    *         Chave da Hash: Unidade (campo 02 do registro)
    */
   public LinkedHashMap<String, SPEDContrib0190> getR0190() {
@@ -268,10 +268,10 @@ public class SPEDContrib0140 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * Chave: COD_ITEM. - O CÛdigo do Item È o ID do objeto ItemVO. N„o utilizaremos os cÛdigos dos produtos, mas sim converteremos tudo para a unidade de medida padr„o do Item.
+   * Recupera o rEGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Chave: COD_ITEM. - O C√≥digo do Item √© o ID do objeto ItemVO. N√£o utilizaremos os c√≥digos dos produtos, mas sim converteremos tudo para a unidade de medida padr√£o do Item.
    *
-   * @return the rEGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
+   * @return the rEGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
    *         Chave: COD_ITEM
    */
   public LinkedHashMap<String, SPEDContrib0200> getR0200() {
@@ -279,27 +279,27 @@ public class SPEDContrib0140 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O.
+   * Recupera o rEGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO.
    *
-   * @return the rEGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O
+   * @return the rEGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO
    */
   public LinkedHashMap<String, SPEDContrib0400> getR0400() {
     return r0400;
   }
 
   /**
-   * Recupera o rEGISTRO 0145: REGIME DE APURA«√O DA CONTRIBUI«√O PREVIDENCI¡RIA SOBRE RECEITA BRUTA.
+   * Recupera o rEGISTRO 0145: REGIME DE APURA√á√ÉO DA CONTRIBUI√á√ÉO PREVIDENCI√ÅRIA SOBRE RECEITA BRUTA.
    *
-   * @return the rEGISTRO 0145: REGIME DE APURA«√O DA CONTRIBUI«√O PREVIDENCI¡RIA SOBRE RECEITA BRUTA
+   * @return the rEGISTRO 0145: REGIME DE APURA√á√ÉO DA CONTRIBUI√á√ÉO PREVIDENCI√ÅRIA SOBRE RECEITA BRUTA
    */
   public SPEDContrib0145 getR0145() {
     return r0145;
   }
 
   /**
-   * Define o rEGISTRO 0145: REGIME DE APURA«√O DA CONTRIBUI«√O PREVIDENCI¡RIA SOBRE RECEITA BRUTA.
+   * Define o rEGISTRO 0145: REGIME DE APURA√á√ÉO DA CONTRIBUI√á√ÉO PREVIDENCI√ÅRIA SOBRE RECEITA BRUTA.
    *
-   * @param r0145 the new rEGISTRO 0145: REGIME DE APURA«√O DA CONTRIBUI«√O PREVIDENCI¡RIA SOBRE RECEITA BRUTA
+   * @param r0145 the new rEGISTRO 0145: REGIME DE APURA√á√ÉO DA CONTRIBUI√á√ÉO PREVIDENCI√ÅRIA SOBRE RECEITA BRUTA
    */
   public void setR0145(SPEDContrib0145 r0145) {
     this.r0145 = r0145;

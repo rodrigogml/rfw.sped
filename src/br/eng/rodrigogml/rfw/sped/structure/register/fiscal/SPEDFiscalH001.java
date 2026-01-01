@@ -10,7 +10,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO H001: ABERTURA DO BLOCO H.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalH001 extends SPEDRegister {
@@ -22,8 +22,8 @@ public class SPEDFiscalH001 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO H005: TOTAIS DO INVENT¡RIO<br>
-   * Chave: ID do invent·rio: {@link StockInventoryVO} usado para a geraÁ„o do registro.
+   * REGISTRO H005: TOTAIS DO INVENT√ÅRIO<br>
+   * Chave: ID do invent√°rio: {@link StockInventoryVO} usado para a gera√ß√£o do registro.
    */
   private final LinkedHashMap<String, SPEDFiscalH005> rh005 = new LinkedHashMap<String, SPEDFiscalH005>();
 
@@ -70,11 +70,11 @@ public class SPEDFiscalH001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO H005: TOTAIS DO INVENT¡RIO<br>
-   * Chave: ID do invent·rio: {@link StockInventoryVO} usado para a geraÁ„o do registro.
+   * Recupera o rEGISTRO H005: TOTAIS DO INVENT√ÅRIO<br>
+   * Chave: ID do invent√°rio: {@link StockInventoryVO} usado para a gera√ß√£o do registro.
    *
-   * @return the rEGISTRO H005: TOTAIS DO INVENT¡RIO<br>
-   *         Chave: ID do invent·rio: {@link StockInventoryVO} usado para a geraÁ„o do registro
+   * @return the rEGISTRO H005: TOTAIS DO INVENT√ÅRIO<br>
+   *         Chave: ID do invent√°rio: {@link StockInventoryVO} usado para a gera√ß√£o do registro
    */
   public LinkedHashMap<String, SPEDFiscalH005> getRh005() {
     return rh005;
@@ -84,7 +84,7 @@ public class SPEDFiscalH001 extends SPEDRegister {
   public void calculate(String uuid) throws RFWException {
     if (uuid == null || !uuid.equals(this.getLastUUID())) {
       super.calculate(uuid);
-      // Verifica se h· conte˙do nos registros
+      // Verifica se h√° conte√∫do nos registros
       boolean hasContent = !rh005.isEmpty();
       r02_IND_MOV = hasContent ? "0" : "1";
     }

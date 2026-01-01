@@ -10,7 +10,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO K001: ABERTURA DO BLOCO K.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalK001 extends SPEDRegister {
@@ -31,7 +31,7 @@ public class SPEDFiscalK001 extends SPEDRegister {
   private String r02_IND_MOV = null;
 
   /**
-   * REGISTRO K100: PERÕODO DE APURA«√O DO ICMS/IPI<br>
+   * REGISTRO K100: PER√çODO DE APURA√á√ÉO DO ICMS/IPI<br>
    * Chave: Campos DT_INI + '|' + DT_FIN contatenados no formato "long" do objeto Date.
    */
   private final LinkedHashMap<String, SPEDFiscalK100> rk100 = new LinkedHashMap<String, SPEDFiscalK100>();
@@ -70,10 +70,10 @@ public class SPEDFiscalK001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO K100: PERÕODO DE APURA«√O DO ICMS/IPI<br>
+   * Recupera o rEGISTRO K100: PER√çODO DE APURA√á√ÉO DO ICMS/IPI<br>
    * Chave: Campos DT_INI + '|' + DT_FIN contatenados no formato "long" do objeto Date.
    *
-   * @return the rEGISTRO K100: PERÕODO DE APURA«√O DO ICMS/IPI<br>
+   * @return the rEGISTRO K100: PER√çODO DE APURA√á√ÉO DO ICMS/IPI<br>
    *         Chave: Campos DT_INI + '|' + DT_FIN contatenados no formato "long" do objeto Date
    */
   public LinkedHashMap<String, SPEDFiscalK100> getRk100() {
@@ -84,7 +84,7 @@ public class SPEDFiscalK001 extends SPEDRegister {
   public void calculate(String uuid) throws RFWException {
     if (uuid == null || !uuid.equals(this.getLastUUID())) {
       super.calculate(uuid);
-      // Verifica se h· conte˙do nos registros
+      // Verifica se h√° conte√∫do nos registros
       boolean hasContent = !this.rk100.isEmpty();
       r02_IND_MOV = hasContent ? "0" : "1";
     }

@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C850: REGISTRO ANALÕTICO DO CF-E-SAT (CODIGO 59).<br>
+ * Description: REGISTRO C850: REGISTRO ANAL√çTICO DO CF-E-SAT (CODIGO 59).<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC850 extends SPEDRegister {
@@ -21,43 +21,43 @@ public class SPEDFiscalC850 extends SPEDRegister {
   }
 
   /**
-   * CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1 N 003 - O
+   * C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1 N 003 - O
    */
   @SPEDField(maxLength = 3, minLength = 3, required = true)
   private String r02_CST_ICMS = null;
 
   /**
-   * CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens N 004 - O
+   * C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens N 004 - O
    */
   @SPEDField(maxLength = 4, minLength = 4, required = true)
   private String r03_CFOP = null;
 
   /**
-   * AlÌquota do ICMS N 006 02 OC
+   * Al√≠quota do ICMS N 006 02 OC
    */
   @SPEDField(maxLength = 6, decimals = 2, required = false)
   private BigDecimal r04_ALIQ_ICMS = null;
 
   /**
-   * ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens. N - 02 O
+   * ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens. N - 02 O
    */
   @SPEDField(decimals = 2, maxLength = 10, required = true)
   private BigDecimal r05_VL_OPR = null;
 
   /**
-   * Valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS. N - 2 O
+   * Valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS. N - 2 O
    */
   @SPEDField(decimals = 2, required = true, maxLength = 10)
   private BigDecimal r06_VL_BC_ICMS = null;
 
   /**
-   * Parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS. N - 02 O
+   * Parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS. N - 02 O
    */
   @SPEDField(decimals = 2, maxLength = 10, required = true)
   private BigDecimal r07_VL_ICMS = null;
 
   /**
-   * CÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460) C 006 - OC
+   * C√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460) C 006 - OC
    */
   @SPEDField(maxLength = 6, required = false)
   private String r08_COD_OBS = null;
@@ -68,126 +68,126 @@ public class SPEDFiscalC850 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1 N 003 - O.
+   * Recupera o c√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1 N 003 - O.
    *
-   * @return the cÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4
+   * @return the c√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4
    */
   public String getR02_CST_ICMS() {
     return r02_CST_ICMS;
   }
 
   /**
-   * Define o cÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1 N 003 - O.
+   * Define o c√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1 N 003 - O.
    *
-   * @param r02_CST_ICMS the new cÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4
+   * @param r02_CST_ICMS the new c√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4
    */
   public void setR02_CST_ICMS(String r02_CST_ICMS) {
     this.r02_CST_ICMS = r02_CST_ICMS;
   }
 
   /**
-   * Recupera o cÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens N 004 - O.
+   * Recupera o c√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens N 004 - O.
    *
-   * @return the cÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens N 004 - O
+   * @return the c√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens N 004 - O
    */
   public String getR03_CFOP() {
     return r03_CFOP;
   }
 
   /**
-   * Define o cÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens N 004 - O.
+   * Define o c√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens N 004 - O.
    *
-   * @param r03_CFOP the new cÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens N 004 - O
+   * @param r03_CFOP the new c√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens N 004 - O
    */
   public void setR03_CFOP(String r03_CFOP) {
     this.r03_CFOP = r03_CFOP;
   }
 
   /**
-   * Recupera o alÌquota do ICMS N 006 02 OC.
+   * Recupera o al√≠quota do ICMS N 006 02 OC.
    *
-   * @return the alÌquota do ICMS N 006 02 OC
+   * @return the al√≠quota do ICMS N 006 02 OC
    */
   public BigDecimal getR04_ALIQ_ICMS() {
     return r04_ALIQ_ICMS;
   }
 
   /**
-   * Define o alÌquota do ICMS N 006 02 OC.
+   * Define o al√≠quota do ICMS N 006 02 OC.
    *
-   * @param r04_ALIQ_ICMS the new alÌquota do ICMS N 006 02 OC
+   * @param r04_ALIQ_ICMS the new al√≠quota do ICMS N 006 02 OC
    */
   public void setR04_ALIQ_ICMS(BigDecimal r04_ALIQ_ICMS) {
     this.r04_ALIQ_ICMS = r04_ALIQ_ICMS;
   }
 
   /**
-   * Recupera o ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens. N - 02 O.
+   * Recupera o ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens. N - 02 O.
    *
-   * @return the ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens
+   * @return the ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens
    */
   public BigDecimal getR05_VL_OPR() {
     return r05_VL_OPR;
   }
 
   /**
-   * Define o ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens. N - 02 O.
+   * Define o ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens. N - 02 O.
    *
-   * @param r05_VL_OPR the new ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens
+   * @param r05_VL_OPR the new ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens
    */
   public void setR05_VL_OPR(BigDecimal r05_VL_OPR) {
     this.r05_VL_OPR = r05_VL_OPR;
   }
 
   /**
-   * Recupera o valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS. N - 2 O.
+   * Recupera o valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS. N - 2 O.
    *
-   * @return the valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS
+   * @return the valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS
    */
   public BigDecimal getR06_VL_BC_ICMS() {
     return r06_VL_BC_ICMS;
   }
 
   /**
-   * Define o valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS. N - 2 O.
+   * Define o valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS. N - 2 O.
    *
-   * @param r06_VL_BC_ICMS the new valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS
+   * @param r06_VL_BC_ICMS the new valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS
    */
   public void setR06_VL_BC_ICMS(BigDecimal r06_VL_BC_ICMS) {
     this.r06_VL_BC_ICMS = r06_VL_BC_ICMS;
   }
 
   /**
-   * Recupera o parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS. N - 02 O.
+   * Recupera o parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS. N - 02 O.
    *
-   * @return the parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS
+   * @return the parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS
    */
   public BigDecimal getR07_VL_ICMS() {
     return r07_VL_ICMS;
   }
 
   /**
-   * Define o parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS. N - 02 O.
+   * Define o parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS. N - 02 O.
    *
-   * @param r07_VL_ICMS the new parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS
+   * @param r07_VL_ICMS the new parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS
    */
   public void setR07_VL_ICMS(BigDecimal r07_VL_ICMS) {
     this.r07_VL_ICMS = r07_VL_ICMS;
   }
 
   /**
-   * Recupera o cÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460) C 006 - OC.
+   * Recupera o c√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460) C 006 - OC.
    *
-   * @return the cÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460) C 006 - OC
+   * @return the c√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460) C 006 - OC
    */
   public String getR08_COD_OBS() {
     return r08_COD_OBS;
   }
 
   /**
-   * Define o cÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460) C 006 - OC.
+   * Define o c√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460) C 006 - OC.
    *
-   * @param r08_COD_OBS the new cÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460) C 006 - OC
+   * @param r08_COD_OBS the new c√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460) C 006 - OC
    */
   public void setR08_COD_OBS(String r08_COD_OBS) {
     this.r08_COD_OBS = r08_COD_OBS;

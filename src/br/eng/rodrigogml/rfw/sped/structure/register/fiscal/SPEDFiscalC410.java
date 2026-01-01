@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C410: PIS E COFINS TOTALIZADOS NO DIA (CÓDIGO 02 e 2D).<br>
+ * Description: REGISTRO C410: PIS E COFINS TOTALIZADOS NO DIA (CÃ“DIGO 02 e 2D).<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC410 extends SPEDRegister {

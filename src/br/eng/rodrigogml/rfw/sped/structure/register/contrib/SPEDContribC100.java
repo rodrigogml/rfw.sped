@@ -9,7 +9,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C100: DOCUMENTO - NOTA FISCAL (C”DIGO 01), NOTA FISCAL AVULSA (C”DIGO 1B), NOTA FISCAL DE PRODUTOR (C”DIGO 04), NF-e (C”DIGO 55) e NFC-e (C”DIGO 65)..<br>
+ * Description: REGISTRO C100: DOCUMENTO - NOTA FISCAL (C√ìDIGO 01), NOTA FISCAL AVULSA (C√ìDIGO 1B), NOTA FISCAL DE PRODUTOR (C√ìDIGO 04), NF-e (C√ìDIGO 55) e NFC-e (C√ìDIGO 65)..<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -24,14 +24,14 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C170: ITENS DO DOCUMENTO (C”DIGO 01, 1B, 04 e 55)
+   * REGISTRO C170: ITENS DO DOCUMENTO (C√ìDIGO 01, 1B, 04 e 55)
    */
   private final ArrayList<SPEDContribC170> rc170 = new ArrayList<SPEDContribC170>();
 
   /**
-   * Indicador do tipo de operaÁ„o:
+   * Indicador do tipo de opera√ß√£o:
    * <li>0- Entrada;
-   * <li>1- SaÌda<br>
+   * <li>1- Sa√≠da<br>
    * C 001* - S
    */
   @SPEDField(maxLength = 1, minLength = 1, required = true)
@@ -39,7 +39,7 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Indicador do emitente do documento fiscal:
-   * <li>0- Emiss„o prÛpria;
+   * <li>0- Emiss√£o pr√≥pria;
    * <li>1- Terceiros<br>
    * C 001* - S
    */
@@ -47,52 +47,52 @@ public class SPEDContribC100 extends SPEDRegister {
   private String r03_IND_EMIT = null;
 
   /**
-   * CÛdigo do participante (campo 02 do Registro 0150):
+   * C√≥digo do participante (campo 02 do Registro 0150):
    * <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   * <li>do adquirente, no caso de saÌdas<br>
+   * <li>do adquirente, no caso de sa√≠das<br>
    * C 060 - S
    */
   @SPEDField(maxLength = 60, required = true)
   private String r04_COD_PART = null;
 
   /**
-   * CÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S
+   * C√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r05_COD_MOD = null;
 
   /**
-   * CÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S
+   * C√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r06_COD_SIT = null;
 
   /**
-   * SÈrie do documento fiscal C 003 - N
+   * S√©rie do documento fiscal C 003 - N
    */
   @SPEDField(maxLength = 3, required = false)
   private String r07_SER = null;
 
   /**
-   * N˙mero do documento fiscal N 009 - S
+   * N√∫mero do documento fiscal N 009 - S
    */
   @SPEDField(maxLength = 9, required = true)
   private String r08_NUM_DOC = null;
 
   /**
-   * Chave da Nota Fiscal EletrÙnica ou da NFC-e N 044* - N
+   * Chave da Nota Fiscal Eletr√¥nica ou da NFC-e N 044* - N
    */
   @SPEDField(maxLength = 44, minLength = 44, required = false)
   private String r09_CHV_NFE = null;
 
   /**
-   * Data da emiss„o do documento fiscal N 008* - S
+   * Data da emiss√£o do documento fiscal N 008* - S
    */
   @SPEDField(maxLength = 8, minLength = 8, required = true)
   private LocalDate r10_DT_DOC = null;
 
   /**
-   * Data da entrada ou da saÌda N 008* - N
+   * Data da entrada ou da sa√≠da N 008* - N
    */
   @SPEDField(maxLength = 8, required = false)
   private LocalDate r11_DT_E_S = null;
@@ -105,12 +105,12 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>9- Sem pagamento.<br>
-   * Obs.: A partir de 01/07/2012 passar· a ser:<br>
+   * Obs.: A partir de 01/07/2012 passar√° a ser:<br>
    * Indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>2 - Outros
    * <li>C 001* - S
@@ -125,13 +125,13 @@ public class SPEDContribC100 extends SPEDRegister {
   private BigDecimal r14_VL_DESC = null;
 
   /**
-   * Abatimento n„o tributado e n„o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N
+   * Abatimento n√£o tributado e n√£o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r15_VL_ABAT_NT = null;
 
   /**
-   * Valor total das mercadorias e serviÁos N - 02 N
+   * Valor total das mercadorias e servi√ßos N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r16_VL_MERC = null;
@@ -140,14 +140,14 @@ public class SPEDContribC100 extends SPEDRegister {
    * Indicador do tipo do frete:
    * <li>0- Por conta de terceiros;
    * <li>1- Por conta do emitente;
-   * <li>2- Por conta do destinat·rio;
-   * <li>9- Sem cobranÁa de frete.<br>
-   * Obs.: A partir de 01/01/2012 passar· a ser<br>
+   * <li>2- Por conta do destinat√°rio;
+   * <li>9- Sem cobran√ßa de frete.<br>
+   * Obs.: A partir de 01/01/2012 passar√° a ser<br>
    * Indicador do tipo do frete:
    * <li>0- Por conta do emitente;
-   * <li>1- Por conta do destinat·rio/remetente;
+   * <li>1- Por conta do destinat√°rio/remetente;
    * <li>2- Por conta de terceiros;
-   * <li>9- Sem cobranÁa de frete.<br>
+   * <li>9- Sem cobran√ßa de frete.<br>
    * C 001* - S
    */
   @SPEDField(maxLength = 1, minLength = 1, required = true)
@@ -166,13 +166,13 @@ public class SPEDContribC100 extends SPEDRegister {
   private BigDecimal r19_VL_SEG = null;
 
   /**
-   * Valor de outras despesas acessÛrias N - 02 N
+   * Valor de outras despesas acess√≥rias N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r20_VL_OUT_DA = null;
 
   /**
-   * Valor da base de c·lculo do ICMS N - 02 N
+   * Valor da base de c√°lculo do ICMS N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r21_VL_BC_ICMS = null;
@@ -184,13 +184,13 @@ public class SPEDContribC100 extends SPEDRegister {
   private BigDecimal r22_VL_ICMS = null;
 
   /**
-   * Valor da base de c·lculo do ICMS substituiÁ„o tribut·ria N - 02 N
+   * Valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r23_VL_BC_ICMS_ST = null;
 
   /**
-   * Valor do ICMS retido por substituiÁ„o tribut·ria N - 02 N
+   * Valor do ICMS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r24_VL_ICMS_ST = null;
@@ -214,13 +214,13 @@ public class SPEDContribC100 extends SPEDRegister {
   private BigDecimal r27_VL_COFINS = null;
 
   /**
-   * Valor total do PIS retido por substituiÁ„o tribut·ria N - 02 N
+   * Valor total do PIS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = true)
   private BigDecimal r28_VL_PIS_ST = null;
 
   /**
-   * Valor total da COFINS retido por substituiÁ„o tribut·ria N - 02 N
+   * Valor total da COFINS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r29_VL_COFINS_ST = null;
@@ -231,14 +231,14 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o indicador do tipo de operaÁ„o:
+   * Recupera o indicador do tipo de opera√ß√£o:
    * <li>0- Entrada;
-   * <li>1- SaÌda<br>
+   * <li>1- Sa√≠da<br>
    * C 001* - S.
    *
-   * @return the indicador do tipo de operaÁ„o:
+   * @return the indicador do tipo de opera√ß√£o:
    *         <li>0- Entrada;
-   *         <li>1- SaÌda<br>
+   *         <li>1- Sa√≠da<br>
    *         C 001* - S
    */
   public String getR02_IND_OPER() {
@@ -246,14 +246,14 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Define o indicador do tipo de operaÁ„o:
+   * Define o indicador do tipo de opera√ß√£o:
    * <li>0- Entrada;
-   * <li>1- SaÌda<br>
+   * <li>1- Sa√≠da<br>
    * C 001* - S.
    *
-   * @param r02_IND_OPER the new indicador do tipo de operaÁ„o:
+   * @param r02_IND_OPER the new indicador do tipo de opera√ß√£o:
    *          <li>0- Entrada;
-   *          <li>1- SaÌda<br>
+   *          <li>1- Sa√≠da<br>
    *          C 001* - S
    */
   public void setR02_IND_OPER(String r02_IND_OPER) {
@@ -262,12 +262,12 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Recupera o indicador do emitente do documento fiscal:
-   * <li>0- Emiss„o prÛpria;
+   * <li>0- Emiss√£o pr√≥pria;
    * <li>1- Terceiros<br>
    * C 001* - S.
    *
    * @return the indicador do emitente do documento fiscal:
-   *         <li>0- Emiss„o prÛpria;
+   *         <li>0- Emiss√£o pr√≥pria;
    *         <li>1- Terceiros<br>
    *         C 001* - S
    */
@@ -277,12 +277,12 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Define o indicador do emitente do documento fiscal:
-   * <li>0- Emiss„o prÛpria;
+   * <li>0- Emiss√£o pr√≥pria;
    * <li>1- Terceiros<br>
    * C 001* - S.
    *
    * @param r03_IND_EMIT the new indicador do emitente do documento fiscal:
-   *          <li>0- Emiss„o prÛpria;
+   *          <li>0- Emiss√£o pr√≥pria;
    *          <li>1- Terceiros<br>
    *          C 001* - S
    */
@@ -291,14 +291,14 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo do participante (campo 02 do Registro 0150):
+   * Recupera o c√≥digo do participante (campo 02 do Registro 0150):
    * <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   * <li>do adquirente, no caso de saÌdas<br>
+   * <li>do adquirente, no caso de sa√≠das<br>
    * C 060 - S.
    *
-   * @return the cÛdigo do participante (campo 02 do Registro 0150):
+   * @return the c√≥digo do participante (campo 02 do Registro 0150):
    *         <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   *         <li>do adquirente, no caso de saÌdas<br>
+   *         <li>do adquirente, no caso de sa√≠das<br>
    *         C 060 - S
    */
   public String getR04_COD_PART() {
@@ -306,14 +306,14 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Define o cÛdigo do participante (campo 02 do Registro 0150):
+   * Define o c√≥digo do participante (campo 02 do Registro 0150):
    * <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   * <li>do adquirente, no caso de saÌdas<br>
+   * <li>do adquirente, no caso de sa√≠das<br>
    * C 060 - S.
    *
-   * @param r04_COD_PART the new cÛdigo do participante (campo 02 do Registro 0150):
+   * @param r04_COD_PART the new c√≥digo do participante (campo 02 do Registro 0150):
    *          <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   *          <li>do adquirente, no caso de saÌdas<br>
+   *          <li>do adquirente, no caso de sa√≠das<br>
    *          C 060 - S
    */
   public void setR04_COD_PART(String r04_COD_PART) {
@@ -321,126 +321,126 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
+   * Recupera o c√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
    *
-   * @return the cÛdigo do modelo do documento fiscal, conforme a Tabela 4
+   * @return the c√≥digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public String getR05_COD_MOD() {
     return r05_COD_MOD;
   }
 
   /**
-   * Define o cÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
+   * Define o c√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
    *
-   * @param r05_COD_MOD the new cÛdigo do modelo do documento fiscal, conforme a Tabela 4
+   * @param r05_COD_MOD the new c√≥digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public void setR05_COD_MOD(String r05_COD_MOD) {
     this.r05_COD_MOD = r05_COD_MOD;
   }
 
   /**
-   * Recupera o cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S.
+   * Recupera o c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S.
    *
-   * @return the cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4
+   * @return the c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4
    */
   public String getR06_COD_SIT() {
     return r06_COD_SIT;
   }
 
   /**
-   * Define o cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S.
+   * Define o c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002* - S.
    *
-   * @param r06_COD_SIT the new cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4
+   * @param r06_COD_SIT the new c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4
    */
   public void setR06_COD_SIT(String r06_COD_SIT) {
     this.r06_COD_SIT = r06_COD_SIT;
   }
 
   /**
-   * Recupera o sÈrie do documento fiscal C 003 - N.
+   * Recupera o s√©rie do documento fiscal C 003 - N.
    *
-   * @return the sÈrie do documento fiscal C 003 - N
+   * @return the s√©rie do documento fiscal C 003 - N
    */
   public String getR07_SER() {
     return r07_SER;
   }
 
   /**
-   * Define o sÈrie do documento fiscal C 003 - N.
+   * Define o s√©rie do documento fiscal C 003 - N.
    *
-   * @param r07_SER the new sÈrie do documento fiscal C 003 - N
+   * @param r07_SER the new s√©rie do documento fiscal C 003 - N
    */
   public void setR07_SER(String r07_SER) {
     this.r07_SER = r07_SER;
   }
 
   /**
-   * Recupera o n˙mero do documento fiscal N 009 - S.
+   * Recupera o n√∫mero do documento fiscal N 009 - S.
    *
-   * @return the n˙mero do documento fiscal N 009 - S
+   * @return the n√∫mero do documento fiscal N 009 - S
    */
   public String getR08_NUM_DOC() {
     return r08_NUM_DOC;
   }
 
   /**
-   * Define o n˙mero do documento fiscal N 009 - S.
+   * Define o n√∫mero do documento fiscal N 009 - S.
    *
-   * @param r08_NUM_DOC the new n˙mero do documento fiscal N 009 - S
+   * @param r08_NUM_DOC the new n√∫mero do documento fiscal N 009 - S
    */
   public void setR08_NUM_DOC(String r08_NUM_DOC) {
     this.r08_NUM_DOC = r08_NUM_DOC;
   }
 
   /**
-   * Recupera o chave da Nota Fiscal EletrÙnica ou da NFC-e N 044* - N.
+   * Recupera o chave da Nota Fiscal Eletr√¥nica ou da NFC-e N 044* - N.
    *
-   * @return the chave da Nota Fiscal EletrÙnica ou da NFC-e N 044* - N
+   * @return the chave da Nota Fiscal Eletr√¥nica ou da NFC-e N 044* - N
    */
   public String getR09_CHV_NFE() {
     return r09_CHV_NFE;
   }
 
   /**
-   * Define o chave da Nota Fiscal EletrÙnica ou da NFC-e N 044* - N.
+   * Define o chave da Nota Fiscal Eletr√¥nica ou da NFC-e N 044* - N.
    *
-   * @param r09_CHV_NFE the new chave da Nota Fiscal EletrÙnica ou da NFC-e N 044* - N
+   * @param r09_CHV_NFE the new chave da Nota Fiscal Eletr√¥nica ou da NFC-e N 044* - N
    */
   public void setR09_CHV_NFE(String r09_CHV_NFE) {
     this.r09_CHV_NFE = r09_CHV_NFE;
   }
 
   /**
-   * Recupera o data da emiss„o do documento fiscal N 008* - S.
+   * Recupera o data da emiss√£o do documento fiscal N 008* - S.
    *
-   * @return the data da emiss„o do documento fiscal N 008* - S
+   * @return the data da emiss√£o do documento fiscal N 008* - S
    */
   public LocalDate getR10_DT_DOC() {
     return r10_DT_DOC;
   }
 
   /**
-   * Define o data da emiss„o do documento fiscal N 008* - S.
+   * Define o data da emiss√£o do documento fiscal N 008* - S.
    *
-   * @param r10_DT_DOC the new data da emiss„o do documento fiscal N 008* - S
+   * @param r10_DT_DOC the new data da emiss√£o do documento fiscal N 008* - S
    */
   public void setR10_DT_DOC(LocalDate r10_DT_DOC) {
     this.r10_DT_DOC = r10_DT_DOC;
   }
 
   /**
-   * Recupera o data da entrada ou da saÌda N 008* - N.
+   * Recupera o data da entrada ou da sa√≠da N 008* - N.
    *
-   * @return the data da entrada ou da saÌda N 008* - N
+   * @return the data da entrada ou da sa√≠da N 008* - N
    */
   public LocalDate getR11_DT_E_S() {
     return r11_DT_E_S;
   }
 
   /**
-   * Define o data da entrada ou da saÌda N 008* - N.
+   * Define o data da entrada ou da sa√≠da N 008* - N.
    *
-   * @param r11_DT_E_S the new data da entrada ou da saÌda N 008* - N
+   * @param r11_DT_E_S the new data da entrada ou da sa√≠da N 008* - N
    */
   public void setR11_DT_E_S(LocalDate r11_DT_E_S) {
     this.r11_DT_E_S = r11_DT_E_S;
@@ -466,18 +466,18 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Recupera o indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>9- Sem pagamento.<br>
-   * Obs.: A partir de 01/07/2012 passar· a ser:<br>
+   * Obs.: A partir de 01/07/2012 passar√° a ser:<br>
    * Indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>2 - Outros
    * <li>C 001* - S.
    *
    * @return the indicador do tipo de pagamento:
-   *         <li>0- ¿ vista;
+   *         <li>0- √Ä vista;
    *         <li>1- A prazo;
    *         <li>9- Sem pagamento
    */
@@ -487,18 +487,18 @@ public class SPEDContribC100 extends SPEDRegister {
 
   /**
    * Define o indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>9- Sem pagamento.<br>
-   * Obs.: A partir de 01/07/2012 passar· a ser:<br>
+   * Obs.: A partir de 01/07/2012 passar√° a ser:<br>
    * Indicador do tipo de pagamento:
-   * <li>0- ¿ vista;
+   * <li>0- √Ä vista;
    * <li>1- A prazo;
    * <li>2 - Outros
    * <li>C 001* - S.
    *
    * @param r13_IND_PGTO the new indicador do tipo de pagamento:
-   *          <li>0- ¿ vista;
+   *          <li>0- √Ä vista;
    *          <li>1- A prazo;
    *          <li>9- Sem pagamento
    */
@@ -525,36 +525,36 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o abatimento n„o tributado e n„o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N.
+   * Recupera o abatimento n√£o tributado e n√£o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N.
    *
-   * @return the abatimento n„o tributado e n„o comercial Ex
+   * @return the abatimento n√£o tributado e n√£o comercial Ex
    */
   public BigDecimal getR15_VL_ABAT_NT() {
     return r15_VL_ABAT_NT;
   }
 
   /**
-   * Define o abatimento n„o tributado e n„o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N.
+   * Define o abatimento n√£o tributado e n√£o comercial Ex. desconto ICMS nas remessas para ZFM. N - 02 N.
    *
-   * @param r15_VL_ABAT_NT the new abatimento n„o tributado e n„o comercial Ex
+   * @param r15_VL_ABAT_NT the new abatimento n√£o tributado e n√£o comercial Ex
    */
   public void setR15_VL_ABAT_NT(BigDecimal r15_VL_ABAT_NT) {
     this.r15_VL_ABAT_NT = r15_VL_ABAT_NT;
   }
 
   /**
-   * Recupera o valor total das mercadorias e serviÁos N - 02 N.
+   * Recupera o valor total das mercadorias e servi√ßos N - 02 N.
    *
-   * @return the valor total das mercadorias e serviÁos N - 02 N
+   * @return the valor total das mercadorias e servi√ßos N - 02 N
    */
   public BigDecimal getR16_VL_MERC() {
     return r16_VL_MERC;
   }
 
   /**
-   * Define o valor total das mercadorias e serviÁos N - 02 N.
+   * Define o valor total das mercadorias e servi√ßos N - 02 N.
    *
-   * @param r16_VL_MERC the new valor total das mercadorias e serviÁos N - 02 N
+   * @param r16_VL_MERC the new valor total das mercadorias e servi√ßos N - 02 N
    */
   public void setR16_VL_MERC(BigDecimal r16_VL_MERC) {
     this.r16_VL_MERC = r16_VL_MERC;
@@ -564,21 +564,21 @@ public class SPEDContribC100 extends SPEDRegister {
    * Recupera o indicador do tipo do frete:
    * <li>0- Por conta de terceiros;
    * <li>1- Por conta do emitente;
-   * <li>2- Por conta do destinat·rio;
-   * <li>9- Sem cobranÁa de frete.<br>
-   * Obs.: A partir de 01/01/2012 passar· a ser<br>
+   * <li>2- Por conta do destinat√°rio;
+   * <li>9- Sem cobran√ßa de frete.<br>
+   * Obs.: A partir de 01/01/2012 passar√° a ser<br>
    * Indicador do tipo do frete:
    * <li>0- Por conta do emitente;
-   * <li>1- Por conta do destinat·rio/remetente;
+   * <li>1- Por conta do destinat√°rio/remetente;
    * <li>2- Por conta de terceiros;
-   * <li>9- Sem cobranÁa de frete.<br>
+   * <li>9- Sem cobran√ßa de frete.<br>
    * C 001* - S.
    *
    * @return the indicador do tipo do frete:
    *         <li>0- Por conta de terceiros;
    *         <li>1- Por conta do emitente;
-   *         <li>2- Por conta do destinat·rio;
-   *         <li>9- Sem cobranÁa de frete
+   *         <li>2- Por conta do destinat√°rio;
+   *         <li>9- Sem cobran√ßa de frete
    */
   public String getR17_IND_FRT() {
     return r17_IND_FRT;
@@ -588,21 +588,21 @@ public class SPEDContribC100 extends SPEDRegister {
    * Define o indicador do tipo do frete:
    * <li>0- Por conta de terceiros;
    * <li>1- Por conta do emitente;
-   * <li>2- Por conta do destinat·rio;
-   * <li>9- Sem cobranÁa de frete.<br>
-   * Obs.: A partir de 01/01/2012 passar· a ser<br>
+   * <li>2- Por conta do destinat√°rio;
+   * <li>9- Sem cobran√ßa de frete.<br>
+   * Obs.: A partir de 01/01/2012 passar√° a ser<br>
    * Indicador do tipo do frete:
    * <li>0- Por conta do emitente;
-   * <li>1- Por conta do destinat·rio/remetente;
+   * <li>1- Por conta do destinat√°rio/remetente;
    * <li>2- Por conta de terceiros;
-   * <li>9- Sem cobranÁa de frete.<br>
+   * <li>9- Sem cobran√ßa de frete.<br>
    * C 001* - S.
    *
    * @param r17_IND_FRT the new indicador do tipo do frete:
    *          <li>0- Por conta de terceiros;
    *          <li>1- Por conta do emitente;
-   *          <li>2- Por conta do destinat·rio;
-   *          <li>9- Sem cobranÁa de frete
+   *          <li>2- Por conta do destinat√°rio;
+   *          <li>9- Sem cobran√ßa de frete
    */
   public void setR17_IND_FRT(String r17_IND_FRT) {
     this.r17_IND_FRT = r17_IND_FRT;
@@ -627,36 +627,36 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor de outras despesas acessÛrias N - 02 N.
+   * Recupera o valor de outras despesas acess√≥rias N - 02 N.
    *
-   * @return the valor de outras despesas acessÛrias N - 02 N
+   * @return the valor de outras despesas acess√≥rias N - 02 N
    */
   public BigDecimal getR20_VL_OUT_DA() {
     return r20_VL_OUT_DA;
   }
 
   /**
-   * Define o valor de outras despesas acessÛrias N - 02 N.
+   * Define o valor de outras despesas acess√≥rias N - 02 N.
    *
-   * @param r20_VL_OUT_DA the new valor de outras despesas acessÛrias N - 02 N
+   * @param r20_VL_OUT_DA the new valor de outras despesas acess√≥rias N - 02 N
    */
   public void setR20_VL_OUT_DA(BigDecimal r20_VL_OUT_DA) {
     this.r20_VL_OUT_DA = r20_VL_OUT_DA;
   }
 
   /**
-   * Recupera o valor da base de c·lculo do ICMS N - 02 N.
+   * Recupera o valor da base de c√°lculo do ICMS N - 02 N.
    *
-   * @return the valor da base de c·lculo do ICMS N - 02 N
+   * @return the valor da base de c√°lculo do ICMS N - 02 N
    */
   public BigDecimal getR21_VL_BC_ICMS() {
     return r21_VL_BC_ICMS;
   }
 
   /**
-   * Define o valor da base de c·lculo do ICMS N - 02 N.
+   * Define o valor da base de c√°lculo do ICMS N - 02 N.
    *
-   * @param r21_VL_BC_ICMS the new valor da base de c·lculo do ICMS N - 02 N
+   * @param r21_VL_BC_ICMS the new valor da base de c√°lculo do ICMS N - 02 N
    */
   public void setR21_VL_BC_ICMS(BigDecimal r21_VL_BC_ICMS) {
     this.r21_VL_BC_ICMS = r21_VL_BC_ICMS;
@@ -681,36 +681,36 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor da base de c·lculo do ICMS substituiÁ„o tribut·ria N - 02 N.
+   * Recupera o valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @return the valor da base de c·lculo do ICMS substituiÁ„o tribut·ria N - 02 N
+   * @return the valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria N - 02 N
    */
   public BigDecimal getR23_VL_BC_ICMS_ST() {
     return r23_VL_BC_ICMS_ST;
   }
 
   /**
-   * Define o valor da base de c·lculo do ICMS substituiÁ„o tribut·ria N - 02 N.
+   * Define o valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @param r23_VL_BC_ICMS_ST the new valor da base de c·lculo do ICMS substituiÁ„o tribut·ria N - 02 N
+   * @param r23_VL_BC_ICMS_ST the new valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria N - 02 N
    */
   public void setR23_VL_BC_ICMS_ST(BigDecimal r23_VL_BC_ICMS_ST) {
     this.r23_VL_BC_ICMS_ST = r23_VL_BC_ICMS_ST;
   }
 
   /**
-   * Recupera o valor do ICMS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Recupera o valor do ICMS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @return the valor do ICMS retido por substituiÁ„o tribut·ria N - 02 N
+   * @return the valor do ICMS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public BigDecimal getR24_VL_ICMS_ST() {
     return r24_VL_ICMS_ST;
   }
 
   /**
-   * Define o valor do ICMS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Define o valor do ICMS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @param r24_VL_ICMS_ST the new valor do ICMS retido por substituiÁ„o tribut·ria N - 02 N
+   * @param r24_VL_ICMS_ST the new valor do ICMS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public void setR24_VL_ICMS_ST(BigDecimal r24_VL_ICMS_ST) {
     this.r24_VL_ICMS_ST = r24_VL_ICMS_ST;
@@ -753,36 +753,36 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor total do PIS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Recupera o valor total do PIS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @return the valor total do PIS retido por substituiÁ„o tribut·ria N - 02 N
+   * @return the valor total do PIS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public BigDecimal getR28_VL_PIS_ST() {
     return r28_VL_PIS_ST;
   }
 
   /**
-   * Define o valor total do PIS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Define o valor total do PIS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @param r28_VL_PIS_ST the new valor total do PIS retido por substituiÁ„o tribut·ria N - 02 N
+   * @param r28_VL_PIS_ST the new valor total do PIS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public void setR28_VL_PIS_ST(BigDecimal r28_VL_PIS_ST) {
     this.r28_VL_PIS_ST = r28_VL_PIS_ST;
   }
 
   /**
-   * Recupera o valor total da COFINS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Recupera o valor total da COFINS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @return the valor total da COFINS retido por substituiÁ„o tribut·ria N - 02 N
+   * @return the valor total da COFINS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public BigDecimal getR29_VL_COFINS_ST() {
     return r29_VL_COFINS_ST;
   }
 
   /**
-   * Define o valor total da COFINS retido por substituiÁ„o tribut·ria N - 02 N.
+   * Define o valor total da COFINS retido por substitui√ß√£o tribut√°ria N - 02 N.
    *
-   * @param r29_VL_COFINS_ST the new valor total da COFINS retido por substituiÁ„o tribut·ria N - 02 N
+   * @param r29_VL_COFINS_ST the new valor total da COFINS retido por substitui√ß√£o tribut√°ria N - 02 N
    */
   public void setR29_VL_COFINS_ST(BigDecimal r29_VL_COFINS_ST) {
     this.r29_VL_COFINS_ST = r29_VL_COFINS_ST;
@@ -825,9 +825,9 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C170: ITENS DO DOCUMENTO (C”DIGO 01, 1B, 04 e 55).
+   * Recupera o rEGISTRO C170: ITENS DO DOCUMENTO (C√ìDIGO 01, 1B, 04 e 55).
    *
-   * @return the rEGISTRO C170: ITENS DO DOCUMENTO (C”DIGO 01, 1B, 04 e 55)
+   * @return the rEGISTRO C170: ITENS DO DOCUMENTO (C√ìDIGO 01, 1B, 04 e 55)
    */
   public ArrayList<SPEDContribC170> getRc170() {
     return rc170;

@@ -9,7 +9,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL..<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal9999 extends SPEDRegister {
@@ -51,9 +51,9 @@ public class SPEDFiscal9999 extends SPEDRegister {
 
   @Override
   public void calculate(String uuid) throws RFWException {
-    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da ˙ltima rodada de c·lculo, devemos realizar os c·lculos.
-      super.calculate(uuid); // Chama o c·lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
-      int totalRegisters = 1; // Soma o registo de fechamento que n„o est· incluso
+    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da √∫ltima rodada de c√°lculo, devemos realizar os c√°lculos.
+      super.calculate(uuid); // Chama o c√°lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+      int totalRegisters = 1; // Soma o registo de fechamento que n√£o est√° incluso
       if (((SPEDFiscalFile) this.getSpedFile()).getR0990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR0990().getR02_QTD_LIN_0_AUTO();
       if (((SPEDFiscalFile) this.getSpedFile()).getRC990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRC990().getR02_QTD_LIN_C_AUTO();
       if (((SPEDFiscalFile) this.getSpedFile()).getRD990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRD990().getR02_QTD_LIN_D_AUTO();

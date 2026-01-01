@@ -8,9 +8,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA ENTIDADE
+ * Description: REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÃ‡ÃƒO DA ENTIDADE
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal0000 extends SPEDRegister {
@@ -22,7 +22,7 @@ public class SPEDFiscal0000 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
+   * 02 COD_VER CÃ³digo da versÃ£o do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
    * Tabela:<br>
    * cod|ver.|data ini |data final|<br>
    * 002|1.01|01 01 2009|31 12 2009<Br>
@@ -41,19 +41,19 @@ public class SPEDFiscal0000 extends SPEDRegister {
   private String r02_COD_VER = null;
 
   /**
-   * 03 COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O
+   * 03 COD_FIN CÃ³digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private Integer r03_COD_FIN = null;
 
   /**
-   * 04 DT_INI Data inicial das informações contidas no arquivo. N 008* - O
+   * 04 DT_INI Data inicial das informaÃ§Ãµes contidas no arquivo. N 008* - O
    */
   @SPEDField(maxLength = 8)
   private LocalDate r04_DT_INI = null;
 
   /**
-   * 05 DT_FIN Data final das informações contidas no arquivo. N 008* - O
+   * 05 DT_FIN Data final das informaÃ§Ãµes contidas no arquivo. N 008* - O
    */
   @SPEDField(maxLength = 8)
   private LocalDate r05_DT_FIN = null;
@@ -65,55 +65,55 @@ public class SPEDFiscal0000 extends SPEDRegister {
   private String r06_NOME = null;
 
   /**
-   * 07 CNPJ Número de inscrição da entidade no CNPJ. N 014* - OC
+   * 07 CNPJ NÃºmero de inscriÃ§Ã£o da entidade no CNPJ. N 014* - OC
    */
   @SPEDField(type = SPEDFIELDTYPE.CNPJ, maxLength = 14, minLength = 14, required = false)
   private String r07_CNPJ = null;
 
   /**
-   * 08 CPF Número de inscrição da entidade no CPF. N 011* OC
+   * 08 CPF NÃºmero de inscriÃ§Ã£o da entidade no CPF. N 011* OC
    */
   @SPEDField(type = SPEDFIELDTYPE.CPF, maxLength = 11, minLength = 11, required = false)
   private String r08_CPF = null;
 
   /**
-   * 09 UF Sigla da unidade da federação da entidade. C 002* - O
+   * 09 UF Sigla da unidade da federaÃ§Ã£o da entidade. C 002* - O
    */
   @SPEDField(type = SPEDFIELDTYPE.UF, maxLength = 2, minLength = 2)
   private String r09_UF = null;
 
   /**
-   * 10 IE Inscrição Estadual da entidade. C 014 - O
+   * 10 IE InscriÃ§Ã£o Estadual da entidade. C 014 - O
    */
   @SPEDField(type = SPEDFIELDTYPE.IE, maxLength = 14)
   private String r10_IE = null;
 
   /**
-   * 11 COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE N 007* - O
+   * 11 COD_MUN CÃ³digo do municÃ­pio do domicÃ­lio fiscal da entidade, conforme a tabela IBGE N 007* - O
    */
   @SPEDField(maxLength = 7, minLength = 7)
   private String r11_COD_MUN = null;
 
   /**
-   * 12 IM Inscrição Municipal da entidade. C - - OC
+   * 12 IM InscriÃ§Ã£o Municipal da entidade. C - - OC
    */
   @SPEDField(maxLength = 255, required = false)
   private String r12_IM = null;
 
   /**
-   * 13 SUFRAMA Inscrição da entidade na SUFRAMA C 009* - OC
+   * 13 SUFRAMA InscriÃ§Ã£o da entidade na SUFRAMA C 009* - OC
    */
   @SPEDField(maxLength = 9, minLength = 9, required = false)
   private String r13_SUFRAMA = null;
 
   /**
-   * 14 IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B.; C – Perfil C. C 001 - O
+   * 14 IND_PERFIL Perfil de apresentaÃ§Ã£o do arquivo fiscal; A â€“ Perfil A; B â€“ Perfil B.; C â€“ Perfil C. C 001 - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r14_IND_PERFIL = null;
 
   /**
-   * 15 IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros. N 001 - O
+   * 15 IND_ATIV Indicador de tipo de atividade: 0 â€“ Industrial ou equiparado a industrial; 1 â€“ Outros. N 001 - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r15_IND_ATIV = null;
@@ -124,7 +124,7 @@ public class SPEDFiscal0000 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
+   * Recupera o 02 COD_VER CÃ³digo da versÃ£o do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
    * Tabela:<br>
    * cod|ver.|data ini |data final|<br>
    * 002|1.01|01 01 2009|31 12 2009<Br>
@@ -139,14 +139,14 @@ public class SPEDFiscal0000 extends SPEDRegister {
    * 011|1.10|01 01 2017|31 12 2017<Br>
    * 012|1.11|01 01 2018|.
    *
-   * @return the 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE
+   * @return the 02 COD_VER CÃ³digo da versÃ£o do leiaute conforme a tabela indicada no Ato COTEPE
    */
   public String getR02_COD_VER() {
     return r02_COD_VER;
   }
 
   /**
-   * Define o 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
+   * Define o 02 COD_VER CÃ³digo da versÃ£o do leiaute conforme a tabela indicada no Ato COTEPE. N 003* - O<br>
    * Tabela:<br>
    * cod|ver.|data ini |data final|<br>
    * 002|1.01|01 01 2009|31 12 2009<Br>
@@ -161,61 +161,61 @@ public class SPEDFiscal0000 extends SPEDRegister {
    * 011|1.10|01 01 2017|31 12 2017<Br>
    * 012|1.11|01 01 2018|.
    *
-   * @param r02_COD_VER the new 02 COD_VER Código da versão do leiaute conforme a tabela indicada no Ato COTEPE
+   * @param r02_COD_VER the new 02 COD_VER CÃ³digo da versÃ£o do leiaute conforme a tabela indicada no Ato COTEPE
    */
   public void setR02_COD_VER(String r02_COD_VER) {
     this.r02_COD_VER = r02_COD_VER;
   }
 
   /**
-   * Recupera o 03 COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O.
+   * Recupera o 03 COD_FIN CÃ³digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O.
    *
-   * @return the 03 COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto
+   * @return the 03 COD_FIN CÃ³digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto
    */
   public Integer getR03_COD_FIN() {
     return r03_COD_FIN;
   }
 
   /**
-   * Define o 03 COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O.
+   * Define o 03 COD_FIN CÃ³digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto. N 001 - O.
    *
-   * @param r03_COD_FIN the new 03 COD_FIN Código da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto
+   * @param r03_COD_FIN the new 03 COD_FIN CÃ³digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto
    */
   public void setR03_COD_FIN(Integer r03_COD_FIN) {
     this.r03_COD_FIN = r03_COD_FIN;
   }
 
   /**
-   * Recupera o 04 DT_INI Data inicial das informações contidas no arquivo. N 008* - O.
+   * Recupera o 04 DT_INI Data inicial das informaÃ§Ãµes contidas no arquivo. N 008* - O.
    *
-   * @return the 04 DT_INI Data inicial das informações contidas no arquivo
+   * @return the 04 DT_INI Data inicial das informaÃ§Ãµes contidas no arquivo
    */
   public LocalDate getR04_DT_INI() {
     return r04_DT_INI;
   }
 
   /**
-   * Define o 04 DT_INI Data inicial das informações contidas no arquivo. N 008* - O.
+   * Define o 04 DT_INI Data inicial das informaÃ§Ãµes contidas no arquivo. N 008* - O.
    *
-   * @param r04_DT_INI the new 04 DT_INI Data inicial das informações contidas no arquivo
+   * @param r04_DT_INI the new 04 DT_INI Data inicial das informaÃ§Ãµes contidas no arquivo
    */
   public void setR04_DT_INI(LocalDate r04_DT_INI) {
     this.r04_DT_INI = r04_DT_INI;
   }
 
   /**
-   * Recupera o 05 DT_FIN Data final das informações contidas no arquivo. N 008* - O.
+   * Recupera o 05 DT_FIN Data final das informaÃ§Ãµes contidas no arquivo. N 008* - O.
    *
-   * @return the 05 DT_FIN Data final das informações contidas no arquivo
+   * @return the 05 DT_FIN Data final das informaÃ§Ãµes contidas no arquivo
    */
   public LocalDate getR05_DT_FIN() {
     return r05_DT_FIN;
   }
 
   /**
-   * Define o 05 DT_FIN Data final das informações contidas no arquivo. N 008* - O.
+   * Define o 05 DT_FIN Data final das informaÃ§Ãµes contidas no arquivo. N 008* - O.
    *
-   * @param r05_DT_FIN the new 05 DT_FIN Data final das informações contidas no arquivo
+   * @param r05_DT_FIN the new 05 DT_FIN Data final das informaÃ§Ãµes contidas no arquivo
    */
   public void setR05_DT_FIN(LocalDate r05_DT_FIN) {
     this.r05_DT_FIN = r05_DT_FIN;
@@ -240,162 +240,162 @@ public class SPEDFiscal0000 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 07 CNPJ Número de inscrição da entidade no CNPJ. N 014* - OC.
+   * Recupera o 07 CNPJ NÃºmero de inscriÃ§Ã£o da entidade no CNPJ. N 014* - OC.
    *
-   * @return the 07 CNPJ Número de inscrição da entidade no CNPJ
+   * @return the 07 CNPJ NÃºmero de inscriÃ§Ã£o da entidade no CNPJ
    */
   public String getR07_CNPJ() {
     return r07_CNPJ;
   }
 
   /**
-   * Define o 07 CNPJ Número de inscrição da entidade no CNPJ. N 014* - OC.
+   * Define o 07 CNPJ NÃºmero de inscriÃ§Ã£o da entidade no CNPJ. N 014* - OC.
    *
-   * @param r07_CNPJ the new 07 CNPJ Número de inscrição da entidade no CNPJ
+   * @param r07_CNPJ the new 07 CNPJ NÃºmero de inscriÃ§Ã£o da entidade no CNPJ
    */
   public void setR07_CNPJ(String r07_CNPJ) {
     this.r07_CNPJ = r07_CNPJ;
   }
 
   /**
-   * Recupera o 08 CPF Número de inscrição da entidade no CPF. N 011* OC.
+   * Recupera o 08 CPF NÃºmero de inscriÃ§Ã£o da entidade no CPF. N 011* OC.
    *
-   * @return the 08 CPF Número de inscrição da entidade no CPF
+   * @return the 08 CPF NÃºmero de inscriÃ§Ã£o da entidade no CPF
    */
   public String getR08_CPF() {
     return r08_CPF;
   }
 
   /**
-   * Define o 08 CPF Número de inscrição da entidade no CPF. N 011* OC.
+   * Define o 08 CPF NÃºmero de inscriÃ§Ã£o da entidade no CPF. N 011* OC.
    *
-   * @param r08_CPF the new 08 CPF Número de inscrição da entidade no CPF
+   * @param r08_CPF the new 08 CPF NÃºmero de inscriÃ§Ã£o da entidade no CPF
    */
   public void setR08_CPF(String r08_CPF) {
     this.r08_CPF = r08_CPF;
   }
 
   /**
-   * Recupera o 09 UF Sigla da unidade da federação da entidade. C 002* - O.
+   * Recupera o 09 UF Sigla da unidade da federaÃ§Ã£o da entidade. C 002* - O.
    *
-   * @return the 09 UF Sigla da unidade da federação da entidade
+   * @return the 09 UF Sigla da unidade da federaÃ§Ã£o da entidade
    */
   public String getR09_UF() {
     return r09_UF;
   }
 
   /**
-   * Define o 09 UF Sigla da unidade da federação da entidade. C 002* - O.
+   * Define o 09 UF Sigla da unidade da federaÃ§Ã£o da entidade. C 002* - O.
    *
-   * @param r09_UF the new 09 UF Sigla da unidade da federação da entidade
+   * @param r09_UF the new 09 UF Sigla da unidade da federaÃ§Ã£o da entidade
    */
   public void setR09_UF(String r09_UF) {
     this.r09_UF = r09_UF;
   }
 
   /**
-   * Recupera o 10 IE Inscrição Estadual da entidade. C 014 - O.
+   * Recupera o 10 IE InscriÃ§Ã£o Estadual da entidade. C 014 - O.
    *
-   * @return the 10 IE Inscrição Estadual da entidade
+   * @return the 10 IE InscriÃ§Ã£o Estadual da entidade
    */
   public String getR10_IE() {
     return r10_IE;
   }
 
   /**
-   * Define o 10 IE Inscrição Estadual da entidade. C 014 - O.
+   * Define o 10 IE InscriÃ§Ã£o Estadual da entidade. C 014 - O.
    *
-   * @param r10_IE the new 10 IE Inscrição Estadual da entidade
+   * @param r10_IE the new 10 IE InscriÃ§Ã£o Estadual da entidade
    */
   public void setR10_IE(String r10_IE) {
     this.r10_IE = r10_IE;
   }
 
   /**
-   * Recupera o 11 COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE N 007* - O.
+   * Recupera o 11 COD_MUN CÃ³digo do municÃ­pio do domicÃ­lio fiscal da entidade, conforme a tabela IBGE N 007* - O.
    *
-   * @return the 11 COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE N 007* - O
+   * @return the 11 COD_MUN CÃ³digo do municÃ­pio do domicÃ­lio fiscal da entidade, conforme a tabela IBGE N 007* - O
    */
   public String getR11_COD_MUN() {
     return r11_COD_MUN;
   }
 
   /**
-   * Define o 11 COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE N 007* - O.
+   * Define o 11 COD_MUN CÃ³digo do municÃ­pio do domicÃ­lio fiscal da entidade, conforme a tabela IBGE N 007* - O.
    *
-   * @param r11_COD_MUN the new 11 COD_MUN Código do município do domicílio fiscal da entidade, conforme a tabela IBGE N 007* - O
+   * @param r11_COD_MUN the new 11 COD_MUN CÃ³digo do municÃ­pio do domicÃ­lio fiscal da entidade, conforme a tabela IBGE N 007* - O
    */
   public void setR11_COD_MUN(String r11_COD_MUN) {
     this.r11_COD_MUN = r11_COD_MUN;
   }
 
   /**
-   * Recupera o 12 IM Inscrição Municipal da entidade. C - - OC.
+   * Recupera o 12 IM InscriÃ§Ã£o Municipal da entidade. C - - OC.
    *
-   * @return the 12 IM Inscrição Municipal da entidade
+   * @return the 12 IM InscriÃ§Ã£o Municipal da entidade
    */
   public String getR12_IM() {
     return r12_IM;
   }
 
   /**
-   * Define o 12 IM Inscrição Municipal da entidade. C - - OC.
+   * Define o 12 IM InscriÃ§Ã£o Municipal da entidade. C - - OC.
    *
-   * @param r12_IM the new 12 IM Inscrição Municipal da entidade
+   * @param r12_IM the new 12 IM InscriÃ§Ã£o Municipal da entidade
    */
   public void setR12_IM(String r12_IM) {
     this.r12_IM = r12_IM;
   }
 
   /**
-   * Recupera o 13 SUFRAMA Inscrição da entidade na SUFRAMA C 009* - OC.
+   * Recupera o 13 SUFRAMA InscriÃ§Ã£o da entidade na SUFRAMA C 009* - OC.
    *
-   * @return the 13 SUFRAMA Inscrição da entidade na SUFRAMA C 009* - OC
+   * @return the 13 SUFRAMA InscriÃ§Ã£o da entidade na SUFRAMA C 009* - OC
    */
   public String getR13_SUFRAMA() {
     return r13_SUFRAMA;
   }
 
   /**
-   * Define o 13 SUFRAMA Inscrição da entidade na SUFRAMA C 009* - OC.
+   * Define o 13 SUFRAMA InscriÃ§Ã£o da entidade na SUFRAMA C 009* - OC.
    *
-   * @param r13_SUFRAMA the new 13 SUFRAMA Inscrição da entidade na SUFRAMA C 009* - OC
+   * @param r13_SUFRAMA the new 13 SUFRAMA InscriÃ§Ã£o da entidade na SUFRAMA C 009* - OC
    */
   public void setR13_SUFRAMA(String r13_SUFRAMA) {
     this.r13_SUFRAMA = r13_SUFRAMA;
   }
 
   /**
-   * Recupera o 14 IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B.; C – Perfil C. C 001 - O.
+   * Recupera o 14 IND_PERFIL Perfil de apresentaÃ§Ã£o do arquivo fiscal; A â€“ Perfil A; B â€“ Perfil B.; C â€“ Perfil C. C 001 - O.
    *
-   * @return the 14 IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B
+   * @return the 14 IND_PERFIL Perfil de apresentaÃ§Ã£o do arquivo fiscal; A â€“ Perfil A; B â€“ Perfil B
    */
   public String getR14_IND_PERFIL() {
     return r14_IND_PERFIL;
   }
 
   /**
-   * Define o 14 IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B.; C – Perfil C. C 001 - O.
+   * Define o 14 IND_PERFIL Perfil de apresentaÃ§Ã£o do arquivo fiscal; A â€“ Perfil A; B â€“ Perfil B.; C â€“ Perfil C. C 001 - O.
    *
-   * @param r14_IND_PERFIL the new 14 IND_PERFIL Perfil de apresentação do arquivo fiscal; A – Perfil A; B – Perfil B
+   * @param r14_IND_PERFIL the new 14 IND_PERFIL Perfil de apresentaÃ§Ã£o do arquivo fiscal; A â€“ Perfil A; B â€“ Perfil B
    */
   public void setR14_IND_PERFIL(String r14_IND_PERFIL) {
     this.r14_IND_PERFIL = r14_IND_PERFIL;
   }
 
   /**
-   * Recupera o 15 IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros. N 001 - O.
+   * Recupera o 15 IND_ATIV Indicador de tipo de atividade: 0 â€“ Industrial ou equiparado a industrial; 1 â€“ Outros. N 001 - O.
    *
-   * @return the 15 IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros
+   * @return the 15 IND_ATIV Indicador de tipo de atividade: 0 â€“ Industrial ou equiparado a industrial; 1 â€“ Outros
    */
   public String getR15_IND_ATIV() {
     return r15_IND_ATIV;
   }
 
   /**
-   * Define o 15 IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros. N 001 - O.
+   * Define o 15 IND_ATIV Indicador de tipo de atividade: 0 â€“ Industrial ou equiparado a industrial; 1 â€“ Outros. N 001 - O.
    *
-   * @param r15_IND_ATIV the new 15 IND_ATIV Indicador de tipo de atividade: 0 – Industrial ou equiparado a industrial; 1 – Outros
+   * @param r15_IND_ATIV the new 15 IND_ATIV Indicador de tipo de atividade: 0 â€“ Industrial ou equiparado a industrial; 1 â€“ Outros
    */
   public void setR15_IND_ATIV(String r15_IND_ATIV) {
     this.r15_IND_ATIV = r15_IND_ATIV;

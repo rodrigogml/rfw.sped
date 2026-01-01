@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59).<br>
+ * Description: REGISTRO C855: OBSERVAÃ‡Ã•ES DO LANÃ‡AMENTO FISCAL (CÃ“DIGO 59).<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since (24 de out. de 2024)
  */
 public class SPEDFiscalC857 extends SPEDRegister {
@@ -21,31 +21,31 @@ public class SPEDFiscalC857 extends SPEDRegister {
   }
 
   /**
-   * Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3. C 010* - O O
+   * CÃ³digo do ajustes/benefÃ­cio/incentivo, conforme tabela indicada no item 5.3. C 010* - O O
    */
   @SPEDField(maxLength = 10, required = true)
   private String r02_COD_AJ = null;
 
   /**
-   * Descrição complementar do ajuste do documento fiscal C - - OC OC
+   * DescriÃ§Ã£o complementar do ajuste do documento fiscal C - - OC OC
    */
   @SPEDField(maxLength = 200, required = true)
   private String r03_DESCR_COMPL_AJ = null;
 
   /**
-   * Código do item (campo 02 do Registro 0200) C 060 - OC OC
+   * CÃ³digo do item (campo 02 do Registro 0200) C 060 - OC OC
    */
   @SPEDField(maxLength = 90, required = false)
   private String r04_COD_ITEM = null;
 
   /**
-   * Base de cálculo do ICMS ou do ICMS ST N - 02 OC OC
+   * Base de cÃ¡lculo do ICMS ou do ICMS ST N - 02 OC OC
    */
   @SPEDField(decimals = 2, maxLength = 10, required = false)
   private BigDecimal r05_VL_BC_ICMS = null;
 
   /**
-   * Alíquota do ICMS N 006 02 OC OC
+   * AlÃ­quota do ICMS N 006 02 OC OC
    */
   @SPEDField(decimals = 2, maxLength = 6, required = false)
   private BigDecimal r06_ALIQ_ICMS = null;

@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 1010: OBRIGATORIEDADE DE REGISTROS DO BLOCO 1.<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal1010 extends SPEDRegister {
@@ -19,80 +19,80 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * 02 IND_EXP Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período: S – Sim N - Não C 001* - O
+   * 02 IND_EXP Reg. 1100 - Ocorreu averbaÃ§Ã£o (conclusÃ£o) de exportaÃ§Ã£o no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r02_IND_EXP = null;
 
   /**
-   * 03 IND_CCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S – Sim N - Não C 001* - O
+   * 03 IND_CCRF Reg 1200 â€“ Existem informaÃ§Ãµes acerca de crÃ©ditos de ICMS a serem controlados, definidos pela Sefaz: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r03_IND_CCRF = null;
 
   /**
-   * 04 IND_COMB Reg. 1300 – É comercio varejista de combustíveis com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O
+   * 04 IND_COMB Reg. 1300 â€“ Ã‰ comercio varejista de combustÃ­veis com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r04_IND_COMB = null;
 
   /**
-   * 05 IND_USINA Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O
+   * 05 IND_USINA Reg. 1390 â€“ Usinas de aÃ§Ãºcar e/Ã¡lcool â€“ O estabelecimento Ã© produtor de aÃ§Ãºcar e/ou Ã¡lcool carburante com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r05_IND_USINA = null;
 
   /**
-   * 06 IND_VA Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro: S – Sim; N - Não C 001* - O
+   * 06 IND_VA Reg 1400 â€“ Sendo o registro obrigatÃ³rio em sua Unidade de FederaÃ§Ã£o, existem informaÃ§Ãµes a serem prestadas neste registro: S â€“ Sim; N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r06_IND_VA = null;
 
   /**
-   * 07 IND_EE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF: S – Sim; N - Não C 001* - O
+   * 07 IND_EE Reg 1500 - A empresa Ã© distribuidora de energia e ocorreu fornecimento de energia elÃ©trica para consumidores de outra UF: S â€“ Sim; N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r07_IND_EE = null;
 
   /**
-   * 08 IND_CART Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S – Sim; N - Não C 001* - O
+   * 08 IND_CART Reg 1600 - Realizou vendas com CartÃ£o de CrÃ©dito ou de dÃ©bito: S â€“ Sim; N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r08_IND_CART = null;
 
   /**
-   * 09 IND_FORM Reg. 1700 – Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de utilização de documentos fiscais: S – Sim N - Não C 001* - O
+   * 09 IND_FORM Reg. 1700 â€“ Foram emitidos documentos fiscais em papel no perÃ­odo em unidade da federaÃ§Ã£o que exija o controle de utilizaÃ§Ã£o de documentos fiscais: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r09_IND_FORM = null;
 
   /**
-   * 10 IND_AER Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S – Sim N - Não C 001* - O
+   * 10 IND_AER Reg 1800 â€“ A empresa prestou serviÃ§os de transporte aÃ©reo de cargas e de passageiros: S â€“ Sim N - NÃ£o C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r10_IND_AER = null;
 
   /**
-   * 11 IND_GIAF1 Reg. 1960 - Possui informações GIAF1? S – Sim; N – Não - C 001* - O
+   * 11 IND_GIAF1 Reg. 1960 - Possui informaÃ§Ãµes GIAF1? S â€“ Sim; N â€“ NÃ£o - C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r11_IND_GIAF1 = null;
 
   /**
-   * 12 IND_GIAF3 Reg. 1970 - Possui informações GIAF3? S – Sim; N – Não. C 001* - O
+   * 12 IND_GIAF3 Reg. 1970 - Possui informaÃ§Ãµes GIAF3? S â€“ Sim; N â€“ NÃ£o. C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r12_IND_GIAF3 = null;
 
   /**
-   * 13 IND_GIAF4 Reg. 1980 - Possui informações GIAF4? S – Sim; N – Não. C 001* - O
+   * 13 IND_GIAF4 Reg. 1980 - Possui informaÃ§Ãµes GIAF4? S â€“ Sim; N â€“ NÃ£o. C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r13_IND_GIAF4 = null;
 
   /**
    * 14 IND_REST_RESSARC_COMPL_ICMS<br>
-   * Reg. 1250 – Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS? S – Sim; N – Não. C 001* - O
+   * Reg. 1250 â€“ Possui informaÃ§Ãµes consolidadas de saldos de restituiÃ§Ã£o, ressarcimento e complementaÃ§Ã£o do ICMS? S â€“ Sim; N â€“ NÃ£o. C 001* - O
    */
   @SPEDField(maxLength = 1, minLength = 1)
   private String r14_IND_REST_RESSARC_COMPL_ICMS = null;
@@ -103,25 +103,25 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 03 IND_CCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S – Sim N - Não C 001* - O.
+   * Recupera o 03 IND_CCRF Reg 1200 â€“ Existem informaÃ§Ãµes acerca de crÃ©ditos de ICMS a serem controlados, definidos pela Sefaz: S â€“ Sim N - NÃ£o C 001* - O.
    *
-   * @return the 03 IND_CCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S – Sim N - Não C 001* - O
+   * @return the 03 IND_CCRF Reg 1200 â€“ Existem informaÃ§Ãµes acerca de crÃ©ditos de ICMS a serem controlados, definidos pela Sefaz: S â€“ Sim N - NÃ£o C 001* - O
    */
   public String getR03_IND_CCRF() {
     return r03_IND_CCRF;
   }
 
   /**
-   * Define o 03 IND_CCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S – Sim N - Não C 001* - O.
+   * Define o 03 IND_CCRF Reg 1200 â€“ Existem informaÃ§Ãµes acerca de crÃ©ditos de ICMS a serem controlados, definidos pela Sefaz: S â€“ Sim N - NÃ£o C 001* - O.
    *
-   * @param r03_IND_CCRF the new 03 IND_CCRF Reg 1200 – Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S – Sim N - Não C 001* - O
+   * @param r03_IND_CCRF the new 03 IND_CCRF Reg 1200 â€“ Existem informaÃ§Ãµes acerca de crÃ©ditos de ICMS a serem controlados, definidos pela Sefaz: S â€“ Sim N - NÃ£o C 001* - O
    */
   public void setR03_IND_CCRF(String r03_IND_CCRF) {
     this.r03_IND_CCRF = r03_IND_CCRF;
   }
 
   /**
-   * Recupera o 04 IND_COMB Reg. 1300 – É comercio varejista de combustíveis com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O.
+   * Recupera o 04 IND_COMB Reg. 1300 â€“ Ã‰ comercio varejista de combustÃ­veis com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @return the 04 IND_COMB Reg
    */
@@ -130,7 +130,7 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Define o 04 IND_COMB Reg. 1300 – É comercio varejista de combustíveis com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O.
+   * Define o 04 IND_COMB Reg. 1300 â€“ Ã‰ comercio varejista de combustÃ­veis com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @param r04_IND_COMB the new 04 IND_COMB Reg
    */
@@ -139,7 +139,7 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 05 IND_USINA Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O.
+   * Recupera o 05 IND_USINA Reg. 1390 â€“ Usinas de aÃ§Ãºcar e/Ã¡lcool â€“ O estabelecimento Ã© produtor de aÃ§Ãºcar e/ou Ã¡lcool carburante com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @return the 05 IND_USINA Reg
    */
@@ -148,7 +148,7 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Define o 05 IND_USINA Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com movimentação e/ou estoque no período: S – Sim N - Não C 001* - O.
+   * Define o 05 IND_USINA Reg. 1390 â€“ Usinas de aÃ§Ãºcar e/Ã¡lcool â€“ O estabelecimento Ã© produtor de aÃ§Ãºcar e/ou Ã¡lcool carburante com movimentaÃ§Ã£o e/ou estoque no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @param r05_IND_USINA the new 05 IND_USINA Reg
    */
@@ -157,61 +157,61 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 06 IND_VA Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro: S – Sim; N - Não C 001* - O.
+   * Recupera o 06 IND_VA Reg 1400 â€“ Sendo o registro obrigatÃ³rio em sua Unidade de FederaÃ§Ã£o, existem informaÃ§Ãµes a serem prestadas neste registro: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @return the 06 IND_VA Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro: S – Sim; N - Não C 001* - O
+   * @return the 06 IND_VA Reg 1400 â€“ Sendo o registro obrigatÃ³rio em sua Unidade de FederaÃ§Ã£o, existem informaÃ§Ãµes a serem prestadas neste registro: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public String getR06_IND_VA() {
     return r06_IND_VA;
   }
 
   /**
-   * Define o 06 IND_VA Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro: S – Sim; N - Não C 001* - O.
+   * Define o 06 IND_VA Reg 1400 â€“ Sendo o registro obrigatÃ³rio em sua Unidade de FederaÃ§Ã£o, existem informaÃ§Ãµes a serem prestadas neste registro: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @param r06_IND_VA the new 06 IND_VA Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste registro: S – Sim; N - Não C 001* - O
+   * @param r06_IND_VA the new 06 IND_VA Reg 1400 â€“ Sendo o registro obrigatÃ³rio em sua Unidade de FederaÃ§Ã£o, existem informaÃ§Ãµes a serem prestadas neste registro: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public void setR06_IND_VA(String r06_IND_VA) {
     this.r06_IND_VA = r06_IND_VA;
   }
 
   /**
-   * Recupera o 07 IND_EE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF: S – Sim; N - Não C 001* - O.
+   * Recupera o 07 IND_EE Reg 1500 - A empresa Ã© distribuidora de energia e ocorreu fornecimento de energia elÃ©trica para consumidores de outra UF: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @return the 07 IND_EE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF: S – Sim; N - Não C 001* - O
+   * @return the 07 IND_EE Reg 1500 - A empresa Ã© distribuidora de energia e ocorreu fornecimento de energia elÃ©trica para consumidores de outra UF: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public String getR07_IND_EE() {
     return r07_IND_EE;
   }
 
   /**
-   * Define o 07 IND_EE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF: S – Sim; N - Não C 001* - O.
+   * Define o 07 IND_EE Reg 1500 - A empresa Ã© distribuidora de energia e ocorreu fornecimento de energia elÃ©trica para consumidores de outra UF: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @param r07_IND_EE the new 07 IND_EE Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de outra UF: S – Sim; N - Não C 001* - O
+   * @param r07_IND_EE the new 07 IND_EE Reg 1500 - A empresa Ã© distribuidora de energia e ocorreu fornecimento de energia elÃ©trica para consumidores de outra UF: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public void setR07_IND_EE(String r07_IND_EE) {
     this.r07_IND_EE = r07_IND_EE;
   }
 
   /**
-   * Recupera o 08 IND_CART Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S – Sim; N - Não C 001* - O.
+   * Recupera o 08 IND_CART Reg 1600 - Realizou vendas com CartÃ£o de CrÃ©dito ou de dÃ©bito: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @return the 08 IND_CART Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S – Sim; N - Não C 001* - O
+   * @return the 08 IND_CART Reg 1600 - Realizou vendas com CartÃ£o de CrÃ©dito ou de dÃ©bito: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public String getR08_IND_CART() {
     return r08_IND_CART;
   }
 
   /**
-   * Define o 08 IND_CART Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S – Sim; N - Não C 001* - O.
+   * Define o 08 IND_CART Reg 1600 - Realizou vendas com CartÃ£o de CrÃ©dito ou de dÃ©bito: S â€“ Sim; N - NÃ£o C 001* - O.
    *
-   * @param r08_IND_CART the new 08 IND_CART Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S – Sim; N - Não C 001* - O
+   * @param r08_IND_CART the new 08 IND_CART Reg 1600 - Realizou vendas com CartÃ£o de CrÃ©dito ou de dÃ©bito: S â€“ Sim; N - NÃ£o C 001* - O
    */
   public void setR08_IND_CART(String r08_IND_CART) {
     this.r08_IND_CART = r08_IND_CART;
   }
 
   /**
-   * Recupera o 09 IND_FORM Reg. 1700 – Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de utilização de documentos fiscais: S – Sim N - Não C 001* - O.
+   * Recupera o 09 IND_FORM Reg. 1700 â€“ Foram emitidos documentos fiscais em papel no perÃ­odo em unidade da federaÃ§Ã£o que exija o controle de utilizaÃ§Ã£o de documentos fiscais: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @return the 09 IND_FORM Reg
    */
@@ -220,7 +220,7 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Define o 09 IND_FORM Reg. 1700 – Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de utilização de documentos fiscais: S – Sim N - Não C 001* - O.
+   * Define o 09 IND_FORM Reg. 1700 â€“ Foram emitidos documentos fiscais em papel no perÃ­odo em unidade da federaÃ§Ã£o que exija o controle de utilizaÃ§Ã£o de documentos fiscais: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @param r09_IND_FORM the new 09 IND_FORM Reg
    */
@@ -229,25 +229,25 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 10 IND_AER Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S – Sim N - Não C 001* - O.
+   * Recupera o 10 IND_AER Reg 1800 â€“ A empresa prestou serviÃ§os de transporte aÃ©reo de cargas e de passageiros: S â€“ Sim N - NÃ£o C 001* - O.
    *
-   * @return the 10 IND_AER Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S – Sim N - Não C 001* - O
+   * @return the 10 IND_AER Reg 1800 â€“ A empresa prestou serviÃ§os de transporte aÃ©reo de cargas e de passageiros: S â€“ Sim N - NÃ£o C 001* - O
    */
   public String getR10_IND_AER() {
     return r10_IND_AER;
   }
 
   /**
-   * Define o 10 IND_AER Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S – Sim N - Não C 001* - O.
+   * Define o 10 IND_AER Reg 1800 â€“ A empresa prestou serviÃ§os de transporte aÃ©reo de cargas e de passageiros: S â€“ Sim N - NÃ£o C 001* - O.
    *
-   * @param r10_IND_AER the new 10 IND_AER Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S – Sim N - Não C 001* - O
+   * @param r10_IND_AER the new 10 IND_AER Reg 1800 â€“ A empresa prestou serviÃ§os de transporte aÃ©reo de cargas e de passageiros: S â€“ Sim N - NÃ£o C 001* - O
    */
   public void setR10_IND_AER(String r10_IND_AER) {
     this.r10_IND_AER = r10_IND_AER;
   }
 
   /**
-   * Recupera o 02 IND_EXP Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período: S – Sim N - Não C 001* - O.
+   * Recupera o 02 IND_EXP Reg. 1100 - Ocorreu averbaÃ§Ã£o (conclusÃ£o) de exportaÃ§Ã£o no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @return the 02 IND_EXP Reg
    */
@@ -256,7 +256,7 @@ public class SPEDFiscal1010 extends SPEDRegister {
   }
 
   /**
-   * Define o 02 IND_EXP Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período: S – Sim N - Não C 001* - O.
+   * Define o 02 IND_EXP Reg. 1100 - Ocorreu averbaÃ§Ã£o (conclusÃ£o) de exportaÃ§Ã£o no perÃ­odo: S â€“ Sim N - NÃ£o C 001* - O.
    *
    * @param r02_IND_EXP the new 02 IND_EXP Reg
    */

@@ -9,7 +9,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO H990: ENCERRAMENTO DO BLOCO H.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalH990 extends SPEDRegister {
@@ -51,9 +51,9 @@ public class SPEDFiscalH990 extends SPEDRegister {
 
   @Override
   public void calculate(String uuid) throws RFWException {
-    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da ˙ltima rodada de c·lculo, devemos realizar os c·lculos.
-      super.calculate(uuid); // Chama o c·lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
-      int totalRegisters = ((SPEDFiscalFile) this.getSpedFile()).getRH001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da √∫ltima rodada de c√°lculo, devemos realizar os c√°lculos.
+      super.calculate(uuid); // Chama o c√°lculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
+      int totalRegisters = ((SPEDFiscalFile) this.getSpedFile()).getRH001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
       this.r02_QTD_LIN_H_AUTO = totalRegisters;
     }
   }

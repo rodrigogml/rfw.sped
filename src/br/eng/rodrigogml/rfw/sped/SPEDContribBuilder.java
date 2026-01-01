@@ -51,7 +51,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContribP001;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContribP990;
 
 /**
- * Description: Classe para auxiliar na montagem e manipulaÁ„o do arquivo do SPED de ContribuiÁıes atravÈs da estrutura {@link SPEDContribFile}.<br>
+ * Description: Classe para auxiliar na montagem e manipula√ß√£o do arquivo do SPED de Contribui√ß√µes atrav√©s da estrutura {@link SPEDContribFile}.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (22 de jul. de 2023)
@@ -60,7 +60,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContribP990;
 public class SPEDContribBuilder {
 
   /**
-   * Construtor privado para classe exclusiva com mÈtodos est·ticos.
+   * Construtor privado para classe exclusiva com m√©todos est√°ticos.
    */
   private SPEDContribBuilder() {
   }
@@ -303,24 +303,24 @@ public class SPEDContribBuilder {
   }
 
   /**
-   * Cria um registro autom·tico, que conta todos os registros do {@link SPEDContribFile} automaticamente e cria os filhos 9900.
+   * Cria um registro autom√°tico, que conta todos os registros do {@link SPEDContribFile} automaticamente e cria os filhos 9900.
    */
   @SuppressWarnings({ "rawtypes", "unchecked" })
   public static SPEDContrib9001 make9001(SPEDContribFile sped) throws RFWException {
     /*
-     * ATEN«√O: Este mÈtodo sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo È recontabilizado.
+     * ATEN√á√ÉO: Este m√©todo sempre cria um novo registro por se tratar da contagem dos outros registros. Toda vez que ele for chamado para ser criado, todo o arquivo √© recontabilizado.
      */
     SPEDContrib9001 r9001 = new SPEDContrib9001(sped);
     r9001.setR02_IND_MOV("0");
 
-    // J· nos incluÌmos no arquivo "sped" para que o prÛprio 9001 j· seja contabilizado
+    // J√° nos inclu√≠mos no arquivo "sped" para que o pr√≥prio 9001 j√° seja contabilizado
     sped.setR9001(r9001);
 
     // Itera os registros de "sped"
     final Field[] fields = sped.getClass().getDeclaredFields();
     Arrays.sort(fields, SPEDRegister.fieldComparator);
 
-    // Iteramos os mÈtodos encontrados, e se estiverem no padr„o "r####" contabilizaos ele, e seus filhos se for o caso
+    // Iteramos os m√©todos encontrados, e se estiverem no padr√£o "r####" contabilizaos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
@@ -355,7 +355,7 @@ public class SPEDContribBuilder {
       }
     }
 
-    // Remove todos os contadores registros que foram criados mas terminaram com contagem 0 - isso ocorre nos atributos com coleÁıes vazias
+    // Remove todos os contadores registros que foram criados mas terminaram com contagem 0 - isso ocorre nos atributos com cole√ß√µes vazias
     final ArrayList mirrorList = new ArrayList(r9001.getR9900().values());
     for (int i = 0; i < mirrorList.size(); i++) {
       final SPEDContrib9900 treg = (SPEDContrib9900) mirrorList.get(i);
@@ -364,7 +364,7 @@ public class SPEDContribBuilder {
       }
     }
 
-    // Depois de todos contabilizados atualizamos a quantidade do prÛprio registro 9900, dpeois que os zerados foram removidos
+    // Depois de todos contabilizados atualizamos a quantidade do pr√≥prio registro 9900, dpeois que os zerados foram removidos
     r9001.getR9900().get("9900").setR03_QTD_REG_BLC(r9001.getR9900().size());
 
     return r9001;
@@ -387,7 +387,7 @@ public class SPEDContribBuilder {
     final Field[] fields = reg.getClass().getDeclaredFields();
     Arrays.sort(fields, SPEDRegister.fieldComparator);
 
-    // Iteramos os mÈtodos encontrados, e se estiverem no padr„o "r####" contabilizamos ele, e seus filhos se for o caso
+    // Iteramos os m√©todos encontrados, e se estiverem no padr√£o "r####" contabilizamos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
@@ -424,7 +424,7 @@ public class SPEDContribBuilder {
   }
 
   /**
-   * Rotina que cria e realiza o c·lculo dos campos de somatÛrias depois que os registros foram escritos
+   * Rotina que cria e realiza o c√°lculo dos campos de somat√≥rias depois que os registros foram escritos
    *
    * @param sped
    * @param codCtaC170
@@ -433,18 +433,18 @@ public class SPEDContribBuilder {
    * @throws RFWException
    */
   public static void updateCalcFields(SPEDContribFile sped, String codCtaC170, String codCtaC481, String codCtaC485) throws RFWException {
-    // ATEN«√O: Este loop abaixo tem a finalidade de remover as notas que n„o geram crÈdito, e deve ser feito antes de realizar os c·lculos necess·rios. Cuidado ao aproveitar o loop abaixo para outra funÁıes
+    // ATEN√á√ÉO: Este loop abaixo tem a finalidade de remover as notas que n√£o geram cr√©dito, e deve ser feito antes de realizar os c√°lculos necess√°rios. Cuidado ao aproveitar o loop abaixo para outras fun√ß√µes.
     final SPEDContribC001 tc001 = sped.getRC001();
     for (Entry<String, SPEDContribC010> tc010Set : new ArrayList<Entry<String, SPEDContribC010>>(tc001.getRc010().entrySet())) {
       SPEDContribC010 tc010 = tc010Set.getValue();
       for (Entry<String, SPEDContribC100> tc100Set : new ArrayList<Entry<String, SPEDContribC100>>(tc010.getRc100().entrySet())) {
         SPEDContribC100 tc100 = tc100Set.getValue();
-        // Todos os documentos que n„o gerarem crÈdito de PIS/COFINS n„o devem constar no arquivo.
+        // Todos os documentos que n√£o gerarem cr√©dito de PIS/COFINS n√£o devem constar no arquivo.
         if (tc100.getR26_VL_PIS().compareTo(BigDecimal.ZERO) == 0 && tc100.getR27_VL_COFINS().compareTo(BigDecimal.ZERO) == 0) {
           tc010.getRc100().remove(tc100Set.getKey());
         }
 
-        // Se temos um cÛdigo de conta aproveitamos a iteraÁ„o do C100 para escreve-las no C170. Note que essa funÁ„o n„o atrapalha o loop da remoÁ„o das notas sem crÈditos
+        // Se temos um c√≥digo de conta aproveitamos a itera√ß√£o do C100 para escreve-las no C170. Note que essa fun√ß√£o n√£o atrapalha o loop da remo√ß√£o das notas sem cr√©ditos
         if (codCtaC170 != null) {
           for (SPEDContribC170 tc170 : new ArrayList<SPEDContribC170>(tc100.getRc170())) {
             tc170.setR37_COD_CTA(codCtaC170);
@@ -452,7 +452,7 @@ public class SPEDContribBuilder {
         }
       }
 
-      // Se temos um cÛdigo de conta aproveitamos a iteraÁ„o do C100 para escreve-las no C170. Note que essa funÁ„o n„o atrapalha o loop da remoÁ„o das notas sem crÈditos
+      // Se temos um c√≥digo de conta aproveitamos a itera√ß√£o do C100 para escreve-las no C170. Note que essa fun√ß√£o n√£o atrapalha o loop da remo√ß√£o das notas sem cr√©ditos
       if (codCtaC481 != null || codCtaC485 != null) {
         for (Entry<String, SPEDContribC400> tc400Set : new ArrayList<Entry<String, SPEDContribC400>>(tc010.getRc400().entrySet())) {
           SPEDContribC400 tc400 = tc400Set.getValue();
@@ -515,7 +515,7 @@ public class SPEDContribBuilder {
               tm200.setR02_VL_TOT_CONT_NC_PER(tm200.getR02_VL_TOT_CONT_NC_PER().add(tot));
               break;
             case "31":
-              // case "32": //O n˙mero 32 est· nos dois casos no manual, mas como È pra "vendas ‡ Zona Franca de manaus" simplesmente comentei desse lado atÈ descobrir melhor o que fazer
+              // case "32": //O n√∫mero 32 est√° nos dois casos no manual, mas como √© pra "vendas √† Zona Franca de manaus" simplesmente comentei desse lado at√© descobrir melhor o que fazer
             case "51":
             case "52":
             case "54":
@@ -530,7 +530,7 @@ public class SPEDContribBuilder {
         tm200.setR12_VL_CONT_CUM_REC(tm200.getR09_VL_TOT_CONT_CUM_PER().subtract(tm200.getR10_VL_RET_CUM()).subtract(tm200.getR11_VL_OUT_DED_CUM()));
         tm200.setR13_VL_TOT_CONT_REC(tm200.getR08_VL_CONT_NC_REC().add(tm200.getR12_VL_CONT_CUM_REC()));
 
-        { // =======> REGISTRO M205: CONTRIBUI«√O PARA O PIS/PASEP A RECOLHER ñ DETALHAMENTO POR C”DIGO DE RECEITA
+        { // =======> REGISTRO M205: CONTRIBUI√á√ÉO PARA O PIS/PASEP A RECOLHER ‚Äì DETALHAMENTO POR C√ìDIGO DE RECEITA
           // Cria os registro M205 dependendo dos valores definidos no M200
           if (tm200.getR12_VL_CONT_CUM_REC().compareTo(BigDecimal.ZERO) > 0) {
             SPEDContribM205 tm205 = new SPEDContribM205(sped);
@@ -570,7 +570,7 @@ public class SPEDContribBuilder {
               tm600.setR02_VL_TOT_CONT_NC_PER(tm600.getR02_VL_TOT_CONT_NC_PER().add(tot));
               break;
             case "31":
-              // case "32": //O n˙mero 32 est· nos dois casos no manual, mas como È pra "vendas ‡ Zona Franca de manaus" simplesmente comentei desse lado atÈ descobrir melhor o que fazer
+              // case "32": //O n√∫mero 32 est√° nos dois casos no manual, mas como √© pra "vendas √† Zona Franca de manaus" simplesmente comentei desse lado at√© descobrir melhor o que fazer
             case "51":
             case "52":
             case "54":
@@ -585,7 +585,7 @@ public class SPEDContribBuilder {
         tm600.setR12_VL_CONT_CUM_REC(tm600.getR09_VL_TOT_CONT_CUM_PER().subtract(tm600.getR10_VL_RET_CUM()).subtract(tm600.getR11_VL_OUT_DED_CUM()));
         tm600.setR13_VL_TOT_CONT_REC(tm600.getR08_VL_CONT_NC_REC().add(tm600.getR12_VL_CONT_CUM_REC()));
 
-        { // =======> REGISTRO M205: CONTRIBUI«√O PARA O PIS/PASEP A RECOLHER ñ DETALHAMENTO POR C”DIGO DE RECEITA
+        { // =======> REGISTRO M205: CONTRIBUI√á√ÉO PARA O PIS/PASEP A RECOLHER ‚Äì DETALHAMENTO POR C√ìDIGO DE RECEITA
           // Cria os registro M205 dependendo dos valores definidos no M200
           if (tm600.getR12_VL_CONT_CUM_REC().compareTo(BigDecimal.ZERO) > 0) {
             SPEDContribM605 tm605 = new SPEDContribM605(sped);
@@ -605,13 +605,13 @@ public class SPEDContribBuilder {
       }
     }
 
-    // Atualiza as contagens de linhas por bloco no fim do mÈtodo porque criamos novos blocos (como o M205) neste mÈtodo
+    // Atualiza as contagens de linhas por bloco no fim do m√©todo porque criamos novos blocos (como o M205) neste m√©todo
     updateCloseRegistersLineCount(sped);
   }
 
   /**
-   * Este mÈtodo atualiza os atributos de quantidade de linhas dos registros de fechamento de blocos e arquivo.<br>
-   * Note que ele sÛ atualiza se o registro existir, nenhum registro novo È criado.<br>
+   * Este m√©todo atualiza os atributos de quantidade de linhas dos registros de fechamento de blocos e arquivo.<br>
+   * Note que ele s√≥ atualiza se o registro existir, nenhum registro novo √© criado.<br>
    * <br>
    * Atualmente ele atualiza os seguintes blocos:<br>
    * <li>REGISTRO 0990: ENCERRAMENTO DO BLOCO 0</li><br>
@@ -627,68 +627,68 @@ public class SPEDContribBuilder {
     // Bloco 0
     if (sped.getR0001() == null) SPEDContribBuilder.make0001(sped, false);
     if (sped.getR0990() == null) SPEDContribBuilder.make0990(sped, 0);
-    totalfile += block = sped.getR0001().countRegisters() + 2; // Soma o registo de fechamento que n„o est· incluso + Soma 1 porque o registro 0000 faz parte deste total
+    totalfile += block = sped.getR0001().countRegisters() + 2; // Soma o registo de fechamento que n√£o est√° incluso + Soma 1 porque o registro 0000 faz parte deste total
     sped.getR0990().setR02_QTD_LIN_0(block);
 
     // Bloco A
     if (sped.getRA001() == null) SPEDContribBuilder.makeA001(sped, false);
     if (sped.getRA990() == null) SPEDContribBuilder.makeA990(sped, 0);
-    totalfile += block = sped.getRA001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRA001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRA990().setR02_QTD_LIN_A(block);
 
     // Bloco C
     if (sped.getRC001() == null) SPEDContribBuilder.makeC001(sped, false);
     if (sped.getRC990() == null) SPEDContribBuilder.makeC990(sped, 0);
-    totalfile += block = sped.getRC001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRC001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRC990().setR02_QTD_LIN_C(block);
 
     // Bloco D
     if (sped.getRD001() == null) SPEDContribBuilder.makeD001(sped, false);
     if (sped.getRD990() == null) SPEDContribBuilder.makeD990(sped, 0);
-    totalfile += block = sped.getRD001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRD001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRD990().setR02_QTD_LIN_D(block);
 
     // Bloco F
     if (sped.getRF001() == null) SPEDContribBuilder.makeF001(sped, false);
     if (sped.getRF990() == null) SPEDContribBuilder.makeF990(sped, 0);
-    totalfile += block = sped.getRF001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRF001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRF990().setR02_QTD_LIN_F(block);
 
     // Bloco I
     if (sped.getRI001() == null) SPEDContribBuilder.makeI001(sped, false);
     if (sped.getRI990() == null) SPEDContribBuilder.makeI990(sped, 0);
-    totalfile += block = sped.getRI001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRI001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRI990().setR02_QTD_LIN_I(block);
 
     // Bloco M
     if (sped.getRM001() == null) SPEDContribBuilder.makeM001(sped, false);
     if (sped.getRM990() == null) SPEDContribBuilder.makeM990(sped, 0);
-    totalfile += block = sped.getRM001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRM001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRM990().setR02_QTD_LIN_M(block);
 
     // Bloco P
     if (sped.getRP001() == null) SPEDContribBuilder.makeP001(sped, false);
     if (sped.getRP990() == null) SPEDContribBuilder.makeP990(sped, 0);
-    totalfile += block = sped.getRP001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getRP001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getRP990().setR02_QTD_LIN_P(block);
 
     // Bloco 1
     if (sped.getR1001() == null) SPEDContribBuilder.make1001(sped, false);
     if (sped.getR1990() == null) SPEDContribBuilder.make1990(sped, 0);
-    totalfile += block = sped.getR1001().countRegisters() + 1; // Soma o registo de fechamento que n„o est· incluso
+    totalfile += block = sped.getR1001().countRegisters() + 1; // Soma o registo de fechamento que n√£o est√° incluso
     sped.getR1990().setR02_QTD_LIN_1(block);
 
-    // ENCERRAMENTO DO ARQUIVO - Cria o registro para que seja contabilizado no bloco 9, mas sÛ o atualiza no final, depois que o bloco 9 for escrito.
+    // ENCERRAMENTO DO ARQUIVO - Cria o registro para que seja contabilizado no bloco 9, mas s√≥ o atualiza no final, depois que o bloco 9 for escrito.
     if (sped.getR9999() == null) SPEDContribBuilder.make9999(sped, 0);
 
     // Bloco 9
-    if (sped.getR9990() == null) SPEDContribBuilder.make9990(sped, 0); // Cria o fechamento antes para que seja contabilizado no mÈtodo abaixo
+    if (sped.getR9990() == null) SPEDContribBuilder.make9990(sped, 0); // Cria o fechamento antes para que seja contabilizado no m√©todo abaixo
     SPEDContribBuilder.make9001(sped); // Cria o bloco 9 sobre todos os registros criados
 
-    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que n„o est· incluso. E soma o "9999" segundo o manual: "... Para este c·lculo, o registro 9999, apesar de n„o pertencer ao Bloco 9, tambÈm deve ser contabilizado nesta soma."
+    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que n√£o est√° incluso. E soma o "9999" segundo o manual: "... Para este c√°lculo, o registro 9999, apesar de n√£o pertencer ao Bloco 9, tamb√©m deve ser contabilizado nesta soma."
     sped.getR9990().setR02_QTD_LIN_9(block);
 
-    // ENCERRAMENTO DO ARQUIVO - atualizaÁ„o do conte˙do
+    // ENCERRAMENTO DO ARQUIVO - atualiza√ß√£o do conte√∫do
     sped.getR9999().setR02_QTD_LIN(totalfile);
   }
 }

@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS.<br>
+ * Description: REGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,19 +22,19 @@ public class SPEDContrib0111 extends SPEDRegister {
   }
 
   /**
-   * Receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S
+   * Receita Bruta NÃ£o-Cumulativa - Tributada no Mercado Interno N - 02 S
    */
   @SPEDField(maxLength = 20, decimals = 2, required = true)
   private BigDecimal r02_REC_BRU_NCUM_TRIB_MI = null;
 
   /**
-   * Receita Bruta Não-Cumulativa – Não Tributada no Mercado Interno (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições) N - 02 S
+   * Receita Bruta NÃ£o-Cumulativa â€“ NÃ£o Tributada no Mercado Interno (Vendas com suspensÃ£o, alÃ­quota zero, isenÃ§Ã£o e sem incidÃªncia das contribuiÃ§Ãµes) N - 02 S
    */
   @SPEDField(maxLength = 20, decimals = 2, required = true)
   private BigDecimal r03_REC_BRU_NCUM_NT_MI = null;
 
   /**
-   * Receita Bruta Não-Cumulativa – Exportação N - 02 S
+   * Receita Bruta NÃ£o-Cumulativa â€“ ExportaÃ§Ã£o N - 02 S
    */
   @SPEDField(maxLength = 20, decimals = 2, required = true)
   private BigDecimal r04_REC_BRU_NCUM_EXP = null;
@@ -57,54 +57,54 @@ public class SPEDContrib0111 extends SPEDRegister {
   }
 
   /**
-   * Recupera o receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S.
+   * Recupera o receita Bruta NÃ£o-Cumulativa - Tributada no Mercado Interno N - 02 S.
    *
-   * @return the receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S
+   * @return the receita Bruta NÃ£o-Cumulativa - Tributada no Mercado Interno N - 02 S
    */
   public BigDecimal getR02_REC_BRU_NCUM_TRIB_MI() {
     return r02_REC_BRU_NCUM_TRIB_MI;
   }
 
   /**
-   * Define o receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S.
+   * Define o receita Bruta NÃ£o-Cumulativa - Tributada no Mercado Interno N - 02 S.
    *
-   * @param r02_REC_BRU_NCUM_TRIB_MI the new receita Bruta Não-Cumulativa - Tributada no Mercado Interno N - 02 S
+   * @param r02_REC_BRU_NCUM_TRIB_MI the new receita Bruta NÃ£o-Cumulativa - Tributada no Mercado Interno N - 02 S
    */
   public void setR02_REC_BRU_NCUM_TRIB_MI(BigDecimal r02_REC_BRU_NCUM_TRIB_MI) {
     this.r02_REC_BRU_NCUM_TRIB_MI = r02_REC_BRU_NCUM_TRIB_MI;
   }
 
   /**
-   * Recupera o receita Bruta Não-Cumulativa – Não Tributada no Mercado Interno (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições) N - 02 S.
+   * Recupera o receita Bruta NÃ£o-Cumulativa â€“ NÃ£o Tributada no Mercado Interno (Vendas com suspensÃ£o, alÃ­quota zero, isenÃ§Ã£o e sem incidÃªncia das contribuiÃ§Ãµes) N - 02 S.
    *
-   * @return the receita Bruta Não-Cumulativa – Não Tributada no Mercado Interno (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições) N - 02 S
+   * @return the receita Bruta NÃ£o-Cumulativa â€“ NÃ£o Tributada no Mercado Interno (Vendas com suspensÃ£o, alÃ­quota zero, isenÃ§Ã£o e sem incidÃªncia das contribuiÃ§Ãµes) N - 02 S
    */
   public BigDecimal getR03_REC_BRU_NCUM_NT_MI() {
     return r03_REC_BRU_NCUM_NT_MI;
   }
 
   /**
-   * Define o receita Bruta Não-Cumulativa – Não Tributada no Mercado Interno (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições) N - 02 S.
+   * Define o receita Bruta NÃ£o-Cumulativa â€“ NÃ£o Tributada no Mercado Interno (Vendas com suspensÃ£o, alÃ­quota zero, isenÃ§Ã£o e sem incidÃªncia das contribuiÃ§Ãµes) N - 02 S.
    *
-   * @param r03_REC_BRU_NCUM_NT_MI the new receita Bruta Não-Cumulativa – Não Tributada no Mercado Interno (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições) N - 02 S
+   * @param r03_REC_BRU_NCUM_NT_MI the new receita Bruta NÃ£o-Cumulativa â€“ NÃ£o Tributada no Mercado Interno (Vendas com suspensÃ£o, alÃ­quota zero, isenÃ§Ã£o e sem incidÃªncia das contribuiÃ§Ãµes) N - 02 S
    */
   public void setR03_REC_BRU_NCUM_NT_MI(BigDecimal r03_REC_BRU_NCUM_NT_MI) {
     this.r03_REC_BRU_NCUM_NT_MI = r03_REC_BRU_NCUM_NT_MI;
   }
 
   /**
-   * Recupera o receita Bruta Não-Cumulativa – Exportação N - 02 S.
+   * Recupera o receita Bruta NÃ£o-Cumulativa â€“ ExportaÃ§Ã£o N - 02 S.
    *
-   * @return the receita Bruta Não-Cumulativa – Exportação N - 02 S
+   * @return the receita Bruta NÃ£o-Cumulativa â€“ ExportaÃ§Ã£o N - 02 S
    */
   public BigDecimal getR04_REC_BRU_NCUM_EXP() {
     return r04_REC_BRU_NCUM_EXP;
   }
 
   /**
-   * Define o receita Bruta Não-Cumulativa – Exportação N - 02 S.
+   * Define o receita Bruta NÃ£o-Cumulativa â€“ ExportaÃ§Ã£o N - 02 S.
    *
-   * @param r04_REC_BRU_NCUM_EXP the new receita Bruta Não-Cumulativa – Exportação N - 02 S
+   * @param r04_REC_BRU_NCUM_EXP the new receita Bruta NÃ£o-Cumulativa â€“ ExportaÃ§Ã£o N - 02 S
    */
   public void setR04_REC_BRU_NCUM_EXP(BigDecimal r04_REC_BRU_NCUM_EXP) {
     this.r04_REC_BRU_NCUM_EXP = r04_REC_BRU_NCUM_EXP;
