@@ -10,7 +10,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 0001: ABERTURA DO BLOCO 0.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal0001 extends SPEDRegister {
@@ -38,33 +38,33 @@ public class SPEDFiscal0001 extends SPEDRegister {
   private final LinkedHashMap<String, SPEDFiscal0150> r0150 = new LinkedHashMap<String, SPEDFiscal0150>();
 
   /**
-   * REGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA
+   * REGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA
    */
   private final LinkedHashMap<String, SPEDFiscal0190> r0190 = new LinkedHashMap<String, SPEDFiscal0190>();
 
   /**
-   * REGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * Chave: COD_ITEM. - O CÛdigo do Item È o ID do objeto ItemVO. N„o utilizaremos os cÛdigos dos produtos, mas sim converteremos tudo para a unidade de medida padr„o do Item.
+   * REGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Chave: COD_ITEM. - O C√≥digo do Item √© o ID do objeto ItemVO. N√£o utilizaremos os c√≥digos dos produtos, mas sim converteremos tudo para a unidade de medida padr√£o do Item.
    */
   private final LinkedHashMap<String, SPEDFiscal0200> r0200 = new LinkedHashMap<String, SPEDFiscal0200>();
 
   /**
-   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O
+   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO
    */
   private final LinkedHashMap<String, SPEDFiscal0400> r0400 = new LinkedHashMap<String, SPEDFiscal0400>();
 
   /**
-   * REGISTRO 0450: TABELA DE INFORMA«√O COMPLEMENTAR DO DOCUMENTO FISCAL
+   * REGISTRO 0450: TABELA DE INFORMA√á√ÉO COMPLEMENTAR DO DOCUMENTO FISCAL
    */
   private final LinkedHashMap<String, SPEDFiscal0450> r0450 = new LinkedHashMap<String, SPEDFiscal0450>();
 
   /**
-   * REGISTRO 0460: TABELA DE OBSERVA«’ES DO LAN«AMENTO FISCAL
+   * REGISTRO 0460: TABELA DE OBSERVA√á√ïES DO LAN√áAMENTO FISCAL
    */
   private final LinkedHashMap<String, SPEDFiscal0460> r0460 = new LinkedHashMap<String, SPEDFiscal0460>();
 
   /**
-   * REGISTRO 0500: PLANO DE CONTAS CONT¡BEIS
+   * REGISTRO 0500: PLANO DE CONTAS CONT√ÅBEIS
    */
   private final LinkedHashMap<String, SPEDFiscal0500> r0500 = new LinkedHashMap<String, SPEDFiscal0500>();
 
@@ -147,10 +147,10 @@ public class SPEDFiscal0001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * Chave: COD_ITEM. - O CÛdigo do Item È o ID do objeto ItemVO. N„o utilizaremos os cÛdigos dos produtos, mas sim converteremos tudo para a unidade de medida padr„o do Item.
+   * Recupera o rEGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Chave: COD_ITEM. - O C√≥digo do Item √© o ID do objeto ItemVO. N√£o utilizaremos os c√≥digos dos produtos, mas sim converteremos tudo para a unidade de medida padr√£o do Item.
    *
-   * @return the rEGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
+   * @return the rEGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
    *         Chave: COD_ITEM
    */
   public LinkedHashMap<String, SPEDFiscal0200> getR0200() {
@@ -169,45 +169,45 @@ public class SPEDFiscal0001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0450: TABELA DE INFORMA«√O COMPLEMENTAR DO DOCUMENTO FISCAL.
+   * Recupera o rEGISTRO 0450: TABELA DE INFORMA√á√ÉO COMPLEMENTAR DO DOCUMENTO FISCAL.
    *
-   * @return the rEGISTRO 0450: TABELA DE INFORMA«√O COMPLEMENTAR DO DOCUMENTO FISCAL
+   * @return the rEGISTRO 0450: TABELA DE INFORMA√á√ÉO COMPLEMENTAR DO DOCUMENTO FISCAL
    */
   public LinkedHashMap<String, SPEDFiscal0450> getR0450() {
     return r0450;
   }
 
   /**
-   * Recupera o rEGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA.
+   * Recupera o rEGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA.
    *
-   * @return the rEGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA
+   * @return the rEGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA
    */
   public LinkedHashMap<String, SPEDFiscal0190> getR0190() {
     return r0190;
   }
 
   /**
-   * Recupera o rEGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O.
+   * Recupera o rEGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO.
    *
-   * @return the rEGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O
+   * @return the rEGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO
    */
   public LinkedHashMap<String, SPEDFiscal0400> getR0400() {
     return r0400;
   }
 
   /**
-   * Recupera o rEGISTRO 0460: TABELA DE OBSERVA«’ES DO LAN«AMENTO FISCAL.
+   * Recupera o rEGISTRO 0460: TABELA DE OBSERVA√á√ïES DO LAN√áAMENTO FISCAL.
    *
-   * @return the rEGISTRO 0460: TABELA DE OBSERVA«’ES DO LAN«AMENTO FISCAL
+   * @return the rEGISTRO 0460: TABELA DE OBSERVA√á√ïES DO LAN√áAMENTO FISCAL
    */
   public LinkedHashMap<String, SPEDFiscal0460> getR0460() {
     return r0460;
   }
 
   /**
-   * Recupera o rEGISTRO 0500: PLANO DE CONTAS CONT¡BEIS.
+   * Recupera o rEGISTRO 0500: PLANO DE CONTAS CONT√ÅBEIS.
    *
-   * @return the rEGISTRO 0500: PLANO DE CONTAS CONT¡BEIS
+   * @return the rEGISTRO 0500: PLANO DE CONTAS CONT√ÅBEIS
    */
   public LinkedHashMap<String, SPEDFiscal0500> getR0500() {
     return r0500;
@@ -218,7 +218,7 @@ public class SPEDFiscal0001 extends SPEDRegister {
     if (uuid == null || !uuid.equals(this.getLastUUID())) {
       super.calculate(uuid);
 
-      // Verifica se h· conte˙do nos registros
+      // Verifica se h√° conte√∫do nos registros
       boolean hasContent = r0005 != null ||
           r0100 != null ||
           !r0150.isEmpty() ||

@@ -8,9 +8,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C800: CUPOM FISCAL ELETR‘NICO ñ SAT (CF-E-SAT) (C”DIGO 59).<br>
+ * Description: REGISTRO C800: CUPOM FISCAL ELETR√îNICO ‚Äì SAT (CF-E-SAT) (C√ìDIGO 59).<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC800 extends SPEDRegister {
@@ -22,43 +22,43 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C850: REGISTRO ANALÕTICO DO CF-E-SAT (CODIGO 59)<br>
+   * REGISTRO C850: REGISTRO ANAL√çTICO DO CF-E-SAT (CODIGO 59)<br>
    * Chave: cst + "|" + ciVO.getCfop() + "|" + taxRatio.
    */
   private final LinkedHashMap<String, SPEDFiscalC850> rc850 = new LinkedHashMap<String, SPEDFiscalC850>();
 
   /**
-   * REGISTRO C855: OBSERVA«’ES DO LAN«AMENTO FISCAL (C”DIGO 59)<br>
+   * REGISTRO C855: OBSERVA√á√ïES DO LAN√áAMENTO FISCAL (C√ìDIGO 59)<br>
    * Chave: COD_OBS.
    */
   private final LinkedHashMap<String, SPEDFiscalC855> rc855 = new LinkedHashMap<String, SPEDFiscalC855>();
 
   /**
-   * CÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O
+   * C√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r02_COD_MOD = null;
 
   /**
-   * CÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O
+   * C√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r03_COD_SIT = null;
 
   /**
-   * N˙mero do Cupom Fiscal EletrÙnico N 006 - O
+   * N√∫mero do Cupom Fiscal Eletr√¥nico N 006 - O
    */
   @SPEDField(maxLength = 6, required = true)
   private Long r04_NUM_CFE = null;
 
   /**
-   * Data da emiss„o do Cupom Fiscal EletrÙnico N 008 - O
+   * Data da emiss√£o do Cupom Fiscal Eletr√¥nico N 008 - O
    */
   @SPEDField(maxLength = 8, minLength = 8, required = false)
   private String r05_DT_DOC = null;
 
   /**
-   * Valor total do Cupom Fiscal EletrÙnico N - 02 O
+   * Valor total do Cupom Fiscal Eletr√¥nico N - 02 O
    */
   @SPEDField(decimals = 2, maxLength = 10, required = false)
   private BigDecimal r06_VL_CFE = null;
@@ -76,19 +76,19 @@ public class SPEDFiscalC800 extends SPEDRegister {
   private BigDecimal r08_VL_COFINS = null;
 
   /**
-   * CNPJ ou CPF do destinat·rio N 14 - OC
+   * CNPJ ou CPF do destinat√°rio N 14 - OC
    */
   @SPEDField(maxLength = 14, minLength = 11, required = false)
   private String r09_CNPJ_CPF = null;
 
   /**
-   * N˙mero de SÈrie do equipamento SAT N 009 - O
+   * N√∫mero de S√©rie do equipamento SAT N 009 - O
    */
   @SPEDField(maxLength = 9, required = true)
   private String r10_NR_SAT = null;
 
   /**
-   * Chave do Cupom Fiscal EletrÙnico N 044 - O
+   * Chave do Cupom Fiscal Eletr√¥nico N 044 - O
    */
   @SPEDField(maxLength = 44, minLength = 44, required = true)
   private String r11_CHV_CFE = null;
@@ -100,13 +100,13 @@ public class SPEDFiscalC800 extends SPEDRegister {
   private BigDecimal r12_VL_DESC = null;
 
   /**
-   * Valor total das mercadorias e serviÁos N - 02 O
+   * Valor total das mercadorias e servi√ßos N - 02 O
    */
   @SPEDField(decimals = 2, maxLength = 10, required = false)
   private BigDecimal r13_VL_MERC = null;
 
   /**
-   * Valor total de outras despesas acessÛrias e acrÈscimos N - 02 O
+   * Valor total de outras despesas acess√≥rias e acr√©scimos N - 02 O
    */
   @SPEDField(decimals = 2, maxLength = 10, required = false)
   private BigDecimal r14_VL_OUT_DA = null;
@@ -135,90 +135,90 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O.
+   * Recupera o c√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O.
    *
-   * @return the cÛdigo do modelo do documento fiscal, conforme a Tabela 4
+   * @return the c√≥digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public String getR02_COD_MOD() {
     return r02_COD_MOD;
   }
 
   /**
-   * Define o cÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O.
+   * Define o c√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O.
    *
-   * @param r02_COD_MOD the new cÛdigo do modelo do documento fiscal, conforme a Tabela 4
+   * @param r02_COD_MOD the new c√≥digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public void setR02_COD_MOD(String r02_COD_MOD) {
     this.r02_COD_MOD = r02_COD_MOD;
   }
 
   /**
-   * Recupera o cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O.
+   * Recupera o c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O.
    *
-   * @return the cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4
+   * @return the c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4
    */
   public String getR03_COD_SIT() {
     return r03_COD_SIT;
   }
 
   /**
-   * Define o cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O.
+   * Define o c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2 N 002 - O.
    *
-   * @param r03_COD_SIT the new cÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4
+   * @param r03_COD_SIT the new c√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4
    */
   public void setR03_COD_SIT(String r03_COD_SIT) {
     this.r03_COD_SIT = r03_COD_SIT;
   }
 
   /**
-   * Recupera o n˙mero do Cupom Fiscal EletrÙnico N 006 - O.
+   * Recupera o n√∫mero do Cupom Fiscal Eletr√¥nico N 006 - O.
    *
-   * @return the n˙mero do Cupom Fiscal EletrÙnico N 006 - O
+   * @return the n√∫mero do Cupom Fiscal Eletr√¥nico N 006 - O
    */
   public Long getR04_NUM_CFE() {
     return r04_NUM_CFE;
   }
 
   /**
-   * Define o n˙mero do Cupom Fiscal EletrÙnico N 006 - O.
+   * Define o n√∫mero do Cupom Fiscal Eletr√¥nico N 006 - O.
    *
-   * @param r04_NUM_CFE the new n˙mero do Cupom Fiscal EletrÙnico N 006 - O
+   * @param r04_NUM_CFE the new n√∫mero do Cupom Fiscal Eletr√¥nico N 006 - O
    */
   public void setR04_NUM_CFE(Long r04_NUM_CFE) {
     this.r04_NUM_CFE = r04_NUM_CFE;
   }
 
   /**
-   * Recupera o data da emiss„o do Cupom Fiscal EletrÙnico N 008 - O.
+   * Recupera o data da emiss√£o do Cupom Fiscal Eletr√¥nico N 008 - O.
    *
-   * @return the data da emiss„o do Cupom Fiscal EletrÙnico N 008 - O
+   * @return the data da emiss√£o do Cupom Fiscal Eletr√¥nico N 008 - O
    */
   public String getR05_DT_DOC() {
     return r05_DT_DOC;
   }
 
   /**
-   * Define o data da emiss„o do Cupom Fiscal EletrÙnico N 008 - O.
+   * Define o data da emiss√£o do Cupom Fiscal Eletr√¥nico N 008 - O.
    *
-   * @param r05_DT_DOC the new data da emiss„o do Cupom Fiscal EletrÙnico N 008 - O
+   * @param r05_DT_DOC the new data da emiss√£o do Cupom Fiscal Eletr√¥nico N 008 - O
    */
   public void setR05_DT_DOC(String r05_DT_DOC) {
     this.r05_DT_DOC = r05_DT_DOC;
   }
 
   /**
-   * Recupera o valor total do Cupom Fiscal EletrÙnico N - 02 O.
+   * Recupera o valor total do Cupom Fiscal Eletr√¥nico N - 02 O.
    *
-   * @return the valor total do Cupom Fiscal EletrÙnico N - 02 O
+   * @return the valor total do Cupom Fiscal Eletr√¥nico N - 02 O
    */
   public BigDecimal getR06_VL_CFE() {
     return r06_VL_CFE;
   }
 
   /**
-   * Define o valor total do Cupom Fiscal EletrÙnico N - 02 O.
+   * Define o valor total do Cupom Fiscal Eletr√¥nico N - 02 O.
    *
-   * @param r06_VL_CFE the new valor total do Cupom Fiscal EletrÙnico N - 02 O
+   * @param r06_VL_CFE the new valor total do Cupom Fiscal Eletr√¥nico N - 02 O
    */
   public void setR06_VL_CFE(BigDecimal r06_VL_CFE) {
     this.r06_VL_CFE = r06_VL_CFE;
@@ -261,54 +261,54 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cNPJ ou CPF do destinat·rio N 14 - OC.
+   * Recupera o cNPJ ou CPF do destinat√°rio N 14 - OC.
    *
-   * @return the cNPJ ou CPF do destinat·rio N 14 - OC
+   * @return the cNPJ ou CPF do destinat√°rio N 14 - OC
    */
   public String getR09_CNPJ_CPF() {
     return r09_CNPJ_CPF;
   }
 
   /**
-   * Define o cNPJ ou CPF do destinat·rio N 14 - OC.
+   * Define o cNPJ ou CPF do destinat√°rio N 14 - OC.
    *
-   * @param r09_CNPJ_CPF the new cNPJ ou CPF do destinat·rio N 14 - OC
+   * @param r09_CNPJ_CPF the new cNPJ ou CPF do destinat√°rio N 14 - OC
    */
   public void setR09_CNPJ_CPF(String r09_CNPJ_CPF) {
     this.r09_CNPJ_CPF = r09_CNPJ_CPF;
   }
 
   /**
-   * Recupera o n˙mero de SÈrie do equipamento SAT N 009 - O.
+   * Recupera o n√∫mero de S√©rie do equipamento SAT N 009 - O.
    *
-   * @return the n˙mero de SÈrie do equipamento SAT N 009 - O
+   * @return the n√∫mero de S√©rie do equipamento SAT N 009 - O
    */
   public String getR10_NR_SAT() {
     return r10_NR_SAT;
   }
 
   /**
-   * Define o n˙mero de SÈrie do equipamento SAT N 009 - O.
+   * Define o n√∫mero de S√©rie do equipamento SAT N 009 - O.
    *
-   * @param r10_NR_SAT the new n˙mero de SÈrie do equipamento SAT N 009 - O
+   * @param r10_NR_SAT the new n√∫mero de S√©rie do equipamento SAT N 009 - O
    */
   public void setR10_NR_SAT(String r10_NR_SAT) {
     this.r10_NR_SAT = r10_NR_SAT;
   }
 
   /**
-   * Recupera o chave do Cupom Fiscal EletrÙnico N 044 - O.
+   * Recupera o chave do Cupom Fiscal Eletr√¥nico N 044 - O.
    *
-   * @return the chave do Cupom Fiscal EletrÙnico N 044 - O
+   * @return the chave do Cupom Fiscal Eletr√¥nico N 044 - O
    */
   public String getR11_CHV_CFE() {
     return r11_CHV_CFE;
   }
 
   /**
-   * Define o chave do Cupom Fiscal EletrÙnico N 044 - O.
+   * Define o chave do Cupom Fiscal Eletr√¥nico N 044 - O.
    *
-   * @param r11_CHV_CFE the new chave do Cupom Fiscal EletrÙnico N 044 - O
+   * @param r11_CHV_CFE the new chave do Cupom Fiscal Eletr√¥nico N 044 - O
    */
   public void setR11_CHV_CFE(String r11_CHV_CFE) {
     this.r11_CHV_CFE = r11_CHV_CFE;
@@ -333,36 +333,36 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor total das mercadorias e serviÁos N - 02 O.
+   * Recupera o valor total das mercadorias e servi√ßos N - 02 O.
    *
-   * @return the valor total das mercadorias e serviÁos N - 02 O
+   * @return the valor total das mercadorias e servi√ßos N - 02 O
    */
   public BigDecimal getR13_VL_MERC() {
     return r13_VL_MERC;
   }
 
   /**
-   * Define o valor total das mercadorias e serviÁos N - 02 O.
+   * Define o valor total das mercadorias e servi√ßos N - 02 O.
    *
-   * @param r13_VL_MERC the new valor total das mercadorias e serviÁos N - 02 O
+   * @param r13_VL_MERC the new valor total das mercadorias e servi√ßos N - 02 O
    */
   public void setR13_VL_MERC(BigDecimal r13_VL_MERC) {
     this.r13_VL_MERC = r13_VL_MERC;
   }
 
   /**
-   * Recupera o valor total de outras despesas acessÛrias e acrÈscimos N - 02 O.
+   * Recupera o valor total de outras despesas acess√≥rias e acr√©scimos N - 02 O.
    *
-   * @return the valor total de outras despesas acessÛrias e acrÈscimos N - 02 O
+   * @return the valor total de outras despesas acess√≥rias e acr√©scimos N - 02 O
    */
   public BigDecimal getR14_VL_OUT_DA() {
     return r14_VL_OUT_DA;
   }
 
   /**
-   * Define o valor total de outras despesas acessÛrias e acrÈscimos N - 02 O.
+   * Define o valor total de outras despesas acess√≥rias e acr√©scimos N - 02 O.
    *
-   * @param r14_VL_OUT_DA the new valor total de outras despesas acessÛrias e acrÈscimos N - 02 O
+   * @param r14_VL_OUT_DA the new valor total de outras despesas acess√≥rias e acr√©scimos N - 02 O
    */
   public void setR14_VL_OUT_DA(BigDecimal r14_VL_OUT_DA) {
     this.r14_VL_OUT_DA = r14_VL_OUT_DA;
@@ -423,10 +423,10 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * Recupera o c405: REDU«√O Z (C”DIGO 02, 2D e 60)<br>
+   * Recupera o c405: REDU√á√ÉO Z (C√ìDIGO 02, 2D e 60)<br>
    * Chave: CRZ.
    *
-   * @return the c405: REDU«√O Z (C”DIGO 02, 2D e 60)<br>
+   * @return the c405: REDU√á√ÉO Z (C√ìDIGO 02, 2D e 60)<br>
    *         Chave: CRZ
    */
   public LinkedHashMap<String, SPEDFiscalC850> getRc850() {
@@ -434,10 +434,10 @@ public class SPEDFiscalC800 extends SPEDRegister {
   }
 
   /**
-   * # rEGISTRO C855: OBSERVA«’ES DO LAN«AMENTO FISCAL (C”DIGO 59)<br>
+   * # rEGISTRO C855: OBSERVA√á√ïES DO LAN√áAMENTO FISCAL (C√ìDIGO 59)<br>
    * Chave: COD_OBS.
    *
-   * @return the rEGISTRO C855: OBSERVA«’ES DO LAN«AMENTO FISCAL (C”DIGO 59)<br>
+   * @return the rEGISTRO C855: OBSERVA√á√ïES DO LAN√áAMENTO FISCAL (C√ìDIGO 59)<br>
    *         Chave: COD_OBS
    */
   public LinkedHashMap<String, SPEDFiscalC855> getRc855() {

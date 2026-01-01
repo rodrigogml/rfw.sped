@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C116: CUPOM FISCAL ELETR訬ICO REFERENCIADO.<br>
+ * Description: REGISTRO C116: CUPOM FISCAL ELETR脭NICO REFERENCIADO.<br>
  *
- * @author Rodrigo Leit鉶
+ * @author Rodrigo Leit茫o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC116 extends SPEDRegister {
@@ -21,31 +21,31 @@ public class SPEDFiscalC116 extends SPEDRegister {
   }
 
   /**
-   * C骴igo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O
+   * C贸digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O
    */
   @SPEDField(maxLength = 2, required = true)
   private String r02_COD_MOD = null;
 
   /**
-   * N鷐ero de S閞ie do equipamento SAT N 009 - O O
+   * N煤mero de S茅rie do equipamento SAT N 009 - O O
    */
   @SPEDField(maxLength = 9, required = true)
   private String r03_NR_SAT = null;
 
   /**
-   * Chave do Cupom Fiscal Eletr鬾ico N 044 - O O
+   * Chave do Cupom Fiscal Eletr么nico N 044 - O O
    */
   @SPEDField(maxLength = 44, required = true)
   private String r04_CHV_CFE = null;
 
   /**
-   * N鷐ero do cupom fiscal eletr鬾ico N 006 - O O
+   * N煤mero do cupom fiscal eletr么nico N 006 - O O
    */
   @SPEDField(maxLength = 6, required = true)
   private Long r05_NUM_CFE = null;
 
   /**
-   * Data da emiss鉶 do documento fiscal N 008 - O O
+   * Data da emiss茫o do documento fiscal N 008 - O O
    */
   @SPEDField(maxLength = 8, required = true)
   private LocalDate r06_DT_DOC = null;
@@ -56,90 +56,90 @@ public class SPEDFiscalC116 extends SPEDRegister {
   }
 
   /**
-   * Recupera o c骴igo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O.
+   * Recupera o c贸digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O.
    *
-   * @return the c骴igo do modelo do documento fiscal, conforme a Tabela 4
+   * @return the c贸digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public String getR02_COD_MOD() {
     return r02_COD_MOD;
   }
 
   /**
-   * Define o c骴igo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O.
+   * Define o c贸digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002 - O O.
    *
-   * @param r02_COD_MOD the new c骴igo do modelo do documento fiscal, conforme a Tabela 4
+   * @param r02_COD_MOD the new c贸digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public void setR02_COD_MOD(String r02_COD_MOD) {
     this.r02_COD_MOD = r02_COD_MOD;
   }
 
   /**
-   * Recupera o n鷐ero de S閞ie do equipamento SAT N 009 - O O.
+   * Recupera o n煤mero de S茅rie do equipamento SAT N 009 - O O.
    *
-   * @return the n鷐ero de S閞ie do equipamento SAT N 009 - O O
+   * @return the n煤mero de S茅rie do equipamento SAT N 009 - O O
    */
   public String getR03_NR_SAT() {
     return r03_NR_SAT;
   }
 
   /**
-   * Define o n鷐ero de S閞ie do equipamento SAT N 009 - O O.
+   * Define o n煤mero de S茅rie do equipamento SAT N 009 - O O.
    *
-   * @param r03_NR_SAT the new n鷐ero de S閞ie do equipamento SAT N 009 - O O
+   * @param r03_NR_SAT the new n煤mero de S茅rie do equipamento SAT N 009 - O O
    */
   public void setR03_NR_SAT(String r03_NR_SAT) {
     this.r03_NR_SAT = r03_NR_SAT;
   }
 
   /**
-   * Recupera o chave do Cupom Fiscal Eletr鬾ico N 044 - O O.
+   * Recupera o chave do Cupom Fiscal Eletr么nico N 044 - O O.
    *
-   * @return the chave do Cupom Fiscal Eletr鬾ico N 044 - O O
+   * @return the chave do Cupom Fiscal Eletr么nico N 044 - O O
    */
   public String getR04_CHV_CFE() {
     return r04_CHV_CFE;
   }
 
   /**
-   * Define o chave do Cupom Fiscal Eletr鬾ico N 044 - O O.
+   * Define o chave do Cupom Fiscal Eletr么nico N 044 - O O.
    *
-   * @param r04_CHV_CFE the new chave do Cupom Fiscal Eletr鬾ico N 044 - O O
+   * @param r04_CHV_CFE the new chave do Cupom Fiscal Eletr么nico N 044 - O O
    */
   public void setR04_CHV_CFE(String r04_CHV_CFE) {
     this.r04_CHV_CFE = r04_CHV_CFE;
   }
 
   /**
-   * Recupera o n鷐ero do cupom fiscal eletr鬾ico N 006 - O O.
+   * Recupera o n煤mero do cupom fiscal eletr么nico N 006 - O O.
    *
-   * @return the n鷐ero do cupom fiscal eletr鬾ico N 006 - O O
+   * @return the n煤mero do cupom fiscal eletr么nico N 006 - O O
    */
   public Long getR05_NUM_CFE() {
     return r05_NUM_CFE;
   }
 
   /**
-   * Define o n鷐ero do cupom fiscal eletr鬾ico N 006 - O O.
+   * Define o n煤mero do cupom fiscal eletr么nico N 006 - O O.
    *
-   * @param r05_NUM_CFE the new n鷐ero do cupom fiscal eletr鬾ico N 006 - O O
+   * @param r05_NUM_CFE the new n煤mero do cupom fiscal eletr么nico N 006 - O O
    */
   public void setR05_NUM_CFE(Long r05_NUM_CFE) {
     this.r05_NUM_CFE = r05_NUM_CFE;
   }
 
   /**
-   * Recupera o data da emiss鉶 do documento fiscal N 008 - O O.
+   * Recupera o data da emiss茫o do documento fiscal N 008 - O O.
    *
-   * @return the data da emiss鉶 do documento fiscal N 008 - O O
+   * @return the data da emiss茫o do documento fiscal N 008 - O O
    */
   public LocalDate getR06_DT_DOC() {
     return r06_DT_DOC;
   }
 
   /**
-   * Define o data da emiss鉶 do documento fiscal N 008 - O O.
+   * Define o data da emiss茫o do documento fiscal N 008 - O O.
    *
-   * @param r06_DT_DOC the new data da emiss鉶 do documento fiscal N 008 - O O
+   * @param r06_DT_DOC the new data da emiss茫o do documento fiscal N 008 - O O
    */
   public void setR06_DT_DOC(LocalDate r06_DT_DOC) {
     this.r06_DT_DOC = r06_DT_DOC;

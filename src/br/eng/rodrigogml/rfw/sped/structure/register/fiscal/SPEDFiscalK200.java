@@ -10,7 +10,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO K200: ESTOQUE ESCRITURADO.<br>
  *
- * @author Rodrigo Leit鉶
+ * @author Rodrigo Leit茫o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalK200 extends SPEDRegister {
@@ -28,7 +28,7 @@ public class SPEDFiscalK200 extends SPEDRegister {
   private LocalDate r02_DT_EST = null;
 
   /**
-   * 03 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 60 - O
+   * 03 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 60 - O
    */
   @SPEDField(maxLength = 60, required = true)
   private String r03_COD_ITEM = null;
@@ -48,7 +48,7 @@ public class SPEDFiscalK200 extends SPEDRegister {
   @SPEDField(maxLength = 1, required = true)
   private String r05_IND_EST = null;
   /**
-   * 06 COD_PART C骴igo do participante (campo 02 do Registro 0150):- propriet醨io/possuidor que n鉶 seja o informante do arquivo C 60 - OC
+   * 06 COD_PART C贸digo do participante (campo 02 do Registro 0150):- propriet谩rio/possuidor que n茫o seja o informante do arquivo C 60 - OC
    */
   @SPEDField(maxLength = 60, required = false)
   private String r06_COD_PART = null;
@@ -77,18 +77,18 @@ public class SPEDFiscalK200 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 03 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 60 - O.
+   * Recupera o 03 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 60 - O.
    *
-   * @return the 03 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 60 - O
+   * @return the 03 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 60 - O
    */
   public String getR03_COD_ITEM() {
     return r03_COD_ITEM;
   }
 
   /**
-   * Define o 03 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 60 - O.
+   * Define o 03 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 60 - O.
    *
-   * @param r03_COD_ITEM the new 03 COD_ITEM C骴igo do item (campo 02 do Registro 0200) C 60 - O
+   * @param r03_COD_ITEM the new 03 COD_ITEM C贸digo do item (campo 02 do Registro 0200) C 60 - O
    */
   public void setR03_COD_ITEM(String r03_COD_ITEM) {
     this.r03_COD_ITEM = r03_COD_ITEM;
@@ -143,18 +143,18 @@ public class SPEDFiscalK200 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 06 COD_PART C骴igo do participante (campo 02 do Registro 0150):- propriet醨io/possuidor que n鉶 seja o informante do arquivo C 60 - OC.
+   * Recupera o 06 COD_PART C贸digo do participante (campo 02 do Registro 0150):- propriet谩rio/possuidor que n茫o seja o informante do arquivo C 60 - OC.
    *
-   * @return the 06 COD_PART C骴igo do participante (campo 02 do Registro 0150):- propriet醨io/possuidor que n鉶 seja o informante do arquivo C 60 - OC
+   * @return the 06 COD_PART C贸digo do participante (campo 02 do Registro 0150):- propriet谩rio/possuidor que n茫o seja o informante do arquivo C 60 - OC
    */
   public String getR06_COD_PART() {
     return r06_COD_PART;
   }
 
   /**
-   * Define o 06 COD_PART C骴igo do participante (campo 02 do Registro 0150):- propriet醨io/possuidor que n鉶 seja o informante do arquivo C 60 - OC.
+   * Define o 06 COD_PART C贸digo do participante (campo 02 do Registro 0150):- propriet谩rio/possuidor que n茫o seja o informante do arquivo C 60 - OC.
    *
-   * @param r06_COD_PART the new 06 COD_PART C骴igo do participante (campo 02 do Registro 0150):- propriet醨io/possuidor que n鉶 seja o informante do arquivo C 60 - OC
+   * @param r06_COD_PART the new 06 COD_PART C贸digo do participante (campo 02 do Registro 0150):- propriet谩rio/possuidor que n茫o seja o informante do arquivo C 60 - OC
    */
   public void setR06_COD_PART(String r06_COD_PART) {
     this.r06_COD_PART = r06_COD_PART;

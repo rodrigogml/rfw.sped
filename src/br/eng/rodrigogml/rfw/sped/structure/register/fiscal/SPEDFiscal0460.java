@@ -5,9 +5,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0460: TABELA DE OBSERVAÇÕES DO LANÇAMENTO FISCAL.<br>
+ * Description: REGISTRO 0460: TABELA DE OBSERVAÃ‡Ã•ES DO LANÃ‡AMENTO FISCAL.<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal0460 extends SPEDRegister {
@@ -19,13 +19,13 @@ public class SPEDFiscal0460 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_OBS Código da Observação do lançamento fiscal. C 006 - O
+   * 02 COD_OBS CÃ³digo da ObservaÃ§Ã£o do lanÃ§amento fiscal. C 006 - O
    */
   @SPEDField(maxLength = 6)
   private String r02_COD_OBS = null;
 
   /**
-   * 03 TXT Descrição da observação vinculada ao lançamento fiscal C - - O
+   * 03 TXT DescriÃ§Ã£o da observaÃ§Ã£o vinculada ao lanÃ§amento fiscal C - - O
    */
   @SPEDField(maxLength = 5000)
   private String r03_TXT = null;
@@ -36,36 +36,36 @@ public class SPEDFiscal0460 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_OBS Código da Observação do lançamento fiscal. C 006 - O.
+   * Recupera o 02 COD_OBS CÃ³digo da ObservaÃ§Ã£o do lanÃ§amento fiscal. C 006 - O.
    *
-   * @return the 02 COD_OBS Código da Observação do lançamento fiscal
+   * @return the 02 COD_OBS CÃ³digo da ObservaÃ§Ã£o do lanÃ§amento fiscal
    */
   public String getR02_COD_OBS() {
     return r02_COD_OBS;
   }
 
   /**
-   * Define o 02 COD_OBS Código da Observação do lançamento fiscal. C 006 - O.
+   * Define o 02 COD_OBS CÃ³digo da ObservaÃ§Ã£o do lanÃ§amento fiscal. C 006 - O.
    *
-   * @param r02_COD_OBS the new 02 COD_OBS Código da Observação do lançamento fiscal
+   * @param r02_COD_OBS the new 02 COD_OBS CÃ³digo da ObservaÃ§Ã£o do lanÃ§amento fiscal
    */
   public void setR02_COD_OBS(String r02_COD_OBS) {
     this.r02_COD_OBS = r02_COD_OBS;
   }
 
   /**
-   * Recupera o 03 TXT Descrição da observação vinculada ao lançamento fiscal C - - O.
+   * Recupera o 03 TXT DescriÃ§Ã£o da observaÃ§Ã£o vinculada ao lanÃ§amento fiscal C - - O.
    *
-   * @return the 03 TXT Descrição da observação vinculada ao lançamento fiscal C - - O
+   * @return the 03 TXT DescriÃ§Ã£o da observaÃ§Ã£o vinculada ao lanÃ§amento fiscal C - - O
    */
   public String getR03_TXT() {
     return r03_TXT;
   }
 
   /**
-   * Define o 03 TXT Descrição da observação vinculada ao lançamento fiscal C - - O.
+   * Define o 03 TXT DescriÃ§Ã£o da observaÃ§Ã£o vinculada ao lanÃ§amento fiscal C - - O.
    *
-   * @param r03_TXT the new 03 TXT Descrição da observação vinculada ao lançamento fiscal C - - O
+   * @param r03_TXT the new 03 TXT DescriÃ§Ã£o da observaÃ§Ã£o vinculada ao lanÃ§amento fiscal C - - O
    */
   public void setR03_TXT(String r03_TXT) {
     this.r03_TXT = r03_TXT;

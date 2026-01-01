@@ -8,7 +8,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO M800: RECEITAS ISENTAS, N√O ALCAN«ADAS PELA INCID NCIA DA CONTRIBUI«√O, SUJEITAS A ALÕQUOTA ZERO OU DE VENDAS COM SUSPENS√O ñ COFINS.<br>
+ * Description: REGISTRO M800: RECEITAS ISENTAS, N√ÉO ALCAN√áADAS PELA INCID√äNCIA DA CONTRIBUI√á√ÉO, SUJEITAS A AL√çQUOTA ZERO OU DE VENDAS COM SUSPENS√ÉO ‚Äì COFINS.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -23,31 +23,31 @@ public class SPEDContribM800 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√O ALCAN«ADAS PELA INCID NCIA DA CONTRIBUI«√O, SUJEITAS A ALÕQUOTA ZERO OU DE VENDAS COM SUSPENS√O ñ COFINS<br>
+   * REGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√ÉO ALCAN√áADAS PELA INCID√äNCIA DA CONTRIBUI√á√ÉO, SUJEITAS A AL√çQUOTA ZERO OU DE VENDAS COM SUSPENS√ÉO ‚Äì COFINS<br>
    * Chave: NAT_REC
    */
   private final LinkedHashMap<String, SPEDContribM810> rm810 = new LinkedHashMap<String, SPEDContribM810>();
 
   /**
-   * CÛdigo de SituaÁ„o Tribut·ria ñ CST das demais receitas auferidas no perÌodo, sem incidÍncia da contribuiÁ„o, ou sem contribuiÁ„o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S
+   * C√≥digo de Situa√ß√£o Tribut√°ria ‚Äì CST das demais receitas auferidas no per√≠odo, sem incid√™ncia da contribui√ß√£o, ou sem contribui√ß√£o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r02_CST_COFINS = null;
 
   /**
-   * Valor total da receita bruta no perÌodo. N - 02 S
+   * Valor total da receita bruta no per√≠odo. N - 02 S
    */
   @SPEDField(maxLength = 20, decimals = 2, required = false)
   private BigDecimal r03_VL_TOT_REC = null;
 
   /**
-   * CÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N
+   * C√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r04_COD_CTA = null;
 
   /**
-   * DescriÁ„o Complementar da Natureza da Receita. C - - N
+   * Descri√ß√£o Complementar da Natureza da Receita. C - - N
    */
   @SPEDField(maxLength = 100, required = false)
   private String r05_DESC_COMPL = null;
@@ -58,82 +58,82 @@ public class SPEDContribM800 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo de SituaÁ„o Tribut·ria ñ CST das demais receitas auferidas no perÌodo, sem incidÍncia da contribuiÁ„o, ou sem contribuiÁ„o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S.
+   * Recupera o c√≥digo de Situa√ß√£o Tribut√°ria ‚Äì CST das demais receitas auferidas no per√≠odo, sem incid√™ncia da contribui√ß√£o, ou sem contribui√ß√£o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S.
    *
-   * @return the cÛdigo de SituaÁ„o Tribut·ria ñ CST das demais receitas auferidas no perÌodo, sem incidÍncia da contribuiÁ„o, ou sem contribuiÁ„o apurada a pagar, conforme a Tabela 4
+   * @return the c√≥digo de Situa√ß√£o Tribut√°ria ‚Äì CST das demais receitas auferidas no per√≠odo, sem incid√™ncia da contribui√ß√£o, ou sem contribui√ß√£o apurada a pagar, conforme a Tabela 4
    */
   public String getR02_CST_COFINS() {
     return r02_CST_COFINS;
   }
 
   /**
-   * Define o cÛdigo de SituaÁ„o Tribut·ria ñ CST das demais receitas auferidas no perÌodo, sem incidÍncia da contribuiÁ„o, ou sem contribuiÁ„o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S.
+   * Define o c√≥digo de Situa√ß√£o Tribut√°ria ‚Äì CST das demais receitas auferidas no per√≠odo, sem incid√™ncia da contribui√ß√£o, ou sem contribui√ß√£o apurada a pagar, conforme a Tabela 4.3.4. C 002* - S.
    *
-   * @param r02_CST_COFINS the new cÛdigo de SituaÁ„o Tribut·ria ñ CST das demais receitas auferidas no perÌodo, sem incidÍncia da contribuiÁ„o, ou sem contribuiÁ„o apurada a pagar, conforme a Tabela 4
+   * @param r02_CST_COFINS the new c√≥digo de Situa√ß√£o Tribut√°ria ‚Äì CST das demais receitas auferidas no per√≠odo, sem incid√™ncia da contribui√ß√£o, ou sem contribui√ß√£o apurada a pagar, conforme a Tabela 4
    */
   public void setR02_CST_COFINS(String r02_CST_COFINS) {
     this.r02_CST_COFINS = r02_CST_COFINS;
   }
 
   /**
-   * Recupera o valor total da receita bruta no perÌodo. N - 02 S.
+   * Recupera o valor total da receita bruta no per√≠odo. N - 02 S.
    *
-   * @return the valor total da receita bruta no perÌodo
+   * @return the valor total da receita bruta no per√≠odo
    */
   public BigDecimal getR03_VL_TOT_REC() {
     return r03_VL_TOT_REC;
   }
 
   /**
-   * Define o valor total da receita bruta no perÌodo. N - 02 S.
+   * Define o valor total da receita bruta no per√≠odo. N - 02 S.
    *
-   * @param r03_VL_TOT_REC the new valor total da receita bruta no perÌodo
+   * @param r03_VL_TOT_REC the new valor total da receita bruta no per√≠odo
    */
   public void setR03_VL_TOT_REC(BigDecimal r03_VL_TOT_REC) {
     this.r03_VL_TOT_REC = r03_VL_TOT_REC;
   }
 
   /**
-   * Recupera o cÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N.
+   * Recupera o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N.
    *
-   * @return the cÛdigo da conta analÌtica cont·bil debitada/creditada
+   * @return the c√≥digo da conta anal√≠tica cont√°bil debitada/creditada
    */
   public String getR04_COD_CTA() {
     return r04_COD_CTA;
   }
 
   /**
-   * Define o cÛdigo da conta analÌtica cont·bil debitada/creditada. C 060 - N.
+   * Define o c√≥digo da conta anal√≠tica cont√°bil debitada/creditada. C 060 - N.
    *
-   * @param r04_COD_CTA the new cÛdigo da conta analÌtica cont·bil debitada/creditada
+   * @param r04_COD_CTA the new c√≥digo da conta anal√≠tica cont√°bil debitada/creditada
    */
   public void setR04_COD_CTA(String r04_COD_CTA) {
     this.r04_COD_CTA = r04_COD_CTA;
   }
 
   /**
-   * Recupera o descriÁ„o Complementar da Natureza da Receita. C - - N.
+   * Recupera o descri√ß√£o Complementar da Natureza da Receita. C - - N.
    *
-   * @return the descriÁ„o Complementar da Natureza da Receita
+   * @return the descri√ß√£o Complementar da Natureza da Receita
    */
   public String getR05_DESC_COMPL() {
     return r05_DESC_COMPL;
   }
 
   /**
-   * Define o descriÁ„o Complementar da Natureza da Receita. C - - N.
+   * Define o descri√ß√£o Complementar da Natureza da Receita. C - - N.
    *
-   * @param r05_DESC_COMPL the new descriÁ„o Complementar da Natureza da Receita
+   * @param r05_DESC_COMPL the new descri√ß√£o Complementar da Natureza da Receita
    */
   public void setR05_DESC_COMPL(String r05_DESC_COMPL) {
     this.r05_DESC_COMPL = r05_DESC_COMPL;
   }
 
   /**
-   * Recupera o rEGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√O ALCAN«ADAS PELA INCID NCIA DA CONTRIBUI«√O, SUJEITAS A ALÕQUOTA ZERO OU DE VENDAS COM SUSPENS√O ñ COFINS<br>
+   * Recupera o rEGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√ÉO ALCAN√áADAS PELA INCID√äNCIA DA CONTRIBUI√á√ÉO, SUJEITAS A AL√çQUOTA ZERO OU DE VENDAS COM SUSPENS√ÉO ‚Äì COFINS<br>
    * Chave: NAT_REC.
    *
-   * @return the rEGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√O ALCAN«ADAS PELA INCID NCIA DA CONTRIBUI«√O, SUJEITAS A ALÕQUOTA ZERO OU DE VENDAS COM SUSPENS√O ñ COFINS<br>
+   * @return the rEGISTRO M810: DETALHAMENTO DAS RECEITAS ISENTAS, N√ÉO ALCAN√áADAS PELA INCID√äNCIA DA CONTRIBUI√á√ÉO, SUJEITAS A AL√çQUOTA ZERO OU DE VENDAS COM SUSPENS√ÉO ‚Äì COFINS<br>
    *         Chave: NAT_REC
    */
   public LinkedHashMap<String, SPEDContribM810> getRm810() {

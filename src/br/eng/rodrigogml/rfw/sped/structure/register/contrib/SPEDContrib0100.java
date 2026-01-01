@@ -26,73 +26,73 @@ public class SPEDContrib0100 extends SPEDRegister {
   private String r02_NOME = null;
 
   /**
-   * Número de inscrição do contabilista no CPF. N 011* - S
+   * NÃºmero de inscriÃ§Ã£o do contabilista no CPF. N 011* - S
    */
   @SPEDField(maxLength = 11, minLength = 11, required = true)
   private String r03_CPF = null;
 
   /**
-   * Número de inscrição do contabilista no Conselho Regional de Contabilidade. C 015 - S
+   * NÃºmero de inscriÃ§Ã£o do contabilista no Conselho Regional de Contabilidade. C 015 - S
    */
   @SPEDField(maxLength = 15, required = true)
   private String r04_CRC = null;
 
   /**
-   * Número de inscrição do escritório de contabilidade no CNPJ, se houver. N 014* - N
+   * NÃºmero de inscriÃ§Ã£o do escritÃ³rio de contabilidade no CNPJ, se houver. N 014* - N
    */
   @SPEDField(maxLength = 14, minLength = 14, required = false)
   private String r05_CNPJ = null;
 
   /**
-   * Código de Endereçamento Postal. N 008* - N
+   * CÃ³digo de EndereÃ§amento Postal. N 008* - N
    */
   @SPEDField(maxLength = 8, minLength = 8, required = false)
   private String r06_CEP = null;
 
   /**
-   * Logradouro e endereço do imóvel. C 060 - N
+   * Logradouro e endereÃ§o do imÃ³vel. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r07_END = null;
 
   /**
-   * Número do imóvel. C - - N
+   * NÃºmero do imÃ³vel. C - - N
    */
   @SPEDField(maxLength = 6, required = true)
   private Integer r08_NUM = null;
 
   /**
-   * Dados complementares do endereço. C 060 - N
+   * Dados complementares do endereÃ§o. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r09_COMPL = null;
 
   /**
-   * Bairro em que o imóvel está situado. C 060 - N
+   * Bairro em que o imÃ³vel estÃ¡ situado. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r10_BAIRRO = null;
 
   /**
-   * Número do telefone. C 11 - N
+   * NÃºmero do telefone. C 11 - N
    */
   @SPEDField(maxLength = 11, required = false)
   private String r11_FONE = null;
 
   /**
-   * Número do fax. C 11 - N
+   * NÃºmero do fax. C 11 - N
    */
   @SPEDField(maxLength = 11, required = false)
   private String r12_FAX = null;
 
   /**
-   * Endereço do correio eletrônico. C - - N
+   * EndereÃ§o do correio eletrÃ´nico. C - - N
    */
   @SPEDField(maxLength = 100, required = false)
   private String r13_EMAIL = null;
 
   /**
-   * Código do município, conforme tabela IBGE. N 007* - N
+   * CÃ³digo do municÃ­pio, conforme tabela IBGE. N 007* - N
    */
   @SPEDField(maxLength = 7, minLength = 7, required = false)
   private String r14_COD_MUN = null;
@@ -121,216 +121,216 @@ public class SPEDContrib0100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o número de inscrição do contabilista no CPF. N 011* - S.
+   * Recupera o nÃºmero de inscriÃ§Ã£o do contabilista no CPF. N 011* - S.
    *
-   * @return the número de inscrição do contabilista no CPF
+   * @return the nÃºmero de inscriÃ§Ã£o do contabilista no CPF
    */
   public String getR03_CPF() {
     return r03_CPF;
   }
 
   /**
-   * Define o número de inscrição do contabilista no CPF. N 011* - S.
+   * Define o nÃºmero de inscriÃ§Ã£o do contabilista no CPF. N 011* - S.
    *
-   * @param r03_CPF the new número de inscrição do contabilista no CPF
+   * @param r03_CPF the new nÃºmero de inscriÃ§Ã£o do contabilista no CPF
    */
   public void setR03_CPF(String r03_CPF) {
     this.r03_CPF = r03_CPF;
   }
 
   /**
-   * Recupera o número de inscrição do contabilista no Conselho Regional de Contabilidade. C 015 - S.
+   * Recupera o nÃºmero de inscriÃ§Ã£o do contabilista no Conselho Regional de Contabilidade. C 015 - S.
    *
-   * @return the número de inscrição do contabilista no Conselho Regional de Contabilidade
+   * @return the nÃºmero de inscriÃ§Ã£o do contabilista no Conselho Regional de Contabilidade
    */
   public String getR04_CRC() {
     return r04_CRC;
   }
 
   /**
-   * Define o número de inscrição do contabilista no Conselho Regional de Contabilidade. C 015 - S.
+   * Define o nÃºmero de inscriÃ§Ã£o do contabilista no Conselho Regional de Contabilidade. C 015 - S.
    *
-   * @param r04_CRC the new número de inscrição do contabilista no Conselho Regional de Contabilidade
+   * @param r04_CRC the new nÃºmero de inscriÃ§Ã£o do contabilista no Conselho Regional de Contabilidade
    */
   public void setR04_CRC(String r04_CRC) {
     this.r04_CRC = r04_CRC;
   }
 
   /**
-   * Recupera o número de inscrição do escritório de contabilidade no CNPJ, se houver. N 014* - N.
+   * Recupera o nÃºmero de inscriÃ§Ã£o do escritÃ³rio de contabilidade no CNPJ, se houver. N 014* - N.
    *
-   * @return the número de inscrição do escritório de contabilidade no CNPJ, se houver
+   * @return the nÃºmero de inscriÃ§Ã£o do escritÃ³rio de contabilidade no CNPJ, se houver
    */
   public String getR05_CNPJ() {
     return r05_CNPJ;
   }
 
   /**
-   * Define o número de inscrição do escritório de contabilidade no CNPJ, se houver. N 014* - N.
+   * Define o nÃºmero de inscriÃ§Ã£o do escritÃ³rio de contabilidade no CNPJ, se houver. N 014* - N.
    *
-   * @param r05_CNPJ the new número de inscrição do escritório de contabilidade no CNPJ, se houver
+   * @param r05_CNPJ the new nÃºmero de inscriÃ§Ã£o do escritÃ³rio de contabilidade no CNPJ, se houver
    */
   public void setR05_CNPJ(String r05_CNPJ) {
     this.r05_CNPJ = r05_CNPJ;
   }
 
   /**
-   * Recupera o código de Endereçamento Postal. N 008* - N.
+   * Recupera o cÃ³digo de EndereÃ§amento Postal. N 008* - N.
    *
-   * @return the código de Endereçamento Postal
+   * @return the cÃ³digo de EndereÃ§amento Postal
    */
   public String getR06_CEP() {
     return r06_CEP;
   }
 
   /**
-   * Define o código de Endereçamento Postal. N 008* - N.
+   * Define o cÃ³digo de EndereÃ§amento Postal. N 008* - N.
    *
-   * @param r06_CEP the new código de Endereçamento Postal
+   * @param r06_CEP the new cÃ³digo de EndereÃ§amento Postal
    */
   public void setR06_CEP(String r06_CEP) {
     this.r06_CEP = r06_CEP;
   }
 
   /**
-   * Recupera o logradouro e endereço do imóvel. C 060 - N.
+   * Recupera o logradouro e endereÃ§o do imÃ³vel. C 060 - N.
    *
-   * @return the logradouro e endereço do imóvel
+   * @return the logradouro e endereÃ§o do imÃ³vel
    */
   public String getR07_END() {
     return r07_END;
   }
 
   /**
-   * Define o logradouro e endereço do imóvel. C 060 - N.
+   * Define o logradouro e endereÃ§o do imÃ³vel. C 060 - N.
    *
-   * @param r07_END the new logradouro e endereço do imóvel
+   * @param r07_END the new logradouro e endereÃ§o do imÃ³vel
    */
   public void setR07_END(String r07_END) {
     this.r07_END = r07_END;
   }
 
   /**
-   * Recupera o número do imóvel. C - - N.
+   * Recupera o nÃºmero do imÃ³vel. C - - N.
    *
-   * @return the número do imóvel
+   * @return the nÃºmero do imÃ³vel
    */
   public Integer getR08_NUM() {
     return r08_NUM;
   }
 
   /**
-   * Define o número do imóvel. C - - N.
+   * Define o nÃºmero do imÃ³vel. C - - N.
    *
-   * @param r08_NUM the new número do imóvel
+   * @param r08_NUM the new nÃºmero do imÃ³vel
    */
   public void setR08_NUM(Integer r08_NUM) {
     this.r08_NUM = r08_NUM;
   }
 
   /**
-   * Recupera o dados complementares do endereço. C 060 - N.
+   * Recupera o dados complementares do endereÃ§o. C 060 - N.
    *
-   * @return the dados complementares do endereço
+   * @return the dados complementares do endereÃ§o
    */
   public String getR09_COMPL() {
     return r09_COMPL;
   }
 
   /**
-   * Define o dados complementares do endereço. C 060 - N.
+   * Define o dados complementares do endereÃ§o. C 060 - N.
    *
-   * @param r09_COMPL the new dados complementares do endereço
+   * @param r09_COMPL the new dados complementares do endereÃ§o
    */
   public void setR09_COMPL(String r09_COMPL) {
     this.r09_COMPL = r09_COMPL;
   }
 
   /**
-   * Recupera o bairro em que o imóvel está situado. C 060 - N.
+   * Recupera o bairro em que o imÃ³vel estÃ¡ situado. C 060 - N.
    *
-   * @return the bairro em que o imóvel está situado
+   * @return the bairro em que o imÃ³vel estÃ¡ situado
    */
   public String getR10_BAIRRO() {
     return r10_BAIRRO;
   }
 
   /**
-   * Define o bairro em que o imóvel está situado. C 060 - N.
+   * Define o bairro em que o imÃ³vel estÃ¡ situado. C 060 - N.
    *
-   * @param r10_BAIRRO the new bairro em que o imóvel está situado
+   * @param r10_BAIRRO the new bairro em que o imÃ³vel estÃ¡ situado
    */
   public void setR10_BAIRRO(String r10_BAIRRO) {
     this.r10_BAIRRO = r10_BAIRRO;
   }
 
   /**
-   * Recupera o número do telefone. C 11 - N.
+   * Recupera o nÃºmero do telefone. C 11 - N.
    *
-   * @return the número do telefone
+   * @return the nÃºmero do telefone
    */
   public String getR11_FONE() {
     return r11_FONE;
   }
 
   /**
-   * Define o número do telefone. C 11 - N.
+   * Define o nÃºmero do telefone. C 11 - N.
    *
-   * @param r11_FONE the new número do telefone
+   * @param r11_FONE the new nÃºmero do telefone
    */
   public void setR11_FONE(String r11_FONE) {
     this.r11_FONE = r11_FONE;
   }
 
   /**
-   * Recupera o número do fax. C 11 - N.
+   * Recupera o nÃºmero do fax. C 11 - N.
    *
-   * @return the número do fax
+   * @return the nÃºmero do fax
    */
   public String getR12_FAX() {
     return r12_FAX;
   }
 
   /**
-   * Define o número do fax. C 11 - N.
+   * Define o nÃºmero do fax. C 11 - N.
    *
-   * @param r12_FAX the new número do fax
+   * @param r12_FAX the new nÃºmero do fax
    */
   public void setR12_FAX(String r12_FAX) {
     this.r12_FAX = r12_FAX;
   }
 
   /**
-   * Recupera o endereço do correio eletrônico. C - - N.
+   * Recupera o endereÃ§o do correio eletrÃ´nico. C - - N.
    *
-   * @return the endereço do correio eletrônico
+   * @return the endereÃ§o do correio eletrÃ´nico
    */
   public String getR13_EMAIL() {
     return r13_EMAIL;
   }
 
   /**
-   * Define o endereço do correio eletrônico. C - - N.
+   * Define o endereÃ§o do correio eletrÃ´nico. C - - N.
    *
-   * @param r13_EMAIL the new endereço do correio eletrônico
+   * @param r13_EMAIL the new endereÃ§o do correio eletrÃ´nico
    */
   public void setR13_EMAIL(String r13_EMAIL) {
     this.r13_EMAIL = r13_EMAIL;
   }
 
   /**
-   * Recupera o código do município, conforme tabela IBGE. N 007* - N.
+   * Recupera o cÃ³digo do municÃ­pio, conforme tabela IBGE. N 007* - N.
    *
-   * @return the código do município, conforme tabela IBGE
+   * @return the cÃ³digo do municÃ­pio, conforme tabela IBGE
    */
   public String getR14_COD_MUN() {
     return r14_COD_MUN;
   }
 
   /**
-   * Define o código do município, conforme tabela IBGE. N 007* - N.
+   * Define o cÃ³digo do municÃ­pio, conforme tabela IBGE. N 007* - N.
    *
-   * @param r14_COD_MUN the new código do município, conforme tabela IBGE
+   * @param r14_COD_MUN the new cÃ³digo do municÃ­pio, conforme tabela IBGE
    */
   public void setR14_COD_MUN(String r14_COD_MUN) {
     this.r14_COD_MUN = r14_COD_MUN;

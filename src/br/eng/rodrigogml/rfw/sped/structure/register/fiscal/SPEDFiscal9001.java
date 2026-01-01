@@ -15,7 +15,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 /**
  * Description: REGISTRO 9001: ABERTURA DO BLOCO 9.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscal9001 extends SPEDRegister {
@@ -82,9 +82,9 @@ public class SPEDFiscal9001 extends SPEDRegister {
   @Override
   public void calculate(String uuid) throws RFWException {
     if (uuid == null || !uuid.equals(this.getLastUUID())) {
-      // Limpa os registros filhos, pois ser„o gerados automaticamente de acordo com o conte˙do do arquivo
+      // Limpa os registros filhos, pois ser√£o gerados automaticamente de acordo com o conte√∫do do arquivo
       this.r9900_AUTO.clear();
-      super.calculate(uuid); // Sem filhos, a chamada ao pai sÛ trava o uuid.
+      super.calculate(uuid); // Sem filhos, a chamada ao pai s√≥ trava o uuid.
 
       Field[] fields = this.getSpedFile().getClass().getDeclaredFields();
       Arrays.sort(fields, fieldComparator);
@@ -99,19 +99,19 @@ public class SPEDFiscal9001 extends SPEDRegister {
 
       SPEDFiscal9900 r9900_9900 = new SPEDFiscal9900(this.getSpedFile());
       r9900_9900.setR02_REG_BLC("9900");
-      r9900_9900.setR03_QTD_REG_BLC_AUTO(this.r9900_AUTO.size() + 1); // Soma 1 pq este objeto conta e ainda n„o est· na coleÁ„o
+      r9900_9900.setR03_QTD_REG_BLC_AUTO(this.r9900_AUTO.size() + 1); // Soma 1 pq este objeto conta e ainda n√£o est√° na cole√ß√£o
       this.getR9900_AUTO().put("9900", r9900_9900);
 
-      // Verifica se h· conte˙do nos registros
+      // Verifica se h√° conte√∫do nos registros
       boolean hasContent = !r9900_AUTO.isEmpty();
       r02_IND_MOV_AUTO = hasContent ? "0" : "1";
     }
   }
 
   /**
-   * Recebe uma lista de 'Fields' e itera em busca de mÈtodos get com o padr„o 'r????'.<br>
+   * Recebe uma lista de 'Fields' e itera em busca de m√©todos get com o padr√£o 'r????'.<br>
    * Ao encontrar calcula a quantidade e adiciona um registro 0990.<br>
-   * Ignora o prÛprio registro 9001, que È adicionado manualmente ao final.
+   * Ignora o pr√≥prio registro 9001, que √© adicionado manualmente ao final.
    *
    * @param fieldList
    * @throws RFWException

@@ -22,7 +22,7 @@ public class SPEDContribC001 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C010: IDENTIFICA«√O DO ESTABELECIMENTO<br>
+   * REGISTRO C010: IDENTIFICA√á√ÉO DO ESTABELECIMENTO<br>
    * Chave: CNPJ do estabelecimento.
    */
   private final LinkedHashMap<String, SPEDContribC010> rc010 = new LinkedHashMap<String, SPEDContribC010>();
@@ -72,10 +72,10 @@ public class SPEDContribC001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C010: IDENTIFICA«√O DO ESTABELECIMENTO<br>
+   * Recupera o rEGISTRO C010: IDENTIFICA√á√ÉO DO ESTABELECIMENTO<br>
    * Chave: CNPJ do estabelecimento.
    *
-   * @return the rEGISTRO C010: IDENTIFICA«√O DO ESTABELECIMENTO<br>
+   * @return the rEGISTRO C010: IDENTIFICA√á√ÉO DO ESTABELECIMENTO<br>
    *         Chave: CNPJ do estabelecimento
    */
   public LinkedHashMap<String, SPEDContribC010> getRc010() {

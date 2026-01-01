@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO H020: Informação complementar do Inventário..<br>
+ * Description: REGISTRO H020: InformaÃ§Ã£o complementar do InventÃ¡rio..<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalH020 extends SPEDRegister {
@@ -21,13 +21,13 @@ public class SPEDFiscalH020 extends SPEDRegister {
   }
 
   /**
-   * 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O
+   * 02 CST_ICMS CÃ³digo da SituaÃ§Ã£o TributÃ¡ria referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O
    */
   @SPEDField(maxLength = 3, minLength = 3)
   private String r02_CST_ICMS = null;
 
   /**
-   * 03 BC_ICMS Informe a base de cálculo do ICMS N - 02 O
+   * 03 BC_ICMS Informe a base de cÃ¡lculo do ICMS N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r03_BC_ICMS = null;
@@ -44,36 +44,36 @@ public class SPEDFiscalH020 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O.
+   * Recupera o 02 CST_ICMS CÃ³digo da SituaÃ§Ã£o TributÃ¡ria referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O.
    *
-   * @return the 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4
+   * @return the 02 CST_ICMS CÃ³digo da SituaÃ§Ã£o TributÃ¡ria referente ao ICMS, conforme a Tabela indicada no item 4
    */
   public String getR02_CST_ICMS() {
     return r02_CST_ICMS;
   }
 
   /**
-   * Define o 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O.
+   * Define o 02 CST_ICMS CÃ³digo da SituaÃ§Ã£o TributÃ¡ria referente ao ICMS, conforme a Tabela indicada no item 4.3.1 N 003* - O.
    *
-   * @param r02_CST_ICMS the new 02 CST_ICMS Código da Situação Tributária referente ao ICMS, conforme a Tabela indicada no item 4
+   * @param r02_CST_ICMS the new 02 CST_ICMS CÃ³digo da SituaÃ§Ã£o TributÃ¡ria referente ao ICMS, conforme a Tabela indicada no item 4
    */
   public void setR02_CST_ICMS(String r02_CST_ICMS) {
     this.r02_CST_ICMS = r02_CST_ICMS;
   }
 
   /**
-   * Recupera o 03 BC_ICMS Informe a base de cálculo do ICMS N - 02 O.
+   * Recupera o 03 BC_ICMS Informe a base de cÃ¡lculo do ICMS N - 02 O.
    *
-   * @return the 03 BC_ICMS Informe a base de cálculo do ICMS N - 02 O
+   * @return the 03 BC_ICMS Informe a base de cÃ¡lculo do ICMS N - 02 O
    */
   public BigDecimal getR03_BC_ICMS() {
     return r03_BC_ICMS;
   }
 
   /**
-   * Define o 03 BC_ICMS Informe a base de cálculo do ICMS N - 02 O.
+   * Define o 03 BC_ICMS Informe a base de cÃ¡lculo do ICMS N - 02 O.
    *
-   * @param r03_BC_ICMS the new 03 BC_ICMS Informe a base de cálculo do ICMS N - 02 O
+   * @param r03_BC_ICMS the new 03 BC_ICMS Informe a base de cÃ¡lculo do ICMS N - 02 O
    */
   public void setR03_BC_ICMS(BigDecimal r03_BC_ICMS) {
     this.r03_BC_ICMS = r03_BC_ICMS;

@@ -53,7 +53,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
 /**
- * Description: Classe para auxiliar na montagem e manipulaÁ„o do arquivo do SPED Fiscal atravÈs da estrutura {@link SPEDFiscalFile}.<br>
+ * Description: Classe para auxiliar na montagem e manipula√ß√£o do arquivo do SPED Fiscal atrav√©s da estrutura {@link SPEDFiscalFile}.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (22 de jul. de 2023)
@@ -62,7 +62,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 public class SPEDFiscalBuilder {
 
   /**
-   * Construtor privado para classe exclusiva com mÈtodos est·ticos.
+   * Construtor privado para classe exclusiva com m√©todos est√°ticos.
    */
   private SPEDFiscalBuilder() {
   }
@@ -70,9 +70,9 @@ public class SPEDFiscalBuilder {
   /**
    * REGISTRO 1001: ABERTURA DO BLOCO 1<Br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    * <br>
    *
    * @param sped Arquivo do SPED.
@@ -92,25 +92,25 @@ public class SPEDFiscalBuilder {
    * REGISTRO 1010: OBRIGATORIEDADE DE REGISTROS DO BLOCO 1<br>
    * <br>
    *
-   * <li>Obs.: AtÈ 31/12/2021 o campo 08 referiu-se ao registro 1600.</li>
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ 1</li>
+   * <li>Obs.: At√© 31/12/2021 o campo 08 referiu-se ao registro 1600.</li>
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì 1</li>
    * <li>
    *
    * @param r1001 Registro 1001
-   * @param indExp Reg. 1100 - Ocorreu averbaÁ„o (conclus„o) de exportaÁ„o no perÌodo?
-   * @param indCCRF Reg 1200 ñ Existem informaÁıes acerca de crÈditos de ICMS a serem controlados, definidos pela Sefaz?
-   * @param indComb Reg. 1300 ñ … comÈrcio varejista de combustÌveis com movimentaÁ„o e/ou estoque no perÌodo?
-   * @param indUsina Reg. 1390 ñ Usinas de aÁ˙car e/·lcool ñ O estabelecimento È produtor de aÁ˙car e/ou ·lcool carburante com movimentaÁ„o e/ou estoque no perÌodo?
-   * @param indVA Reg 1400 - Sendo o registro obrigatÛrio em sua Unidade de FederaÁ„o, existem informaÁıes a serem prestadas neste registro?
-   * @param indEE Reg 1500 - A empresa È distribuidora de energia e ocorreu fornecimento de energia elÈtrica para consumidores de outra UF?
-   * @param indCart Reg 1601 - Realizou vendas com instrumentos eletrÙnicos de pagamento?
-   * @param infForm Reg. 1700 - Foram emitidos documentos fiscais em papel no perÌodo em unidade da federaÁ„o que exija o controle de utilizaÁ„o de documentos fiscais?
-   * @param indAER Reg 1800 - A empresa prestou serviÁos de transporte aÈreo de cargas e de passageiros?
-   * @param indGIAF1 Reg. 1960 - Possui informaÁıes GIAF1?
-   * @param indGIAF3 Reg. 1970 - Possui informaÁıes GIAF3?
-   * @param indGIAF4 Reg. 1980 - Possui informaÁıes GIAF4?
-   * @param indRestRessarcComplICMS Reg. 1250 ñ Possui informaÁıes consolidadas de saldos de restituiÁ„o, ressarcimento e complementaÁ„o do ICMS?
+   * @param indExp Reg. 1100 - Ocorreu averba√ß√£o (conclus√£o) de exporta√ß√£o no per√≠odo?
+   * @param indCCRF Reg 1200 ‚Äì Existem informa√ß√µes acerca de cr√©ditos de ICMS a serem controlados, definidos pela Sefaz?
+   * @param indComb Reg. 1300 ‚Äì √â com√©rcio varejista de combust√≠veis com movimenta√ß√£o e/ou estoque no per√≠odo?
+   * @param indUsina Reg. 1390 ‚Äì Usinas de a√ß√∫car e/√°lcool ‚Äì O estabelecimento √© produtor de a√ß√∫car e/ou √°lcool carburante com movimenta√ß√£o e/ou estoque no per√≠odo?
+   * @param indVA Reg 1400 - Sendo o registro obrigat√≥rio em sua Unidade de Federa√ß√£o, existem informa√ß√µes a serem prestadas neste registro?
+   * @param indEE Reg 1500 - A empresa √© distribuidora de energia e ocorreu fornecimento de energia el√©trica para consumidores de outra UF?
+   * @param indCart Reg 1601 - Realizou vendas com instrumentos eletr√¥nicos de pagamento?
+   * @param infForm Reg. 1700 - Foram emitidos documentos fiscais em papel no per√≠odo em unidade da federa√ß√£o que exija o controle de utiliza√ß√£o de documentos fiscais?
+   * @param indAER Reg 1800 - A empresa prestou servi√ßos de transporte a√©reo de cargas e de passageiros?
+   * @param indGIAF1 Reg. 1960 - Possui informa√ß√µes GIAF1?
+   * @param indGIAF3 Reg. 1970 - Possui informa√ß√µes GIAF3?
+   * @param indGIAF4 Reg. 1980 - Possui informa√ß√µes GIAF4?
+   * @param indRestRessarcComplICMS Reg. 1250 ‚Äì Possui informa√ß√µes consolidadas de saldos de restitui√ß√£o, ressarcimento e complementa√ß√£o do ICMS?
    * @return
    * @throws RFWException
    */
@@ -139,26 +139,26 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    * <br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 0</li>
-   * <li>OcorrÍncia - um por arquivo.</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 0</li>
+   * <li>Ocorr√™ncia - um por arquivo.</li>
    *
    * @param sped Arquivo SPED.
-   * @param r03_COD_FIN CÛdigo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto.
-   * @param r04_DT_INI Data inicial das informaÁıes contidas no arquivo.
-   * @param r05_DT_FIN Data final das informaÁıes contidas no arquivo.
+   * @param r03_COD_FIN C√≥digo da finalidade do arquivo: 0 - Remessa do arquivo original; 1 - Remessa do arquivo substituto.
+   * @param r04_DT_INI Data inicial das informa√ß√µes contidas no arquivo.
+   * @param r05_DT_FIN Data final das informa√ß√µes contidas no arquivo.
    * @param r06_NOME Nome empresarial da entidade.
-   * @param r07_CNPJ N˙mero de inscriÁ„o da entidade no CNPJ.
-   * @param r08_CPF N˙mero de inscriÁ„o da entidade no CPF.
-   * @param r09_UF Sigla da unidade da federaÁ„o da entidade.
-   * @param r10_IE InscriÁ„o Estadual da entidade.
-   * @param r11_COD_MUN CÛdigo do municÌpio do domicÌlio fiscal da entidade, conforme a tabela IBGE.
-   * @param r12_IM InscriÁ„o Municipal da entidade.
-   * @param r13_SUFRAMA InscriÁ„o da entidade na SUFRAMA.
-   * @param r14_IND_PERFIL Perfil de apresentaÁ„o do arquivo fiscal; A ñ Perfil A; B ñ Perfil B.; C ñ Perfil C.
-   * @param r15_IND_ATIV Indicador de tipo de atividade: 0 ñ Industrial ou equiparado a industrial; 1 ñ Outros.
+   * @param r07_CNPJ N√∫mero de inscri√ß√£o da entidade no CNPJ.
+   * @param r08_CPF N√∫mero de inscri√ß√£o da entidade no CPF.
+   * @param r09_UF Sigla da unidade da federa√ß√£o da entidade.
+   * @param r10_IE Inscri√ß√£o Estadual da entidade.
+   * @param r11_COD_MUN C√≥digo do munic√≠pio do domic√≠lio fiscal da entidade, conforme a tabela IBGE.
+   * @param r12_IM Inscri√ß√£o Municipal da entidade.
+   * @param r13_SUFRAMA Inscri√ß√£o da entidade na SUFRAMA.
+   * @param r14_IND_PERFIL Perfil de apresenta√ß√£o do arquivo fiscal; A ‚Äì Perfil A; B ‚Äì Perfil B.; C ‚Äì Perfil C.
+   * @param r15_IND_ATIV Indicador de tipo de atividade: 0 ‚Äì Industrial ou equiparado a industrial; 1 ‚Äì Outros.
    * @return
    * @throws RFWException
    */
@@ -169,7 +169,7 @@ public class SPEDFiscalBuilder {
       sped.setR0000(r0000);
     }
 
-    r0000.setR02_COD_VER("017"); // CÛdigo da vers„o depende do cÛdigo implementado, por isso È definido como constante no cÛdigo.
+    r0000.setR02_COD_VER("017"); // C√≥digo da vers√£o depende do c√≥digo implementado, por isso √© definido como constante no c√≥digo.
     r0000.setR03_COD_FIN(r03_COD_FIN);
     r0000.setR04_DT_INI(r04_DT_INI);
     r0000.setR05_DT_FIN(r05_DT_FIN);
@@ -189,9 +189,9 @@ public class SPEDFiscalBuilder {
   /**
    * REGISTRO 0001: ABERTURA DO BLOCO 0<Br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    * <br>
    *
    * @param sped Arquivo SPED.
@@ -211,20 +211,20 @@ public class SPEDFiscalBuilder {
    * REGISTRO 0005: DADOS COMPLEMENTARES DA ENTIDADE<br>
    * <br>
    *
-   * <li>ObservaÁıes:</li>
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * <li>Observa√ß√µes:</li>
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param r0001 Registro pai.
    * @param r02_FANTASIA Nome de fantasia associado ao nome empresarial.
-   * @param r03_CEP CÛdigo de EndereÁamento Postal.
-   * @param r04_END Logradouro e endereÁo do imÛvel.
-   * @param r05_NUM N˙mero do imÛvel.
-   * @param r06_COMPL Dados complementares do endereÁo.
-   * @param r07_BAIRRO Bairro em que o imÛvel est· situado.
-   * @param r08_FONE N˙mero do telefone (DDD+FONE).
-   * @param r09_FAX N˙mero do fax.
-   * @param r10_EMAIL EndereÁo do correio eletrÙnico.
+   * @param r03_CEP C√≥digo de Endere√ßamento Postal.
+   * @param r04_END Logradouro e endere√ßo do im√≥vel.
+   * @param r05_NUM N√∫mero do im√≥vel.
+   * @param r06_COMPL Dados complementares do endere√ßo.
+   * @param r07_BAIRRO Bairro em que o im√≥vel est√° situado.
+   * @param r08_FONE N√∫mero do telefone (DDD+FONE).
+   * @param r09_FAX N√∫mero do fax.
+   * @param r10_EMAIL Endere√ßo do correio eletr√¥nico.
    * @return
    * @throws RFWException
    */
@@ -251,24 +251,24 @@ public class SPEDFiscalBuilder {
    * REGISTRO 0100: DADOS DO CONTABILISTA<br>
    * <br>
    *
-   * ObservaÁıes: Registro obrigatÛrio
-   * <li>NÌvel hier·rquico - 0</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes: Registro obrigat√≥rio
+   * <li>N√≠vel hier√°rquico - 0</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    *
    * @param r0001 Registro pai.
    * @param r02_NOME Nome do contabilista.
-   * @param r03_CPF N˙mero de inscriÁ„o do contabilista no CPF.
-   * @param r04_CRC N˙mero de inscriÁ„o do contabilista no Conselho Regional de Contabilidade.
-   * @param r05_CNPJ N˙mero de inscriÁ„o do escritÛrio de contabilidade no CNPJ, se houver.
-   * @param r06_CEP CÛdigo de EndereÁamento Postal.
-   * @param r07_END Logradouro e endereÁo do imÛvel.
-   * @param r08_NUM N˙mero do imÛvel.
-   * @param r09_COMPL Dados complementares do endereÁo.
-   * @param r10_BAIRRO Bairro em que o imÛvel est· situado.
-   * @param r11_FONE N˙mero do telefone (DDD+FONE).
-   * @param r12_FAX N˙mero do fax.
-   * @param r13_EMAIL EndereÁo do correio eletrÙnico.
-   * @param r14_COD_MUN CÛdigo do municÌpio, conforme tabela IBGE.
+   * @param r03_CPF N√∫mero de inscri√ß√£o do contabilista no CPF.
+   * @param r04_CRC N√∫mero de inscri√ß√£o do contabilista no Conselho Regional de Contabilidade.
+   * @param r05_CNPJ N√∫mero de inscri√ß√£o do escrit√≥rio de contabilidade no CNPJ, se houver.
+   * @param r06_CEP C√≥digo de Endere√ßamento Postal.
+   * @param r07_END Logradouro e endere√ßo do im√≥vel.
+   * @param r08_NUM N√∫mero do im√≥vel.
+   * @param r09_COMPL Dados complementares do endere√ßo.
+   * @param r10_BAIRRO Bairro em que o im√≥vel est√° situado.
+   * @param r11_FONE N√∫mero do telefone (DDD+FONE).
+   * @param r12_FAX N√∫mero do fax.
+   * @param r13_EMAIL Endere√ßo do correio eletr√¥nico.
+   * @param r14_COD_MUN C√≥digo do munic√≠pio, conforme tabela IBGE.
    * @return
    * @throws RFWException
    */
@@ -298,9 +298,9 @@ public class SPEDFiscalBuilder {
   /**
    * REGISTRO H001: ABERTURA DO BLOCO H<Br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    * <br>
    *
    * @param sped Arquivo do SPED.
@@ -317,24 +317,24 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO H005: TOTAIS DO INVENT¡RIO<br>
+   * REGISTRO H005: TOTAIS DO INVENT√ÅRIO<br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ 1:N</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì 1:N</li><Br>
    * <Br>
    *
    * @param rh001 Registro pai.
-   * @param uniqueID Identificador ˙nico do registro para identificaÁ„o do registro internamente no desenvolvimento. Conte˙do n„o È enviado ou escrito no conte˙do do arquivo SPED.
-   * @param r02_DT_INV Data do invent·rio.
+   * @param uniqueID Identificador √∫nico do registro para identifica√ß√£o do registro internamente no desenvolvimento. Conte√∫do n√£o √© enviado ou escrito no conte√∫do do arquivo SPED.
+   * @param r02_DT_INV Data do invent√°rio.
    * @param r03_VL_INV Valor total do estoque.
-   * @param r04_MOT_INV Informe o motivo do Invent·rio:
-   *          <li>01 ñ No final no perÌodo;</li>
-   *          <li>02 ñ Na mudanÁa de forma de tributaÁ„o da mercadoria (ICMS);</li>
-   *          <li>03 ñ Na solicitaÁ„o da baixa cadastral, paralisaÁ„o tempor·ria e outras situaÁıes;</li>
-   *          <li>04 ñ Na alteraÁ„o de regime de pagamento ñ condiÁ„o do contribuinte;</li>
-   *          <li>05 ñ Por determinaÁ„o dos fiscos;</li>
-   *          <li>06 ñ Para controle das mercadorias sujeitas ao regime de substituiÁ„o tribut·ria ñ restituiÁ„o/ ressarcimento/ complementaÁ„o.</li>
+   * @param r04_MOT_INV Informe o motivo do Invent√°rio:
+   *          <li>01 ‚Äì No final no per√≠odo;</li>
+   *          <li>02 ‚Äì Na mudan√ßa de forma de tributa√ß√£o da mercadoria (ICMS);</li>
+   *          <li>03 ‚Äì Na solicita√ß√£o da baixa cadastral, paralisa√ß√£o tempor√°ria e outras situa√ß√µes;</li>
+   *          <li>04 ‚Äì Na altera√ß√£o de regime de pagamento ‚Äì condi√ß√£o do contribuinte;</li>
+   *          <li>05 ‚Äì Por determina√ß√£o dos fiscos;</li>
+   *          <li>06 ‚Äì Para controle das mercadorias sujeitas ao regime de substitui√ß√£o tribut√°ria ‚Äì restitui√ß√£o/ ressarcimento/ complementa√ß√£o.</li>
    * @return
    * @throws RFWException
    */
@@ -352,26 +352,26 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO H010: INVENT¡RIO.<bR>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 3</li>
-   * <li>OcorrÍncia - 1:N</li>
+   * REGISTRO H010: INVENT√ÅRIO.<bR>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 3</li>
+   * <li>Ocorr√™ncia - 1:N</li>
    *
    * @param rh005 Registro pai.
-   * @param uniqueID Identificador ˙nico do registro para identificaÁ„o do registro internamente no desenvolvimento. Conte˙do n„o È enviado ou escrito no conte˙do do arquivo SPED.
-   * @param r02_COD_ITEM CÛdigo do item (campo 02 do Registro 0200).
+   * @param uniqueID Identificador √∫nico do registro para identifica√ß√£o do registro internamente no desenvolvimento. Conte√∫do n√£o √© enviado ou escrito no conte√∫do do arquivo SPED.
+   * @param r02_COD_ITEM C√≥digo do item (campo 02 do Registro 0200).
    * @param r03_UNID Unidade do item.
    * @param r04_QTD Quantidade do item.
-   * @param r05_VL_UNIT Valor unit·rio do item.
+   * @param r05_VL_UNIT Valor unit√°rio do item.
    * @param r06_VL_ITEM Valor do item.
    * @param r07_IND_PROP Indicador de propriedade/posse do item:
    *          <li>0- Item de propriedade do informante e em seu poder;
    *          <li>1- Item de propriedade do informante em posse de terceiros;
    *          <li>2- Item de propriedade de terceiros em posse do informante
-   * @param r08_COD_PART CÛdigo do participante (campo 02 do Registro 0150):
-   *          <li>propriet·rio/possuidor que n„o seja o informante do arquivo
-   * @param r09_TXT_COMPL DescriÁ„o complementar
-   * @param r10_COD_CTA CÛdigo da conta analÌtica cont·bil debitada/creditada
+   * @param r08_COD_PART C√≥digo do participante (campo 02 do Registro 0150):
+   *          <li>propriet√°rio/possuidor que n√£o seja o informante do arquivo
+   * @param r09_TXT_COMPL Descri√ß√£o complementar
+   * @param r10_COD_CTA C√≥digo da conta anal√≠tica cont√°bil debitada/creditada
    * @param r11_VL_ITEM_IR Valor do item para efeitos do Imposto de Renda.
    * @return
    * @throws RFWException
@@ -398,14 +398,14 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0190: IDENTIFICA«√O DAS UNIDADES DE MEDIDA<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico: 2</li>
-   * <li>OcorrÍncia: v·rios por arquivo</li>
+   * REGISTRO 0190: IDENTIFICA√á√ÉO DAS UNIDADES DE MEDIDA<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 2</li>
+   * <li>Ocorr√™ncia: v√°rios por arquivo</li>
    *
    * @param r0001 Registro pai.
    * @param unitSymbol Simbolo da Unidade de metida (uniqueID).
-   * @param unitName DescriÁ„o / Nome da unidade de medida.
+   * @param unitName Descri√ß√£o / Nome da unidade de medida.
    * @return
    * @throws RFWException
    */
@@ -421,41 +421,41 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia - v·rios (por arquivo)</li> <Br>
+   * REGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia - v√°rios (por arquivo)</li> <Br>
    * <bR>
    * Tenta criar o registro 0190 para registrar a unidade de medida mencionada no atributo r06.
    *
    *
    * @param sped Arquivo SPED.
-   * @param r02_COD_ITEM CÛdigo do item. (uniqueID)
-   * @param r03_DESCR_ITEM DescriÁ„o do item.
-   * @param r04_COD_BARRA RepresentaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver.
-   * @param r05_COD_ANT_ITEM CÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada
-   * @param r06_UNID_INV Unidade de medida utilizada na quantificaÁ„o de estoques.
-   * @param r07_TIPO_ITEM Tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   *          <li>00 ñ Mercadoria para Revenda;
-   *          <li>01 ñ MatÈria-prima;
-   *          <li>02 ñ Embalagem;
-   *          <li>03 ñ Produto em Processo;
-   *          <li>04 ñ Produto Acabado;
-   *          <li>05 ñ Subproduto;
-   *          <li>06 ñ Produto Intermedi·rio;
-   *          <li>07 ñ Material de Uso e Consumo;
-   *          <li>08 ñ Ativo Imobilizado;
-   *          <li>09 ñ ServiÁos;
-   *          <li>10 ñ Outros insumos;
-   *          <li>99 ñ Outras
-   * @param r08_COD_NCM CÛdigo da Nomenclatura Comum do Mercosul
-   * @param r09_EX_IPI CÛdigo EX, conforme a TIPI
-   * @param r10_COD_GEN CÛdigo do gÍnero do item, conforme a Tabela 4.2.1
-   * @param r11_COD_LST CÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03.
-   * @param r12_ALIQ_ICMS AlÌquota de ICMS aplic·vel ao item nas operaÁıes internas
-   * @param r13_CEST CÛdigo Especificador da SubstituiÁ„o Tribut·ria
-   * @param r190_r03_DESCR DescriÁ„o da unidade de medida:<br>
-   *          <li>Utilizado em conjunto com outras informaÁıes para tentar gerar automaticamente o Registro 0190.</li>
+   * @param r02_COD_ITEM C√≥digo do item. (uniqueID)
+   * @param r03_DESCR_ITEM Descri√ß√£o do item.
+   * @param r04_COD_BARRA Representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver.
+   * @param r05_COD_ANT_ITEM C√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada
+   * @param r06_UNID_INV Unidade de medida utilizada na quantifica√ß√£o de estoques.
+   * @param r07_TIPO_ITEM Tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   *          <li>00 ‚Äì Mercadoria para Revenda;
+   *          <li>01 ‚Äì Mat√©ria-prima;
+   *          <li>02 ‚Äì Embalagem;
+   *          <li>03 ‚Äì Produto em Processo;
+   *          <li>04 ‚Äì Produto Acabado;
+   *          <li>05 ‚Äì Subproduto;
+   *          <li>06 ‚Äì Produto Intermedi√°rio;
+   *          <li>07 ‚Äì Material de Uso e Consumo;
+   *          <li>08 ‚Äì Ativo Imobilizado;
+   *          <li>09 ‚Äì Servi√ßos;
+   *          <li>10 ‚Äì Outros insumos;
+   *          <li>99 ‚Äì Outras
+   * @param r08_COD_NCM C√≥digo da Nomenclatura Comum do Mercosul
+   * @param r09_EX_IPI C√≥digo EX, conforme a TIPI
+   * @param r10_COD_GEN C√≥digo do g√™nero do item, conforme a Tabela 4.2.1
+   * @param r11_COD_LST C√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03.
+   * @param r12_ALIQ_ICMS Al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas
+   * @param r13_CEST C√≥digo Especificador da Substitui√ß√£o Tribut√°ria
+   * @param r190_r03_DESCR Descri√ß√£o da unidade de medida:<br>
+   *          <li>Utilizado em conjunto com outras informa√ß√µes para tentar gerar automaticamente o Registro 0190.</li>
    *
    * @return
    * @throws RFWException
@@ -487,36 +487,36 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTO E SERVI«OS)<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia - v·rios (por arquivo)</li>
-   * <li>Por receber o registro 0190 diretamente, o atributo R06 È extraÌdo diretamente do registro de unidade de medida.
+   * REGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTO E SERVI√áOS)<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia - v√°rios (por arquivo)</li>
+   * <li>Por receber o registro 0190 diretamente, o atributo R06 √© extra√≠do diretamente do registro de unidade de medida.
    *
-   * @param r0190 Registro 0190 com as informaÁıes da unidade de medida do item.
-   * @param r02_COD_ITEM CÛdigo do item. (uniqueID)
-   * @param r03_DESCR_ITEM DescriÁ„o do item.
-   * @param r04_COD_BARRA RepresentaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver.
-   * @param r05_COD_ANT_ITEM CÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada
-   * @param r07_TIPO_ITEM Tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   *          <li>00 ñ Mercadoria para Revenda;
-   *          <li>01 ñ MatÈria-prima;
-   *          <li>02 ñ Embalagem;
-   *          <li>03 ñ Produto em Processo;
-   *          <li>04 ñ Produto Acabado;
-   *          <li>05 ñ Subproduto;
-   *          <li>06 ñ Produto Intermedi·rio;
-   *          <li>07 ñ Material de Uso e Consumo;
-   *          <li>08 ñ Ativo Imobilizado;
-   *          <li>09 ñ ServiÁos;
-   *          <li>10 ñ Outros insumos;
-   *          <li>99 ñ Outras
-   * @param r08_COD_NCM CÛdigo da Nomenclatura Comum do Mercosul
-   * @param r09_EX_IPI CÛdigo EX, conforme a TIPI
-   * @param r10_COD_GEN CÛdigo do gÍnero do item, conforme a Tabela 4.2.1
-   * @param r11_COD_LST CÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03.
-   * @param r12_ALIQ_ICMS AlÌquota de ICMS aplic·vel ao item nas operaÁıes internas
-   * @param r13_CEST CÛdigo Especificador da SubstituiÁ„o Tribut·ria
+   * @param r0190 Registro 0190 com as informa√ß√µes da unidade de medida do item.
+   * @param r02_COD_ITEM C√≥digo do item. (uniqueID)
+   * @param r03_DESCR_ITEM Descri√ß√£o do item.
+   * @param r04_COD_BARRA Representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver.
+   * @param r05_COD_ANT_ITEM C√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada
+   * @param r07_TIPO_ITEM Tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   *          <li>00 ‚Äì Mercadoria para Revenda;
+   *          <li>01 ‚Äì Mat√©ria-prima;
+   *          <li>02 ‚Äì Embalagem;
+   *          <li>03 ‚Äì Produto em Processo;
+   *          <li>04 ‚Äì Produto Acabado;
+   *          <li>05 ‚Äì Subproduto;
+   *          <li>06 ‚Äì Produto Intermedi√°rio;
+   *          <li>07 ‚Äì Material de Uso e Consumo;
+   *          <li>08 ‚Äì Ativo Imobilizado;
+   *          <li>09 ‚Äì Servi√ßos;
+   *          <li>10 ‚Äì Outros insumos;
+   *          <li>99 ‚Äì Outras
+   * @param r08_COD_NCM C√≥digo da Nomenclatura Comum do Mercosul
+   * @param r09_EX_IPI C√≥digo EX, conforme a TIPI
+   * @param r10_COD_GEN C√≥digo do g√™nero do item, conforme a Tabela 4.2.1
+   * @param r11_COD_LST C√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03.
+   * @param r12_ALIQ_ICMS Al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas
+   * @param r13_CEST C√≥digo Especificador da Substitui√ß√£o Tribut√°ria
    * @return
    * @throws RFWException
    */
@@ -545,17 +545,17 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO H020: INFORMA«√O COMPLEMENTAR DO INVENT¡RIO ObservaÁıes:
-   * <li>NÌvel hier·rquico: 2</li>
-   * <li>OcorrÍncia: v·rios por arquivo</li>
+   * REGISTRO H020: INFORMA√á√ÉO COMPLEMENTAR DO INVENT√ÅRIO Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 2</li>
+   * <li>Ocorr√™ncia: v√°rios por arquivo</li>
    *
    * @param r02_CST_ICMS
    * @param r03_BC_ICMS
    * @param r04_VL_ICMS
    *
    * @param rh010 Registro pai.
-   * @param r02_CST_ICMS CÛdigo da SituaÁ„o Tribut·ria referente ao ICMS, conforme a Tabela indicada no item 4.3.1
-   * @param r03_BC_ICMS Informe a base de c·lculo do ICMS
+   * @param r02_CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria referente ao ICMS, conforme a Tabela indicada no item 4.3.1
+   * @param r03_BC_ICMS Informe a base de c√°lculo do ICMS
    * @param r04_VL_ICMS Informe o valor do ICMS a ser debitado ou creditado
    * @return
    * @throws RFWException
@@ -572,9 +572,9 @@ public class SPEDFiscalBuilder {
   /**
    * REGISTRO K001: ABERTURA DO BLOCO K<Br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    * <br>
    *
    * @param sped Arquivo do SPED.
@@ -591,14 +591,14 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO K100: PERÕODO DE APURA«√O DO ICMS/IPI<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ V·rios</li>
+   * REGISTRO K100: PER√çODO DE APURA√á√ÉO DO ICMS/IPI<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì V√°rios</li>
    *
    * @param rk001 Registro Pai
-   * @param r02_DT_INI Data inicial a que a apuraÁ„o se refere
-   * @param r03_DT_FIN Data final a que a apuraÁ„o se refere
+   * @param r02_DT_INI Data inicial a que a apura√ß√£o se refere
+   * @param r03_DT_FIN Data final a que a apura√ß√£o se refere
    * @return
    * @throws RFWException
    */
@@ -618,32 +618,32 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C850: REGISTRO ANALÕTICO DO CF-E-SAT (CODIGO 59)<bR>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico: 3</li>
-   * <li>OcorrÍncia ñ 1:N</li><Br>
+   * REGISTRO C850: REGISTRO ANAL√çTICO DO CF-E-SAT (CODIGO 59)<bR>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 3</li>
+   * <li>Ocorr√™ncia ‚Äì 1:N</li><Br>
    * <Br>
-   * A documentaÁ„o determinar que esse registro n„o deve se repetir para os mesmos: r02_CST_ICMS, r03_CFOP e r04_ALIQ_ICMS. Logo, o mÈtodo considera o valor recebido nos trÍs arqumentos para gerar a chave de unicidade e identificaÁ„o no registro pai, com o seguinte cÛdigo:<br>
+   * A documenta√ß√£o determinar que esse registro n√£o deve se repetir para os mesmos: r02_CST_ICMS, r03_CFOP e r04_ALIQ_ICMS. Logo, o m√©todo considera o valor recebido nos tr√™s arqumentos para gerar a chave de unicidade e identifica√ß√£o no registro pai, com o seguinte c√≥digo:<br>
    * <code>String uniqueID = r02_CST_ICMS + "|" + r03_CFOP + "|" + r04_ALIQ_ICMS.setScale(2, RFW.getRoundingMode()).toString();</code><Br>
    * <Br>
    * Considerando:
-   * <li>r04_ALIQ_ICMS - se passado nulo, ser· substituÌdo por BigDecimal.Zero para gerar a chave.</li> <Br>
+   * <li>r04_ALIQ_ICMS - se passado nulo, ser√° substitu√≠do por BigDecimal.Zero para gerar a chave.</li> <Br>
    * <br>
    *
    * @param rc800 Registro pai.
-   * @param r02_CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1.
-   * @param r03_CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens.
-   * @param r04_ALIQ_ICMS AlÌquota do ICMS.
-   * @param r05_VL_OPR_SUM (O valor deste atributo È sumarizado com o valor j· existente do mesmo registro) ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, correspondente ao somatÛrio do valor lÌquido dos itens.
-   * @param r06_VL_BC_ICMS_SUM (O valor deste atributo È sumarizado com o valor j· existente do mesmo registro) Valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP, e alÌquota do ICMS.
-   * @param r07_VL_ICMS_SUM (O valor deste atributo È sumarizado com o valor j· existente do mesmo registro) Parcela correspondente ao ìValor do ICMSî referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS.
-   * @param r08_COD_OBS CÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460)
+   * @param r02_CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1.
+   * @param r03_CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens.
+   * @param r04_ALIQ_ICMS Al√≠quota do ICMS.
+   * @param r05_VL_OPR_SUM (O valor deste atributo √© sumarizado com o valor j√° existente do mesmo registro) ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens.
+   * @param r06_VL_BC_ICMS_SUM (O valor deste atributo √© sumarizado com o valor j√° existente do mesmo registro) Valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP, e al√≠quota do ICMS.
+   * @param r07_VL_ICMS_SUM (O valor deste atributo √© sumarizado com o valor j√° existente do mesmo registro) Parcela correspondente ao ‚ÄúValor do ICMS‚Äù referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS.
+   * @param r08_COD_OBS C√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460)
    * @return
    * @throws RFWException
    */
   public static SPEDFiscalC850 addC850(SPEDFiscalC800 rc800, String r02_CST_ICMS, String r03_CFOP, BigDecimal r04_ALIQ_ICMS, BigDecimal r05_VL_OPR_SUM, BigDecimal r06_VL_BC_ICMS_SUM, BigDecimal r07_VL_ICMS_SUM, String r08_COD_OBS) throws RFWException {
-    PreProcess.requiredNonNullCritical(r02_CST_ICMS, "r02_CST_ICMS n„o pode ser nulo!");
-    PreProcess.requiredNonNullCritical(r03_CFOP, "r03_CFOP n„o pode ser nulo!");
+    PreProcess.requiredNonNullCritical(r02_CST_ICMS, "r02_CST_ICMS n√£o pode ser nulo!");
+    PreProcess.requiredNonNullCritical(r03_CFOP, "r03_CFOP n√£o pode ser nulo!");
 
     if (r04_ALIQ_ICMS == null) r04_ALIQ_ICMS = BigDecimal.ZERO;
 
@@ -653,13 +653,13 @@ public class SPEDFiscalBuilder {
       rc850 = new SPEDFiscalC850(rc800.getSpedFile());
       rc800.getRc850().put(uniqueID, rc850);
 
-      // Por fazer parte da chave os atributos R02, R03 e R04 nunca s„o alterados e por isso est„o dentro do IF de criaÁ„o do Registro
+      // Por fazer parte da chave os atributos R02, R03 e R04 nunca s√£o alterados e por isso est√£o dentro do IF de cria√ß√£o do Registro
       rc850.setR02_CST_ICMS(r02_CST_ICMS);
       rc850.setR03_CFOP(r03_CFOP);
       rc850.setR04_ALIQ_ICMS(r04_ALIQ_ICMS);
-      rc850.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme lÛgica abaixo
-      rc850.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lÛgica abaixo
-      rc850.setR07_VL_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lÛgica abaixo
+      rc850.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme l√≥gica abaixo
+      rc850.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme l√≥gica abaixo
+      rc850.setR07_VL_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme l√≥gica abaixo
     }
 
     if (r05_VL_OPR_SUM != null) rc850.setR05_VL_OPR(rc850.getR05_VL_OPR().add(r05_VL_OPR_SUM));
@@ -671,30 +671,30 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C800: CUPOM FISCAL ELETR‘NICO ñ SAT (CF-E-SAT) (C”DIGO 59)<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico: 2</li>
-   * <li>OcorrÍncia: V·rios</li> <br>
+   * REGISTRO C800: CUPOM FISCAL ELETR√îNICO ‚Äì SAT (CF-E-SAT) (C√ìDIGO 59)<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 2</li>
+   * <li>Ocorr√™ncia: V√°rios</li> <br>
    * <br>
-   * Este mÈtodo n„o substitui nenhum valor caso o registro j· esteja criado para a chave ˙nica.<Br>
+   * Este m√©todo n√£o substitui nenhum valor caso o registro j√° esteja criado para a chave √∫nica.<Br>
    * <br>
-   * Embora a documentaÁ„o defina: "N„o poder„o ser informados dois ou mais registros com a mesma combinaÁ„o de COD_SIT + NUM_CFE + NUM_SAT + DT_DOC.", apenas a utilizaÁ„o dos campos "NUM_CFE + NUM_SAT" s„o suficientes para identificar o registro, e s„o eles os utilizados como chave ˙nica durante a criaÁ„o da uniqueID. Com o cÛdigo:<br>
+   * Embora a documenta√ß√£o defina: "N√£o poder√£o ser informados dois ou mais registros com a mesma combina√ß√£o de COD_SIT + NUM_CFE + NUM_SAT + DT_DOC.", apenas a utiliza√ß√£o dos campos "NUM_CFE + NUM_SAT" s√£o suficientes para identificar o registro, e s√£o eles os utilizados como chave √∫nica durante a cria√ß√£o da uniqueID. Com o c√≥digo:<br>
    * <code>final String uniqueID = r04_NUM_CFE + "|" + r10_NR_SAT;</code>
    *
    * @param rc001 Registro pai.
-   * @param r02_COD_MOD CÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1
-   * @param r03_COD_SIT CÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2
-   * @param r04_NUM_CFE N˙mero do Cupom Fiscal EletrÙnico
-   * @param r05_DT_DOC Data da emiss„o do Cupom Fiscal EletrÙnico
-   * @param r06_VL_CFE Valor total do Cupom Fiscal EletrÙnico
+   * @param r02_COD_MOD C√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r03_COD_SIT C√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2
+   * @param r04_NUM_CFE N√∫mero do Cupom Fiscal Eletr√¥nico
+   * @param r05_DT_DOC Data da emiss√£o do Cupom Fiscal Eletr√¥nico
+   * @param r06_VL_CFE Valor total do Cupom Fiscal Eletr√¥nico
    * @param r07_VL_PIS Valor total do PIS
    * @param r08_VL_COFINS Valor total da COFINS
-   * @param r09_CNPJ_CPF CNPJ ou CPF do destinat·rio
-   * @param r10_NR_SAT N˙mero de SÈrie do equipamento SAT
-   * @param r11_CHV_CFE Chave do Cupom Fiscal EletrÙnico
+   * @param r09_CNPJ_CPF CNPJ ou CPF do destinat√°rio
+   * @param r10_NR_SAT N√∫mero de S√©rie do equipamento SAT
+   * @param r11_CHV_CFE Chave do Cupom Fiscal Eletr√¥nico
    * @param r12_VL_DESC Valor total de descontos
-   * @param r13_VL_MERC Valor total das mercadorias e serviÁos
-   * @param r14_VL_OUT_DA Valor total de outras despesas acessÛrias e acrÈscimos
+   * @param r13_VL_MERC Valor total das mercadorias e servi√ßos
+   * @param r14_VL_OUT_DA Valor total de outras despesas acess√≥rias e acr√©scimos
    * @param r15_VL_ICMS Valor do ICMS
    * @param r16_VL_PIS_ST Valor total do PIS retido por subst. trib.
    * @param r17_VL_COFINS_ST Valor total da COFINS retido por subst. trib.
@@ -702,7 +702,7 @@ public class SPEDFiscalBuilder {
    * @throws RFWException
    */
   public static SPEDFiscalC800 addC800(SPEDFiscalC001 rc001, String r02_COD_MOD, String r03_COD_SIT, Long r04_NUM_CFE, LocalDate r05_DT_DOC, BigDecimal r06_VL_CFE, BigDecimal r07_VL_PIS, BigDecimal r08_VL_COFINS, String r09_CNPJ_CPF, String r10_NR_SAT, String r11_CHV_CFE, BigDecimal r12_VL_DESC, BigDecimal r13_VL_MERC, BigDecimal r14_VL_OUT_DA, BigDecimal r15_VL_ICMS, BigDecimal r16_VL_PIS_ST, BigDecimal r17_VL_COFINS_ST) throws RFWException {
-    final String uniqueID = r04_NUM_CFE + "|" + r10_NR_SAT; // SÛ esses dois valores j· garantem a unicidade do registro
+    final String uniqueID = r04_NUM_CFE + "|" + r10_NR_SAT; // S√≥ esses dois valores j√° garantem a unicidade do registro
     SPEDFiscalC800 rc800 = rc001.getRc800().get(uniqueID);
     if (rc800 == null) {
       rc800 = new SPEDFiscalC800(rc001.getSpedFile());
@@ -715,7 +715,7 @@ public class SPEDFiscalBuilder {
       rc800.setR10_NR_SAT(r10_NR_SAT);
       rc800.setR11_CHV_CFE(r11_CHV_CFE);
 
-      // Este campos sÛ devem ser escriturados para cupons vendidos
+      // Este campos s√≥ devem ser escriturados para cupons vendidos
       if ("00".equals(r03_COD_SIT)) { // 00 = Documento regular
         rc800.setR05_DT_DOC(RUTypes.formatDateDayMonthYear(r05_DT_DOC));
         rc800.setR06_VL_CFE(r06_VL_CFE);
@@ -736,9 +736,9 @@ public class SPEDFiscalBuilder {
   /**
    * REGISTRO C001: ABERTURA DO BLOCO C<Br>
    * <Br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li><Br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li><Br>
    * <br>
    *
    * @param sped Arquivo SPED.
@@ -755,15 +755,15 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0460: TABELA DE OBSERVA«’ES DO LAN«AMENTO FISCAL<br>
+   * REGISTRO 0460: TABELA DE OBSERVA√á√ïES DO LAN√áAMENTO FISCAL<br>
    * <br>
-   * <li>ObservaÁıes:</li>
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñv·rios (por arquivo)</li>
+   * <li>Observa√ß√µes:</li>
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äìv√°rios (por arquivo)</li>
    *
    * @param r0001 Registro pai.
-   * @param r02_COD_OBS CÛdigo da ObservaÁ„o do lanÁamento fiscal.
-   * @param r03_TXT DescriÁ„o da observaÁ„o vinculada ao lanÁamento fiscal.
+   * @param r02_COD_OBS C√≥digo da Observa√ß√£o do lan√ßamento fiscal.
+   * @param r03_TXT Descri√ß√£o da observa√ß√£o vinculada ao lan√ßamento fiscal.
    * @return
    * @throws RFWException
    */
@@ -779,14 +779,14 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C855: OBSERVA«’ES DO LAN«AMENTO FISCAL (C”DIGO 59)<Br>
-   * ObservaÁıes:<Br>
-   * <li>NÌvel hier·rquico - 3</li>
-   * <li>OcorrÍncia - 1:N</li>
+   * REGISTRO C855: OBSERVA√á√ïES DO LAN√áAMENTO FISCAL (C√ìDIGO 59)<Br>
+   * Observa√ß√µes:<Br>
+   * <li>N√≠vel hier√°rquico - 3</li>
+   * <li>Ocorr√™ncia - 1:N</li>
    *
    * @param rc800 Registro pai.
-   * @param r02_COD_OBS CÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do Registro 0460)
-   * @param r03_TXT_COMPL DescriÁ„o complementar do cÛdigo de observaÁ„o.
+   * @param r02_COD_OBS C√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do Registro 0460)
+   * @param r03_TXT_COMPL Descri√ß√£o complementar do c√≥digo de observa√ß√£o.
    * @return
    * @throws RFWException
    */
@@ -802,19 +802,19 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C857: OUTRAS OBRIGA«’ES TRIBUT¡RIAS, AJUSTES E INFORMA«’ES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<bR>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 4</li>
-   * <li>OcorrÍncia - 1:N</li> <Br>
+   * REGISTRO C857: OUTRAS OBRIGA√á√ïES TRIBUT√ÅRIAS, AJUSTES E INFORMA√á√ïES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<bR>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 4</li>
+   * <li>Ocorr√™ncia - 1:N</li> <Br>
    * <bR>
-   * O uniqueID para identificar o registro È criado a partir do valor de r02_COD_AJ. Sempre que um registro existente for encontrado, os valores dos campos r05_VL_BC_ICMS_SUM e r07_VL_ICMS_SUM s„o acumulados com os valores j· existentes no registro.
+   * O uniqueID para identificar o registro √© criado a partir do valor de r02_COD_AJ. Sempre que um registro existente for encontrado, os valores dos campos r05_VL_BC_ICMS_SUM e r07_VL_ICMS_SUM s√£o acumulados com os valores j√° existentes no registro.
    *
    * @param rc855 Registro pai.
-   * @param r02_COD_AJ CÛdigo do ajustes/benefÌcio/incentivo, conforme tabela indicada no item 5.3.
-   * @param r03_DESCR_COMPL_AJ DescriÁ„o complementar do ajuste do documento fiscal
-   * @param r04_COD_ITEM CÛdigo do item (campo 02 do Registro 0200)
-   * @param r05_VL_BC_ICMS_SUM Base de c·lculo do ICMS ou do ICMS ST.
-   * @param r06_ALIQ_ICMS AlÌquota do ICMS.
+   * @param r02_COD_AJ C√≥digo do ajustes/benef√≠cio/incentivo, conforme tabela indicada no item 5.3.
+   * @param r03_DESCR_COMPL_AJ Descri√ß√£o complementar do ajuste do documento fiscal
+   * @param r04_COD_ITEM C√≥digo do item (campo 02 do Registro 0200)
+   * @param r05_VL_BC_ICMS_SUM Base de c√°lculo do ICMS ou do ICMS ST.
+   * @param r06_ALIQ_ICMS Al√≠quota do ICMS.
    * @param r07_VL_ICMS_SUM Valor do ICMS ou do ICMS ST
    * @param r08_VL_OUTROS Outros valores
    * @return
@@ -840,21 +840,21 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C890: RESUMO DI¡RIO DO CF-E-SAT (C”DIGO 59) POR EQUIPAMENTO SATCF-E<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico: 3</li>
-   * <li>OcorrÍncia - 1:N</li> <bR>
+   * REGISTRO C890: RESUMO DI√ÅRIO DO CF-E-SAT (C√ìDIGO 59) POR EQUIPAMENTO SATCF-E<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 3</li>
+   * <li>Ocorr√™ncia - 1:N</li> <bR>
    * <bR>
-   * O campo VL_ICMS - Parcela correspondente ao "Valor do ICMS" referente ‡ combinaÁ„o de CST_ICMS, CFOP e alÌquota do ICMS, È calculado automaticamente a partir da multiplicaÁ„o dos campos r04_ALIQ_ICMS e r06_VL_BC_ICMS.<Br>
+   * O campo VL_ICMS - Parcela correspondente ao "Valor do ICMS" referente √† combina√ß√£o de CST_ICMS, CFOP e al√≠quota do ICMS, √© calculado automaticamente a partir da multiplica√ß√£o dos campos r04_ALIQ_ICMS e r06_VL_BC_ICMS.<Br>
    * <br>
    *
    * @param rc860 Registro pai.
-   * @param r02_CST_ICMS CÛdigo da SituaÁ„o Tribut·ria, conforme a Tabela indicada no item 4.3.1
-   * @param r03_CFOP CÛdigo Fiscal de OperaÁ„o e PrestaÁ„o do agrupamento de itens
-   * @param r04_ALIQ_ICMS AlÌquota do ICMS
-   * @param r05_VL_OPR_SUM ìValor total do CF-eî na combinaÁ„o de CST_ICMS, CFOP e ALÕQUOTA DO ICMS, correspondente ao somatÛrio do valor lÌquido dos itens
-   * @param r06_VL_BC_ICMS Valor acumulado da base de c·lculo do ICMS, referente ‡ combinaÁ„o de CST_ICMS, CFOP e ALÕQUOTA DO ICMS.
-   * @param r08_COD_OBS CÛdigo da observaÁ„o do lanÁamento fiscal (campo 02 do registro 0460)
+   * @param r02_CST_ICMS C√≥digo da Situa√ß√£o Tribut√°ria, conforme a Tabela indicada no item 4.3.1
+   * @param r03_CFOP C√≥digo Fiscal de Opera√ß√£o e Presta√ß√£o do agrupamento de itens
+   * @param r04_ALIQ_ICMS Al√≠quota do ICMS
+   * @param r05_VL_OPR_SUM ‚ÄúValor total do CF-e‚Äù na combina√ß√£o de CST_ICMS, CFOP e AL√çQUOTA DO ICMS, correspondente ao somat√≥rio do valor l√≠quido dos itens
+   * @param r06_VL_BC_ICMS Valor acumulado da base de c√°lculo do ICMS, referente √† combina√ß√£o de CST_ICMS, CFOP e AL√çQUOTA DO ICMS.
+   * @param r08_COD_OBS C√≥digo da observa√ß√£o do lan√ßamento fiscal (campo 02 do registro 0460)
    * @return
    * @throws RFWException
    */
@@ -869,9 +869,9 @@ public class SPEDFiscalBuilder {
       rc890.setR02_CST_ICMS(r02_CST_ICMS);
       rc890.setR03_CFOP(r03_CFOP);
       rc890.setR04_ALIQ_ICMS(r04_ALIQ_ICMS);
-      rc890.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme lÛgica abaixo
-      rc890.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lÛgica abaixo
-      rc890.setR07_VL_ICMS_AUTO(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme lÛgica abaixo
+      rc890.setR05_VL_OPR(BigDecimal.ZERO); // inicia zerado para ser sumarizado conforme l√≥gica abaixo
+      rc890.setR06_VL_BC_ICMS(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme l√≥gica abaixo
+      rc890.setR07_VL_ICMS_AUTO(BigDecimal.ZERO); // Inicia zerado para ser sumarizado conforme l√≥gica abaixo
       rc890.setR08_COD_OBS(r08_COD_OBS);
     }
 
@@ -882,20 +882,20 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C860: IDENTIFICA«√O DO EQUIPAMENTO SAT-CF-E <br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico: 2</li>
-   * <li>OcorrÍncia - v·rios (por arquivo)</li> <Br>
+   * REGISTRO C860: IDENTIFICA√á√ÉO DO EQUIPAMENTO SAT-CF-E <br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico: 2</li>
+   * <li>Ocorr√™ncia - v√°rios (por arquivo)</li> <Br>
    * <br>
-   * O registro È identificado pelo valor do atributo r03_NR_SAT, e sempre quem este mÈtodo for chamado passando o mesmo valor de r03_NR_SAT, o 'range' de n˙mero do documento (definidos pelos campos r05 e r06) s„o atualizados de forma que o range definido no registro inclua do n˙mero de documento mais baixo atÈ o mais alto recebido.<Br>
+   * O registro √© identificado pelo valor do atributo r03_NR_SAT, e sempre quem este m√©todo for chamado passando o mesmo valor de r03_NR_SAT, o 'range' de n√∫mero do documento (definidos pelos campos r05 e r06) s√£o atualizados de forma que o range definido no registro inclua do n√∫mero de documento mais baixo at√© o mais alto recebido.<Br>
    * <bR>
    *
    * @param rc001 Registro pai.
-   * @param r02_COD_MOD CÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1
-   * @param r03_NR_SAT N˙mero de SÈrie do equipamento SAT
-   * @param r04_DT_DOC Data de emiss„o dos documentos fiscais
-   * @param r05_DOC_INI N˙mero do documento inicial
-   * @param r06_DOC_FIM N˙mero do documento final
+   * @param r02_COD_MOD C√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r03_NR_SAT N√∫mero de S√©rie do equipamento SAT
+   * @param r04_DT_DOC Data de emiss√£o dos documentos fiscais
+   * @param r05_DOC_INI N√∫mero do documento inicial
+   * @param r06_DOC_FIM N√∫mero do documento final
    * @return
    * @throws RFWException
    */
@@ -912,7 +912,7 @@ public class SPEDFiscalBuilder {
       rc860.setR05_DOC_INI(r05_DOC_INI); // O documento inicial deve ser atualizado depois conforme novos cupons forem sendo adicionados aos registros filhos
       rc860.setR06_DOC_FIM(r06_DOC_FIM);// O documento final deve ser atualizado depois conforme novos cupons forem sendo adicionados aos registros filhos
     } else {
-      // Caso j· existia, atualizamos os campos de "cupom incial" e "cupom final" para incluir a numeraÁ„o deste cupom dentro do "range" definido no registro
+      // Caso j√° existia, atualizamos os campos de "cupom incial" e "cupom final" para incluir a numera√ß√£o deste cupom dentro do "range" definido no registro
       if (rc860.getR05_DOC_INI().compareTo(r05_DOC_INI) > 0) rc860.setR05_DOC_INI(r05_DOC_INI);
       if (rc860.getR06_DOC_FIM().compareTo(r06_DOC_FIM) < 0) rc860.setR06_DOC_FIM(r06_DOC_FIM);
     }
@@ -921,68 +921,68 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C100: NOTA FISCAL (C”DIGO 01), NOTA FISCAL AVULSA (C”DIGO 1B), NOTA FISCAL DE PRODUTOR (C”DIGO 04), NF-e (C”DIGO 55) e NFC-e (C”DIGO 65).<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico ñ 2</li>
-   * <li>OcorrÍncia ñ v·rios (por arquivo)</li><br>
+   * REGISTRO C100: NOTA FISCAL (C√ìDIGO 01), NOTA FISCAL AVULSA (C√ìDIGO 1B), NOTA FISCAL DE PRODUTOR (C√ìDIGO 04), NF-e (C√ìDIGO 55) e NFC-e (C√ìDIGO 65).<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico ‚Äì 2</li>
+   * <li>Ocorr√™ncia ‚Äì v√°rios (por arquivo)</li><br>
    * <br>
    *
    * @param rc001 Registro pai.
-   * @param r02_IND_OPER Indicador do tipo de operaÁ„o: 0 - Entrada; 1 - SaÌda
-   * @param r03_IND_EMIT Indicador do emitente do documento fiscal: 0 - Emiss„o prÛpria; 1 - Terceiros
-   * @param r04_COD_PART CÛdigo do participante (campo 02 do Registro 0150):
+   * @param r02_IND_OPER Indicador do tipo de opera√ß√£o: 0 - Entrada; 1 - Sa√≠da
+   * @param r03_IND_EMIT Indicador do emitente do documento fiscal: 0 - Emiss√£o pr√≥pria; 1 - Terceiros
+   * @param r04_COD_PART C√≥digo do participante (campo 02 do Registro 0150):
    *          <li>- do emitente do documento ou do remetente das mercadorias, no caso de entradas;
-   *          <li>- do adquirente, no caso de saÌdas
-   * @param r05_COD_MOD CÛdigo do modelo do documento fiscal, conforme a Tabela 4.1.1
-   * @param r06_COD_SIT CÛdigo da situaÁ„o do documento fiscal, conforme a Tabela 4.1.2
-   * @param r07_SER SÈrie do documento fiscal
-   * @param r08_NUM_DOC N˙mero do documento fiscal
-   * @param r09_CHV_NFE Chave da Nota Fiscal EletrÙnica
-   * @param r10_DT_DOC Data da emiss„o do documento fiscal
-   * @param r11_DT_E_S Data da entrada ou da saÌda
+   *          <li>- do adquirente, no caso de sa√≠das
+   * @param r05_COD_MOD C√≥digo do modelo do documento fiscal, conforme a Tabela 4.1.1
+   * @param r06_COD_SIT C√≥digo da situa√ß√£o do documento fiscal, conforme a Tabela 4.1.2
+   * @param r07_SER S√©rie do documento fiscal
+   * @param r08_NUM_DOC N√∫mero do documento fiscal
+   * @param r09_CHV_NFE Chave da Nota Fiscal Eletr√¥nica
+   * @param r10_DT_DOC Data da emiss√£o do documento fiscal
+   * @param r11_DT_E_S Data da entrada ou da sa√≠da
    * @param r12_VL_DOC Valor total do documento fiscal
-   * @param r13_IND_PGTO Indicador do tipo de pagamento: 0 - ¿ vista; 1 - A prazo; 9 - Sem pagamento<bR>
-   *          Obs.: A partir de 01/07/2012 passar· a ser: Indicador do tipo de pagamento: 0 - ¿ vista; 1 - A prazo; 2 - Outros
+   * @param r13_IND_PGTO Indicador do tipo de pagamento: 0 - √Ä vista; 1 - A prazo; 9 - Sem pagamento<bR>
+   *          Obs.: A partir de 01/07/2012 passar√° a ser: Indicador do tipo de pagamento: 0 - √Ä vista; 1 - A prazo; 2 - Outros
    * @param r14_VL_DESC Valor total do desconto
-   * @param r15_VL_ABAT_NT Abatimento n„o tributado e n„o comercial Por exemplo: desconto ICMS nas remessas para ZFM.
-   * @param r16_VL_MERC Valor total das mercadorias e serviÁos
-   * @param r17_IND_FRT Obs: A partir de 01/01/2018 passar· a ser: Indicador do tipo de frete:
-   *          <li>0 - ContrataÁ„o do Frete por conta do Remetente (CIF);
-   *          <li>1 - ContrataÁ„o do Frete por conta do Destinat·rio (FOB);
-   *          <li>2 - ContrataÁ„o do Frete por conta de Terceiros;
-   *          <li>3 - Transporte PrÛprio por conta do Remetente;
-   *          <li>4 - Transporte PrÛprio por conta do Destinat·rio;
-   *          <li>9 - Sem OcorrÍncia de Transporte.
+   * @param r15_VL_ABAT_NT Abatimento n√£o tributado e n√£o comercial Por exemplo: desconto ICMS nas remessas para ZFM.
+   * @param r16_VL_MERC Valor total das mercadorias e servi√ßos
+   * @param r17_IND_FRT Obs: A partir de 01/01/2018 passar√° a ser: Indicador do tipo de frete:
+   *          <li>0 - Contrata√ß√£o do Frete por conta do Remetente (CIF);
+   *          <li>1 - Contrata√ß√£o do Frete por conta do Destinat√°rio (FOB);
+   *          <li>2 - Contrata√ß√£o do Frete por conta de Terceiros;
+   *          <li>3 - Transporte Pr√≥prio por conta do Remetente;
+   *          <li>4 - Transporte Pr√≥prio por conta do Destinat√°rio;
+   *          <li>9 - Sem Ocorr√™ncia de Transporte.
    * @param r18_VL_FRT Valor do frete indicado no documento fiscal
    * @param r19_VL_SEG Valor do seguro indicado no documento fiscal
-   * @param r20_VL_OUT_DA Valor de outras despesas acessÛrias
-   * @param r21_VL_BC_ICMS Valor da base de c·lculo do ICMS
+   * @param r20_VL_OUT_DA Valor de outras despesas acess√≥rias
+   * @param r21_VL_BC_ICMS Valor da base de c√°lculo do ICMS
    * @param r22_VL_ICMS Valor do ICMS
-   * @param r23_VL_BC_ICMS_ST Valor da base de c·lculo do ICMS substituiÁ„o tribut·ria
-   * @param r24_VL_ICMS_ST Valor do ICMS retido por substituiÁ„o tribut·ria
+   * @param r23_VL_BC_ICMS_ST Valor da base de c√°lculo do ICMS substitui√ß√£o tribut√°ria
+   * @param r24_VL_ICMS_ST Valor do ICMS retido por substitui√ß√£o tribut√°ria
    * @param r25_VL_IPI Valor total do IPI
    * @param r26_VL_PIS Valor total do PIS
    * @param r27_VL_COFINS Valor total da COFINS
-   * @param r28_VL_PIS_ST Valor total do PIS retido por substituiÁ„o tribut·ria
-   * @param r29_VL_COFINS_ST Valor total da COFINS retido por substituiÁ„o tribut·ria
+   * @param r28_VL_PIS_ST Valor total do PIS retido por substitui√ß√£o tribut√°ria
+   * @param r29_VL_COFINS_ST Valor total da COFINS retido por substitui√ß√£o tribut√°ria
    * @return
    * @throws RFWException
    */
   public static SPEDFiscalC100 addC100(SPEDFiscalC001 rc001, String r02_IND_OPER, String r03_IND_EMIT, String r04_COD_PART, String r05_COD_MOD, String r06_COD_SIT, String r07_SER, String r08_NUM_DOC, String r09_CHV_NFE, LocalDate r10_DT_DOC, LocalDate r11_DT_E_S, BigDecimal r12_VL_DOC, String r13_IND_PGTO, BigDecimal r14_VL_DESC, BigDecimal r15_VL_ABAT_NT, BigDecimal r16_VL_MERC, String r17_IND_FRT, BigDecimal r18_VL_FRT, BigDecimal r19_VL_SEG, BigDecimal r20_VL_OUT_DA, BigDecimal r21_VL_BC_ICMS, BigDecimal r22_VL_ICMS, BigDecimal r23_VL_BC_ICMS_ST, BigDecimal r24_VL_ICMS_ST, BigDecimal r25_VL_IPI, BigDecimal r26_VL_PIS, BigDecimal r27_VL_COFINS, BigDecimal r28_VL_PIS_ST, BigDecimal r29_VL_COFINS_ST) throws RFWException {
     String uniqueID = null;
     switch (r05_COD_MOD) {
-      case "01": // Modelo 1/1A - Nota de Tal„o equivalente a NFe
+      case "01": // Modelo 1/1A - Nota de Tal√£o equivalente a NFe
         uniqueID = "MODEL01|" + r04_COD_PART + "|" + r08_NUM_DOC;
         break;
       case "55": // NFe
         uniqueID = "MODEL55|" + r09_CHV_NFE;
         break;
       case "65": // NFCe
-        // Ainda n„o preparado
+        // Ainda n√£o preparado
         break;
     }
     if (uniqueID == null) {
-      throw new RFWCriticalException("RFW.SPED n„o preparado para trabalhar com o modelo de NF '${0}' no registro C100!", new String[] { r05_COD_MOD });
+      throw new RFWCriticalException("RFW.SPED n√£o preparado para trabalhar com o modelo de NF '${0}' no registro C100!", new String[] { r05_COD_MOD });
     }
 
     SPEDFiscalC100 rc100 = rc001.getRc100().get(uniqueID);
@@ -1024,25 +1024,25 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE<bR>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñv·rios por arquivo</li><br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äìv√°rios por arquivo</li><br>
    * <br>
-   * N„o permite dois registros com o mesmo CPF ou CNPJ, assim o registro È identificado pelo documento informado em r05_CNPJ ou r06_CPF.
+   * N√£o permite dois registros com o mesmo CPF ou CNPJ, assim o registro √© identificado pelo documento informado em r05_CNPJ ou r06_CPF.
    *
    * @param r0001 Registro pai.
-   * @param r02_COD_PART CÛdigo de identificaÁ„o do participante no arquivo.
+   * @param r02_COD_PART C√≥digo de identifica√ß√£o do participante no arquivo.
    * @param r03_NOME Nome pessoal ou empresarial do participante.
-   * @param r04_COD_PAIS CÛdigo do paÌs do participante, conforme a tabela indicada no item 3.2.1
+   * @param r04_COD_PAIS C√≥digo do pa√≠s do participante, conforme a tabela indicada no item 3.2.1
    * @param r05_CNPJ CNPJ do participante.
    * @param r06_CPF CPF do participante.
-   * @param r07_IE InscriÁ„o Estadual do participante.
-   * @param r08_COD_MUN CÛdigo do municÌpio, conforme a tabela IBGE
-   * @param r09_SUFRAMA N˙mero de inscriÁ„o do participante na SUFRAMA.
-   * @param r10_END Logradouro e endereÁo do imÛvel
-   * @param r11_NUM N˙mero do imÛvel
-   * @param r12_COMPL Dados complementares do endereÁo
-   * @param r13_BAIRRO Bairro em que o imÛvel est· situado
+   * @param r07_IE Inscri√ß√£o Estadual do participante.
+   * @param r08_COD_MUN C√≥digo do munic√≠pio, conforme a tabela IBGE
+   * @param r09_SUFRAMA N√∫mero de inscri√ß√£o do participante na SUFRAMA.
+   * @param r10_END Logradouro e endere√ßo do im√≥vel
+   * @param r11_NUM N√∫mero do im√≥vel
+   * @param r12_COMPL Dados complementares do endere√ßo
+   * @param r13_BAIRRO Bairro em que o im√≥vel est√° situado
    * @return
    * @throws RFWException
    */
@@ -1071,31 +1071,31 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0500: PLANO DE CONTAS CONT¡BEIS<br>
+   * REGISTRO 0500: PLANO DE CONTAS CONT√ÅBEIS<br>
    * <br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia - v·rios (por arquivo)</li><br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia - v√°rios (por arquivo)</li><br>
    * <bR>
-   * Registro ˙nico por r06_COD_CTA. Caso o mesmo r06_COD_CTA seja passado de um registro existente, ser· retornado o registro existente e nenhum novo ser· criado.
+   * Registro √∫nico por r06_COD_CTA. Caso o mesmo r06_COD_CTA seja passado de um registro existente, ser√° retornado o registro existente e nenhum novo ser√° criado.
    *
    * @param r0001 Registro pai.
-   * @param r02_DT_ALT Data da inclus„o/alteraÁ„o
-   * @param r03_COD_NAT_CC CÛdigo da natureza da conta/grupo de contas:
+   * @param r02_DT_ALT Data da inclus√£o/altera√ß√£o
+   * @param r03_COD_NAT_CC C√≥digo da natureza da conta/grupo de contas:
    *          <li>01 - Contas de ativo;
    *          <li>02 - Contas de passivo;
-   *          <li>03 - PatrimÙnio lÌquido;
+   *          <li>03 - Patrim√¥nio l√≠quido;
    *          <li>04 - Contas de resultado;
-   *          <li>05 - Contas de compensaÁ„o;
+   *          <li>05 - Contas de compensa√ß√£o;
    *          <li>09 - Outras.
-   * @param r04_IND_CTA Indicador do tipo de conta: S - SintÈtica (grupo de contas); A - AnalÌtica (conta).
-   * @param r05_NÕVEL NÌvel da conta analÌtica/grupo de contas.
-   * @param r06_COD_CTA CÛdigo da conta analÌtica/grupo de contas.
-   * @param r07_NOME_CTA Nome da conta analÌtica/grupo de contas
+   * @param r04_IND_CTA Indicador do tipo de conta: S - Sint√©tica (grupo de contas); A - Anal√≠tica (conta).
+   * @param r05_N√çVEL N√≠vel da conta anal√≠tica/grupo de contas.
+   * @param r06_COD_CTA C√≥digo da conta anal√≠tica/grupo de contas.
+   * @param r07_NOME_CTA Nome da conta anal√≠tica/grupo de contas
    * @return
    * @throws RFWException
    */
-  public static SPEDFiscal0500 add0500(SPEDFiscal0001 r0001, LocalDate r02_DT_ALT, String r03_COD_NAT_CC, String r04_IND_CTA, String r05_NÕVEL, String r06_COD_CTA, String r07_NOME_CTA) throws RFWException {
+  public static SPEDFiscal0500 add0500(SPEDFiscal0001 r0001, LocalDate r02_DT_ALT, String r03_COD_NAT_CC, String r04_IND_CTA, String r05_N√çVEL, String r06_COD_CTA, String r07_NOME_CTA) throws RFWException {
     SPEDFiscal0500 r0500 = r0001.getR0500().get(r06_COD_CTA);
     if (r0500 == null) {
       r0500 = new SPEDFiscal0500(r0001.getSpedFile());
@@ -1103,7 +1103,7 @@ public class SPEDFiscalBuilder {
       r0500.setR02_DT_ALT(r02_DT_ALT);
       r0500.setR03_COD_NAT_CC(r03_COD_NAT_CC);
       r0500.setR04_IND_CTA(r04_IND_CTA);
-      r0500.setR05_NÕVEL(r05_NÕVEL);
+      r0500.setR05_N√çVEL(r05_N√çVEL);
       r0500.setR06_COD_CTA(r06_COD_CTA);
       r0500.setR07_NOME_CTA(r07_NOME_CTA);
     }
@@ -1111,16 +1111,16 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA«√O/PRESTA«√O<bR>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ v·rios (por arquivo)</li> <br>
+   * REGISTRO 0400: TABELA DE NATUREZA DA OPERA√á√ÉO/PRESTA√á√ÉO<bR>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì v√°rios (por arquivo)</li> <br>
    * <br>
-   * Registro ˙nico por r02_COD_NAT. Caso o mesmo r02_COD_NAT seja passado de um registro existente, ser· retornado o registro existente e nenhum novo ser· criado.
+   * Registro √∫nico por r02_COD_NAT. Caso o mesmo r02_COD_NAT seja passado de um registro existente, ser√° retornado o registro existente e nenhum novo ser√° criado.
    *
    * @param r0001 Registro pai.
-   * @param r02_COD_NAT CÛdigo da natureza da operaÁ„o/prestaÁ„o
-   * @param r03_DESCR_NAT DescriÁ„o da natureza da operaÁ„o/prestaÁ„o
+   * @param r02_COD_NAT C√≥digo da natureza da opera√ß√£o/presta√ß√£o
+   * @param r03_DESCR_NAT Descri√ß√£o da natureza da opera√ß√£o/presta√ß√£o
    * @return
    * @throws RFWException
    */
@@ -1137,19 +1137,19 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO 0450: TABELA DE INFORMA«√O COMPLEMENTAR DO DOCUMENTO FISCAL<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñv·rios (por arquivo)</li>
+   * REGISTRO 0450: TABELA DE INFORMA√á√ÉO COMPLEMENTAR DO DOCUMENTO FISCAL<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äìv√°rios (por arquivo)</li>
    *
    * <br>
    * <bR>
-   * Registro ˙nico por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, ser· retornado o registro existente e nenhum novo ser· criado.
+   * Registro √∫nico por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, ser√° retornado o registro existente e nenhum novo ser√° criado.
    *
    *
    * @param r0001 Registro pai.
-   * @param r02_COD_INF CÛdigo da informaÁ„o complementar do documento fiscal.
-   * @param r03_TXT Texto livre da informaÁ„o complementar existente no documento fiscal, inclusive espÈcie de normas legais, poder normativo, n˙mero, capitulaÁ„o, data e demais referÍncias pertinentes com indicaÁıes referentes ao tributo.
+   * @param r02_COD_INF C√≥digo da informa√ß√£o complementar do documento fiscal.
+   * @param r03_TXT Texto livre da informa√ß√£o complementar existente no documento fiscal, inclusive esp√©cie de normas legais, poder normativo, n√∫mero, capitula√ß√£o, data e demais refer√™ncias pertinentes com indica√ß√µes referentes ao tributo.
    * @return
    * @throws RFWException
    */
@@ -1165,17 +1165,17 @@ public class SPEDFiscalBuilder {
   }
 
   /**
-   * REGISTRO C110: INFORMA«√O COMPLEMENTAR DA NOTA FISCAL (C”DIGO 01, 1B, 04 e 55).<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 3</li>
-   * <li>OcorrÍncia - 1:N</li> <br>
+   * REGISTRO C110: INFORMA√á√ÉO COMPLEMENTAR DA NOTA FISCAL (C√ìDIGO 01, 1B, 04 e 55).<br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 3</li>
+   * <li>Ocorr√™ncia - 1:N</li> <br>
    * <bR>
-   * Registro ˙nico por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, ser· retornado o registro existente e nenhum novo ser· criado.
+   * Registro √∫nico por r02_COD_INF. Caso o mesmo r02_COD_INF seja passado de um registro existente, ser√° retornado o registro existente e nenhum novo ser√° criado.
    *
    *
    * @param rc100 Registro pai.
-   * @param r02_COD_INF CÛdigo da informaÁ„o complementar do documento fiscal (campo 02 do Registro 0450)
-   * @param r03_TXT_COMPL DescriÁ„o complementar do cÛdigo de referÍncia
+   * @param r02_COD_INF C√≥digo da informa√ß√£o complementar do documento fiscal (campo 02 do Registro 0450)
+   * @param r03_TXT_COMPL Descri√ß√£o complementar do c√≥digo de refer√™ncia
    * @return
    * @throws RFWException
    */
@@ -1192,19 +1192,19 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO C114: CUPOM FISCAL REFERENCIADO<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 4</li>
-   * <li>OcorrÍncia - 1:N</li><br>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 4</li>
+   * <li>Ocorr√™ncia - 1:N</li><br>
    * <bR>
-   * Embora a documentaÁ„o defina "N„o podem ser informados para um mesmo documento fiscal, dois ou mais registros com a mesma combinaÁ„o de conte˙do nos campos ECF_FAB, NUM_DOC e DT_DOC", a implementaÁ„o atual dos objetos n„o valida nem busca uma uniqueID para evitar duplicatas.<br>
-   * Para evitar quebra do cÛdigo e por se tratar basicamente de ECF (em desuso) optei por n„o alterar a implementaÁ„o atÈ que haja necessidade.
+   * Embora a documenta√ß√£o defina "N√£o podem ser informados para um mesmo documento fiscal, dois ou mais registros com a mesma combina√ß√£o de conte√∫do nos campos ECF_FAB, NUM_DOC e DT_DOC", a implementa√ß√£o atual dos objetos n√£o valida nem busca uma uniqueID para evitar duplicatas.<br>
+   * Para evitar quebra do c√≥digo e por se tratar basicamente de ECF (em desuso) optei por n√£o alterar a implementa√ß√£o at√© que haja necessidade.
    *
    * @param rc110 Registro pai.
-   * @param r02_COD_MOD CÛdigo do modelo do documento fiscal, conforme a tabela indicada no item 4.1.1
-   * @param r03ecf_FAB N˙mero de sÈrie de fabricaÁ„o do ECF
-   * @param r04_ECF_CX N˙mero do caixa atribuÌdo ao ECF
-   * @param r05_NUM_DOC N˙mero do documento fiscal
-   * @param r06_DT_DOC Data da emiss„o do documento fiscal
+   * @param r02_COD_MOD C√≥digo do modelo do documento fiscal, conforme a tabela indicada no item 4.1.1
+   * @param r03ecf_FAB N√∫mero de s√©rie de fabrica√ß√£o do ECF
+   * @param r04_ECF_CX N√∫mero do caixa atribu√≠do ao ECF
+   * @param r05_NUM_DOC N√∫mero do documento fiscal
+   * @param r06_DT_DOC Data da emiss√£o do documento fiscal
    * @return
    * @throws RFWException
    */
@@ -1221,9 +1221,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 0990: ENCERRAMENTO DO BLOCO 0<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1240,9 +1240,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO C990: ENCERRAMENTO DO BLOCO C<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1259,9 +1259,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO D990: ENCERRAMENTO DO BLOCO D<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1278,9 +1278,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO E990: ENCERRAMENTO DO BLOCO E<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1297,9 +1297,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO G990: ENCERRAMENTO DO BLOCO G<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1316,9 +1316,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO H990: ENCERRAMENTO DO BLOCO H<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1335,9 +1335,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO K990: ENCERRAMENTO DO BLOCO K<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1354,9 +1354,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 1990: ENCERRAMENTO DO BLOCO 1<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1373,9 +1373,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 9990: ENCERRAMENTO DO BLOCO 9<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1392,9 +1392,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por arquivo</li>
    *
    * @param sped Arquivo SPED.
    * @return
@@ -1411,9 +1411,9 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 9001: ABERTURA DO BLOCO 9.<br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 1</li>
-   * <li>OcorrÍncia ñ um por Arquivo</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 1</li>
+   * <li>Ocorr√™ncia ‚Äì um por Arquivo</li>
    *
    * @param sped Arquivo SPED.
    */
@@ -1426,12 +1426,12 @@ public class SPEDFiscalBuilder {
 
   /**
    * REGISTRO 9900: REGISTROS DO ARQUIVO. <br>
-   * ObservaÁıes:
-   * <li>NÌvel hier·rquico - 2</li>
-   * <li>OcorrÍncia ñ v·rios (por arquivo)</li>
+   * Observa√ß√µes:
+   * <li>N√≠vel hier√°rquico - 2</li>
+   * <li>Ocorr√™ncia ‚Äì v√°rios (por arquivo)</li>
    *
    * @param sped Arquivo SPED.
-   * @param r02_REG_BLC Registro que ser· totalizado no prÛximo campo. C 004 - O
+   * @param r02_REG_BLC Registro que ser√° totalizado no pr√≥ximo campo. C 004 - O
    */
   public static SPEDFiscal9900 add9900(SPEDFiscalFile sped, String r02_REG_BLC) {
     SPEDFiscal9001 r9001 = add9001(sped);

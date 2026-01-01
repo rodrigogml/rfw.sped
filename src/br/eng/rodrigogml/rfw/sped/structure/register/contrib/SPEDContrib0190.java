@@ -5,7 +5,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0190: IDENTIFICAÇÃO DAS UNIDADES DE MEDIDA.<br>
+ * Description: REGISTRO 0190: IDENTIFICAÃ‡ÃƒO DAS UNIDADES DE MEDIDA.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -20,13 +20,13 @@ public class SPEDContrib0190 extends SPEDRegister {
   }
 
   /**
-   * Código da unidade de medida C 006 - S
+   * CÃ³digo da unidade de medida C 006 - S
    */
   @SPEDField(maxLength = 6, required = true)
   private String r02_UNID = null;
 
   /**
-   * Descrição da unidade de medida C - - S
+   * DescriÃ§Ã£o da unidade de medida C - - S
    */
   @SPEDField(maxLength = 100, required = true)
   private String r03_DESCR = null;
@@ -37,36 +37,36 @@ public class SPEDContrib0190 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código da unidade de medida C 006 - S.
+   * Recupera o cÃ³digo da unidade de medida C 006 - S.
    *
-   * @return the código da unidade de medida C 006 - S
+   * @return the cÃ³digo da unidade de medida C 006 - S
    */
   public String getR02_UNID() {
     return r02_UNID;
   }
 
   /**
-   * Define o código da unidade de medida C 006 - S.
+   * Define o cÃ³digo da unidade de medida C 006 - S.
    *
-   * @param r02_UNID the new código da unidade de medida C 006 - S
+   * @param r02_UNID the new cÃ³digo da unidade de medida C 006 - S
    */
   public void setR02_UNID(String r02_UNID) {
     this.r02_UNID = r02_UNID;
   }
 
   /**
-   * Recupera o descrição da unidade de medida C - - S.
+   * Recupera o descriÃ§Ã£o da unidade de medida C - - S.
    *
-   * @return the descrição da unidade de medida C - - S
+   * @return the descriÃ§Ã£o da unidade de medida C - - S
    */
   public String getR03_DESCR() {
     return r03_DESCR;
   }
 
   /**
-   * Define o descrição da unidade de medida C - - S.
+   * Define o descriÃ§Ã£o da unidade de medida C - - S.
    *
-   * @param r03_DESCR the new descrição da unidade de medida C - - S
+   * @param r03_DESCR the new descriÃ§Ã£o da unidade de medida C - - S
    */
   public void setR03_DESCR(String r03_DESCR) {
     this.r03_DESCR = r03_DESCR;

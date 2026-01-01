@@ -9,7 +9,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C405: REDU«√O Z (C”DIGOS 02 e 2D).<br>
+ * Description: REGISTRO C405: REDU√á√ÉO Z (C√ìDIGOS 02 e 2D).<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -24,37 +24,37 @@ public class SPEDContribC405 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C481: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ PIS/PASEP (C”DIGOS 02 e 2D)<br>
+   * REGISTRO C481: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì PIS/PASEP (C√ìDIGOS 02 e 2D)<br>
    * Chave: COD_ITEM, CST_PIS. Separados por "|"
    */
   private final LinkedHashMap<String, SPEDContribC481> rc481 = new LinkedHashMap<String, SPEDContribC481>();
 
   /**
-   * REGISTRO C485: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ COFINS (C”DIGOS 02 e 2D)<br>
+   * REGISTRO C485: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì COFINS (C√ìDIGOS 02 e 2D)<br>
    * Chave: COD_ITEM, CST_COFINS. Separados por "|"
    */
   private final LinkedHashMap<String, SPEDContribC485> rc485 = new LinkedHashMap<String, SPEDContribC485>();
 
   /**
-   * Data do movimento a que se refere a ReduÁ„o Z N 008* - S
+   * Data do movimento a que se refere a Redu√ß√£o Z N 008* - S
    */
   @SPEDField(maxLength = 8, required = true)
   private LocalDate r02_DT_DOC = null;
 
   /**
-   * PosiÁ„o do Contador de ReinÌcio de OperaÁ„o N 003 - S
+   * Posi√ß√£o do Contador de Rein√≠cio de Opera√ß√£o N 003 - S
    */
   @SPEDField(maxLength = 3, required = true)
   private Integer r03_CRO = null;
 
   /**
-   * PosiÁ„o do Contador de ReduÁ„o Z N 006 - S
+   * Posi√ß√£o do Contador de Redu√ß√£o Z N 006 - S
    */
   @SPEDField(maxLength = 6, required = true)
   private Integer r04_CRZ = null;
 
   /**
-   * N˙mero do Contador de Ordem de OperaÁ„o do ˙ltimo documento emitido no dia (N˙mero do COO na ReduÁ„o Z) N 006 - S
+   * N√∫mero do Contador de Ordem de Opera√ß√£o do √∫ltimo documento emitido no dia (N√∫mero do COO na Redu√ß√£o Z) N 006 - S
    */
   @SPEDField(maxLength = 6, required = true)
   private Integer r05_NUM_COO_FIN = null;
@@ -77,72 +77,72 @@ public class SPEDContribC405 extends SPEDRegister {
   }
 
   /**
-   * Recupera o data do movimento a que se refere a ReduÁ„o Z N 008* - S.
+   * Recupera o data do movimento a que se refere a Redu√ß√£o Z N 008* - S.
    *
-   * @return the data do movimento a que se refere a ReduÁ„o Z N 008* - S
+   * @return the data do movimento a que se refere a Redu√ß√£o Z N 008* - S
    */
   public LocalDate getR02_DT_DOC() {
     return r02_DT_DOC;
   }
 
   /**
-   * Define o data do movimento a que se refere a ReduÁ„o Z N 008* - S.
+   * Define o data do movimento a que se refere a Redu√ß√£o Z N 008* - S.
    *
-   * @param r02_DT_DOC the new data do movimento a que se refere a ReduÁ„o Z N 008* - S
+   * @param r02_DT_DOC the new data do movimento a que se refere a Redu√ß√£o Z N 008* - S
    */
   public void setR02_DT_DOC(LocalDate r02_DT_DOC) {
     this.r02_DT_DOC = r02_DT_DOC;
   }
 
   /**
-   * Recupera o posiÁ„o do Contador de ReinÌcio de OperaÁ„o N 003 - S.
+   * Recupera o posi√ß√£o do Contador de Rein√≠cio de Opera√ß√£o N 003 - S.
    *
-   * @return the posiÁ„o do Contador de ReinÌcio de OperaÁ„o N 003 - S
+   * @return the posi√ß√£o do Contador de Rein√≠cio de Opera√ß√£o N 003 - S
    */
   public Integer getR03_CRO() {
     return r03_CRO;
   }
 
   /**
-   * Define o posiÁ„o do Contador de ReinÌcio de OperaÁ„o N 003 - S.
+   * Define o posi√ß√£o do Contador de Rein√≠cio de Opera√ß√£o N 003 - S.
    *
-   * @param r03_CRO the new posiÁ„o do Contador de ReinÌcio de OperaÁ„o N 003 - S
+   * @param r03_CRO the new posi√ß√£o do Contador de Rein√≠cio de Opera√ß√£o N 003 - S
    */
   public void setR03_CRO(Integer r03_CRO) {
     this.r03_CRO = r03_CRO;
   }
 
   /**
-   * Recupera o posiÁ„o do Contador de ReduÁ„o Z N 006 - S.
+   * Recupera o posi√ß√£o do Contador de Redu√ß√£o Z N 006 - S.
    *
-   * @return the posiÁ„o do Contador de ReduÁ„o Z N 006 - S
+   * @return the posi√ß√£o do Contador de Redu√ß√£o Z N 006 - S
    */
   public Integer getR04_CRZ() {
     return r04_CRZ;
   }
 
   /**
-   * Define o posiÁ„o do Contador de ReduÁ„o Z N 006 - S.
+   * Define o posi√ß√£o do Contador de Redu√ß√£o Z N 006 - S.
    *
-   * @param r04_CRZ the new posiÁ„o do Contador de ReduÁ„o Z N 006 - S
+   * @param r04_CRZ the new posi√ß√£o do Contador de Redu√ß√£o Z N 006 - S
    */
   public void setR04_CRZ(Integer r04_CRZ) {
     this.r04_CRZ = r04_CRZ;
   }
 
   /**
-   * Recupera o n˙mero do Contador de Ordem de OperaÁ„o do ˙ltimo documento emitido no dia (N˙mero do COO na ReduÁ„o Z) N 006 - S.
+   * Recupera o n√∫mero do Contador de Ordem de Opera√ß√£o do √∫ltimo documento emitido no dia (N√∫mero do COO na Redu√ß√£o Z) N 006 - S.
    *
-   * @return the n˙mero do Contador de Ordem de OperaÁ„o do ˙ltimo documento emitido no dia (N˙mero do COO na ReduÁ„o Z) N 006 - S
+   * @return the n√∫mero do Contador de Ordem de Opera√ß√£o do √∫ltimo documento emitido no dia (N√∫mero do COO na Redu√ß√£o Z) N 006 - S
    */
   public Integer getR05_NUM_COO_FIN() {
     return r05_NUM_COO_FIN;
   }
 
   /**
-   * Define o n˙mero do Contador de Ordem de OperaÁ„o do ˙ltimo documento emitido no dia (N˙mero do COO na ReduÁ„o Z) N 006 - S.
+   * Define o n√∫mero do Contador de Ordem de Opera√ß√£o do √∫ltimo documento emitido no dia (N√∫mero do COO na Redu√ß√£o Z) N 006 - S.
    *
-   * @param r05_NUM_COO_FIN the new n˙mero do Contador de Ordem de OperaÁ„o do ˙ltimo documento emitido no dia (N˙mero do COO na ReduÁ„o Z) N 006 - S
+   * @param r05_NUM_COO_FIN the new n√∫mero do Contador de Ordem de Opera√ß√£o do √∫ltimo documento emitido no dia (N√∫mero do COO na Redu√ß√£o Z) N 006 - S
    */
   public void setR05_NUM_COO_FIN(Integer r05_NUM_COO_FIN) {
     this.r05_NUM_COO_FIN = r05_NUM_COO_FIN;
@@ -185,10 +185,10 @@ public class SPEDContribC405 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C481: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ PIS/PASEP (C”DIGOS 02 e 2D)<br>
+   * Recupera o rEGISTRO C481: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì PIS/PASEP (C√ìDIGOS 02 e 2D)<br>
    * Chave: COD_ITEM, CST_PIS. Separados por "|".
    *
-   * @return the rEGISTRO C481: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ PIS/PASEP (C”DIGOS 02 e 2D)<br>
+   * @return the rEGISTRO C481: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì PIS/PASEP (C√ìDIGOS 02 e 2D)<br>
    *         Chave: COD_ITEM, CST_PIS
    */
   public LinkedHashMap<String, SPEDContribC481> getRc481() {
@@ -196,10 +196,10 @@ public class SPEDContribC405 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C485: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ COFINS (C”DIGOS 02 e 2D)<br>
+   * Recupera o rEGISTRO C485: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì COFINS (C√ìDIGOS 02 e 2D)<br>
    * Chave: COD_ITEM, CST_COFINS. Separados por "|".
    *
-   * @return the rEGISTRO C485: RESUMO DI¡RIO DE DOCUMENTOS EMITIDOS POR ECF ñ COFINS (C”DIGOS 02 e 2D)<br>
+   * @return the rEGISTRO C485: RESUMO DI√ÅRIO DE DOCUMENTOS EMITIDOS POR ECF ‚Äì COFINS (C√ìDIGOS 02 e 2D)<br>
    *         Chave: COD_ITEM, CST_COFINS
    */
   public LinkedHashMap<String, SPEDContribC485> getRc485() {

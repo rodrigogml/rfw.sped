@@ -26,9 +26,9 @@ import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 
 /**
- * Description: Esta classe cria a sistemática de base para criar os registros dos arquivos do SPED. Permite montar o arquivo de forma estrutural, campo a campo, até o momento da escrita. Permitindo sua manipulação e validação pelas annotations de definição.<br>
+ * Description: Esta classe cria a sistemÃ¡tica de base para criar os registros dos arquivos do SPED. Permite montar o arquivo de forma estrutural, campo a campo, atÃ© o momento da escrita. Permitindo sua manipulaÃ§Ã£o e validaÃ§Ã£o pelas annotations de definiÃ§Ã£o.<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 7.1.0 (30 de mai de 2017)
  */
 public abstract class SPEDRegister implements Serializable {
@@ -38,12 +38,12 @@ public abstract class SPEDRegister implements Serializable {
   private static final Locale SPEDLOCALE = new Locale("pt", "BR");
 
   /**
-   * Último UUID recebido no ao chamar o método de atualização do cálculo {@link #calculateFields(String)}.<br>
+   * Ãšltimo UUID recebido no ao chamar o mÃ©todo de atualizaÃ§Ã£o do cÃ¡lculo {@link #calculateFields(String)}.<br>
    */
   private String lastUUID = null;
 
   /**
-   * Referência para o arquivo SPED à qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos métodos de cálculo e validação que precisam navegar no arquivo.
+   * ReferÃªncia para o arquivo SPED Ã  qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos mÃ©todos de cÃ¡lculo e validaÃ§Ã£o que precisam navegar no arquivo.
    */
   private final SPEDFile spedFile;
 
@@ -57,7 +57,7 @@ public abstract class SPEDRegister implements Serializable {
   /**
    * Cria um novo registro.
    *
-   * @param spedFile Referência para o arquivo SPED ao qual o registro pertence.
+   * @param spedFile ReferÃªncia para o arquivo SPED ao qual o registro pertence.
    */
   public SPEDRegister(SPEDFile spedFile) {
     this.spedFile = spedFile;
@@ -66,17 +66,17 @@ public abstract class SPEDRegister implements Serializable {
   public abstract String get01_Register();
 
   /**
-   * Este método pode ser sobreescrito pelas implementações dos registros que têm campos que podem ser calculados automaticamente a partir do valor de outros campos ou registros.<br>
-   * Os cálculos desses campos devem ser feitos dentro deste método e, seguindo a conveção, os campos que têm seu valor calculado por este método devem ter o sufixo '''_AUTO''', conforme documentado em: https://wiki.rodrigogml.eng.br/index.php/Estrutura_de_Classes#SPEDRegister.<br>
-   * Este método também deve calcular o valor dos seus registros filhos recursivamente. <Br>
+   * Este mÃ©todo pode ser sobreescrito pelas implementaÃ§Ãµes dos registros que tÃªm campos que podem ser calculados automaticamente a partir do valor de outros campos ou registros.<br>
+   * Os cÃ¡lculos desses campos devem ser feitos dentro deste mÃ©todo e, seguindo a conveÃ§Ã£o, os campos que tÃªm seu valor calculado por este mÃ©todo devem ter o sufixo '''_AUTO''', conforme documentado em: https://wiki.rodrigogml.eng.br/index.php/Estrutura_de_Classes#SPEDRegister.<br>
+   * Este mÃ©todo tambÃ©m deve calcular o valor dos seus registros filhos recursivamente. <Br>
    * <Br>
-   * O calculo será realizado deve ser realizado sempre que receber uuid == null OU uuid diferente do último uuid recebido.<Br>
+   * O calculo serÃ¡ realizado deve ser realizado sempre que receber uuid == null OU uuid diferente do Ãºltimo uuid recebido.<Br>
    * <Br>
-   * O override deste método pode chamar a implementação pai (desta classe) e se o valor retornado for true, efetuar o cálculo, e, em ambos os casos, retornar o mesmo valor retornado por esta implementação.<Br>
+   * O override deste mÃ©todo pode chamar a implementaÃ§Ã£o pai (desta classe) e se o valor retornado for true, efetuar o cÃ¡lculo, e, em ambos os casos, retornar o mesmo valor retornado por esta implementaÃ§Ã£o.<Br>
    * <Br>
    *
-   * @param uuid Identificador único da 'rodade de cálculo'. Caso o UUID passado seja o último recebido desde o último cálculo, nenhuma atualização é feita. Se for passado nulo, o cálculo será realizado de qualquer forma (força o cálculo).<Br>
-   *          O objetivo deste UUID é que em casos que múltiplos registros solicitam a atualização do regsitros (de forma recursiba, ou pelas dependências múltiplas com o registro) o mesmo UUID evita a repetição do cáluclo.<bR>
+   * @param uuid Identificador Ãºnico da 'rodade de cÃ¡lculo'. Caso o UUID passado seja o Ãºltimo recebido desde o Ãºltimo cÃ¡lculo, nenhuma atualizaÃ§Ã£o Ã© feita. Se for passado nulo, o cÃ¡lculo serÃ¡ realizado de qualquer forma (forÃ§a o cÃ¡lculo).<Br>
+   *          O objetivo deste UUID Ã© que em casos que mÃºltiplos registros solicitam a atualizaÃ§Ã£o do regsitros (de forma recursiba, ou pelas dependÃªncias mÃºltiplas com o registro) o mesmo UUID evita a repetiÃ§Ã£o do cÃ¡luclo.<bR>
    *          Esse UUID pode ser gerado, por exemplo, por {@link RUGenerators#generateUUID()}.
    */
   public void calculate(String uuid) throws RFWException {
@@ -87,20 +87,20 @@ public abstract class SPEDRegister implements Serializable {
   }
 
   /**
-   * Método recursivo por reflexão para chamar o método {@link #calculate(String)} de todos os registros filhos do registro atual.<Br>
-   * Deve ser chamado em algum ponto do método {@link #calculate(String)}, seja depois ou antes de calcular os valores do campo do próprio registro. A depender se o registro depende dos valores dos registros filhos, ou vice versa. <br>
+   * MÃ©todo recursivo por reflexÃ£o para chamar o mÃ©todo {@link #calculate(String)} de todos os registros filhos do registro atual.<Br>
+   * Deve ser chamado em algum ponto do mÃ©todo {@link #calculate(String)}, seja depois ou antes de calcular os valores do campo do prÃ³prio registro. A depender se o registro depende dos valores dos registros filhos, ou vice versa. <br>
    * <br>
-   * Este método deve ser chamado só internamente para a recursão a partir do método {@link #calculate(String)}, e receber o mesmo UUID.
+   * Este mÃ©todo deve ser chamado sÃ³ internamente para a recursÃ£o a partir do mÃ©todo {@link #calculate(String)}, e receber o mesmo UUID.
    *
-   * @param uuid Meso UUID recebido no método calculate
+   * @param uuid Meso UUID recebido no mÃ©todo calculate
    * @throws RFWException
    */
   void calculateChildren(String uuid) throws RFWException {
-    // Obtemos os campos/atributos da classe e organizamos ele de forma alfabética para garantir que teremos eles na ordem para escrever no arquivo.
+    // Obtemos os campos/atributos da classe e organizamos ele de forma alfabÃ©tica para garantir que teremos eles na ordem para escrever no arquivo.
     Field[] fields = this.getClass().getDeclaredFields();
     Arrays.sort(fields, fieldComparator);
 
-    // Iteramos os métodos de atributos de subregistros, padrão "r????"
+    // Iteramos os mÃ©todos de atributos de subregistros, padrÃ£o "r????"
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) {
@@ -127,23 +127,23 @@ public abstract class SPEDRegister implements Serializable {
   }
 
   /**
-   * Método responsável por escrever o conteúdo deste (clase que estedeu esta classe) no formado texto para exportar no arquivo do SPED.
+   * MÃ©todo responsÃ¡vel por escrever o conteÃºdo deste (clase que estedeu esta classe) no formado texto para exportar no arquivo do SPED.
    *
-   * @param buff StringBuilder para escrita do conteúdo desse registro no formado texto (formato do SPED)
-   * @throws RFWException Lançado em caso de falha
+   * @param buff StringBuilder para escrita do conteÃºdo desse registro no formado texto (formato do SPED)
+   * @throws RFWException LanÃ§ado em caso de falha
    */
   public void writeFileRegister(StringBuilder buff) throws RFWException {
-    // Obtemos os campos/atributos da classe e organizamos ele de forma alfabética para garantir que teremos eles na ordem para escrever no arquivo.
+    // Obtemos os campos/atributos da classe e organizamos ele de forma alfabÃ©tica para garantir que teremos eles na ordem para escrever no arquivo.
     Field[] fields = this.getClass().getDeclaredFields();
     Arrays.sort(fields, fieldComparator);
 
-    // Começamos o registro com o código do Registro
+    // ComeÃ§amos o registro com o cÃ³digo do Registro
     buff.append('|').append(this.get01_Register());
 
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r##_" escrevemos no Buffer de acordo com as definições da sua annotation
+    // Iteramos os mÃ©todos encontrados, e se estiverem no padrÃ£o "r##_" escrevemos no Buffer de acordo com as definiÃ§Ãµes da sua annotation
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
-      if (f.getName().matches("r[0-9]{2}\\_.*")) { // Só os atributos tipo r##_CAMPO
+      if (f.getName().matches("r[0-9]{2}\\_.*")) { // SÃ³ os atributos tipo r##_CAMPO
         Object value = null;
         try {
           Method mGet = this.getClass().getMethod("getR" + f.getName().substring(1));
@@ -154,12 +154,12 @@ public abstract class SPEDRegister implements Serializable {
         SPEDField ann = f.getAnnotation(SPEDField.class);
         if (ann == null) throw new RFWCriticalException("BISModules_000262", new String[] { f.getName() });
 
-        // Valida se o conteúdo for nulo e o campo obrigatório lançamos exceção
+        // Valida se o conteÃºdo for nulo e o campo obrigatÃ³rio lanÃ§amos exceÃ§Ã£o
         if (ann.required() && value == null) {
           throw new RFWValidationException("BISModules_000264", new String[] { f.getName(), this.get01_Register() });
         }
 
-        String convValue = null; // Armazena o valor já convertido para String para ser validado e colocado no Buffer
+        String convValue = null; // Armazena o valor jÃ¡ convertido para String para ser validado e colocado no Buffer
         if (value != null) {
           if (f.getType().equals(String.class)) {
             convValue = value.toString();
@@ -194,15 +194,15 @@ public abstract class SPEDRegister implements Serializable {
             throw new RFWCriticalException("BISModules_000265", new String[] { f.getName(), this.get01_Register() });
           }
 
-          // Valida se o conteúdo não passou do tamanho máximo
+          // Valida se o conteÃºdo nÃ£o passou do tamanho mÃ¡ximo
           if (convValue.length() > ann.maxLength()) {
             throw new RFWValidationException("BISModules_000266", new String[] { f.getName(), this.get01_Register(), convValue, "" + ann.maxLength() });
           }
 
-          // Se tiver um tamanho mínimo definido, validamos o mesmo
+          // Se tiver um tamanho mÃ­nimo definido, validamos o mesmo
           if (ann.minLength() >= 0 && convValue.length() < ann.minLength()) throw new RFWValidationException("BISModules_000267", new String[] { f.getName(), this.get01_Register(), convValue, "" + ann.minLength() });
 
-          // Validações especiais
+          // ValidaÃ§Ãµes especiais
           switch (ann.type()) {
             case NONE:
               break;
@@ -253,18 +253,18 @@ public abstract class SPEDRegister implements Serializable {
 
         buff.append('|');
         if (convValue != null) {
-          // Remove qualquer caracter proíbido que tenha passado
+          // Remove qualquer caracter proÃ­bido que tenha passado
           convValue = convValue.replaceAll("\\|", "").replaceAll("\r", "").replaceAll("\n", "");
-          // Removemos também as arrobas, embora não seja proíbido, atrapalha a vida do Lucas rs
-          // convValue = convValue.replaceAll("\\@", ""); //Não podemos remover as arrobas por conta do e-mail do contador
+          // Removemos tambÃ©m as arrobas, embora nÃ£o seja proÃ­bido, atrapalha a vida do Lucas rs
+          // convValue = convValue.replaceAll("\\@", ""); //NÃ£o podemos remover as arrobas por conta do e-mail do contador
           buff.append(convValue.trim());
         }
       }
     }
-    // Finalizamos o registro, Inclui o | final e quebra de linha e já retorna
+    // Finalizamos o registro, Inclui o | final e quebra de linha e jÃ¡ retorna
     buff.append("|\r\n");
 
-    // Iteramos os métodos de atributos de subregistros, padrão "r????"
+    // Iteramos os mÃ©todos de atributos de subregistros, padrÃ£o "r????"
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) {
@@ -291,11 +291,11 @@ public abstract class SPEDRegister implements Serializable {
   }
 
   public int countRegisters() throws RFWException {
-    int count = 1; // Começa em 1 porque é o próprio registro.
+    int count = 1; // ComeÃ§a em 1 porque Ã© o prÃ³prio registro.
 
     final Field[] fields = this.getClass().getDeclaredFields();
 
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r##_" escrevemos no Buffer de acordo com as definições da sua annotation
+    // Iteramos os mÃ©todos encontrados, e se estiverem no padrÃ£o "r##_" escrevemos no Buffer de acordo com as definiÃ§Ãµes da sua annotation
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
@@ -334,9 +334,9 @@ public abstract class SPEDRegister implements Serializable {
   }
 
   /**
-   * # referência para o arquivo SPED à qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos métodos de cálculo e validação que precisam navegar no arquivo.
+   * # referÃªncia para o arquivo SPED Ã  qual esse registro pertence. Deve sempre ser passado para facilitar o funcionamento dos mÃ©todos de cÃ¡lculo e validaÃ§Ã£o que precisam navegar no arquivo.
    *
-   * @return the referência para o arquivo SPED à qual esse registro pertence
+   * @return the referÃªncia para o arquivo SPED Ã  qual esse registro pertence
    */
   public SPEDFile getSpedFile() {
     return spedFile;

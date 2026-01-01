@@ -8,7 +8,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * REGISTRO K100: PERÕODO DE APURA«√O DO ICMS/IPI
+ * REGISTRO K100: PER√çODO DE APURA√á√ÉO DO ICMS/IPI
  */
 public class SPEDFiscalK100 extends SPEDRegister {
 
@@ -19,13 +19,13 @@ public class SPEDFiscalK100 extends SPEDRegister {
   }
 
   /**
-   * 02 DT_INI Data inicial a que a apuraÁ„o se refere N 8 - O
+   * 02 DT_INI Data inicial a que a apura√ß√£o se refere N 8 - O
    */
   @SPEDField(decimals = 0, maxLength = 8, required = true)
   private LocalDate r02_DT_INI = null;
 
   /**
-   * 03 DT_FIN Data final a que a apuraÁ„o se refere N 8 - O
+   * 03 DT_FIN Data final a que a apura√ß√£o se refere N 8 - O
    */
   @SPEDField(decimals = 0, maxLength = 8, required = true)
   private LocalDate r03_DT_FIN = null;
@@ -42,36 +42,36 @@ public class SPEDFiscalK100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 DT_INI Data inicial a que a apuraÁ„o se refere N 8 - O.
+   * Recupera o 02 DT_INI Data inicial a que a apura√ß√£o se refere N 8 - O.
    *
-   * @return the 02 DT_INI Data inicial a que a apuraÁ„o se refere N 8 - O
+   * @return the 02 DT_INI Data inicial a que a apura√ß√£o se refere N 8 - O
    */
   public LocalDate getR02_DT_INI() {
     return r02_DT_INI;
   }
 
   /**
-   * Define o 02 DT_INI Data inicial a que a apuraÁ„o se refere N 8 - O.
+   * Define o 02 DT_INI Data inicial a que a apura√ß√£o se refere N 8 - O.
    *
-   * @param r02_DT_INI the new 02 DT_INI Data inicial a que a apuraÁ„o se refere N 8 - O
+   * @param r02_DT_INI the new 02 DT_INI Data inicial a que a apura√ß√£o se refere N 8 - O
    */
   public void setR02_DT_INI(LocalDate r02_DT_INI) {
     this.r02_DT_INI = r02_DT_INI;
   }
 
   /**
-   * Recupera o 03 DT_FIN Data final a que a apuraÁ„o se refere N 8 - O.
+   * Recupera o 03 DT_FIN Data final a que a apura√ß√£o se refere N 8 - O.
    *
-   * @return the 03 DT_FIN Data final a que a apuraÁ„o se refere N 8 - O
+   * @return the 03 DT_FIN Data final a que a apura√ß√£o se refere N 8 - O
    */
   public LocalDate getR03_DT_FIN() {
     return r03_DT_FIN;
   }
 
   /**
-   * Define o 03 DT_FIN Data final a que a apuraÁ„o se refere N 8 - O.
+   * Define o 03 DT_FIN Data final a que a apura√ß√£o se refere N 8 - O.
    *
-   * @param r03_DT_FIN the new 03 DT_FIN Data final a que a apuraÁ„o se refere N 8 - O
+   * @param r03_DT_FIN the new 03 DT_FIN Data final a que a apura√ß√£o se refere N 8 - O
    */
   public void setR03_DT_FIN(LocalDate r03_DT_FIN) {
     this.r03_DT_FIN = r03_DT_FIN;

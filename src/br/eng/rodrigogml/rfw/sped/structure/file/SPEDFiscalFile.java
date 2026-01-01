@@ -31,7 +31,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 /**
  * Description: Objeto que representa um arquivo do SPEDFiscal.
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalFile implements Serializable, SPEDFile {
@@ -39,14 +39,14 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   private static final long serialVersionUID = -8840157009790781701L;
 
   /**
-   * Esta lista permite o controle de quais objetos j· foram sumarizados em registros "pai". Por exemplo, o registro C405 tem os filhos C420 e C410, ambos chamam o mÈtodo makeC405(...) que alÈm de criar sumarizam valores no C405. Esta lista permite que o mÈtodo makeC405 crie objetos de controle para saber quais objetos j· foram sumarizados evitando que o valor seja adicionado duas vezes.<br>
-   * Sempre utilize o objeto no formato: [registro] + "|" + [chave de identificaÁ„o livre para cada registro]<br>
-   * Exemplo: "C405|454567", onde 454567 È o ID do ciVO recebido no mÈtodo.
+   * Esta lista permite o controle de quais objetos j√° foram sumarizados em registros "pai". Por exemplo, o registro C405 tem os filhos C420 e C410, ambos chamam o m√©todo makeC405(...) que al√©m de criar sumarizam valores no C405. Esta lista permite que o m√©todo makeC405 crie objetos de controle para saber quais objetos j√° foram sumarizados evitando que o valor seja adicionado duas vezes.<br>
+   * Sempre utilize o objeto no formato: [registro] + "|" + [chave de identifica√ß√£o livre para cada registro]<br>
+   * Exemplo: "C405|454567", onde 454567 √© o ID do ciVO recebido no m√©todo.
    */
   private final HashSet<String> sumControl = new HashSet<String>();
 
   /**
-   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    *
    */
   private SPEDFiscal0000 r0000 = null;
@@ -147,7 +147,7 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   private SPEDFiscal9999 r9999 = null;
 
   /**
-   * ForÁa o rec·lculo de todos os campos autom·ticos do arquivo.
+   * For√ßa o rec√°lculo de todos os campos autom√°ticos do arquivo.
    *
    * @throws RFWException
    */
@@ -157,7 +157,7 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     // Sempre adicionamos o registro 9001 (contadores) Automaticamente
     SPEDFiscalBuilder.add9001(this);
 
-    // Completa os registros de rodapÈs e contadores 9900 de cada bloco, se forem necess·rios e ainda n„o existirem
+    // Completa os registros de rodap√©s e contadores 9900 de cada bloco, se forem necess√°rios e ainda n√£o existirem
     if (this.r0000 != null) SPEDFiscalBuilder.add0990(this);
     if (this.r0001 != null) SPEDFiscalBuilder.add0990(this);
     if (this.rC001 != null) SPEDFiscalBuilder.addC990(this);
@@ -217,8 +217,8 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   }
 
   /**
-   * Escreve o conte˙do em formato do arquivo SPED.<br>
-   * ForÁa a atualizaÁ„o (re-c·lculo) de todos os registros antes.
+   * Escreve o conte√∫do em formato do arquivo SPED.<br>
+   * For√ßa a atualiza√ß√£o (re-c√°lculo) de todos os registros antes.
    *
    * @return
    * @throws RFWException
@@ -291,20 +291,20 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   }
 
   /**
-   * Recupera o rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * Recupera o rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    * .
    *
-   * @return the rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * @return the rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    */
   public SPEDFiscal0000 getR0000() {
     return r0000;
   }
 
   /**
-   * Define o rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * Define o rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    * .
    *
-   * @param r0000 the new rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA«√O DA ENTIDADE<br>
+   * @param r0000 the new rEGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICA√á√ÉO DA ENTIDADE<br>
    */
   public void setR0000(SPEDFiscal0000 r0000) {
     this.r0000 = r0000;
@@ -653,12 +653,12 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   }
 
   /**
-   * Recupera o esta lista permite o controle de quais objetos j· foram sumarizados em registros "pai". Por exemplo, o registro C405 tem os filhos C420 e C410, ambos chamam o mÈtodo makeC405(..) que alÈm de criar sumarizam valores no C405. Esta lista permite que o mÈtodo makeC405 crie objetos de controle para saber quais objetos j· foram sumarizados evitando que o valor seja dicionado duas
+   * Recupera o esta lista permite o controle de quais objetos j√° foram sumarizados em registros "pai". Por exemplo, o registro C405 tem os filhos C420 e C410, ambos chamam o m√©todo makeC405(..) que al√©m de criar sumarizam valores no C405. Esta lista permite que o m√©todo makeC405 crie objetos de controle para saber quais objetos j√° foram sumarizados evitando que o valor seja dicionado duas
    * vezes.<br>
-   * Sempre utilize o objeto no formato: [registro] + "|" + [chave de identificaÁ„o livre para cada registro]<br>
-   * Exemplo: "C405|454567", onde 454567 È o ID do ciVO recebido no mÈtodo.
+   * Sempre utilize o objeto no formato: [registro] + "|" + [chave de identifica√ß√£o livre para cada registro]<br>
+   * Exemplo: "C405|454567", onde 454567 √© o ID do ciVO recebido no m√©todo.
    *
-   * @return the esta lista permite o controle de quais objetos j· foram sumarizados em registros "pai"
+   * @return the esta lista permite o controle de quais objetos j√° foram sumarizados em registros "pai"
    */
   public HashSet<String> getSumControl() {
     return sumControl;

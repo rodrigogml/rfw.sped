@@ -8,45 +8,45 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO E116: OBRIGA«’ES DO ICMS RECOLHIDO OU A RECOLHER ñ OPERA«’ES PR”PRIAS<Br>
+ * Description: REGISTRO E116: OBRIGA√á√ïES DO ICMS RECOLHIDO OU A RECOLHER ‚Äì OPERA√á√ïES PR√ìPRIAS<Br>
  * <br>
- * 5.4- TABELA DE C”DIGOS DAS OBRIGA«’ES DE ICMS A RECOLHER<br>
- * CÛd DescriÁ„o<br>
+ * 5.4- TABELA DE C√ìDIGOS DAS OBRIGA√á√ïES DE ICMS A RECOLHER<br>
+ * C√≥d Descri√ß√£o<br>
  * 000 ICMS a recolher<br>
- * 001 ICMS da substituiÁ„o tribut·ria pelas entradas<br>
- * 002 ICMS da S.T pelas saÌdas para o Estado<br>
- * 003 AntecipaÁ„o do diferencial de alÌquotas do ICMS<br>
- * 004 AntecipaÁ„o do ICMS da importaÁ„o<br>
- * 005 AntecipaÁ„o tribut·ria<br>
- * 006 ICMS da alÌq. adic. dos itens incluÌdos no Fundo de Combate ‡ Pobreza<br>
- * 090 Outras obrigaÁıes do ICMS<br>
- * 999 ICMS da substituiÁ„o tribut·ria pelas saÌdas para outro Estado<br>
+ * 001 ICMS da substitui√ß√£o tribut√°ria pelas entradas<br>
+ * 002 ICMS da S.T pelas sa√≠das para o Estado<br>
+ * 003 Antecipa√ß√£o do diferencial de al√≠quotas do ICMS<br>
+ * 004 Antecipa√ß√£o do ICMS da importa√ß√£o<br>
+ * 005 Antecipa√ß√£o tribut√°ria<br>
+ * 006 ICMS da al√≠q. adic. dos itens inclu√≠dos no Fundo de Combate √† Pobreza<br>
+ * 090 Outras obriga√ß√µes do ICMS<br>
+ * 999 ICMS da substitui√ß√£o tribut√°ria pelas sa√≠das para outro Estado<br>
  * <br>
- * CÛdigos Recolhimento GARE ICMS:<br>
- * 046-2 ICMS - Regime periÛdico de apuraÁ„o<br>
+ * C√≥digos Recolhimento GARE ICMS:<br>
+ * 046-2 ICMS - Regime peri√≥dico de apura√ß√£o<br>
  * 060-7 ICMS - Regime de Estimativa<br>
  * 063-2 ICMS - Outros recolhimentos especiais<br>
- * 075-9 ICMS - DÌvida Ativa - Cob. amig·vel - liq. integral ou parcial<br>
- * 077-2 ICMS - DÌvida Ativa ajuizada - parcelamento<br>
- * 078-4 ICMS - DÌvida Ativa ajuizada - liq. integral ou parcial<br>
- * 081-4 ICMS - Parcelamento de dÈbito fiscal n„o inscrito<br>
- * 106-5 ICMS - Exigido em auto de infraÁ„o e imposiÁ„o de multa - AIIM<br>
- * 110-7 ICMS - Transporte (transportador autÙnomo do estado de S„o Paulo)<br>
- * 112-0 ICMS - ComunicaÁ„o (no estado de S„o Paulo)<br>
+ * 075-9 ICMS - D√≠vida Ativa - Cob. amig√°vel - liq. integral ou parcial<br>
+ * 077-2 ICMS - D√≠vida Ativa ajuizada - parcelamento<br>
+ * 078-4 ICMS - D√≠vida Ativa ajuizada - liq. integral ou parcial<br>
+ * 081-4 ICMS - Parcelamento de d√©bito fiscal n√£o inscrito<br>
+ * 106-5 ICMS - Exigido em auto de infra√ß√£o e imposi√ß√£o de multa - AIIM<br>
+ * 110-7 ICMS - Transporte (transportador aut√¥nomo do estado de S√£o Paulo)<br>
+ * 112-0 ICMS - Comunica√ß√£o (no estado de S√£o Paulo)<br>
  * 114-4 ICMS - Mercadorias destinadas a consumo ou ativo fixo<br>
- * 115-6 ICMS - Energia elÈtrica (no estado de S„o Paulo)<br>
- * 117-0 ICMS - CombustÌvel (no estado de S„o Paulo)<br>
- * 120-0 ICMS - Mercadoria importada (desembaraÁada no estado de S„o Paulo)<br>
- * 123-5 ICMS - ExportaÁ„o de cafÈ cru<br>
- * 128-4 ICMS - OperaÁıes internas e interestaduais com cafÈ cru<br>
+ * 115-6 ICMS - Energia el√©trica (no estado de S√£o Paulo)<br>
+ * 117-0 ICMS - Combust√≠vel (no estado de S√£o Paulo)<br>
+ * 120-0 ICMS - Mercadoria importada (desembara√ßada no estado de S√£o Paulo)<br>
+ * 123-5 ICMS - Exporta√ß√£o de caf√© cru<br>
+ * 128-4 ICMS - Opera√ß√µes internas e interestaduais com caf√© cru<br>
  * 137-5 ICMS - Abate de gado<br>
- * 141-7 ICMS - OperaÁıes com feij„o<br>
- * 146-6 ICMS - SubstituiÁ„o tribut·ria (contribuinte do estado de S„o Paulo)<br>
- * 154-5 ICMS - DiferenÁa de estimativa<br>
- * 640-3 Multa por infraÁ„o ‡ legislaÁ„o do ICMS<br>
- * 892-8 Outros valores n„o discriminados<br>
+ * 141-7 ICMS - Opera√ß√µes com feij√£o<br>
+ * 146-6 ICMS - Substitui√ß√£o tribut√°ria (contribuinte do estado de S√£o Paulo)<br>
+ * 154-5 ICMS - Diferen√ßa de estimativa<br>
+ * 640-3 Multa por infra√ß√£o √† legisla√ß√£o do ICMS<br>
+ * 892-8 Outros valores n√£o discriminados<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalE116 extends SPEDRegister {
@@ -58,55 +58,55 @@ public class SPEDFiscalE116 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_OR CÛdigo da obrigaÁ„o a recolher, conforme a Tabela 5.4 C 003* - O
+   * 02 COD_OR C√≥digo da obriga√ß√£o a recolher, conforme a Tabela 5.4 C 003* - O
    */
   @SPEDField(maxLength = 3, minLength = 3)
   private String r02_COD_OR = null;
 
   /**
-   * 03 VL_OR Valor da obrigaÁ„o a recolher N - 02 O
+   * 03 VL_OR Valor da obriga√ß√£o a recolher N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r03_VL_OR = null;
 
   /**
-   * 04 DT_VCTO Data de vencimento da obrigaÁ„o N 008* - O
+   * 04 DT_VCTO Data de vencimento da obriga√ß√£o N 008* - O
    */
   @SPEDField(maxLength = 8)
   private LocalDate r04_DT_VCTO = null;
 
   /**
-   * 05 COD_REC CÛdigo de receita referente ‡ obrigaÁ„o, prÛprio da unidade da federaÁ„o, conforme legislaÁ„o estadual. C - - O
+   * 05 COD_REC C√≥digo de receita referente √† obriga√ß√£o, pr√≥prio da unidade da federa√ß√£o, conforme legisla√ß√£o estadual. C - - O
    */
   @SPEDField(maxLength = 255)
   private String r05_COD_REC = null;
 
   /**
-   * 06 NUM_PROC N˙mero do processo ou auto de infraÁ„o ao qual a obrigaÁ„o est· vinculada, se houver. C 015 - OC
+   * 06 NUM_PROC N√∫mero do processo ou auto de infra√ß√£o ao qual a obriga√ß√£o est√° vinculada, se houver. C 015 - OC
    */
   @SPEDField(maxLength = 15, required = false)
   private String r06_NUM_PROC = null;
 
   /**
-   * 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- JustiÁa Federal; 2- JustiÁa Estadual; 9- Outros C 001* - OC
+   * 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- Justi√ßa Federal; 2- Justi√ßa Estadual; 9- Outros C 001* - OC
    */
   @SPEDField(maxLength = 1, minLength = 1, required = false)
   private String r07_IND_PROC = null;
 
   /**
-   * 08 PROC DescriÁ„o resumida do processo que embasou o lanÁamento C - - OC
+   * 08 PROC Descri√ß√£o resumida do processo que embasou o lan√ßamento C - - OC
    */
   @SPEDField(maxLength = 5000, required = false)
   private String r08_PROC = null;
 
   /**
-   * 09 TXT_COMPL DescriÁ„o complementar das obrigaÁıes a recolher. C - - OC
+   * 09 TXT_COMPL Descri√ß√£o complementar das obriga√ß√µes a recolher. C - - OC
    */
   @SPEDField(maxLength = 50000, required = false)
   private String r09_TXT_COMPL = null;
 
   /**
-   * 10 MES_REF* Informe o mÍs de referÍncia no formato ìmmaaaaî N 006* - O
+   * 10 MES_REF* Informe o m√™s de refer√™ncia no formato ‚Äúmmaaaa‚Äù N 006* - O
    */
   @SPEDField(maxLength = 6)
   private LocalDate r10_MES_REF = null;
@@ -117,162 +117,162 @@ public class SPEDFiscalE116 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_OR CÛdigo da obrigaÁ„o a recolher, conforme a Tabela 5.4 C 003* - O.
+   * Recupera o 02 COD_OR C√≥digo da obriga√ß√£o a recolher, conforme a Tabela 5.4 C 003* - O.
    *
-   * @return the 02 COD_OR CÛdigo da obrigaÁ„o a recolher, conforme a Tabela 5
+   * @return the 02 COD_OR C√≥digo da obriga√ß√£o a recolher, conforme a Tabela 5
    */
   public String getR02_COD_OR() {
     return r02_COD_OR;
   }
 
   /**
-   * Define o 02 COD_OR CÛdigo da obrigaÁ„o a recolher, conforme a Tabela 5.4 C 003* - O.
+   * Define o 02 COD_OR C√≥digo da obriga√ß√£o a recolher, conforme a Tabela 5.4 C 003* - O.
    *
-   * @param r02_COD_OR the new 02 COD_OR CÛdigo da obrigaÁ„o a recolher, conforme a Tabela 5
+   * @param r02_COD_OR the new 02 COD_OR C√≥digo da obriga√ß√£o a recolher, conforme a Tabela 5
    */
   public void setR02_COD_OR(String r02_COD_OR) {
     this.r02_COD_OR = r02_COD_OR;
   }
 
   /**
-   * Recupera o 03 VL_OR Valor da obrigaÁ„o a recolher N - 02 O.
+   * Recupera o 03 VL_OR Valor da obriga√ß√£o a recolher N - 02 O.
    *
-   * @return the 03 VL_OR Valor da obrigaÁ„o a recolher N - 02 O
+   * @return the 03 VL_OR Valor da obriga√ß√£o a recolher N - 02 O
    */
   public BigDecimal getR03_VL_OR() {
     return r03_VL_OR;
   }
 
   /**
-   * Define o 03 VL_OR Valor da obrigaÁ„o a recolher N - 02 O.
+   * Define o 03 VL_OR Valor da obriga√ß√£o a recolher N - 02 O.
    *
-   * @param r03_VL_OR the new 03 VL_OR Valor da obrigaÁ„o a recolher N - 02 O
+   * @param r03_VL_OR the new 03 VL_OR Valor da obriga√ß√£o a recolher N - 02 O
    */
   public void setR03_VL_OR(BigDecimal r03_VL_OR) {
     this.r03_VL_OR = r03_VL_OR;
   }
 
   /**
-   * Recupera o 04 DT_VCTO Data de vencimento da obrigaÁ„o N 008* - O.
+   * Recupera o 04 DT_VCTO Data de vencimento da obriga√ß√£o N 008* - O.
    *
-   * @return the 04 DT_VCTO Data de vencimento da obrigaÁ„o N 008* - O
+   * @return the 04 DT_VCTO Data de vencimento da obriga√ß√£o N 008* - O
    */
   public LocalDate getR04_DT_VCTO() {
     return r04_DT_VCTO;
   }
 
   /**
-   * Define o 04 DT_VCTO Data de vencimento da obrigaÁ„o N 008* - O.
+   * Define o 04 DT_VCTO Data de vencimento da obriga√ß√£o N 008* - O.
    *
-   * @param r04_DT_VCTO the new 04 DT_VCTO Data de vencimento da obrigaÁ„o N 008* - O
+   * @param r04_DT_VCTO the new 04 DT_VCTO Data de vencimento da obriga√ß√£o N 008* - O
    */
   public void setR04_DT_VCTO(LocalDate r04_DT_VCTO) {
     this.r04_DT_VCTO = r04_DT_VCTO;
   }
 
   /**
-   * Recupera o 05 COD_REC CÛdigo de receita referente ‡ obrigaÁ„o, prÛprio da unidade da federaÁ„o, conforme legislaÁ„o estadual. C - - O.
+   * Recupera o 05 COD_REC C√≥digo de receita referente √† obriga√ß√£o, pr√≥prio da unidade da federa√ß√£o, conforme legisla√ß√£o estadual. C - - O.
    *
-   * @return the 05 COD_REC CÛdigo de receita referente ‡ obrigaÁ„o, prÛprio da unidade da federaÁ„o, conforme legislaÁ„o estadual
+   * @return the 05 COD_REC C√≥digo de receita referente √† obriga√ß√£o, pr√≥prio da unidade da federa√ß√£o, conforme legisla√ß√£o estadual
    */
   public String getR05_COD_REC() {
     return r05_COD_REC;
   }
 
   /**
-   * Define o 05 COD_REC CÛdigo de receita referente ‡ obrigaÁ„o, prÛprio da unidade da federaÁ„o, conforme legislaÁ„o estadual. C - - O.
+   * Define o 05 COD_REC C√≥digo de receita referente √† obriga√ß√£o, pr√≥prio da unidade da federa√ß√£o, conforme legisla√ß√£o estadual. C - - O.
    *
-   * @param r05_COD_REC the new 05 COD_REC CÛdigo de receita referente ‡ obrigaÁ„o, prÛprio da unidade da federaÁ„o, conforme legislaÁ„o estadual
+   * @param r05_COD_REC the new 05 COD_REC C√≥digo de receita referente √† obriga√ß√£o, pr√≥prio da unidade da federa√ß√£o, conforme legisla√ß√£o estadual
    */
   public void setR05_COD_REC(String r05_COD_REC) {
     this.r05_COD_REC = r05_COD_REC;
   }
 
   /**
-   * Recupera o 06 NUM_PROC N˙mero do processo ou auto de infraÁ„o ao qual a obrigaÁ„o est· vinculada, se houver. C 015 - OC.
+   * Recupera o 06 NUM_PROC N√∫mero do processo ou auto de infra√ß√£o ao qual a obriga√ß√£o est√° vinculada, se houver. C 015 - OC.
    *
-   * @return the 06 NUM_PROC N˙mero do processo ou auto de infraÁ„o ao qual a obrigaÁ„o est· vinculada, se houver
+   * @return the 06 NUM_PROC N√∫mero do processo ou auto de infra√ß√£o ao qual a obriga√ß√£o est√° vinculada, se houver
    */
   public String getR06_NUM_PROC() {
     return r06_NUM_PROC;
   }
 
   /**
-   * Define o 06 NUM_PROC N˙mero do processo ou auto de infraÁ„o ao qual a obrigaÁ„o est· vinculada, se houver. C 015 - OC.
+   * Define o 06 NUM_PROC N√∫mero do processo ou auto de infra√ß√£o ao qual a obriga√ß√£o est√° vinculada, se houver. C 015 - OC.
    *
-   * @param r06_NUM_PROC the new 06 NUM_PROC N˙mero do processo ou auto de infraÁ„o ao qual a obrigaÁ„o est· vinculada, se houver
+   * @param r06_NUM_PROC the new 06 NUM_PROC N√∫mero do processo ou auto de infra√ß√£o ao qual a obriga√ß√£o est√° vinculada, se houver
    */
   public void setR06_NUM_PROC(String r06_NUM_PROC) {
     this.r06_NUM_PROC = r06_NUM_PROC;
   }
 
   /**
-   * Recupera o 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- JustiÁa Federal; 2- JustiÁa Estadual; 9- Outros C 001* - OC.
+   * Recupera o 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- Justi√ßa Federal; 2- Justi√ßa Estadual; 9- Outros C 001* - OC.
    *
-   * @return the 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- JustiÁa Federal; 2- JustiÁa Estadual; 9- Outros C 001* - OC
+   * @return the 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- Justi√ßa Federal; 2- Justi√ßa Estadual; 9- Outros C 001* - OC
    */
   public String getR07_IND_PROC() {
     return r07_IND_PROC;
   }
 
   /**
-   * Define o 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- JustiÁa Federal; 2- JustiÁa Estadual; 9- Outros C 001* - OC.
+   * Define o 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- Justi√ßa Federal; 2- Justi√ßa Estadual; 9- Outros C 001* - OC.
    *
-   * @param r07_IND_PROC the new 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- JustiÁa Federal; 2- JustiÁa Estadual; 9- Outros C 001* - OC
+   * @param r07_IND_PROC the new 07 IND_PROC Indicador da origem do processo: 0- SEFAZ; 1- Justi√ßa Federal; 2- Justi√ßa Estadual; 9- Outros C 001* - OC
    */
   public void setR07_IND_PROC(String r07_IND_PROC) {
     this.r07_IND_PROC = r07_IND_PROC;
   }
 
   /**
-   * Recupera o 08 PROC DescriÁ„o resumida do processo que embasou o lanÁamento C - - OC.
+   * Recupera o 08 PROC Descri√ß√£o resumida do processo que embasou o lan√ßamento C - - OC.
    *
-   * @return the 08 PROC DescriÁ„o resumida do processo que embasou o lanÁamento C - - OC
+   * @return the 08 PROC Descri√ß√£o resumida do processo que embasou o lan√ßamento C - - OC
    */
   public String getR08_PROC() {
     return r08_PROC;
   }
 
   /**
-   * Define o 08 PROC DescriÁ„o resumida do processo que embasou o lanÁamento C - - OC.
+   * Define o 08 PROC Descri√ß√£o resumida do processo que embasou o lan√ßamento C - - OC.
    *
-   * @param r08_PROC the new 08 PROC DescriÁ„o resumida do processo que embasou o lanÁamento C - - OC
+   * @param r08_PROC the new 08 PROC Descri√ß√£o resumida do processo que embasou o lan√ßamento C - - OC
    */
   public void setR08_PROC(String r08_PROC) {
     this.r08_PROC = r08_PROC;
   }
 
   /**
-   * Recupera o 09 TXT_COMPL DescriÁ„o complementar das obrigaÁıes a recolher. C - - OC.
+   * Recupera o 09 TXT_COMPL Descri√ß√£o complementar das obriga√ß√µes a recolher. C - - OC.
    *
-   * @return the 09 TXT_COMPL DescriÁ„o complementar das obrigaÁıes a recolher
+   * @return the 09 TXT_COMPL Descri√ß√£o complementar das obriga√ß√µes a recolher
    */
   public String getR09_TXT_COMPL() {
     return r09_TXT_COMPL;
   }
 
   /**
-   * Define o 09 TXT_COMPL DescriÁ„o complementar das obrigaÁıes a recolher. C - - OC.
+   * Define o 09 TXT_COMPL Descri√ß√£o complementar das obriga√ß√µes a recolher. C - - OC.
    *
-   * @param r09_TXT_COMPL the new 09 TXT_COMPL DescriÁ„o complementar das obrigaÁıes a recolher
+   * @param r09_TXT_COMPL the new 09 TXT_COMPL Descri√ß√£o complementar das obriga√ß√µes a recolher
    */
   public void setR09_TXT_COMPL(String r09_TXT_COMPL) {
     this.r09_TXT_COMPL = r09_TXT_COMPL;
   }
 
   /**
-   * Recupera o 10 MES_REF* Informe o mÍs de referÍncia no formato ìmmaaaaî N 006* - O.
+   * Recupera o 10 MES_REF* Informe o m√™s de refer√™ncia no formato ‚Äúmmaaaa‚Äù N 006* - O.
    *
-   * @return the 10 MES_REF* Informe o mÍs de referÍncia no formato ìmmaaaaî N 006* - O
+   * @return the 10 MES_REF* Informe o m√™s de refer√™ncia no formato ‚Äúmmaaaa‚Äù N 006* - O
    */
   public LocalDate getR10_MES_REF() {
     return r10_MES_REF;
   }
 
   /**
-   * Define o 10 MES_REF* Informe o mÍs de referÍncia no formato ìmmaaaaî N 006* - O.
+   * Define o 10 MES_REF* Informe o m√™s de refer√™ncia no formato ‚Äúmmaaaa‚Äù N 006* - O.
    *
-   * @param r10_MES_REF the new 10 MES_REF* Informe o mÍs de referÍncia no formato ìmmaaaaî N 006* - O
+   * @param r10_MES_REF the new 10 MES_REF* Informe o m√™s de refer√™ncia no formato ‚Äúmmaaaa‚Äù N 006* - O
    */
   public void setR10_MES_REF(LocalDate r10_MES_REF) {
     this.r10_MES_REF = r10_MES_REF;

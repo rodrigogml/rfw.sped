@@ -5,7 +5,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0110: REGIMES DE APURAÇÃO DA CONTRIBUIÇÃO SOCIAL E DE APROPRIAÇÃO DE CRÉDITO.<br>
+ * Description: REGISTRO 0110: REGIMES DE APURAÃ‡ÃƒO DA CONTRIBUIÃ‡ÃƒO SOCIAL E DE APROPRIAÃ‡ÃƒO DE CRÃ‰DITO.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -20,16 +20,16 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS
+   * REGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS
    */
   private SPEDContrib0111 r0111 = null;
 
   /**
-   * Código indicador da incidência tributária no período:<br>
+   * CÃ³digo indicador da incidÃªncia tributÃ¡ria no perÃ­odo:<br>
    * <ul
-   * <li>1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo;
-   * <li>2 – Escrituração de operações com incidência exclusivamente no regime cumulativo;
-   * <li>3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo.
+   * <li>1 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime nÃ£o-cumulativo;
+   * <li>2 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime cumulativo;
+   * <li>3 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia nos regimes nÃ£o-cumulativo e cumulativo.
    * </ul>
    * <br>
    * N 001* - S
@@ -38,20 +38,20 @@ public class SPEDContrib0110 extends SPEDRegister {
   private String r02_COD_INC_TRIB = null;
 
   /**
-   * Código indicador de método de apropriação de créditos comuns, no caso de incidência no regime nãocumulativo (COD_INC_TRIB = 1 ou 3):<br>
+   * CÃ³digo indicador de mÃ©todo de apropriaÃ§Ã£o de crÃ©ditos comuns, no caso de incidÃªncia no regime nÃ£ocumulativo (COD_INC_TRIB = 1 ou 3):<br>
    * <ul>
-   * <li>1 – Método de Apropriação Direta;
-   * <li>2 – Método de Rateio Proporcional (Receita Bruta)</ul<br>
+   * <li>1 â€“ MÃ©todo de ApropriaÃ§Ã£o Direta;
+   * <li>2 â€“ MÃ©todo de Rateio Proporcional (Receita Bruta)</ul<br>
    * N 001* - N
    */
   @SPEDField(maxLength = 1, minLength = 1, required = false)
   private String r03_IND_APRO_CRED = null;
 
   /**
-   * Código indicador do Tipo de Contribuição Apurada no Período
+   * CÃ³digo indicador do Tipo de ContribuiÃ§Ã£o Apurada no PerÃ­odo
    * <ul>
-   * <li>1 – Apuração da Contribuição Exclusivamente a Alíquota Básica
-   * <li>2 – Apuração da Contribuição a Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto)
+   * <li>1 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o Exclusivamente a AlÃ­quota BÃ¡sica
+   * <li>2 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o a AlÃ­quotas EspecÃ­ficas (Diferenciadas e/ou por Unidade de Medida de Produto)
    * </ul>
    * <br>
    * N 001* - N
@@ -60,10 +60,10 @@ public class SPEDContrib0110 extends SPEDRegister {
   private String r04_COD_TIPO_CONT = null;
 
   /**
-   * Código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
-   * <li>1 – Regime de Caixa – Escrituração consolidada (Registro F500);
-   * <li>2 – Regime de Competência - Escrituração consolidada (Registro F550);
-   * <li>9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”.<br>
+   * CÃ³digo indicador do critÃ©rio de escrituraÃ§Ã£o e apuraÃ§Ã£o adotado, no caso de incidÃªncia exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurÃ­dica submetida ao regime de tributaÃ§Ã£o com base no lucro presumido:
+   * <li>1 â€“ Regime de Caixa â€“ EscrituraÃ§Ã£o consolidada (Registro F500);
+   * <li>2 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o consolidada (Registro F550);
+   * <li>9 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o detalhada, com base nos registros dos Blocos â€œAâ€, â€œCâ€, â€œDâ€ e â€œFâ€.<br>
    * N 001* - N
    */
   @SPEDField(maxLength = 1, minLength = 1, required = false)
@@ -75,36 +75,36 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código indicador da incidência tributária no período:<br>
+   * Recupera o cÃ³digo indicador da incidÃªncia tributÃ¡ria no perÃ­odo:<br>
    * <ul
-   * <li>1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo;
-   * <li>2 – Escrituração de operações com incidência exclusivamente no regime cumulativo;
-   * <li>3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo.
+   * <li>1 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime nÃ£o-cumulativo;
+   * <li>2 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime cumulativo;
+   * <li>3 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia nos regimes nÃ£o-cumulativo e cumulativo.
    * </ul>
    * <br>
    * N 001* - S.
    *
-   * @return the código indicador da incidência tributária no período:<br>
+   * @return the cÃ³digo indicador da incidÃªncia tributÃ¡ria no perÃ­odo:<br>
    *         <ul
-   *         <li>1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo;
-   *         <li>2 – Escrituração de operações com incidência exclusivamente no regime cumulativo;
-   *         <li>3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo
+   *         <li>1 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime nÃ£o-cumulativo;
+   *         <li>2 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime cumulativo;
+   *         <li>3 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia nos regimes nÃ£o-cumulativo e cumulativo
    */
   public String getR02_COD_INC_TRIB() {
     return r02_COD_INC_TRIB;
   }
 
   /**
-   * Recupera o código indicador de método de apropriação de créditos comuns, no caso de incidência no regime nãocumulativo (COD_INC_TRIB = 1 ou 3):<br>
+   * Recupera o cÃ³digo indicador de mÃ©todo de apropriaÃ§Ã£o de crÃ©ditos comuns, no caso de incidÃªncia no regime nÃ£ocumulativo (COD_INC_TRIB = 1 ou 3):<br>
    * <ul>
-   * <li>1 – Método de Apropriação Direta;
-   * <li>2 – Método de Rateio Proporcional (Receita Bruta)</ul<br>
+   * <li>1 â€“ MÃ©todo de ApropriaÃ§Ã£o Direta;
+   * <li>2 â€“ MÃ©todo de Rateio Proporcional (Receita Bruta)</ul<br>
    * N 001* - N.
    *
-   * @return the código indicador de método de apropriação de créditos comuns, no caso de incidência no regime nãocumulativo (COD_INC_TRIB = 1 ou 3):<br>
+   * @return the cÃ³digo indicador de mÃ©todo de apropriaÃ§Ã£o de crÃ©ditos comuns, no caso de incidÃªncia no regime nÃ£ocumulativo (COD_INC_TRIB = 1 ou 3):<br>
    *         <ul>
-   *         <li>1 – Método de Apropriação Direta;
-   *         <li>2 – Método de Rateio Proporcional (Receita Bruta)</ul<br>
+   *         <li>1 â€“ MÃ©todo de ApropriaÃ§Ã£o Direta;
+   *         <li>2 â€“ MÃ©todo de Rateio Proporcional (Receita Bruta)</ul<br>
    *         N 001* - N
    */
   public String getR03_IND_APRO_CRED() {
@@ -112,18 +112,18 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código indicador do Tipo de Contribuição Apurada no Período
+   * Recupera o cÃ³digo indicador do Tipo de ContribuiÃ§Ã£o Apurada no PerÃ­odo
    * <ul>
-   * <li>1 – Apuração da Contribuição Exclusivamente a Alíquota Básica
-   * <li>2 – Apuração da Contribuição a Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto)
+   * <li>1 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o Exclusivamente a AlÃ­quota BÃ¡sica
+   * <li>2 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o a AlÃ­quotas EspecÃ­ficas (Diferenciadas e/ou por Unidade de Medida de Produto)
    * </ul>
    * <br>
    * N 001* - N.
    *
-   * @return the código indicador do Tipo de Contribuição Apurada no Período
+   * @return the cÃ³digo indicador do Tipo de ContribuiÃ§Ã£o Apurada no PerÃ­odo
    *         <ul>
-   *         <li>1 – Apuração da Contribuição Exclusivamente a Alíquota Básica
-   *         <li>2 – Apuração da Contribuição a Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto)
+   *         <li>1 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o Exclusivamente a AlÃ­quota BÃ¡sica
+   *         <li>2 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o a AlÃ­quotas EspecÃ­ficas (Diferenciadas e/ou por Unidade de Medida de Produto)
    *         </ul>
    *         <br>
    *         N 001* - N
@@ -133,52 +133,52 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
-   * <li>1 – Regime de Caixa – Escrituração consolidada (Registro F500);
-   * <li>2 – Regime de Competência - Escrituração consolidada (Registro F550);
-   * <li>9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”.<br>
+   * Recupera o cÃ³digo indicador do critÃ©rio de escrituraÃ§Ã£o e apuraÃ§Ã£o adotado, no caso de incidÃªncia exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurÃ­dica submetida ao regime de tributaÃ§Ã£o com base no lucro presumido:
+   * <li>1 â€“ Regime de Caixa â€“ EscrituraÃ§Ã£o consolidada (Registro F500);
+   * <li>2 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o consolidada (Registro F550);
+   * <li>9 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o detalhada, com base nos registros dos Blocos â€œAâ€, â€œCâ€, â€œDâ€ e â€œFâ€.<br>
    * N 001* - N.
    *
-   * @return the código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
-   *         <li>1 – Regime de Caixa – Escrituração consolidada (Registro F500);
-   *         <li>2 – Regime de Competência - Escrituração consolidada (Registro F550);
-   *         <li>9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”
+   * @return the cÃ³digo indicador do critÃ©rio de escrituraÃ§Ã£o e apuraÃ§Ã£o adotado, no caso de incidÃªncia exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurÃ­dica submetida ao regime de tributaÃ§Ã£o com base no lucro presumido:
+   *         <li>1 â€“ Regime de Caixa â€“ EscrituraÃ§Ã£o consolidada (Registro F500);
+   *         <li>2 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o consolidada (Registro F550);
+   *         <li>9 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o detalhada, com base nos registros dos Blocos â€œAâ€, â€œCâ€, â€œDâ€ e â€œFâ€
    */
   public String getR05_IND_REG_CUM() {
     return r05_IND_REG_CUM;
   }
 
   /**
-   * Define o código indicador da incidência tributária no período:<br>
+   * Define o cÃ³digo indicador da incidÃªncia tributÃ¡ria no perÃ­odo:<br>
    * <ul
-   * <li>1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo;
-   * <li>2 – Escrituração de operações com incidência exclusivamente no regime cumulativo;
-   * <li>3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo.
+   * <li>1 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime nÃ£o-cumulativo;
+   * <li>2 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime cumulativo;
+   * <li>3 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia nos regimes nÃ£o-cumulativo e cumulativo.
    * </ul>
    * <br>
    * N 001* - S.
    *
-   * @param r02_COD_INC_TRIB the new código indicador da incidência tributária no período:<br>
+   * @param r02_COD_INC_TRIB the new cÃ³digo indicador da incidÃªncia tributÃ¡ria no perÃ­odo:<br>
    *          <ul
-   *          <li>1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo;
-   *          <li>2 – Escrituração de operações com incidência exclusivamente no regime cumulativo;
-   *          <li>3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo
+   *          <li>1 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime nÃ£o-cumulativo;
+   *          <li>2 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia exclusivamente no regime cumulativo;
+   *          <li>3 â€“ EscrituraÃ§Ã£o de operaÃ§Ãµes com incidÃªncia nos regimes nÃ£o-cumulativo e cumulativo
    */
   public void setR02_COD_INC_TRIB(String r02_COD_INC_TRIB) {
     this.r02_COD_INC_TRIB = r02_COD_INC_TRIB;
   }
 
   /**
-   * Define o código indicador de método de apropriação de créditos comuns, no caso de incidência no regime nãocumulativo (COD_INC_TRIB = 1 ou 3):<br>
+   * Define o cÃ³digo indicador de mÃ©todo de apropriaÃ§Ã£o de crÃ©ditos comuns, no caso de incidÃªncia no regime nÃ£ocumulativo (COD_INC_TRIB = 1 ou 3):<br>
    * <ul>
-   * <li>1 – Método de Apropriação Direta;
-   * <li>2 – Método de Rateio Proporcional (Receita Bruta)</ul<br>
+   * <li>1 â€“ MÃ©todo de ApropriaÃ§Ã£o Direta;
+   * <li>2 â€“ MÃ©todo de Rateio Proporcional (Receita Bruta)</ul<br>
    * N 001* - N.
    *
-   * @param r03_IND_APRO_CRED the new código indicador de método de apropriação de créditos comuns, no caso de incidência no regime nãocumulativo (COD_INC_TRIB = 1 ou 3):<br>
+   * @param r03_IND_APRO_CRED the new cÃ³digo indicador de mÃ©todo de apropriaÃ§Ã£o de crÃ©ditos comuns, no caso de incidÃªncia no regime nÃ£ocumulativo (COD_INC_TRIB = 1 ou 3):<br>
    *          <ul>
-   *          <li>1 – Método de Apropriação Direta;
-   *          <li>2 – Método de Rateio Proporcional (Receita Bruta)</ul<br>
+   *          <li>1 â€“ MÃ©todo de ApropriaÃ§Ã£o Direta;
+   *          <li>2 â€“ MÃ©todo de Rateio Proporcional (Receita Bruta)</ul<br>
    *          N 001* - N
    */
   public void setR03_IND_APRO_CRED(String r03_IND_APRO_CRED) {
@@ -186,18 +186,18 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * Define o código indicador do Tipo de Contribuição Apurada no Período
+   * Define o cÃ³digo indicador do Tipo de ContribuiÃ§Ã£o Apurada no PerÃ­odo
    * <ul>
-   * <li>1 – Apuração da Contribuição Exclusivamente a Alíquota Básica
-   * <li>2 – Apuração da Contribuição a Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto)
+   * <li>1 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o Exclusivamente a AlÃ­quota BÃ¡sica
+   * <li>2 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o a AlÃ­quotas EspecÃ­ficas (Diferenciadas e/ou por Unidade de Medida de Produto)
    * </ul>
    * <br>
    * N 001* - N.
    *
-   * @param r04_COD_TIPO_CONT the new código indicador do Tipo de Contribuição Apurada no Período
+   * @param r04_COD_TIPO_CONT the new cÃ³digo indicador do Tipo de ContribuiÃ§Ã£o Apurada no PerÃ­odo
    *          <ul>
-   *          <li>1 – Apuração da Contribuição Exclusivamente a Alíquota Básica
-   *          <li>2 – Apuração da Contribuição a Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto)
+   *          <li>1 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o Exclusivamente a AlÃ­quota BÃ¡sica
+   *          <li>2 â€“ ApuraÃ§Ã£o da ContribuiÃ§Ã£o a AlÃ­quotas EspecÃ­ficas (Diferenciadas e/ou por Unidade de Medida de Produto)
    *          </ul>
    *          <br>
    *          N 001* - N
@@ -207,34 +207,34 @@ public class SPEDContrib0110 extends SPEDRegister {
   }
 
   /**
-   * Define o código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
-   * <li>1 – Regime de Caixa – Escrituração consolidada (Registro F500);
-   * <li>2 – Regime de Competência - Escrituração consolidada (Registro F550);
-   * <li>9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”.<br>
+   * Define o cÃ³digo indicador do critÃ©rio de escrituraÃ§Ã£o e apuraÃ§Ã£o adotado, no caso de incidÃªncia exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurÃ­dica submetida ao regime de tributaÃ§Ã£o com base no lucro presumido:
+   * <li>1 â€“ Regime de Caixa â€“ EscrituraÃ§Ã£o consolidada (Registro F500);
+   * <li>2 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o consolidada (Registro F550);
+   * <li>9 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o detalhada, com base nos registros dos Blocos â€œAâ€, â€œCâ€, â€œDâ€ e â€œFâ€.<br>
    * N 001* - N.
    *
-   * @param r05_IND_REG_CUM the new código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
-   *          <li>1 – Regime de Caixa – Escrituração consolidada (Registro F500);
-   *          <li>2 – Regime de Competência - Escrituração consolidada (Registro F550);
-   *          <li>9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”
+   * @param r05_IND_REG_CUM the new cÃ³digo indicador do critÃ©rio de escrituraÃ§Ã£o e apuraÃ§Ã£o adotado, no caso de incidÃªncia exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurÃ­dica submetida ao regime de tributaÃ§Ã£o com base no lucro presumido:
+   *          <li>1 â€“ Regime de Caixa â€“ EscrituraÃ§Ã£o consolidada (Registro F500);
+   *          <li>2 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o consolidada (Registro F550);
+   *          <li>9 â€“ Regime de CompetÃªncia - EscrituraÃ§Ã£o detalhada, com base nos registros dos Blocos â€œAâ€, â€œCâ€, â€œDâ€ e â€œFâ€
    */
   public void setR05_IND_REG_CUM(String r05_IND_REG_CUM) {
     this.r05_IND_REG_CUM = r05_IND_REG_CUM;
   }
 
   /**
-   * Recupera o rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS.
+   * Recupera o rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS.
    *
-   * @return the rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS
+   * @return the rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS
    */
   public SPEDContrib0111 getR0111() {
     return r0111;
   }
 
   /**
-   * Define o rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS.
+   * Define o rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS.
    *
-   * @param r0111 the new rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÉDITOS COMUNS
+   * @param r0111 the new rEGISTRO 0111: TABELA DE RECEITA BRUTA MENSAL PARA FINS DE RATEIO DE CRÃ‰DITOS COMUNS
    */
   public void setR0111(SPEDContrib0111 r0111) {
     this.r0111 = r0111;

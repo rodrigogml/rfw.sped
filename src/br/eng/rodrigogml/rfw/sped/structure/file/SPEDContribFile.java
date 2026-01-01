@@ -30,7 +30,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContribP990;
 /**
  * Description: Objeto que representa um arquivo do SPEDFiscal.
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDContribFile implements Serializable, SPEDFile {
@@ -41,7 +41,7 @@ public class SPEDContribFile implements Serializable, SPEDFile {
   private static final long serialVersionUID = -6119697279535045836L;
 
   /**
-   * REGISTRO 0000: Abertura do Arquivo Digital e IdentificaÁ„o da Pessoa JurÌdica<br>
+   * REGISTRO 0000: Abertura do Arquivo Digital e Identifica√ß√£o da Pessoa Jur√≠dica<br>
    *
    */
   private SPEDContrib0000 r0000 = null;
@@ -204,20 +204,20 @@ public class SPEDContribFile implements Serializable, SPEDFile {
   }
 
   /**
-   * Recupera o rEGISTRO 0000: Abertura do Arquivo Digital e IdentificaÁ„o da Pessoa JurÌdica<br>
+   * Recupera o rEGISTRO 0000: Abertura do Arquivo Digital e Identifica√ß√£o da Pessoa Jur√≠dica<br>
    * .
    *
-   * @return the rEGISTRO 0000: Abertura do Arquivo Digital e IdentificaÁ„o da Pessoa JurÌdica<br>
+   * @return the rEGISTRO 0000: Abertura do Arquivo Digital e Identifica√ß√£o da Pessoa Jur√≠dica<br>
    */
   public SPEDContrib0000 getR0000() {
     return r0000;
   }
 
   /**
-   * Define o rEGISTRO 0000: Abertura do Arquivo Digital e IdentificaÁ„o da Pessoa JurÌdica<br>
+   * Define o rEGISTRO 0000: Abertura do Arquivo Digital e Identifica√ß√£o da Pessoa Jur√≠dica<br>
    * .
    *
-   * @param r0000 the new rEGISTRO 0000: Abertura do Arquivo Digital e IdentificaÁ„o da Pessoa JurÌdica<br>
+   * @param r0000 the new rEGISTRO 0000: Abertura do Arquivo Digital e Identifica√ß√£o da Pessoa Jur√≠dica<br>
    */
   public void setR0000(SPEDContrib0000 r0000) {
     this.r0000 = r0000;

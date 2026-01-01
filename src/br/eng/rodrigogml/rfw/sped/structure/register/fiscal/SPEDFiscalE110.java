@@ -7,9 +7,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO E110: APURA«√O DO ICMS ñ OPERA«’ES PR”PRIAS.<br>
+ * Description: REGISTRO E110: APURA√á√ÉO DO ICMS ‚Äì OPERA√á√ïES PR√ìPRIAS.<br>
  *
- * @author Rodrigo Leit„o
+ * @author Rodrigo Leit√£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalE110 extends SPEDRegister {
@@ -23,55 +23,55 @@ public class SPEDFiscalE110 extends SPEDRegister {
   private SPEDFiscalE116 re116 = null;
 
   /**
-   * 02 VL_TOT_DEBITOS Valor total dos dÈbitos por "SaÌdas e prestaÁıes com dÈbito do imposto" N - 02 O
+   * 02 VL_TOT_DEBITOS Valor total dos d√©bitos por "Sa√≠das e presta√ß√µes com d√©bito do imposto" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r02_VL_TOT_DEBITOS = null;
 
   /**
-   * 03 VL_AJ_DEBITOS Valor total dos ajustes a dÈbito decorrentes do documento fiscal. N - 02 O
+   * 03 VL_AJ_DEBITOS Valor total dos ajustes a d√©bito decorrentes do documento fiscal. N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r03_VL_AJ_DEBITOS = null;
 
   /**
-   * 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a dÈbito" N - 02 O
+   * 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a d√©bito" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r04_VL_TOT_AJ_DEBITOS = null;
 
   /**
-   * 05 VL_ESTORNOS_CRED Valor total de Ajustes ìEstornos de crÈditosî N - 02 O
+   * 05 VL_ESTORNOS_CRED Valor total de Ajustes ‚ÄúEstornos de cr√©ditos‚Äù N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r05_VL_ESTORNOS_CRED = null;
 
   /**
-   * 06 VL_TOT_CREDITOS Valor total dos crÈditos por "Entradas e aquisiÁıes com crÈdito do imposto" N - 02 O
+   * 06 VL_TOT_CREDITOS Valor total dos cr√©ditos por "Entradas e aquisi√ß√µes com cr√©dito do imposto" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r06_VL_TOT_CREDITOS = null;
 
   /**
-   * 07 VL_AJ_CREDITOS Valor total dos ajustes a crÈdito decorrentes do documento fiscal. N - 02 O
+   * 07 VL_AJ_CREDITOS Valor total dos ajustes a cr√©dito decorrentes do documento fiscal. N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r07_VL_AJ_CREDITOS = null;
 
   /**
-   * 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a crÈdito" N - 02 O
+   * 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a cr√©dito" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r08_VL_TOT_AJ_CREDITOS = null;
 
   /**
-   * 09 VL_ESTORNOS_DEB Valor total de Ajustes ìEstornos de DÈbitosî N - 02 O
+   * 09 VL_ESTORNOS_DEB Valor total de Ajustes ‚ÄúEstornos de D√©bitos‚Äù N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r09_VL_ESTORNOS_DEB = null;
 
   /**
-   * 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do perÌodo anterior" N - 02 O
+   * 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do per√≠odo anterior" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r10_VL_SLD_CREDOR_ANT = null;
@@ -83,7 +83,7 @@ public class SPEDFiscalE110 extends SPEDRegister {
   private BigDecimal r11_VL_SLD_APURADO = null;
 
   /**
-   * 12 VL_TOT_DED Valor total de "DeduÁıes" N - 02 O
+   * 12 VL_TOT_DED Valor total de "Dedu√ß√µes" N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r12_VL_TOT_DED = null;
@@ -95,13 +95,13 @@ public class SPEDFiscalE110 extends SPEDRegister {
   private BigDecimal r13_VL_ICMS_RECOLHER = null;
 
   /**
-   * 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o perÌodo seguinteî N - 02 O
+   * 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o per√≠odo seguinte‚Äù N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r14_VL_SLD_CREDOR_TRANSPORTAR = null;
 
   /**
-   * 15 DEB_ESP Valores recolhidos ou a recolher, extraapuraÁ„o. N - 02 O
+   * 15 DEB_ESP Valores recolhidos ou a recolher, extraapura√ß√£o. N - 02 O
    */
   @SPEDField(maxLength = 255, decimals = 2)
   private BigDecimal r15_DEB_ESP = null;
@@ -112,162 +112,162 @@ public class SPEDFiscalE110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 VL_TOT_DEBITOS Valor total dos dÈbitos por "SaÌdas e prestaÁıes com dÈbito do imposto" N - 02 O.
+   * Recupera o 02 VL_TOT_DEBITOS Valor total dos d√©bitos por "Sa√≠das e presta√ß√µes com d√©bito do imposto" N - 02 O.
    *
-   * @return the 02 VL_TOT_DEBITOS Valor total dos dÈbitos por "SaÌdas e prestaÁıes com dÈbito do imposto" N - 02 O
+   * @return the 02 VL_TOT_DEBITOS Valor total dos d√©bitos por "Sa√≠das e presta√ß√µes com d√©bito do imposto" N - 02 O
    */
   public BigDecimal getR02_VL_TOT_DEBITOS() {
     return r02_VL_TOT_DEBITOS;
   }
 
   /**
-   * Define o 02 VL_TOT_DEBITOS Valor total dos dÈbitos por "SaÌdas e prestaÁıes com dÈbito do imposto" N - 02 O.
+   * Define o 02 VL_TOT_DEBITOS Valor total dos d√©bitos por "Sa√≠das e presta√ß√µes com d√©bito do imposto" N - 02 O.
    *
-   * @param r02_VL_TOT_DEBITOS the new 02 VL_TOT_DEBITOS Valor total dos dÈbitos por "SaÌdas e prestaÁıes com dÈbito do imposto" N - 02 O
+   * @param r02_VL_TOT_DEBITOS the new 02 VL_TOT_DEBITOS Valor total dos d√©bitos por "Sa√≠das e presta√ß√µes com d√©bito do imposto" N - 02 O
    */
   public void setR02_VL_TOT_DEBITOS(BigDecimal r02_VL_TOT_DEBITOS) {
     this.r02_VL_TOT_DEBITOS = r02_VL_TOT_DEBITOS;
   }
 
   /**
-   * Recupera o 03 VL_AJ_DEBITOS Valor total dos ajustes a dÈbito decorrentes do documento fiscal. N - 02 O.
+   * Recupera o 03 VL_AJ_DEBITOS Valor total dos ajustes a d√©bito decorrentes do documento fiscal. N - 02 O.
    *
-   * @return the 03 VL_AJ_DEBITOS Valor total dos ajustes a dÈbito decorrentes do documento fiscal
+   * @return the 03 VL_AJ_DEBITOS Valor total dos ajustes a d√©bito decorrentes do documento fiscal
    */
   public BigDecimal getR03_VL_AJ_DEBITOS() {
     return r03_VL_AJ_DEBITOS;
   }
 
   /**
-   * Define o 03 VL_AJ_DEBITOS Valor total dos ajustes a dÈbito decorrentes do documento fiscal. N - 02 O.
+   * Define o 03 VL_AJ_DEBITOS Valor total dos ajustes a d√©bito decorrentes do documento fiscal. N - 02 O.
    *
-   * @param r03_VL_AJ_DEBITOS the new 03 VL_AJ_DEBITOS Valor total dos ajustes a dÈbito decorrentes do documento fiscal
+   * @param r03_VL_AJ_DEBITOS the new 03 VL_AJ_DEBITOS Valor total dos ajustes a d√©bito decorrentes do documento fiscal
    */
   public void setR03_VL_AJ_DEBITOS(BigDecimal r03_VL_AJ_DEBITOS) {
     this.r03_VL_AJ_DEBITOS = r03_VL_AJ_DEBITOS;
   }
 
   /**
-   * Recupera o 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a dÈbito" N - 02 O.
+   * Recupera o 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a d√©bito" N - 02 O.
    *
-   * @return the 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a dÈbito" N - 02 O
+   * @return the 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a d√©bito" N - 02 O
    */
   public BigDecimal getR04_VL_TOT_AJ_DEBITOS() {
     return r04_VL_TOT_AJ_DEBITOS;
   }
 
   /**
-   * Define o 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a dÈbito" N - 02 O.
+   * Define o 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a d√©bito" N - 02 O.
    *
-   * @param r04_VL_TOT_AJ_DEBITOS the new 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a dÈbito" N - 02 O
+   * @param r04_VL_TOT_AJ_DEBITOS the new 04 VL_TOT_AJ_DEBITOS Valor total de "Ajustes a d√©bito" N - 02 O
    */
   public void setR04_VL_TOT_AJ_DEBITOS(BigDecimal r04_VL_TOT_AJ_DEBITOS) {
     this.r04_VL_TOT_AJ_DEBITOS = r04_VL_TOT_AJ_DEBITOS;
   }
 
   /**
-   * Recupera o 05 VL_ESTORNOS_CRED Valor total de Ajustes ìEstornos de crÈditosî N - 02 O.
+   * Recupera o 05 VL_ESTORNOS_CRED Valor total de Ajustes ‚ÄúEstornos de cr√©ditos‚Äù N - 02 O.
    *
-   * @return the 05 VL_ESTORNOS_CRED Valor total de Ajustes ìEstornos de crÈditosî N - 02 O
+   * @return the 05 VL_ESTORNOS_CRED Valor total de Ajustes ‚ÄúEstornos de cr√©ditos‚Äù N - 02 O
    */
   public BigDecimal getR05_VL_ESTORNOS_CRED() {
     return r05_VL_ESTORNOS_CRED;
   }
 
   /**
-   * Define o 05 VL_ESTORNOS_CRED Valor total de Ajustes ìEstornos de crÈditosî N - 02 O.
+   * Define o 05 VL_ESTORNOS_CRED Valor total de Ajustes ‚ÄúEstornos de cr√©ditos‚Äù N - 02 O.
    *
-   * @param r05_VL_ESTORNOS_CRED the new 05 VL_ESTORNOS_CRED Valor total de Ajustes ìEstornos de crÈditosî N - 02 O
+   * @param r05_VL_ESTORNOS_CRED the new 05 VL_ESTORNOS_CRED Valor total de Ajustes ‚ÄúEstornos de cr√©ditos‚Äù N - 02 O
    */
   public void setR05_VL_ESTORNOS_CRED(BigDecimal r05_VL_ESTORNOS_CRED) {
     this.r05_VL_ESTORNOS_CRED = r05_VL_ESTORNOS_CRED;
   }
 
   /**
-   * Recupera o 06 VL_TOT_CREDITOS Valor total dos crÈditos por "Entradas e aquisiÁıes com crÈdito do imposto" N - 02 O.
+   * Recupera o 06 VL_TOT_CREDITOS Valor total dos cr√©ditos por "Entradas e aquisi√ß√µes com cr√©dito do imposto" N - 02 O.
    *
-   * @return the 06 VL_TOT_CREDITOS Valor total dos crÈditos por "Entradas e aquisiÁıes com crÈdito do imposto" N - 02 O
+   * @return the 06 VL_TOT_CREDITOS Valor total dos cr√©ditos por "Entradas e aquisi√ß√µes com cr√©dito do imposto" N - 02 O
    */
   public BigDecimal getR06_VL_TOT_CREDITOS() {
     return r06_VL_TOT_CREDITOS;
   }
 
   /**
-   * Define o 06 VL_TOT_CREDITOS Valor total dos crÈditos por "Entradas e aquisiÁıes com crÈdito do imposto" N - 02 O.
+   * Define o 06 VL_TOT_CREDITOS Valor total dos cr√©ditos por "Entradas e aquisi√ß√µes com cr√©dito do imposto" N - 02 O.
    *
-   * @param r06_VL_TOT_CREDITOS the new 06 VL_TOT_CREDITOS Valor total dos crÈditos por "Entradas e aquisiÁıes com crÈdito do imposto" N - 02 O
+   * @param r06_VL_TOT_CREDITOS the new 06 VL_TOT_CREDITOS Valor total dos cr√©ditos por "Entradas e aquisi√ß√µes com cr√©dito do imposto" N - 02 O
    */
   public void setR06_VL_TOT_CREDITOS(BigDecimal r06_VL_TOT_CREDITOS) {
     this.r06_VL_TOT_CREDITOS = r06_VL_TOT_CREDITOS;
   }
 
   /**
-   * Recupera o 07 VL_AJ_CREDITOS Valor total dos ajustes a crÈdito decorrentes do documento fiscal. N - 02 O.
+   * Recupera o 07 VL_AJ_CREDITOS Valor total dos ajustes a cr√©dito decorrentes do documento fiscal. N - 02 O.
    *
-   * @return the 07 VL_AJ_CREDITOS Valor total dos ajustes a crÈdito decorrentes do documento fiscal
+   * @return the 07 VL_AJ_CREDITOS Valor total dos ajustes a cr√©dito decorrentes do documento fiscal
    */
   public BigDecimal getR07_VL_AJ_CREDITOS() {
     return r07_VL_AJ_CREDITOS;
   }
 
   /**
-   * Define o 07 VL_AJ_CREDITOS Valor total dos ajustes a crÈdito decorrentes do documento fiscal. N - 02 O.
+   * Define o 07 VL_AJ_CREDITOS Valor total dos ajustes a cr√©dito decorrentes do documento fiscal. N - 02 O.
    *
-   * @param r07_VL_AJ_CREDITOS the new 07 VL_AJ_CREDITOS Valor total dos ajustes a crÈdito decorrentes do documento fiscal
+   * @param r07_VL_AJ_CREDITOS the new 07 VL_AJ_CREDITOS Valor total dos ajustes a cr√©dito decorrentes do documento fiscal
    */
   public void setR07_VL_AJ_CREDITOS(BigDecimal r07_VL_AJ_CREDITOS) {
     this.r07_VL_AJ_CREDITOS = r07_VL_AJ_CREDITOS;
   }
 
   /**
-   * Recupera o 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a crÈdito" N - 02 O.
+   * Recupera o 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a cr√©dito" N - 02 O.
    *
-   * @return the 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a crÈdito" N - 02 O
+   * @return the 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a cr√©dito" N - 02 O
    */
   public BigDecimal getR08_VL_TOT_AJ_CREDITOS() {
     return r08_VL_TOT_AJ_CREDITOS;
   }
 
   /**
-   * Define o 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a crÈdito" N - 02 O.
+   * Define o 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a cr√©dito" N - 02 O.
    *
-   * @param r08_VL_TOT_AJ_CREDITOS the new 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a crÈdito" N - 02 O
+   * @param r08_VL_TOT_AJ_CREDITOS the new 08 VL_TOT_AJ_CREDITOS Valor total de "Ajustes a cr√©dito" N - 02 O
    */
   public void setR08_VL_TOT_AJ_CREDITOS(BigDecimal r08_VL_TOT_AJ_CREDITOS) {
     this.r08_VL_TOT_AJ_CREDITOS = r08_VL_TOT_AJ_CREDITOS;
   }
 
   /**
-   * Recupera o 09 VL_ESTORNOS_DEB Valor total de Ajustes ìEstornos de DÈbitosî N - 02 O.
+   * Recupera o 09 VL_ESTORNOS_DEB Valor total de Ajustes ‚ÄúEstornos de D√©bitos‚Äù N - 02 O.
    *
-   * @return the 09 VL_ESTORNOS_DEB Valor total de Ajustes ìEstornos de DÈbitosî N - 02 O
+   * @return the 09 VL_ESTORNOS_DEB Valor total de Ajustes ‚ÄúEstornos de D√©bitos‚Äù N - 02 O
    */
   public BigDecimal getR09_VL_ESTORNOS_DEB() {
     return r09_VL_ESTORNOS_DEB;
   }
 
   /**
-   * Define o 09 VL_ESTORNOS_DEB Valor total de Ajustes ìEstornos de DÈbitosî N - 02 O.
+   * Define o 09 VL_ESTORNOS_DEB Valor total de Ajustes ‚ÄúEstornos de D√©bitos‚Äù N - 02 O.
    *
-   * @param r09_VL_ESTORNOS_DEB the new 09 VL_ESTORNOS_DEB Valor total de Ajustes ìEstornos de DÈbitosî N - 02 O
+   * @param r09_VL_ESTORNOS_DEB the new 09 VL_ESTORNOS_DEB Valor total de Ajustes ‚ÄúEstornos de D√©bitos‚Äù N - 02 O
    */
   public void setR09_VL_ESTORNOS_DEB(BigDecimal r09_VL_ESTORNOS_DEB) {
     this.r09_VL_ESTORNOS_DEB = r09_VL_ESTORNOS_DEB;
   }
 
   /**
-   * Recupera o 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do perÌodo anterior" N - 02 O.
+   * Recupera o 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do per√≠odo anterior" N - 02 O.
    *
-   * @return the 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do perÌodo anterior" N - 02 O
+   * @return the 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do per√≠odo anterior" N - 02 O
    */
   public BigDecimal getR10_VL_SLD_CREDOR_ANT() {
     return r10_VL_SLD_CREDOR_ANT;
   }
 
   /**
-   * Define o 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do perÌodo anterior" N - 02 O.
+   * Define o 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do per√≠odo anterior" N - 02 O.
    *
-   * @param r10_VL_SLD_CREDOR_ANT the new 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do perÌodo anterior" N - 02 O
+   * @param r10_VL_SLD_CREDOR_ANT the new 10 VL_SLD_CREDOR_ANT Valor total de "Saldo credor do per√≠odo anterior" N - 02 O
    */
   public void setR10_VL_SLD_CREDOR_ANT(BigDecimal r10_VL_SLD_CREDOR_ANT) {
     this.r10_VL_SLD_CREDOR_ANT = r10_VL_SLD_CREDOR_ANT;
@@ -292,18 +292,18 @@ public class SPEDFiscalE110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 12 VL_TOT_DED Valor total de "DeduÁıes" N - 02 O.
+   * Recupera o 12 VL_TOT_DED Valor total de "Dedu√ß√µes" N - 02 O.
    *
-   * @return the 12 VL_TOT_DED Valor total de "DeduÁıes" N - 02 O
+   * @return the 12 VL_TOT_DED Valor total de "Dedu√ß√µes" N - 02 O
    */
   public BigDecimal getR12_VL_TOT_DED() {
     return r12_VL_TOT_DED;
   }
 
   /**
-   * Define o 12 VL_TOT_DED Valor total de "DeduÁıes" N - 02 O.
+   * Define o 12 VL_TOT_DED Valor total de "Dedu√ß√µes" N - 02 O.
    *
-   * @param r12_VL_TOT_DED the new 12 VL_TOT_DED Valor total de "DeduÁıes" N - 02 O
+   * @param r12_VL_TOT_DED the new 12 VL_TOT_DED Valor total de "Dedu√ß√µes" N - 02 O
    */
   public void setR12_VL_TOT_DED(BigDecimal r12_VL_TOT_DED) {
     this.r12_VL_TOT_DED = r12_VL_TOT_DED;
@@ -328,36 +328,36 @@ public class SPEDFiscalE110 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o perÌodo seguinteî N - 02 O.
+   * Recupera o 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o per√≠odo seguinte‚Äù N - 02 O.
    *
-   * @return the 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o perÌodo seguinteî N - 02 O
+   * @return the 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o per√≠odo seguinte‚Äù N - 02 O
    */
   public BigDecimal getR14_VL_SLD_CREDOR_TRANSPORTAR() {
     return r14_VL_SLD_CREDOR_TRANSPORTAR;
   }
 
   /**
-   * Define o 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o perÌodo seguinteî N - 02 O.
+   * Define o 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o per√≠odo seguinte‚Äù N - 02 O.
    *
-   * @param r14_VL_SLD_CREDOR_TRANSPORTAR the new 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o perÌodo seguinteî N - 02 O
+   * @param r14_VL_SLD_CREDOR_TRANSPORTAR the new 14 VL_SLD_CREDOR_TRANSPORTAR Valor total de "Saldo credor a transportar para o per√≠odo seguinte‚Äù N - 02 O
    */
   public void setR14_VL_SLD_CREDOR_TRANSPORTAR(BigDecimal r14_VL_SLD_CREDOR_TRANSPORTAR) {
     this.r14_VL_SLD_CREDOR_TRANSPORTAR = r14_VL_SLD_CREDOR_TRANSPORTAR;
   }
 
   /**
-   * Recupera o 15 DEB_ESP Valores recolhidos ou a recolher, extraapuraÁ„o. N - 02 O.
+   * Recupera o 15 DEB_ESP Valores recolhidos ou a recolher, extraapura√ß√£o. N - 02 O.
    *
-   * @return the 15 DEB_ESP Valores recolhidos ou a recolher, extraapuraÁ„o
+   * @return the 15 DEB_ESP Valores recolhidos ou a recolher, extraapura√ß√£o
    */
   public BigDecimal getR15_DEB_ESP() {
     return r15_DEB_ESP;
   }
 
   /**
-   * Define o 15 DEB_ESP Valores recolhidos ou a recolher, extraapuraÁ„o. N - 02 O.
+   * Define o 15 DEB_ESP Valores recolhidos ou a recolher, extraapura√ß√£o. N - 02 O.
    *
-   * @param r15_DEB_ESP the new 15 DEB_ESP Valores recolhidos ou a recolher, extraapuraÁ„o
+   * @param r15_DEB_ESP the new 15 DEB_ESP Valores recolhidos ou a recolher, extraapura√ß√£o
    */
   public void setR15_DEB_ESP(BigDecimal r15_DEB_ESP) {
     this.r15_DEB_ESP = r15_DEB_ESP;

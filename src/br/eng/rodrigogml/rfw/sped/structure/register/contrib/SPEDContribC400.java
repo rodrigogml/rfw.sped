@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C400: EQUIPAMENTO ECF (CÓDIGOS 02 e 2D).<br>
+ * Description: REGISTRO C400: EQUIPAMENTO ECF (CÃ“DIGOS 02 e 2D).<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,13 +22,13 @@ public class SPEDContribC400 extends SPEDRegister {
   }
 
   /**
-   * C405: REDUÇÃO Z (CÓDIGO 02, 2D e 60)<br>
+   * C405: REDUÃ‡ÃƒO Z (CÃ“DIGO 02, 2D e 60)<br>
    * Chave: CRZ.
    */
   private final LinkedHashMap<String, SPEDContribC405> rc405 = new LinkedHashMap<String, SPEDContribC405>();
 
   /**
-   * Código do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S
+   * CÃ³digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r02_COD_MOD = null;
@@ -40,13 +40,13 @@ public class SPEDContribC400 extends SPEDRegister {
   private String r03_ECF_MOD = null;
 
   /**
-   * Número de série de fabricação do ECF C 020 - S
+   * NÃºmero de sÃ©rie de fabricaÃ§Ã£o do ECF C 020 - S
    */
   @SPEDField(maxLength = 20, required = true)
   private String r04_ECF_FAB = null;
 
   /**
-   * Número do caixa atribuído ao ECF N 003 - S
+   * NÃºmero do caixa atribuÃ­do ao ECF N 003 - S
    */
   @SPEDField(maxLength = 3, required = true)
   private Integer r05_ECF_CX = null;
@@ -57,18 +57,18 @@ public class SPEDContribC400 extends SPEDRegister {
   }
 
   /**
-   * Recupera o código do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
+   * Recupera o cÃ³digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
    *
-   * @return the código do modelo do documento fiscal, conforme a Tabela 4
+   * @return the cÃ³digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public String getR02_COD_MOD() {
     return r02_COD_MOD;
   }
 
   /**
-   * Define o código do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
+   * Define o cÃ³digo do modelo do documento fiscal, conforme a Tabela 4.1.1 C 002* - S.
    *
-   * @param r02_COD_MOD the new código do modelo do documento fiscal, conforme a Tabela 4
+   * @param r02_COD_MOD the new cÃ³digo do modelo do documento fiscal, conforme a Tabela 4
    */
   public void setR02_COD_MOD(String r02_COD_MOD) {
     this.r02_COD_MOD = r02_COD_MOD;
@@ -93,46 +93,46 @@ public class SPEDContribC400 extends SPEDRegister {
   }
 
   /**
-   * Recupera o número de série de fabricação do ECF C 020 - S.
+   * Recupera o nÃºmero de sÃ©rie de fabricaÃ§Ã£o do ECF C 020 - S.
    *
-   * @return the número de série de fabricação do ECF C 020 - S
+   * @return the nÃºmero de sÃ©rie de fabricaÃ§Ã£o do ECF C 020 - S
    */
   public String getR04_ECF_FAB() {
     return r04_ECF_FAB;
   }
 
   /**
-   * Define o número de série de fabricação do ECF C 020 - S.
+   * Define o nÃºmero de sÃ©rie de fabricaÃ§Ã£o do ECF C 020 - S.
    *
-   * @param r04_ECF_FAB the new número de série de fabricação do ECF C 020 - S
+   * @param r04_ECF_FAB the new nÃºmero de sÃ©rie de fabricaÃ§Ã£o do ECF C 020 - S
    */
   public void setR04_ECF_FAB(String r04_ECF_FAB) {
     this.r04_ECF_FAB = r04_ECF_FAB;
   }
 
   /**
-   * Recupera o número do caixa atribuído ao ECF N 003 - S.
+   * Recupera o nÃºmero do caixa atribuÃ­do ao ECF N 003 - S.
    *
-   * @return the número do caixa atribuído ao ECF N 003 - S
+   * @return the nÃºmero do caixa atribuÃ­do ao ECF N 003 - S
    */
   public Integer getR05_ECF_CX() {
     return r05_ECF_CX;
   }
 
   /**
-   * Define o número do caixa atribuído ao ECF N 003 - S.
+   * Define o nÃºmero do caixa atribuÃ­do ao ECF N 003 - S.
    *
-   * @param r05_ECF_CX the new número do caixa atribuído ao ECF N 003 - S
+   * @param r05_ECF_CX the new nÃºmero do caixa atribuÃ­do ao ECF N 003 - S
    */
   public void setR05_ECF_CX(Integer r05_ECF_CX) {
     this.r05_ECF_CX = r05_ECF_CX;
   }
 
   /**
-   * Recupera o c405: REDUÇÃO Z (CÓDIGO 02, 2D e 60)<br>
+   * Recupera o c405: REDUÃ‡ÃƒO Z (CÃ“DIGO 02, 2D e 60)<br>
    * Chave: CRZ.
    *
-   * @return the c405: REDUÇÃO Z (CÓDIGO 02, 2D e 60)<br>
+   * @return the c405: REDUÃ‡ÃƒO Z (CÃ“DIGO 02, 2D e 60)<br>
    *         Chave: CRZ
    */
   public LinkedHashMap<String, SPEDContribC405> getRc405() {

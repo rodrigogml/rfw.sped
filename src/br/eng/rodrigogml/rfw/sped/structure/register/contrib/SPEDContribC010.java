@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C010: IDENTIFICAÇÃO DO ESTABELECIMENTO.<br>
+ * Description: REGISTRO C010: IDENTIFICAÃ‡ÃƒO DO ESTABELECIMENTO.<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,33 +22,33 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * REGISTRO C100: NOTA FISCAL (CÓDIGO 01), NOTA FISCAL AVULSA (CÓDIGO 1B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65)<br>
+   * REGISTRO C100: NOTA FISCAL (CÃ“DIGO 01), NOTA FISCAL AVULSA (CÃ“DIGO 1B), NOTA FISCAL DE PRODUTOR (CÃ“DIGO 04), NF-e (CÃ“DIGO 55) e NFC-e (CÃ“DIGO 65)<br>
    * Chave: Para NFe: CHV_NFE. Separados por "|".
    */
   private final LinkedHashMap<String, SPEDContribC100> rc100 = new LinkedHashMap<String, SPEDContribC100>();
 
   /**
-   * REGISTRO C400: EQUIPAMENTO ECF (CÓDIGO 02, 2D e 60)<br>
+   * REGISTRO C400: EQUIPAMENTO ECF (CÃ“DIGO 02, 2D e 60)<br>
    * Chave: COD_MOD, ECF_MOD e ECF_FAB. Separados por "|".
    */
   private final LinkedHashMap<String, SPEDContribC400> rc400 = new LinkedHashMap<String, SPEDContribC400>();
 
   /**
-   * REGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CF-E<br>
+   * REGISTRO C860: IDENTIFICAÃ‡ÃƒO DO EQUIPAMENTO SAT-CF-E<br>
    * Chave: NR_SAT, DT_DOC. Separados por "|".
    */
   private final LinkedHashMap<String, SPEDContribC860> rc860 = new LinkedHashMap<String, SPEDContribC860>();
 
   /**
-   * Número de inscrição do estabelecimento no CNPJ. N 014* - S
+   * NÃºmero de inscriÃ§Ã£o do estabelecimento no CNPJ. N 014* - S
    */
   @SPEDField(maxLength = 14, minLength = 14, required = true)
   private String r02_CNPJ = null;
 
   /**
-   * Indicador da apuração das contribuições e créditos, na escrituração das operações por NF-e e ECF, no período:
-   * <li>1 – Apuração com base nos registros de consolidação das operações por NF-e (C180 e C190) e por ECF (C490);
-   * <li>2 – Apuração com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
+   * Indicador da apuraÃ§Ã£o das contribuiÃ§Ãµes e crÃ©ditos, na escrituraÃ§Ã£o das operaÃ§Ãµes por NF-e e ECF, no perÃ­odo:
+   * <li>1 â€“ ApuraÃ§Ã£o com base nos registros de consolidaÃ§Ã£o das operaÃ§Ãµes por NF-e (C180 e C190) e por ECF (C490);
+   * <li>2 â€“ ApuraÃ§Ã£o com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
    * C 001* - N
    */
   @SPEDField(maxLength = 1, minLength = 1, required = false)
@@ -60,32 +60,32 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o número de inscrição do estabelecimento no CNPJ. N 014* - S.
+   * Recupera o nÃºmero de inscriÃ§Ã£o do estabelecimento no CNPJ. N 014* - S.
    *
-   * @return the número de inscrição do estabelecimento no CNPJ
+   * @return the nÃºmero de inscriÃ§Ã£o do estabelecimento no CNPJ
    */
   public String getR02_CNPJ() {
     return r02_CNPJ;
   }
 
   /**
-   * Define o número de inscrição do estabelecimento no CNPJ. N 014* - S.
+   * Define o nÃºmero de inscriÃ§Ã£o do estabelecimento no CNPJ. N 014* - S.
    *
-   * @param r02_CNPJ the new número de inscrição do estabelecimento no CNPJ
+   * @param r02_CNPJ the new nÃºmero de inscriÃ§Ã£o do estabelecimento no CNPJ
    */
   public void setR02_CNPJ(String r02_CNPJ) {
     this.r02_CNPJ = r02_CNPJ;
   }
 
   /**
-   * Recupera o indicador da apuração das contribuições e créditos, na escrituração das operações por NF-e e ECF, no período:
-   * <li>1 – Apuração com base nos registros de consolidação das operações por NF-e (C180 e C190) e por ECF (C490);
-   * <li>2 – Apuração com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
+   * Recupera o indicador da apuraÃ§Ã£o das contribuiÃ§Ãµes e crÃ©ditos, na escrituraÃ§Ã£o das operaÃ§Ãµes por NF-e e ECF, no perÃ­odo:
+   * <li>1 â€“ ApuraÃ§Ã£o com base nos registros de consolidaÃ§Ã£o das operaÃ§Ãµes por NF-e (C180 e C190) e por ECF (C490);
+   * <li>2 â€“ ApuraÃ§Ã£o com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
    * C 001* - N.
    *
-   * @return the indicador da apuração das contribuições e créditos, na escrituração das operações por NF-e e ECF, no período:
-   *         <li>1 – Apuração com base nos registros de consolidação das operações por NF-e (C180 e C190) e por ECF (C490);
-   *         <li>2 – Apuração com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
+   * @return the indicador da apuraÃ§Ã£o das contribuiÃ§Ãµes e crÃ©ditos, na escrituraÃ§Ã£o das operaÃ§Ãµes por NF-e e ECF, no perÃ­odo:
+   *         <li>1 â€“ ApuraÃ§Ã£o com base nos registros de consolidaÃ§Ã£o das operaÃ§Ãµes por NF-e (C180 e C190) e por ECF (C490);
+   *         <li>2 â€“ ApuraÃ§Ã£o com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
    *         C 001* - N
    */
   public String getR03_IND_ESCRI() {
@@ -93,14 +93,14 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * Define o indicador da apuração das contribuições e créditos, na escrituração das operações por NF-e e ECF, no período:
-   * <li>1 – Apuração com base nos registros de consolidação das operações por NF-e (C180 e C190) e por ECF (C490);
-   * <li>2 – Apuração com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
+   * Define o indicador da apuraÃ§Ã£o das contribuiÃ§Ãµes e crÃ©ditos, na escrituraÃ§Ã£o das operaÃ§Ãµes por NF-e e ECF, no perÃ­odo:
+   * <li>1 â€“ ApuraÃ§Ã£o com base nos registros de consolidaÃ§Ã£o das operaÃ§Ãµes por NF-e (C180 e C190) e por ECF (C490);
+   * <li>2 â€“ ApuraÃ§Ã£o com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
    * C 001* - N.
    *
-   * @param r03_IND_ESCRI the new indicador da apuração das contribuições e créditos, na escrituração das operações por NF-e e ECF, no período:
-   *          <li>1 – Apuração com base nos registros de consolidação das operações por NF-e (C180 e C190) e por ECF (C490);
-   *          <li>2 – Apuração com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
+   * @param r03_IND_ESCRI the new indicador da apuraÃ§Ã£o das contribuiÃ§Ãµes e crÃ©ditos, na escrituraÃ§Ã£o das operaÃ§Ãµes por NF-e e ECF, no perÃ­odo:
+   *          <li>1 â€“ ApuraÃ§Ã£o com base nos registros de consolidaÃ§Ã£o das operaÃ§Ãµes por NF-e (C180 e C190) e por ECF (C490);
+   *          <li>2 â€“ ApuraÃ§Ã£o com base no registro individualizado de NF-e (C100 e C170) e de ECF (C400)<br>
    *          C 001* - N
    */
   public void setR03_IND_ESCRI(String r03_IND_ESCRI) {
@@ -108,10 +108,10 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C100: NOTA FISCAL (CÓDIGO 01), NOTA FISCAL AVULSA (CÓDIGO 1B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65)<br>
+   * Recupera o rEGISTRO C100: NOTA FISCAL (CÃ“DIGO 01), NOTA FISCAL AVULSA (CÃ“DIGO 1B), NOTA FISCAL DE PRODUTOR (CÃ“DIGO 04), NF-e (CÃ“DIGO 55) e NFC-e (CÃ“DIGO 65)<br>
    * Chave: Para NFe: CHV_NFE. Separados por "|".
    *
-   * @return the rEGISTRO C100: NOTA FISCAL (CÓDIGO 01), NOTA FISCAL AVULSA (CÓDIGO 1B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65)<br>
+   * @return the rEGISTRO C100: NOTA FISCAL (CÃ“DIGO 01), NOTA FISCAL AVULSA (CÃ“DIGO 1B), NOTA FISCAL DE PRODUTOR (CÃ“DIGO 04), NF-e (CÃ“DIGO 55) e NFC-e (CÃ“DIGO 65)<br>
    *         Chave: Para NFe: CHV_NFE
    */
   public LinkedHashMap<String, SPEDContribC100> getRc100() {
@@ -119,10 +119,10 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C400: EQUIPAMENTO ECF (CÓDIGO 02, 2D e 60)<br>
+   * Recupera o rEGISTRO C400: EQUIPAMENTO ECF (CÃ“DIGO 02, 2D e 60)<br>
    * Chave: COD_MOD, ECF_MOD e ECF_FAB. Separados por "|".
    *
-   * @return the rEGISTRO C400: EQUIPAMENTO ECF (CÓDIGO 02, 2D e 60)<br>
+   * @return the rEGISTRO C400: EQUIPAMENTO ECF (CÃ“DIGO 02, 2D e 60)<br>
    *         Chave: COD_MOD, ECF_MOD e ECF_FAB
    */
   public LinkedHashMap<String, SPEDContribC400> getRc400() {
@@ -130,10 +130,10 @@ public class SPEDContribC010 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CF-E<br>
+   * Recupera o rEGISTRO C860: IDENTIFICAÃ‡ÃƒO DO EQUIPAMENTO SAT-CF-E<br>
    * Chave: NR_SAT, DT_DOC. Separados por "|".
    *
-   * @return the rEGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CF-E<br>
+   * @return the rEGISTRO C860: IDENTIFICAÃ‡ÃƒO DO EQUIPAMENTO SAT-CF-E<br>
    *         Chave: NR_SAT, DT_DOC
    */
   public LinkedHashMap<String, SPEDContribC860> getRc860() {

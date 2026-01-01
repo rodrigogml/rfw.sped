@@ -7,7 +7,7 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO 0200: TABELA DE IDENTIFICA«√O DO ITEM (PRODUTOS E SERVI«OS).<br>
+ * Description: REGISTRO 0200: TABELA DE IDENTIFICA√á√ÉO DO ITEM (PRODUTOS E SERVI√áOS).<br>
  *
  * @author Rodrigo GML
  * @since 1.0.0 (25 de jul. de 2023)
@@ -22,78 +22,78 @@ public class SPEDContrib0200 extends SPEDRegister {
   }
 
   /**
-   * CÛdigo do item C 060 - S
+   * C√≥digo do item C 060 - S
    */
   @SPEDField(maxLength = 60, required = true)
   private String r02_COD_ITEM = null;
 
   /**
-   * DescriÁ„o do item C - - S
+   * Descri√ß√£o do item C - - S
    */
   @SPEDField(maxLength = 250, required = true)
   private String r03_DESCR_ITEM = null;
 
   /**
-   * RepresentaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver. C - - N
+   * Representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver. C - - N
    */
   @SPEDField(maxLength = 100, required = false)
   private String r04_COD_BARRA = null;
 
   /**
-   * CÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada. C 060 - N
+   * C√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada. C 060 - N
    */
   @SPEDField(maxLength = 60, required = false)
   private String r05_COD_ANT_ITEM = null;
 
   /**
-   * Unidade de medida utilizada na quantificaÁ„o de estoques. C 006 - N
+   * Unidade de medida utilizada na quantifica√ß√£o de estoques. C 006 - N
    */
   @SPEDField(maxLength = 6, required = false)
   private String r06_UNID_INV = null;
 
   /**
-   * Tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   * <li>00 ñ Mercadoria para Revenda;
-   * <li>01 ñ MatÈria-Prima;
-   * <li>02 ñ Embalagem;
-   * <li>03 ñ Produto em Processo;
-   * <li>04 ñ Produto Acabado;
-   * <li>05 ñ Subproduto;
-   * <li>06 ñ Produto Intermedi·rio;
-   * <li>07 ñ Material de Uso e Consumo;
-   * <li>08 ñ Ativo Imobilizado;
-   * <li>09 ñ ServiÁos;
-   * <li>10 ñ Outros insumos;
-   * <li>99 ñ Outras<br>
+   * Tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   * <li>00 ‚Äì Mercadoria para Revenda;
+   * <li>01 ‚Äì Mat√©ria-Prima;
+   * <li>02 ‚Äì Embalagem;
+   * <li>03 ‚Äì Produto em Processo;
+   * <li>04 ‚Äì Produto Acabado;
+   * <li>05 ‚Äì Subproduto;
+   * <li>06 ‚Äì Produto Intermedi√°rio;
+   * <li>07 ‚Äì Material de Uso e Consumo;
+   * <li>08 ‚Äì Ativo Imobilizado;
+   * <li>09 ‚Äì Servi√ßos;
+   * <li>10 ‚Äì Outros insumos;
+   * <li>99 ‚Äì Outras<br>
    * N 002* - S
    */
   @SPEDField(maxLength = 2, minLength = 2, required = true)
   private String r07_TIPO_ITEM = null;
 
   /**
-   * CÛdigo da Nomenclatura Comum do Mercosul C 008 - N
+   * C√≥digo da Nomenclatura Comum do Mercosul C 008 - N
    */
   @SPEDField(maxLength = 8, required = false)
   private String r08_COD_NCM = null;
 
   /**
-   * CÛdigo EX, conforme a TIPI C 003 - N
+   * C√≥digo EX, conforme a TIPI C 003 - N
    */
   @SPEDField(maxLength = 3, required = false)
   private String r09_EX_IPI = null;
 
   /**
-   * CÛdigo do gÍnero do item, conforme a Tabela 4.2.1. N 002* - N
+   * C√≥digo do g√™nero do item, conforme a Tabela 4.2.1. N 002* - N
    */
   @SPEDField(maxLength = 2, minLength = 2, required = false)
   private String r10_COD_GEN = null;
 
   /**
-   * CÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03.
+   * C√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03.
    * <ul>
    *
    * <pre>
-   * Obs: A partir do perÌodo de apuraÁ„o maio de 2015 (vers„o 2.11 do PVA), o cÛdigo a ser informado neste campo poder· ser informado 05 (cinco) caracteres, no formato ìXX.XXî, conforme a codificaÁ„o adotada na Lei Complementar n∫ 116/2003 e na EFD-ICMS/IPI.
+   * Obs: A partir do per√≠odo de apura√ß√£o maio de 2015 (vers√£o 2.11 do PVA), o c√≥digo a ser informado neste campo poder√° ser informado 05 (cinco) caracteres, no formato ‚ÄúXX.XX‚Äù, conforme a codifica√ß√£o adotada na Lei Complementar n¬∫ 116/2003 e na EFD-ICMS/IPI.
    * </pre>
    * </ul>
    * <br>
@@ -103,7 +103,7 @@ public class SPEDContrib0200 extends SPEDRegister {
   private String r11_COD_LST = null;
 
   /**
-   * AlÌquota de ICMS aplic·vel ao item nas operaÁıes internas N 006 02 N
+   * Al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas N 006 02 N
    */
   @SPEDField(maxLength = 6, decimals = 2, required = false)
   private BigDecimal r12_ALIQ_ICMS = null;
@@ -114,124 +114,124 @@ public class SPEDContrib0200 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo do item C 060 - S.
+   * Recupera o c√≥digo do item C 060 - S.
    *
-   * @return the cÛdigo do item C 060 - S
+   * @return the c√≥digo do item C 060 - S
    */
   public String getR02_COD_ITEM() {
     return r02_COD_ITEM;
   }
 
   /**
-   * Define o cÛdigo do item C 060 - S.
+   * Define o c√≥digo do item C 060 - S.
    *
-   * @param r02_COD_ITEM the new cÛdigo do item C 060 - S
+   * @param r02_COD_ITEM the new c√≥digo do item C 060 - S
    */
   public void setR02_COD_ITEM(String r02_COD_ITEM) {
     this.r02_COD_ITEM = r02_COD_ITEM;
   }
 
   /**
-   * Recupera o descriÁ„o do item C - - S.
+   * Recupera o descri√ß√£o do item C - - S.
    *
-   * @return the descriÁ„o do item C - - S
+   * @return the descri√ß√£o do item C - - S
    */
   public String getR03_DESCR_ITEM() {
     return r03_DESCR_ITEM;
   }
 
   /**
-   * Define o descriÁ„o do item C - - S.
+   * Define o descri√ß√£o do item C - - S.
    *
-   * @param r03_DESCR_ITEM the new descriÁ„o do item C - - S
+   * @param r03_DESCR_ITEM the new descri√ß√£o do item C - - S
    */
   public void setR03_DESCR_ITEM(String r03_DESCR_ITEM) {
     this.r03_DESCR_ITEM = r03_DESCR_ITEM;
   }
 
   /**
-   * Recupera o representaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver. C - - N.
+   * Recupera o representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver. C - - N.
    *
-   * @return the representaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver
+   * @return the representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver
    */
   public String getR04_COD_BARRA() {
     return r04_COD_BARRA;
   }
 
   /**
-   * Define o representaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver. C - - N.
+   * Define o representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver. C - - N.
    *
-   * @param r04_COD_BARRA the new representaÁ„o alfanumÈrico do cÛdigo de barra do produto, se houver
+   * @param r04_COD_BARRA the new representa√ß√£o alfanum√©rico do c√≥digo de barra do produto, se houver
    */
   public void setR04_COD_BARRA(String r04_COD_BARRA) {
     this.r04_COD_BARRA = r04_COD_BARRA;
   }
 
   /**
-   * Recupera o cÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada. C 060 - N.
+   * Recupera o c√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada. C 060 - N.
    *
-   * @return the cÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada
+   * @return the c√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada
    */
   public String getR05_COD_ANT_ITEM() {
     return r05_COD_ANT_ITEM;
   }
 
   /**
-   * Define o cÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada. C 060 - N.
+   * Define o c√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada. C 060 - N.
    *
-   * @param r05_COD_ANT_ITEM the new cÛdigo anterior do item com relaÁ„o ‡ ˙ltima informaÁ„o apresentada
+   * @param r05_COD_ANT_ITEM the new c√≥digo anterior do item com rela√ß√£o √† √∫ltima informa√ß√£o apresentada
    */
   public void setR05_COD_ANT_ITEM(String r05_COD_ANT_ITEM) {
     this.r05_COD_ANT_ITEM = r05_COD_ANT_ITEM;
   }
 
   /**
-   * Recupera o unidade de medida utilizada na quantificaÁ„o de estoques. C 006 - N.
+   * Recupera o unidade de medida utilizada na quantifica√ß√£o de estoques. C 006 - N.
    *
-   * @return the unidade de medida utilizada na quantificaÁ„o de estoques
+   * @return the unidade de medida utilizada na quantifica√ß√£o de estoques
    */
   public String getR06_UNID_INV() {
     return r06_UNID_INV;
   }
 
   /**
-   * Define o unidade de medida utilizada na quantificaÁ„o de estoques. C 006 - N.
+   * Define o unidade de medida utilizada na quantifica√ß√£o de estoques. C 006 - N.
    *
-   * @param r06_UNID_INV the new unidade de medida utilizada na quantificaÁ„o de estoques
+   * @param r06_UNID_INV the new unidade de medida utilizada na quantifica√ß√£o de estoques
    */
   public void setR06_UNID_INV(String r06_UNID_INV) {
     this.r06_UNID_INV = r06_UNID_INV;
   }
 
   /**
-   * Recupera o tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   * <li>00 ñ Mercadoria para Revenda;
-   * <li>01 ñ MatÈria-Prima;
-   * <li>02 ñ Embalagem;
-   * <li>03 ñ Produto em Processo;
-   * <li>04 ñ Produto Acabado;
-   * <li>05 ñ Subproduto;
-   * <li>06 ñ Produto Intermedi·rio;
-   * <li>07 ñ Material de Uso e Consumo;
-   * <li>08 ñ Ativo Imobilizado;
-   * <li>09 ñ ServiÁos;
-   * <li>10 ñ Outros insumos;
-   * <li>99 ñ Outras<br>
+   * Recupera o tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   * <li>00 ‚Äì Mercadoria para Revenda;
+   * <li>01 ‚Äì Mat√©ria-Prima;
+   * <li>02 ‚Äì Embalagem;
+   * <li>03 ‚Äì Produto em Processo;
+   * <li>04 ‚Äì Produto Acabado;
+   * <li>05 ‚Äì Subproduto;
+   * <li>06 ‚Äì Produto Intermedi√°rio;
+   * <li>07 ‚Äì Material de Uso e Consumo;
+   * <li>08 ‚Äì Ativo Imobilizado;
+   * <li>09 ‚Äì Servi√ßos;
+   * <li>10 ‚Äì Outros insumos;
+   * <li>99 ‚Äì Outras<br>
    * N 002* - S.
    *
-   * @return the tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   *         <li>00 ñ Mercadoria para Revenda;
-   *         <li>01 ñ MatÈria-Prima;
-   *         <li>02 ñ Embalagem;
-   *         <li>03 ñ Produto em Processo;
-   *         <li>04 ñ Produto Acabado;
-   *         <li>05 ñ Subproduto;
-   *         <li>06 ñ Produto Intermedi·rio;
-   *         <li>07 ñ Material de Uso e Consumo;
-   *         <li>08 ñ Ativo Imobilizado;
-   *         <li>09 ñ ServiÁos;
-   *         <li>10 ñ Outros insumos;
-   *         <li>99 ñ Outras<br>
+   * @return the tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   *         <li>00 ‚Äì Mercadoria para Revenda;
+   *         <li>01 ‚Äì Mat√©ria-Prima;
+   *         <li>02 ‚Äì Embalagem;
+   *         <li>03 ‚Äì Produto em Processo;
+   *         <li>04 ‚Äì Produto Acabado;
+   *         <li>05 ‚Äì Subproduto;
+   *         <li>06 ‚Äì Produto Intermedi√°rio;
+   *         <li>07 ‚Äì Material de Uso e Consumo;
+   *         <li>08 ‚Äì Ativo Imobilizado;
+   *         <li>09 ‚Äì Servi√ßos;
+   *         <li>10 ‚Äì Outros insumos;
+   *         <li>99 ‚Äì Outras<br>
    *         N 002* - S
    */
   public String getR07_TIPO_ITEM() {
@@ -239,34 +239,34 @@ public class SPEDContrib0200 extends SPEDRegister {
   }
 
   /**
-   * Define o tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   * <li>00 ñ Mercadoria para Revenda;
-   * <li>01 ñ MatÈria-Prima;
-   * <li>02 ñ Embalagem;
-   * <li>03 ñ Produto em Processo;
-   * <li>04 ñ Produto Acabado;
-   * <li>05 ñ Subproduto;
-   * <li>06 ñ Produto Intermedi·rio;
-   * <li>07 ñ Material de Uso e Consumo;
-   * <li>08 ñ Ativo Imobilizado;
-   * <li>09 ñ ServiÁos;
-   * <li>10 ñ Outros insumos;
-   * <li>99 ñ Outras<br>
+   * Define o tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   * <li>00 ‚Äì Mercadoria para Revenda;
+   * <li>01 ‚Äì Mat√©ria-Prima;
+   * <li>02 ‚Äì Embalagem;
+   * <li>03 ‚Äì Produto em Processo;
+   * <li>04 ‚Äì Produto Acabado;
+   * <li>05 ‚Äì Subproduto;
+   * <li>06 ‚Äì Produto Intermedi√°rio;
+   * <li>07 ‚Äì Material de Uso e Consumo;
+   * <li>08 ‚Äì Ativo Imobilizado;
+   * <li>09 ‚Äì Servi√ßos;
+   * <li>10 ‚Äì Outros insumos;
+   * <li>99 ‚Äì Outras<br>
    * N 002* - S.
    *
-   * @param r07_TIPO_ITEM the new tipo do item ñ Atividades Industriais, Comerciais e ServiÁos:
-   *          <li>00 ñ Mercadoria para Revenda;
-   *          <li>01 ñ MatÈria-Prima;
-   *          <li>02 ñ Embalagem;
-   *          <li>03 ñ Produto em Processo;
-   *          <li>04 ñ Produto Acabado;
-   *          <li>05 ñ Subproduto;
-   *          <li>06 ñ Produto Intermedi·rio;
-   *          <li>07 ñ Material de Uso e Consumo;
-   *          <li>08 ñ Ativo Imobilizado;
-   *          <li>09 ñ ServiÁos;
-   *          <li>10 ñ Outros insumos;
-   *          <li>99 ñ Outras<br>
+   * @param r07_TIPO_ITEM the new tipo do item ‚Äì Atividades Industriais, Comerciais e Servi√ßos:
+   *          <li>00 ‚Äì Mercadoria para Revenda;
+   *          <li>01 ‚Äì Mat√©ria-Prima;
+   *          <li>02 ‚Äì Embalagem;
+   *          <li>03 ‚Äì Produto em Processo;
+   *          <li>04 ‚Äì Produto Acabado;
+   *          <li>05 ‚Äì Subproduto;
+   *          <li>06 ‚Äì Produto Intermedi√°rio;
+   *          <li>07 ‚Äì Material de Uso e Consumo;
+   *          <li>08 ‚Äì Ativo Imobilizado;
+   *          <li>09 ‚Äì Servi√ßos;
+   *          <li>10 ‚Äì Outros insumos;
+   *          <li>99 ‚Äì Outras<br>
    *          N 002* - S
    */
   public void setR07_TIPO_ITEM(String r07_TIPO_ITEM) {
@@ -274,106 +274,106 @@ public class SPEDContrib0200 extends SPEDRegister {
   }
 
   /**
-   * Recupera o cÛdigo da Nomenclatura Comum do Mercosul C 008 - N.
+   * Recupera o c√≥digo da Nomenclatura Comum do Mercosul C 008 - N.
    *
-   * @return the cÛdigo da Nomenclatura Comum do Mercosul C 008 - N
+   * @return the c√≥digo da Nomenclatura Comum do Mercosul C 008 - N
    */
   public String getR08_COD_NCM() {
     return r08_COD_NCM;
   }
 
   /**
-   * Define o cÛdigo da Nomenclatura Comum do Mercosul C 008 - N.
+   * Define o c√≥digo da Nomenclatura Comum do Mercosul C 008 - N.
    *
-   * @param r08_COD_NCM the new cÛdigo da Nomenclatura Comum do Mercosul C 008 - N
+   * @param r08_COD_NCM the new c√≥digo da Nomenclatura Comum do Mercosul C 008 - N
    */
   public void setR08_COD_NCM(String r08_COD_NCM) {
     this.r08_COD_NCM = r08_COD_NCM;
   }
 
   /**
-   * Recupera o cÛdigo EX, conforme a TIPI C 003 - N.
+   * Recupera o c√≥digo EX, conforme a TIPI C 003 - N.
    *
-   * @return the cÛdigo EX, conforme a TIPI C 003 - N
+   * @return the c√≥digo EX, conforme a TIPI C 003 - N
    */
   public String getR09_EX_IPI() {
     return r09_EX_IPI;
   }
 
   /**
-   * Define o cÛdigo EX, conforme a TIPI C 003 - N.
+   * Define o c√≥digo EX, conforme a TIPI C 003 - N.
    *
-   * @param r09_EX_IPI the new cÛdigo EX, conforme a TIPI C 003 - N
+   * @param r09_EX_IPI the new c√≥digo EX, conforme a TIPI C 003 - N
    */
   public void setR09_EX_IPI(String r09_EX_IPI) {
     this.r09_EX_IPI = r09_EX_IPI;
   }
 
   /**
-   * Recupera o cÛdigo do gÍnero do item, conforme a Tabela 4.2.1. N 002* - N.
+   * Recupera o c√≥digo do g√™nero do item, conforme a Tabela 4.2.1. N 002* - N.
    *
-   * @return the cÛdigo do gÍnero do item, conforme a Tabela 4
+   * @return the c√≥digo do g√™nero do item, conforme a Tabela 4
    */
   public String getR10_COD_GEN() {
     return r10_COD_GEN;
   }
 
   /**
-   * Define o cÛdigo do gÍnero do item, conforme a Tabela 4.2.1. N 002* - N.
+   * Define o c√≥digo do g√™nero do item, conforme a Tabela 4.2.1. N 002* - N.
    *
-   * @param r10_COD_GEN the new cÛdigo do gÍnero do item, conforme a Tabela 4
+   * @param r10_COD_GEN the new c√≥digo do g√™nero do item, conforme a Tabela 4
    */
   public void setR10_COD_GEN(String r10_COD_GEN) {
     this.r10_COD_GEN = r10_COD_GEN;
   }
 
   /**
-   * Recupera o cÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03.
+   * Recupera o c√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03.
    * <ul>
    *
    * <pre>
-   *  Obs: A partir do perÌodo de apuraÁ„o maio de 2015 (vers„o 2.11 do PVA), o cÛdigo a ser informado neste campo poder· ser informado 05 (cinco) caracteres, no formato ìXX.XXî, conforme a codificaÁ„o adotada na Lei Complementar n∫ 116/2003 e na EFD-ICMS/IPI.
+   *  Obs: A partir do per√≠odo de apura√ß√£o maio de 2015 (vers√£o 2.11 do PVA), o c√≥digo a ser informado neste campo poder√° ser informado 05 (cinco) caracteres, no formato ‚ÄúXX.XX‚Äù, conforme a codifica√ß√£o adotada na Lei Complementar n¬∫ 116/2003 e na EFD-ICMS/IPI.
    * </pre>
    * </ul>
    * <br>
    * N 005 N.
    *
-   * @return the cÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03
+   * @return the c√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03
    */
   public String getR11_COD_LST() {
     return r11_COD_LST;
   }
 
   /**
-   * Define o cÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03.
+   * Define o c√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03.
    * <ul>
    *
    * <pre>
-   *  Obs: A partir do perÌodo de apuraÁ„o maio de 2015 (vers„o 2.11 do PVA), o cÛdigo a ser informado neste campo poder· ser informado 05 (cinco) caracteres, no formato ìXX.XXî, conforme a codificaÁ„o adotada na Lei Complementar n∫ 116/2003 e na EFD-ICMS/IPI.
+   *  Obs: A partir do per√≠odo de apura√ß√£o maio de 2015 (vers√£o 2.11 do PVA), o c√≥digo a ser informado neste campo poder√° ser informado 05 (cinco) caracteres, no formato ‚ÄúXX.XX‚Äù, conforme a codifica√ß√£o adotada na Lei Complementar n¬∫ 116/2003 e na EFD-ICMS/IPI.
    * </pre>
    * </ul>
    * <br>
    * N 005 N.
    *
-   * @param r11_COD_LST the new cÛdigo do serviÁo conforme lista do Anexo I da Lei Complementar Federal n∫ 116/03
+   * @param r11_COD_LST the new c√≥digo do servi√ßo conforme lista do Anexo I da Lei Complementar Federal n¬∫ 116/03
    */
   public void setR11_COD_LST(String r11_COD_LST) {
     this.r11_COD_LST = r11_COD_LST;
   }
 
   /**
-   * Recupera o alÌquota de ICMS aplic·vel ao item nas operaÁıes internas N 006 02 N.
+   * Recupera o al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas N 006 02 N.
    *
-   * @return the alÌquota de ICMS aplic·vel ao item nas operaÁıes internas N 006 02 N
+   * @return the al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas N 006 02 N
    */
   public BigDecimal getR12_ALIQ_ICMS() {
     return r12_ALIQ_ICMS;
   }
 
   /**
-   * Define o alÌquota de ICMS aplic·vel ao item nas operaÁıes internas N 006 02 N.
+   * Define o al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas N 006 02 N.
    *
-   * @param r12_ALIQ_ICMS the new alÌquota de ICMS aplic·vel ao item nas operaÁıes internas N 006 02 N
+   * @param r12_ALIQ_ICMS the new al√≠quota de ICMS aplic√°vel ao item nas opera√ß√µes internas N 006 02 N
    */
   public void setR12_ALIQ_ICMS(BigDecimal r12_ALIQ_ICMS) {
     this.r12_ALIQ_ICMS = r12_ALIQ_ICMS;

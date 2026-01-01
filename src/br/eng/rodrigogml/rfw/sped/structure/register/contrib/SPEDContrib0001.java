@@ -27,7 +27,7 @@ public class SPEDContrib0001 extends SPEDRegister {
   private SPEDContrib0100 r0100 = null;
 
   /**
-   * REGISTRO 0110: REGIMES DE APURA«√O DA CONTRIBUI«√O SOCIAL E DE APROPRIA«√O DE CR…DITO
+   * REGISTRO 0110: REGIMES DE APURA√á√ÉO DA CONTRIBUI√á√ÉO SOCIAL E DE APROPRIA√á√ÉO DE CR√âDITO
    */
   private SPEDContrib0110 r0110 = null;
 
@@ -38,7 +38,7 @@ public class SPEDContrib0001 extends SPEDRegister {
   private final LinkedHashMap<String, SPEDContrib0140> r0140 = new LinkedHashMap<String, SPEDContrib0140>();
 
   /**
-   * REGISTRO 0500: PLANO DE CONTAS CONT¡BEIS
+   * REGISTRO 0500: PLANO DE CONTAS CONT√ÅBEIS
    */
   private final LinkedHashMap<String, SPEDContrib0500> r0500 = new LinkedHashMap<String, SPEDContrib0500>();
 
@@ -46,7 +46,7 @@ public class SPEDContrib0001 extends SPEDRegister {
    * Indicador de movimento:<br>
    * <ul>
    * <li>0 - Bloco com dados informados;
-   * <li>1 ñ Bloco sem dados informados.
+   * <li>1 ‚Äì Bloco sem dados informados.
    * </ul>
    * <br>
    * N 001 - S
@@ -63,7 +63,7 @@ public class SPEDContrib0001 extends SPEDRegister {
    * Recupera o indicador de movimento:<br>
    * <ul>
    * <li>0 - Bloco com dados informados;
-   * <li>1 ñ Bloco sem dados informados.
+   * <li>1 ‚Äì Bloco sem dados informados.
    * </ul>
    * <br>
    * N 001 - S.
@@ -71,7 +71,7 @@ public class SPEDContrib0001 extends SPEDRegister {
    * @return the indicador de movimento:<br>
    *         <ul>
    *         <li>0 - Bloco com dados informados;
-   *         <li>1 ñ Bloco sem dados informados
+   *         <li>1 ‚Äì Bloco sem dados informados
    */
   public String getR02_IND_MOV() {
     return r02_IND_MOV;
@@ -81,7 +81,7 @@ public class SPEDContrib0001 extends SPEDRegister {
    * Define o indicador de movimento:<br>
    * <ul>
    * <li>0 - Bloco com dados informados;
-   * <li>1 ñ Bloco sem dados informados.
+   * <li>1 ‚Äì Bloco sem dados informados.
    * </ul>
    * <br>
    * N 001 - S.
@@ -89,7 +89,7 @@ public class SPEDContrib0001 extends SPEDRegister {
    * @param r02_IND_MOV the new indicador de movimento:<br>
    *          <ul>
    *          <li>0 - Bloco com dados informados;
-   *          <li>1 ñ Bloco sem dados informados
+   *          <li>1 ‚Äì Bloco sem dados informados
    */
   public void setR02_IND_MOV(String r02_IND_MOV) {
     this.r02_IND_MOV = r02_IND_MOV;
@@ -114,18 +114,18 @@ public class SPEDContrib0001 extends SPEDRegister {
   }
 
   /**
-   * Recupera o rEGISTRO 0110: REGIMES DE APURA«√O DA CONTRIBUI«√O SOCIAL E DE APROPRIA«√O DE CR…DITO.
+   * Recupera o rEGISTRO 0110: REGIMES DE APURA√á√ÉO DA CONTRIBUI√á√ÉO SOCIAL E DE APROPRIA√á√ÉO DE CR√âDITO.
    *
-   * @return the rEGISTRO 0110: REGIMES DE APURA«√O DA CONTRIBUI«√O SOCIAL E DE APROPRIA«√O DE CR…DITO
+   * @return the rEGISTRO 0110: REGIMES DE APURA√á√ÉO DA CONTRIBUI√á√ÉO SOCIAL E DE APROPRIA√á√ÉO DE CR√âDITO
    */
   public SPEDContrib0110 getR0110() {
     return r0110;
   }
 
   /**
-   * Define o rEGISTRO 0110: REGIMES DE APURA«√O DA CONTRIBUI«√O SOCIAL E DE APROPRIA«√O DE CR…DITO.
+   * Define o rEGISTRO 0110: REGIMES DE APURA√á√ÉO DA CONTRIBUI√á√ÉO SOCIAL E DE APROPRIA√á√ÉO DE CR√âDITO.
    *
-   * @param r0110 the new rEGISTRO 0110: REGIMES DE APURA«√O DA CONTRIBUI«√O SOCIAL E DE APROPRIA«√O DE CR…DITO
+   * @param r0110 the new rEGISTRO 0110: REGIMES DE APURA√á√ÉO DA CONTRIBUI√á√ÉO SOCIAL E DE APROPRIA√á√ÉO DE CR√âDITO
    */
   public void setR0110(SPEDContrib0110 r0110) {
     this.r0110 = r0110;

@@ -5,9 +5,9 @@ import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 
 /**
- * Description: REGISTRO C195: OBSERVAÇOES DO LANÇAMENTO FISCAL (CÓDIGO 01, 1B, 04 E 55).<br>
+ * Description: REGISTRO C195: OBSERVAÃ‡OES DO LANÃ‡AMENTO FISCAL (CÃ“DIGO 01, 1B, 04 E 55).<br>
  *
- * @author Rodrigo Leitão
+ * @author Rodrigo LeitÃ£o
  * @since 10.0 (22 de jul. de 2023)
  */
 public class SPEDFiscalC195 extends SPEDRegister {
@@ -19,13 +19,13 @@ public class SPEDFiscalC195 extends SPEDRegister {
   }
 
   /**
-   * 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O
+   * 02 COD_OBS CÃ³digo da observaÃ§Ã£o do lanÃ§amento fiscal (campo 02 do Registro 0460) C 006 - O O
    */
   @SPEDField(maxLength = 6)
   private String r02_COD_OBS = null;
 
   /**
-   * 03 TXT_COMPL Descrição complementar do código de observação. C - - OC OC
+   * 03 TXT_COMPL DescriÃ§Ã£o complementar do cÃ³digo de observaÃ§Ã£o. C - - OC OC
    */
   @SPEDField(maxLength = 5000, required = false)
   private String r03_TXT_COMPL = null;
@@ -36,36 +36,36 @@ public class SPEDFiscalC195 extends SPEDRegister {
   }
 
   /**
-   * Recupera o 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O.
+   * Recupera o 02 COD_OBS CÃ³digo da observaÃ§Ã£o do lanÃ§amento fiscal (campo 02 do Registro 0460) C 006 - O O.
    *
-   * @return the 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O
+   * @return the 02 COD_OBS CÃ³digo da observaÃ§Ã£o do lanÃ§amento fiscal (campo 02 do Registro 0460) C 006 - O O
    */
   public String getR02_COD_OBS() {
     return r02_COD_OBS;
   }
 
   /**
-   * Define o 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O.
+   * Define o 02 COD_OBS CÃ³digo da observaÃ§Ã£o do lanÃ§amento fiscal (campo 02 do Registro 0460) C 006 - O O.
    *
-   * @param r02_COD_OBS the new 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O
+   * @param r02_COD_OBS the new 02 COD_OBS CÃ³digo da observaÃ§Ã£o do lanÃ§amento fiscal (campo 02 do Registro 0460) C 006 - O O
    */
   public void setR02_COD_OBS(String r02_COD_OBS) {
     this.r02_COD_OBS = r02_COD_OBS;
   }
 
   /**
-   * Recupera o 03 TXT_COMPL Descrição complementar do código de observação. C - - OC OC.
+   * Recupera o 03 TXT_COMPL DescriÃ§Ã£o complementar do cÃ³digo de observaÃ§Ã£o. C - - OC OC.
    *
-   * @return the 03 TXT_COMPL Descrição complementar do código de observação
+   * @return the 03 TXT_COMPL DescriÃ§Ã£o complementar do cÃ³digo de observaÃ§Ã£o
    */
   public String getR03_TXT_COMPL() {
     return r03_TXT_COMPL;
   }
 
   /**
-   * Define o 03 TXT_COMPL Descrição complementar do código de observação. C - - OC OC.
+   * Define o 03 TXT_COMPL DescriÃ§Ã£o complementar do cÃ³digo de observaÃ§Ã£o. C - - OC OC.
    *
-   * @param r03_TXT_COMPL the new 03 TXT_COMPL Descrição complementar do código de observação
+   * @param r03_TXT_COMPL the new 03 TXT_COMPL DescriÃ§Ã£o complementar do cÃ³digo de observaÃ§Ã£o
    */
   public void setR03_TXT_COMPL(String r03_TXT_COMPL) {
     this.r03_TXT_COMPL = r03_TXT_COMPL;
