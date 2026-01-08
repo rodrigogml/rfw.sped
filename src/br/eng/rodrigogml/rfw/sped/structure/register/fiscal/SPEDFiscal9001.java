@@ -128,26 +128,31 @@ public class SPEDFiscal9001 extends SPEDRegister {
           throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
         }
         if (value != null) {
-          SPEDFiscal9900 r9900 = new SPEDFiscal9900(this.getSpedFile());
-          r9900.setR02_REG_BLC(f.getName().substring(1).toUpperCase());
-          this.getR9900_AUTO().put(r9900.getR02_REG_BLC(), r9900);
+          String regCode = f.getName().substring(1).toUpperCase();
+          SPEDFiscal9900 r9900 = this.getR9900_AUTO().get(regCode);
+          if (r9900 == null) {
+            r9900 = new SPEDFiscal9900(this.getSpedFile());
+            r9900.setR02_REG_BLC(regCode);
+            r9900.setR03_QTD_REG_BLC_AUTO(0);
+            this.getR9900_AUTO().put(regCode, r9900);
+          }
 
           if (value instanceof LinkedHashMap) {
-            r9900.setR03_QTD_REG_BLC_AUTO(((LinkedHashMap<?, ?>) value).size());
+            addToRegisterCount(r9900, ((LinkedHashMap<?, ?>) value).size());
             for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
               Field[] fields2 = spedReg.getClass().getDeclaredFields();
               Arrays.sort(fields2, fieldComparator);
               createR9900ForFields(spedReg, fields2);
             }
           } else if (value instanceof ArrayList) {
-            r9900.setR03_QTD_REG_BLC_AUTO(((ArrayList<?>) value).size());
+            addToRegisterCount(r9900, ((ArrayList<?>) value).size());
             for (Object spedReg : (ArrayList<?>) value) {
               Field[] fields2 = spedReg.getClass().getDeclaredFields();
               Arrays.sort(fields2, fieldComparator);
               createR9900ForFields(spedReg, fields2);
             }
           } else if (value instanceof SPEDRegister) {
-            r9900.setR03_QTD_REG_BLC_AUTO(1);
+            addToRegisterCount(r9900, 1);
             Field[] fields2 = value.getClass().getDeclaredFields();
             Arrays.sort(fields2, fieldComparator);
             createR9900ForFields(value, fields2);
@@ -155,5 +160,10 @@ public class SPEDFiscal9001 extends SPEDRegister {
         }
       }
     }
+  }
+
+  private void addToRegisterCount(SPEDFiscal9900 r9900, int increment) {
+    Integer current = r9900.getR03_QTD_REG_BLC_AUTO();
+    r9900.setR03_QTD_REG_BLC_AUTO((current == null ? 0 : current) + increment);
   }
 }
