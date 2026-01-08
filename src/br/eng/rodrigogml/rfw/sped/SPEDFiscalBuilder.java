@@ -62,6 +62,82 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 public class SPEDFiscalBuilder {
 
   /**
+   * Enumeração que representa as faixas de vigência das versões do layout do SPED Fiscal.
+   * <p>
+   * Cada item define:
+   * <ul>
+   * <li>O código da versão do layout (campo R02_COD_VER do registro 0000)</li>
+   * <li>A data inicial de vigência da versão</li>
+   * <li>A data final de vigência da versão</li>
+   * </ul>
+   * </p>
+   * <p>
+   * A enum é utilizada para identificar, de forma centralizada e consistente, qual versão do layout deve ser aplicada a um determinado período de apuração.
+   * </p>
+   * <p>
+   * A última versão pode não possuir data final definida, indicando vigência em aberto a partir da data inicial.
+   * </p>
+   */
+  private enum SpedFiscalVersionRange {
+
+    /** V002 */
+    V002("002", LocalDate.of(2009, 1, 1), LocalDate.of(2009, 12, 31)),
+    /** V003 */
+    V003("003", LocalDate.of(2010, 1, 1), LocalDate.of(2010, 12, 31)),
+    /** V004 */
+    V004("004", LocalDate.of(2011, 1, 1), LocalDate.of(2011, 12, 31)),
+    /** V005 */
+    V005("005", LocalDate.of(2012, 1, 1), LocalDate.of(2012, 6, 30)),
+    /** V006 */
+    V006("006", LocalDate.of(2012, 7, 1), LocalDate.of(2012, 12, 31)),
+    /** V007 */
+    V007("007", LocalDate.of(2013, 1, 1), LocalDate.of(2013, 12, 31)),
+    /** V008 */
+    V008("008", LocalDate.of(2014, 1, 1), LocalDate.of(2014, 12, 31)),
+    /** V009 */
+    V009("009", LocalDate.of(2015, 1, 1), LocalDate.of(2015, 12, 31)),
+    /** V010 */
+    V010("010", LocalDate.of(2016, 1, 1), LocalDate.of(2016, 12, 31)),
+    /** V011 */
+    V011("011", LocalDate.of(2017, 1, 1), LocalDate.of(2017, 12, 31)),
+    /** V012 */
+    V012("012", LocalDate.of(2018, 1, 1), LocalDate.of(2018, 12, 31)),
+    /** V013 */
+    V013("013", LocalDate.of(2019, 1, 1), LocalDate.of(2019, 12, 31)),
+    /** V014 */
+    V014("014", LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31)),
+    /** V015 */
+    V015("015", LocalDate.of(2021, 1, 1), LocalDate.of(2021, 12, 31)),
+    /** V016 */
+    V016("016", LocalDate.of(2022, 1, 1), LocalDate.of(2022, 12, 31)),
+    /** V017 */
+    V017("017", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31)),
+    /** V018 */
+    V018("018", LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31)),
+    /** V019 */
+    V019("019", LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31)),
+    /** V020 */
+    V020("020", LocalDate.of(2026, 1, 1), null);
+
+    final String code;
+    final LocalDate start;
+    final LocalDate end;
+
+    SpedFiscalVersionRange(String code, LocalDate start, LocalDate end) {
+      this.code = code;
+      this.start = start;
+      this.end = end;
+    }
+
+    boolean contains(LocalDate date) {
+      if (end == null) {
+        return !date.isBefore(start);
+      }
+      return !date.isBefore(start) && !date.isAfter(end);
+    }
+  }
+
+  /**
    * Construtor privado para classe exclusiva com métodos estáticos.
    */
   private SPEDFiscalBuilder() {
@@ -169,7 +245,7 @@ public class SPEDFiscalBuilder {
       sped.setR0000(r0000);
     }
 
-    r0000.setR02_COD_VER("017"); // Código da versão depende do código implementado, por isso é definido como constante no código.
+    r0000.setR02_COD_VER(resolveSpedFiscalVersion(r04_DT_INI, r05_DT_FIN)); // Código da versão depende do código implementado, por isso é definido como constante no código.
     r0000.setR03_COD_FIN(r03_COD_FIN);
     r0000.setR04_DT_INI(r04_DT_INI);
     r0000.setR05_DT_FIN(r05_DT_FIN);
@@ -1442,5 +1518,48 @@ public class SPEDFiscalBuilder {
       r9900.setR02_REG_BLC(r02_REG_BLC);
     }
     return r9900;
+  }
+
+  /**
+   * Resolve a versão do layout do SPED Fiscal com base no período informado.
+   * <p>
+   * A versão é determinada comparando as datas inicial e final com as faixas oficiais de vigência de cada layout do SPED Fiscal.
+   * </p>
+   * <p>
+   * Ambas as datas devem pertencer à mesma faixa de versão. Caso o período informado atravesse versões diferentes de layout, será lançada uma {@link RFWCriticalException}.
+   * </p>
+   *
+   * @param startDate Data inicial do período.
+   * @param endDate Data final do período.
+   * @return Código da versão do layout do SPED Fiscal (ex: "017").
+   * @throws RFWCriticalException Quando:
+   *           <ul>
+   *           <li>O período informado exige mais de uma versão de layout</li>
+   *           <li>As datas estão fora dos intervalos suportados</li>
+   *           </ul>
+   */
+  public static String resolveSpedFiscalVersion(LocalDate startDate, LocalDate endDate) throws RFWCriticalException {
+
+    String startVersion = null;
+    String endVersion = null;
+
+    for (SpedFiscalVersionRange range : SpedFiscalVersionRange.values()) {
+      if (range.contains(startDate)) {
+        startVersion = range.code;
+      }
+      if (range.contains(endDate)) {
+        endVersion = range.code;
+      }
+    }
+
+    if (startVersion == null || endVersion == null) {
+      throw new RFWCriticalException("O período informado está fora das versões suportadas do SPED Fiscal.");
+    }
+
+    if (!startVersion.equals(endVersion)) {
+      throw new RFWCriticalException("O período informado exige diferentes versões de layout do SPED Fiscal.");
+    }
+
+    return startVersion;
   }
 }

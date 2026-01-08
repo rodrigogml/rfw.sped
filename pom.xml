@@ -1,7 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.eng.rodrigogml.rfw</groupId>
-	  <artifactId>RFW.SPED</artifactId>
+	<artifactId>RFW.SPED</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>RFW.SPED</name>
@@ -35,17 +37,17 @@
 				<configuration>
 					<target>1.8</target>
 					<source>1.8</source>
-<!--					<release>20</release>-->
+					<!--					<release>20</release>-->
 					<encoding>${project.build.sourceEncoding}</encoding>
-		            <debug>true</debug>
-		            <debuglevel>lines,vars,source</debuglevel>
-  				</configuration>
+					<debug>true</debug>
+					<debuglevel>lines,vars,source</debuglevel>
+				</configuration>
 			</plugin>
 			<!-- Copy project dependency -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<!-- <version>2.5.1</version> -->
+				<version>3.7.0</version>
 				<executions>
 					<execution>
 						<id>libs</id>
@@ -72,7 +74,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>br.eng.rodrigogml.rfw</groupId>
 			<artifactId>RFW.Kernel</artifactId>
