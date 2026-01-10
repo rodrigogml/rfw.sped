@@ -63,7 +63,7 @@ public class SPEDFiscal9999 extends SPEDRegister {
       if (((SPEDFiscalFile) this.getSpedFile()).getRK990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getRK990().getR02_QTD_LIN_K_AUTO();
       if (((SPEDFiscalFile) this.getSpedFile()).getR1990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR1990().getR02_QTD_LIN_1_AUTO();
       if (((SPEDFiscalFile) this.getSpedFile()).getR9990() != null) totalRegisters += ((SPEDFiscalFile) this.getSpedFile()).getR9990().getR02_QTD_LIN_9_AUTO();
-      this.r02_QTD_LIN = totalRegisters;
+      this.r02_QTD_LIN = totalRegisters + 1; // Soma o próprio registro 9999
     }
   }
 }

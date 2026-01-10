@@ -29,6 +29,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9900;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalB990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
@@ -49,6 +50,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH020;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
@@ -664,6 +666,39 @@ public class SPEDFiscalBuilder {
       sped.setRK001(rk001);
     }
     return rk001;
+  }
+
+  /**
+   * REGISTRO K010: INDICADOR DO TIPO DE LEIAUTE ADOTADO NA INFORMAÇÃO DO BLOCO K.<br>
+   * <br>
+   * Este registro indica o tipo de leiaute que o contribuinte adotou na informação do bloco K.<br>
+   * <br>
+   * Observações:
+   * <li>Obrigatoriedade: a partir de 2023</li>
+   * <li>Nível hierárquico - 2</li>
+   * <li>Ocorrência – um por arquivo</li>
+   * <br>
+   * Validação: registro obrigatório se o campo 02 (IND_MOV) do registro K001 estiver informado com
+   * “0 - Bloco com dados informados”.
+   *
+   * @param rk001 Registro pai K001.
+   * @param indTpLeiaute Indicador de tipo de leiaute adotado:
+   *          <li>0 – Leiaute simplificado</li>
+   *          <li>1 - Leiaute completo</li>
+   *          <li>2 – Leiaute restrito aos saldos de estoque</li>
+   * @return Registro K010 criado/atualizado.
+   * @throws RFWException
+   */
+  public static SPEDFiscalK010 addK010(SPEDFiscalK001 rk001, String indTpLeiaute) throws RFWException {
+    SPEDFiscalK010 rk010 = rk001.getRk010();
+    if (rk010 == null) {
+      rk010 = new SPEDFiscalK010(rk001.getSpedFile());
+      rk001.setRk010(rk010);
+    }
+
+    rk010.setR02_IND_TP_LEIAUTE(indTpLeiaute);
+
+    return rk010;
   }
 
   /**
@@ -1312,6 +1347,25 @@ public class SPEDFiscalBuilder {
       sped.setR0990(r0990);
     }
     return r0990;
+  }
+
+  /**
+   * REGISTRO B990: ENCERRAMENTO DO BLOCO B<br>
+   * Observações:
+   * <li>Nível hierárquico - 1</li>
+   * <li>Ocorrência – um por arquivo</li>
+   *
+   * @param sped Arquivo SPED.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalB990 addB990(SPEDFiscalFile sped) throws RFWException {
+    SPEDFiscalB990 rB990 = sped.getRB990();
+    if (rB990 == null) {
+      rB990 = new SPEDFiscalB990(sped);
+      sped.setRB990(rB990);
+    }
+    return rB990;
   }
 
   /**

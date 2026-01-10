@@ -53,7 +53,7 @@ public class SPEDFiscal9990 extends SPEDRegister {
   public void calculate(String uuid) throws RFWException {
     if (uuid == null || !uuid.equals(this.getLastUUID())) { // Se UUID recebido for diferente da última rodada de cálculo, devemos realizar os cálculos.
       super.calculate(uuid); // Chama o cálculo da classe pai para salvar o UUID e calcular os registros filhos recursivamente
-      int totalRegisters = ((SPEDFiscalFile) this.getSpedFile()).getR9001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+      int totalRegisters = ((SPEDFiscalFile) this.getSpedFile()).getR9001().countRegisters() + 2; // Soma o registo de fechamento que não está incluso + o registro do arquivo que aqui deve ser contabilizado também
       this.r02_QTD_LIN_9_AUTO = totalRegisters;
     }
   }

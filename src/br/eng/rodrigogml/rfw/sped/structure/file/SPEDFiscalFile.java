@@ -15,17 +15,21 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal1990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscal9999;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalB001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalB990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalD990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalE990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
 /**
@@ -60,6 +64,16 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
    * REGISTRO 0990: ENCERRAMENTO DO BLOCO 0
    */
   private SPEDFiscal0990 r0990 = null;
+
+  /**
+   * REGISTRO B001: ABERTURA DO BLOCO B
+   */
+  private SPEDFiscalB001 rB001 = null;
+
+  /**
+   * REGISTRO B990: ENCERRAMENTO DO BLOCO B
+   */
+  private SPEDFiscalB990 rB990 = null;
 
   /**
    * REGISTRO C001: ABERTURA DO BLOCO C
@@ -147,11 +161,72 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
   private SPEDFiscal9999 r9999 = null;
 
   /**
+   * Garante que os blocos obrigatórios do layout estejam inicializados na estrutura antes de qualquer cálculo.
+   * <p>
+   * Motivo: alguns registros de fechamento (ex.: *990) e totalizadores (ex.: bloco 9) dependem de contagens de registros. Portanto, os registros de abertura/fechamento dos blocos obrigatórios devem existir <b>antes</b> da execução dos cálculos automáticos.
+   * </p>
+   * <p>
+   * Este método não deve preencher dados de negócio, apenas garantir a presença dos registros mínimos de abertura e encerramento quando aplicável.
+   * </p>
+   *
+   * @throws RFWException
+   */
+  private void ensureRequiredBlocks() throws RFWException {
+    // Bloco B (obrigatório)
+    if (this.rB001 == null) {
+      this.rB001 = new SPEDFiscalB001(this);
+      this.rB001.setR02_IND_DAD_AUTO("1"); // Bloco sem dados informados por padrão
+    }
+
+    // Bloco C (obrigatório)
+    if (this.rC001 == null) this.rC001 = new SPEDFiscalC001(this);
+
+    // Bloco D (obrigatório)
+    if (this.rD001 == null) {
+      this.rD001 = new SPEDFiscalD001(this);
+      this.rD001.setR02_IND_MOV("1"); // Bloco sem dados informados por padrão
+    }
+
+    // Bloco E (obrigatório)
+    if (this.rE001 == null) {
+      this.rE001 = new SPEDFiscalE001(this);
+      this.rE001.setR02_IND_MOV("1"); // Bloco sem dados informados por padrão
+    }
+
+    if (this.rE001.getRe100() == null) {
+      this.rE001.setRe100(new SPEDFiscalE100(this));
+      this.rE001.getRe100().setR02_DT_INI(this.getR0000().getR04_DT_INI());
+      this.rE001.getRe100().setR03_DT_FIN(this.getR0000().getR05_DT_FIN());
+    }
+
+    // Bloco G (obrigatório)
+    if (this.rG001 == null) {
+      this.rG001 = new SPEDFiscalG001(this);
+      this.rG001.setR02_IND_MOV("1"); // Bloco sem dados informados por padrão
+    }
+
+    // Bloco H (obrigatório)
+    if (this.rH001 == null) {
+      this.rH001 = new SPEDFiscalH001(this);
+      this.rH001.setR02_IND_MOV("1"); // Bloco sem dados informados por padrão
+    }
+
+    // Bloco K (obrigatório)
+    if (this.rK001 == null) {
+      this.rK001 = new SPEDFiscalK001(this);
+      this.rK001.setR02_IND_MOV("1"); // Bloco sem dados informados por padrão
+    }
+  }
+
+  /**
    * Força o recálculo de todos os campos automáticos do arquivo.
    *
    * @throws RFWException
    */
   public void calculateFields() throws RFWException {
+    // Garante blocos obrigatórios antes de qualquer contagem/cálculo automático.
+    ensureRequiredBlocks();
+
     String uuid = RUGenerators.generateUUID();
 
     // Sempre adicionamos o registro 9001 (contadores) Automaticamente
@@ -160,6 +235,7 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     // Completa os registros de rodapés e contadores 9900 de cada bloco, se forem necessários e ainda não existirem
     if (this.r0000 != null) SPEDFiscalBuilder.add0990(this);
     if (this.r0001 != null) SPEDFiscalBuilder.add0990(this);
+    if (this.rB001 != null) SPEDFiscalBuilder.addB990(this);
     if (this.rC001 != null) SPEDFiscalBuilder.addC990(this);
     if (this.rD001 != null) SPEDFiscalBuilder.addD990(this);
     if (this.rE001 != null) SPEDFiscalBuilder.addE990(this);
@@ -176,6 +252,10 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     // Bloco 0
     if (this.r0001 != null) this.r0001.calculate(uuid);
     if (this.r0990 != null) this.r0990.calculate(uuid);
+
+    // Bloco B
+    if (this.rB001 != null) this.rB001.calculate(uuid);
+    if (this.rB990 != null) this.rB990.calculate(uuid);
 
     // Bloco C
     if (this.rC001 != null) this.rC001.calculate(uuid);
@@ -235,6 +315,12 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
     if (this.r0001 != null) {
       this.r0001.writeFileRegister(buff);
       this.r0990.writeFileRegister(buff);
+    }
+
+    // Bloco B
+    if (this.rB001 != null) {
+      this.rB001.writeFileRegister(buff);
+      this.rB990.writeFileRegister(buff);
     }
 
     // Bloco C
@@ -344,6 +430,42 @@ public class SPEDFiscalFile implements Serializable, SPEDFile {
    */
   public void setR0990(SPEDFiscal0990 r0990) {
     this.r0990 = r0990;
+  }
+
+  /**
+   * Recupera o rEGISTRO B001: ABERTURA DO BLOCO B.
+   *
+   * @return the rEGISTRO B001: ABERTURA DO BLOCO B
+   */
+  public SPEDFiscalB001 getRB001() {
+    return rB001;
+  }
+
+  /**
+   * Define o rEGISTRO B001: ABERTURA DO BLOCO B.
+   *
+   * @param rB001 the new rEGISTRO B001: ABERTURA DO BLOCO B
+   */
+  public void setRB001(SPEDFiscalB001 rB001) {
+    this.rB001 = rB001;
+  }
+
+  /**
+   * Recupera o rEGISTRO B990: ENCERRAMENTO DO BLOCO B.
+   *
+   * @return the rEGISTRO B990: ENCERRAMENTO DO BLOCO B
+   */
+  public SPEDFiscalB990 getRB990() {
+    return rB990;
+  }
+
+  /**
+   * Define o rEGISTRO B990: ENCERRAMENTO DO BLOCO B.
+   *
+   * @param rB990 the new rEGISTRO B990: ENCERRAMENTO DO BLOCO B
+   */
+  public void setRB990(SPEDFiscalB990 rB990) {
+    this.rB990 = rB990;
   }
 
   /**
