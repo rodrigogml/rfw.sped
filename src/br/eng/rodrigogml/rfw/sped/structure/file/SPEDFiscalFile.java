@@ -29,7 +29,6 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalG990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalH990;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK001;
-import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK010;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalK990;
 
 /**

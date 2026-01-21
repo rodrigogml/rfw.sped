@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWCriticalException;
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
+import br.eng.rodrigogml.rfw.kernel.utils.RUGenerators;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDContribFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0001;
@@ -313,17 +314,46 @@ public class SPEDContribBuilder {
     SPEDContrib9001 r9001 = new SPEDContrib9001(sped);
     r9001.setR02_IND_MOV("0");
 
-    // Já nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado
-    sped.setR9001(r9001);
+    // Antes de contabilizar garantimos que os registros filhos tenham seus campos calculados
+    String uuid = RUGenerators.generateUUID();
 
-    // Itera os registros de "sped"
+    final Field[] topFields = sped.getClass().getDeclaredFields();
+    Arrays.sort(topFields, SPEDRegister.fieldComparator);
+    for (int i = 0; i < topFields.length; i++) {
+      Field f = topFields[i];
+      if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) {
+        Object value = null;
+        try {
+          Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
+          value = mGet.invoke(sped);
+        } catch (Exception e) {
+          throw new RFWCriticalException("BISModules_000263", new String[] { f.getName() }, e);
+        }
+        if (value instanceof SPEDRegister) {
+          ((SPEDRegister) value).calculate(uuid);
+        } else if (value instanceof LinkedHashMap) {
+          for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
+            ((SPEDRegister) spedReg).calculate(uuid);
+          }
+        } else if (value instanceof ArrayList) {
+          for (Object spedReg : (ArrayList<?>) value) {
+            ((SPEDRegister) spedReg).calculate(uuid);
+          }
+        }
+      }
+    }
+
+    // Itera os registros de "sped" para contabilizar, mas evitamos contar o próprio r9001.
     final Field[] fields = sped.getClass().getDeclaredFields();
     Arrays.sort(fields, SPEDRegister.fieldComparator);
 
-    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizaos ele, e seus filhos se for o caso
+    // Iteramos os métodos encontrados, e se estiverem no padrão "r####" contabilizamos ele, e seus filhos se for o caso
     for (int i = 0; i < fields.length; i++) {
       Field f = fields[i];
       if (f.getName().matches("r[A-Za-z0-9]{4}(\\Q_AUTO\\E)?")) { // Atributos de subatributos
+        // Evita contar o próprio r9001 (auto-contagem)
+        if (f.getName().equals("r9001")) continue;
+
         Object value = null;
         try {
           Method mGet = sped.getClass().getMethod("getR" + f.getName().substring(1));
@@ -339,16 +369,16 @@ public class SPEDContribBuilder {
           }
           if (value instanceof LinkedHashMap) {
             for (Object spedReg : ((LinkedHashMap<?, ?>) value).values()) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              regCounter.setR03_QTD_REG_BLC((regCounter.getR03_QTD_REG_BLC() == null ? 0 : regCounter.getR03_QTD_REG_BLC()) + 1);
               recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
             }
           } else if (value instanceof ArrayList) {
             for (Object spedReg : (ArrayList<?>) value) {
-              regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+              regCounter.setR03_QTD_REG_BLC((regCounter.getR03_QTD_REG_BLC() == null ? 0 : regCounter.getR03_QTD_REG_BLC()) + 1);
               recursive9900Creater(sped, r9001, ((SPEDRegister) spedReg));
             }
           } else if (value instanceof SPEDRegister) {
-            regCounter.setR03_QTD_REG_BLC(regCounter.getR03_QTD_REG_BLC() + 1);
+            regCounter.setR03_QTD_REG_BLC((regCounter.getR03_QTD_REG_BLC() == null ? 0 : regCounter.getR03_QTD_REG_BLC()) + 1);
             recursive9900Creater(sped, r9001, ((SPEDRegister) value));
           }
         }
@@ -364,8 +394,37 @@ public class SPEDContribBuilder {
       }
     }
 
-    // Depois de todos contabilizados atualizamos a quantidade do próprio registro 9900, dpeois que os zerados foram removidos
-    r9001.getR9900().get("9900").setR03_QTD_REG_BLC(r9001.getR9900().size());
+    // Garantimos que exista um contador para o próprio 9001 e para 9900, como no SPEDFiscal
+    SPEDContrib9900 r9900_9001 = r9001.getR9900().get("9001");
+    if (r9900_9001 == null) {
+      r9900_9001 = new SPEDContrib9900(sped);
+      r9900_9001.setR02_REG_BLC("9001");
+      r9900_9001.setR03_QTD_REG_BLC(1);
+      r9001.getR9900().put("9001", r9900_9001);
+    } else {
+      r9900_9001.setR03_QTD_REG_BLC(1);
+    }
+
+    SPEDContrib9900 r9900_9900 = r9001.getR9900().get("9900");
+    int size = r9001.getR9900().size();
+    if (r9900_9900 == null) {
+      r9900_9900 = new SPEDContrib9900(sped);
+      r9900_9900.setR02_REG_BLC("9900");
+      r9900_9900.setR03_QTD_REG_BLC(size + 1); // inclui o próprio 9900
+      r9001.getR9900().put("9900", r9900_9900);
+    } else {
+      r9900_9900.setR03_QTD_REG_BLC(size + 1);
+    }
+
+    // Define indicador de movimento do 9001 de acordo com o conteúdo contabilizado
+    if (r9001.getR9900().isEmpty()) {
+      r9001.setR02_IND_MOV("1");
+    } else {
+      r9001.setR02_IND_MOV("0");
+    }
+
+    // Finalmente nos incluímos no arquivo "sped" para que o próprio 9001 já seja contabilizado quando necessário
+    sped.setR9001(r9001);
 
     return r9001;
   }
@@ -633,7 +692,7 @@ public class SPEDContribBuilder {
     // Bloco A
     if (sped.getRA001() == null) SPEDContribBuilder.makeA001(sped, false);
     if (sped.getRA990() == null) SPEDContribBuilder.makeA990(sped, 0);
-    totalfile += block = sped.getRA001().countRegisters() + 1; // Soma o registo de fechamento que não está incluso
+    totalfile += block = sped.getRA001().countRegisters() + 1; // Soma o registo de fechamento que não está inclusos
     sped.getRA990().setR02_QTD_LIN_A(block);
 
     // Bloco C
@@ -685,7 +744,7 @@ public class SPEDContribBuilder {
     if (sped.getR9990() == null) SPEDContribBuilder.make9990(sped, 0); // Cria o fechamento antes para que seja contabilizado no método abaixo
     SPEDContribBuilder.make9001(sped); // Cria o bloco 9 sobre todos os registros criados
 
-    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que não está incluso. E soma o "9999" segundo o manual: "... Para este cálculo, o registro 9999, apesar de não pertencer ao Bloco 9, também deve ser contabilizado nesta soma."
+    totalfile += block = sped.getR9001().countRegisters() + 2; // Soma o registo de fechamento do bloco "9990" que não está inclusos. E soma o "9999" segundo o manual: "... Para este cálculo, o registro 9999, apesar de não pertencer ao Bloco 9, também deve ser contabilizado nesta soma."
     sped.getR9990().setR02_QTD_LIN_9(block);
 
     // ENCERRAMENTO DO ARQUIVO - atualização do conteúdo

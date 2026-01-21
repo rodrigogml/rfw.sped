@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import br.eng.rodrigogml.rfw.kernel.exceptions.RFWException;
 import br.eng.rodrigogml.rfw.kernel.utils.RUString;
+import br.eng.rodrigogml.rfw.sped.SPEDContribBuilder;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0000;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0001;
 import br.eng.rodrigogml.rfw.sped.structure.register.contrib.SPEDContrib0990;
@@ -152,53 +153,76 @@ public class SPEDContribFile implements Serializable, SPEDFile {
   private SPEDContrib9999 r9999 = null;
 
   public String writeToFile() throws RFWException {
+    // Recalcula e atualiza os totalizadores / contadores antes de escrever o arquivo
+    SPEDContribBuilder.updateCalcFields(this, null, null, null);
+
     final StringBuilder buff = new StringBuilder();
 
     // Abertura do Arquivo
-    this.r0000.writeFileRegister(buff);
+    if (this.r0000 != null) this.r0000.writeFileRegister(buff);
 
     // Bloco 0
-    this.r0001.writeFileRegister(buff);
-    this.r0990.writeFileRegister(buff);
+    if (this.r0001 != null) {
+      this.r0001.writeFileRegister(buff);
+      if (this.r0990 != null) this.r0990.writeFileRegister(buff);
+    }
 
     // Bloco A
-    this.rA001.writeFileRegister(buff);
-    this.rA990.writeFileRegister(buff);
+    if (this.rA001 != null) {
+      this.rA001.writeFileRegister(buff);
+      if (this.rA990 != null) this.rA990.writeFileRegister(buff);
+    }
 
     // Bloco C
-    this.rC001.writeFileRegister(buff);
-    this.rC990.writeFileRegister(buff);
+    if (this.rC001 != null) {
+      this.rC001.writeFileRegister(buff);
+      if (this.rC990 != null) this.rC990.writeFileRegister(buff);
+    }
 
     // Bloco D
-    this.rD001.writeFileRegister(buff);
-    this.rD990.writeFileRegister(buff);
+    if (this.rD001 != null) {
+      this.rD001.writeFileRegister(buff);
+      if (this.rD990 != null) this.rD990.writeFileRegister(buff);
+    }
 
     // Bloco F
-    this.rF001.writeFileRegister(buff);
-    this.rF990.writeFileRegister(buff);
+    if (this.rF001 != null) {
+      this.rF001.writeFileRegister(buff);
+      if (this.rF990 != null) this.rF990.writeFileRegister(buff);
+    }
 
     // Bloco I
-    this.rI001.writeFileRegister(buff);
-    this.rI990.writeFileRegister(buff);
+    if (this.rI001 != null) {
+      this.rI001.writeFileRegister(buff);
+      if (this.rI990 != null) this.rI990.writeFileRegister(buff);
+    }
 
     // Bloco M
-    this.rM001.writeFileRegister(buff);
-    this.rM990.writeFileRegister(buff);
+    if (this.rM001 != null) {
+      this.rM001.writeFileRegister(buff);
+      if (this.rM990 != null) this.rM990.writeFileRegister(buff);
+    }
 
     // Bloco P
-    this.rP001.writeFileRegister(buff);
-    this.rP990.writeFileRegister(buff);
+    if (this.rP001 != null) {
+      this.rP001.writeFileRegister(buff);
+      if (this.rP990 != null) this.rP990.writeFileRegister(buff);
+    }
 
     // Bloco 1
-    this.r1001.writeFileRegister(buff);
-    this.r1990.writeFileRegister(buff);
+    if (this.r1001 != null) {
+      this.r1001.writeFileRegister(buff);
+      if (this.r1990 != null) this.r1990.writeFileRegister(buff);
+    }
 
     // Bloco 9
-    this.r9001.writeFileRegister(buff);
-    this.r9990.writeFileRegister(buff);
+    if (this.r9001 != null) {
+      this.r9001.writeFileRegister(buff);
+      if (this.r9990 != null) this.r9990.writeFileRegister(buff);
+    }
 
     // Encerramento do Arquivo
-    this.r9999.writeFileRegister(buff);
+    if (this.r9999 != null) this.r9999.writeFileRegister(buff);
 
     return RUString.removeAccents(buff.toString());
   }
