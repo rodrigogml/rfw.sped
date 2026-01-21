@@ -1089,7 +1089,8 @@ public class SPEDFiscalBuilder {
         uniqueID = "MODEL55|" + r09_CHV_NFE;
         break;
       case "65": // NFCe
-        // Ainda não preparado
+        // Tratar NFC-e similarmente à NF-e, chave única por CHV_NFE
+        uniqueID = "MODEL65|" + r09_CHV_NFE;
         break;
     }
     if (uniqueID == null) {

@@ -66,9 +66,9 @@ public class SPEDFiscalC100 extends SPEDRegister {
    * 04 COD_PART Código do participante (campo 02 do Registro 0150):<br>
    * - do emitente do documento ou do remetente das mercadorias, no caso de entradas;<br>
    * - do adquirente, no caso de saídas<br>
-   * C 060 - O O
+   * C 060 - O O (Para NFC-e modelo 65 este campo não deve ser informado)
    */
-  @SPEDField(maxLength = 60)
+  @SPEDField(maxLength = 60, required = false)
   private String r04_COD_PART = null;
 
   /**
