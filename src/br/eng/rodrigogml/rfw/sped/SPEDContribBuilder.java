@@ -499,7 +499,11 @@ public class SPEDContribBuilder {
       for (Entry<String, SPEDContribC100> tc100Set : new ArrayList<Entry<String, SPEDContribC100>>(tc010.getRc100().entrySet())) {
         SPEDContribC100 tc100 = tc100Set.getValue();
         // Todos os documentos que não gerarem crédito de PIS/COFINS não devem constar no arquivo.
-        if (tc100.getR26_VL_PIS().compareTo(BigDecimal.ZERO) == 0 && tc100.getR27_VL_COFINS().compareTo(BigDecimal.ZERO) == 0) {
+        // ATENÇÃO: essa regra vale para documentos de ENTRADA (IND_OPER=0). Para SAÍDA (IND_OPER=1) o arquivo pode conter documentos
+        // sem valores de PIS/COFINS (ex.: NFC-e, Simples Nacional, receitas com alíquota zero etc.).
+        final BigDecimal vlPis = (tc100.getR26_VL_PIS() != null ? tc100.getR26_VL_PIS() : BigDecimal.ZERO);
+        final BigDecimal vlCofins = (tc100.getR27_VL_COFINS() != null ? tc100.getR27_VL_COFINS() : BigDecimal.ZERO);
+        if ("0".equals(tc100.getR02_IND_OPER()) && vlPis.compareTo(BigDecimal.ZERO) == 0 && vlCofins.compareTo(BigDecimal.ZERO) == 0) {
           tc010.getRc100().remove(tc100Set.getKey());
         }
 

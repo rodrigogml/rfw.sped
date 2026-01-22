@@ -29,6 +29,11 @@ public class SPEDContribC100 extends SPEDRegister {
   private final ArrayList<SPEDContribC170> rc170 = new ArrayList<SPEDContribC170>();
 
   /**
+   * REGISTRO C175: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 65)
+   */
+  private final ArrayList<SPEDContribC175> rc175 = new ArrayList<SPEDContribC175>();
+
+  /**
    * Indicador do tipo de operação:
    * <li>0- Entrada;
    * <li>1- Saída<br>
@@ -51,8 +56,11 @@ public class SPEDContribC100 extends SPEDRegister {
    * <li>do emitente do documento ou do remetente das mercadorias, no caso de entradas;
    * <li>do adquirente, no caso de saídas<br>
    * C 060 - S
+   *
+   * <p>
+   * Observação: para NFC-e (COD_MOD = 65) o manual da EFD-Contribuições permite omitir o COD_PART. Para manter compatibilidade com a geração de NFC-e sem participante identificado, este campo é tratado como opcional no modelo.
    */
-  @SPEDField(maxLength = 60, required = true)
+  @SPEDField(maxLength = 60, required = false)
   private String r04_COD_PART = null;
 
   /**
@@ -156,13 +164,13 @@ public class SPEDContribC100 extends SPEDRegister {
   /**
    * Valor do frete indicado no documento fiscal N - 02 N
    */
-  @SPEDField(decimals = 2, maxLength = 20, required = true)
+  @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r18_VL_FRT = null;
 
   /**
    * Valor do seguro indicado no documento fiscal N - 02 N
    */
-  @SPEDField(decimals = 2, maxLength = 20, required = true)
+  @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r19_VL_SEG = null;
 
   /**
@@ -216,7 +224,7 @@ public class SPEDContribC100 extends SPEDRegister {
   /**
    * Valor total do PIS retido por substituição tributária N - 02 N
    */
-  @SPEDField(decimals = 2, maxLength = 20, required = true)
+  @SPEDField(decimals = 2, maxLength = 20, required = false)
   private BigDecimal r28_VL_PIS_ST = null;
 
   /**
@@ -627,6 +635,24 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
+   * Recupera o valor do seguro indicado no documento fiscal N - 02 N.
+   *
+   * @return the valor do seguro indicado no documento fiscal N - 02 N
+   */
+  public BigDecimal getR19_VL_SEG() {
+    return r19_VL_SEG;
+  }
+
+  /**
+   * Define o valor do seguro indicado no documento fiscal N - 02 N.
+   *
+   * @param r19_VL_SEG the new valor do seguro indicado no documento fiscal N - 02 N
+   */
+  public void setR19_VL_SEG(BigDecimal r19_VL_SEG) {
+    this.r19_VL_SEG = r19_VL_SEG;
+  }
+
+  /**
    * Recupera o valor de outras despesas acessórias N - 02 N.
    *
    * @return the valor de outras despesas acessórias N - 02 N
@@ -789,25 +815,25 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Recupera o valor do seguro indicado no documento fiscal N - 02 N.
+   * Recupera o rEGISTRO C170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55).
    *
-   * @return the valor do seguro indicado no documento fiscal N - 02 N
+   * @return the rEGISTRO C170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55)
    */
-  public BigDecimal getR19_VL_SEG() {
-    return r19_VL_SEG;
+  public ArrayList<SPEDContribC170> getRc170() {
+    return rc170;
   }
 
   /**
-   * Define o valor do seguro indicado no documento fiscal N - 02 N.
+   * # rEGISTRO C175: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 65).
    *
-   * @param r19_VL_SEG the new valor do seguro indicado no documento fiscal N - 02 N
+   * @return the rEGISTRO C175: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 65)
    */
-  public void setR19_VL_SEG(BigDecimal r19_VL_SEG) {
-    this.r19_VL_SEG = r19_VL_SEG;
+  public ArrayList<SPEDContribC175> getRc175() {
+    return rc175;
   }
 
   /**
-   * Recupera o valor total do PIS N - 02 N.
+   * # valor total do PIS N - 02 N.
    *
    * @return the valor total do PIS N - 02 N
    */
@@ -816,21 +842,12 @@ public class SPEDContribC100 extends SPEDRegister {
   }
 
   /**
-   * Define o valor total do PIS N - 02 N.
+   * # valor total do PIS N - 02 N.
    *
    * @param r26_VL_PIS the new valor total do PIS N - 02 N
    */
   public void setR26_VL_PIS(BigDecimal r26_VL_PIS) {
     this.r26_VL_PIS = r26_VL_PIS;
-  }
-
-  /**
-   * Recupera o rEGISTRO C170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55).
-   *
-   * @return the rEGISTRO C170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55)
-   */
-  public ArrayList<SPEDContribC170> getRc170() {
-    return rc170;
   }
 
 }
