@@ -493,7 +493,7 @@ public class SPEDContribBuilder {
    */
   public static void updateCalcFields(SPEDContribFile sped, String codCtaC170, String codCtaC481, String codCtaC485) throws RFWException {
     // ATENÇÃO: Este loop abaixo tem a finalidade de remover as notas que não geram crédito, e deve ser feito antes de realizar os cálculos necessários. Cuidado ao aproveitar o loop abaixo para outras funções.
-    final SPEDContribC001 tc001 = sped.getRC001();
+    final SPEDContribC001 tc001 = SPEDContribBuilder.makeC001(sped, true); // sped.getRC001();
     for (Entry<String, SPEDContribC010> tc010Set : new ArrayList<Entry<String, SPEDContribC010>>(tc001.getRc010().entrySet())) {
       SPEDContribC010 tc010 = tc010Set.getValue();
       for (Entry<String, SPEDContribC100> tc100Set : new ArrayList<Entry<String, SPEDContribC100>>(tc010.getRc100().entrySet())) {
