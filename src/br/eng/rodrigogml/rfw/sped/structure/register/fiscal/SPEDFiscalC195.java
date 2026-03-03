@@ -1,5 +1,7 @@
 package br.eng.rodrigogml.rfw.sped.structure.register.fiscal;
 
+import java.util.LinkedHashMap;
+
 import br.eng.rodrigogml.rfw.sped.structure.annotation.SPEDField;
 import br.eng.rodrigogml.rfw.sped.structure.file.SPEDFile;
 import br.eng.rodrigogml.rfw.sped.structure.register.SPEDRegister;
@@ -17,6 +19,12 @@ public class SPEDFiscalC195 extends SPEDRegister {
   public SPEDFiscalC195(SPEDFile spedFile) {
     super(spedFile);
   }
+
+  /**
+   * REGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<br>
+   * Chave: COD_AJ
+   */
+  private final LinkedHashMap<String, SPEDFiscalC197> rc197 = new LinkedHashMap<String, SPEDFiscalC197>();
 
   /**
    * 02 COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460) C 006 - O O
@@ -69,6 +77,16 @@ public class SPEDFiscalC195 extends SPEDRegister {
    */
   public void setR03_TXT_COMPL(String r03_TXT_COMPL) {
     this.r03_TXT_COMPL = r03_TXT_COMPL;
+  }
+
+  /**
+   * Recupera o rEGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<br>
+   * Chave: COD_AJ.
+   *
+   * @return the rEGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL
+   */
+  public LinkedHashMap<String, SPEDFiscalC197> getRc197() {
+    return rc197;
   }
 
 }
