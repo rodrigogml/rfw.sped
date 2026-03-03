@@ -34,6 +34,7 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC114;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC195;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC800;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC850;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC855;
@@ -676,10 +677,8 @@ public class SPEDFiscalBuilder {
    * Observações:
    * <li>Obrigatoriedade: a partir de 2023</li>
    * <li>Nível hierárquico - 2</li>
-   * <li>Ocorrência – um por arquivo</li>
-   * <br>
-   * Validação: registro obrigatório se o campo 02 (IND_MOV) do registro K001 estiver informado com
-   * “0 - Bloco com dados informados”.
+   * <li>Ocorrência – um por arquivo</li> <br>
+   * Validação: registro obrigatório se o campo 02 (IND_MOV) do registro K001 estiver informado com “0 - Bloco com dados informados”.
    *
    * @param rk001 Registro pai K001.
    * @param indTpLeiaute Indicador de tipo de leiaute adotado:
@@ -910,6 +909,29 @@ public class SPEDFiscalBuilder {
       rc855.setR03_TXT_COMPL(r03_TXT_COMPL);
     }
     return rc855;
+  }
+
+  /**
+   * REGISTRO C195: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 01, 1B, 04, 55 E 65)<br>
+   * Observações:<Br>
+   * <li>Nível hierárquico - 3</li>
+   * <li>Ocorrência - 1:N</li>
+   *
+   * @param rc100 Registro pai.
+   * @param r02_COD_OBS Código da observação do lançamento fiscal (campo 02 do Registro 0460)
+   * @param r03_TXT_COMPL Descrição complementar do código de observação.
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC195 addC195(SPEDFiscalC100 rc100, String r02_COD_OBS, String r03_TXT_COMPL) throws RFWException {
+    SPEDFiscalC195 rc195 = rc100.getRc195().get(r02_COD_OBS);
+    if (rc195 == null) {
+      rc195 = new SPEDFiscalC195(rc100.getSpedFile());
+      rc100.getRc195().put(r02_COD_OBS, rc195);
+      rc195.setR02_COD_OBS(r02_COD_OBS);
+      rc195.setR03_TXT_COMPL(r03_TXT_COMPL);
+    }
+    return rc195;
   }
 
   /**
