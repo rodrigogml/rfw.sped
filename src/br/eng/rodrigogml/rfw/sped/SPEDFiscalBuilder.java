@@ -34,6 +34,8 @@ import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC001;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC100;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC110;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC114;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC195;
+import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC197;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC800;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC850;
 import br.eng.rodrigogml.rfw.sped.structure.register.fiscal.SPEDFiscalC855;
@@ -948,6 +950,44 @@ public class SPEDFiscalBuilder {
     if (r05_VL_BC_ICMS_SUM != null) rc857.setR05_VL_BC_ICMS(rc857.getR05_VL_BC_ICMS().add(r05_VL_BC_ICMS_SUM));
     if (r07_VL_ICMS_SUM != null) rc857.setR07_VL_ICMS(rc857.getR07_VL_ICMS().add(r07_VL_ICMS_SUM));
     return rc857;
+  }
+
+  /**
+   * REGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.<bR>
+   * Observações:
+   * <li>Nível hierárquico - 4</li>
+   * <li>Ocorrência - 1:N</li> <Br>
+   * <bR>
+   * O uniqueID para identificar o registro é criado a partir do valor de r02_COD_AJ. Sempre que um registro existente for encontrado, os valores dos campos r05_VL_BC_ICMS_SUM e r07_VL_ICMS_SUM são acumulados com os valores já existentes no registro.
+   *
+   * @param rc195 Registro pai.
+   * @param r02_COD_AJ Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3.
+   * @param r03_DESCR_COMPL_AJ Descrição complementar do ajuste do documento fiscal
+   * @param r04_COD_ITEM Código do item (campo 02 do Registro 0200)
+   * @param r05_VL_BC_ICMS_SUM Base de cálculo do ICMS ou do ICMS ST.
+   * @param r06_ALIQ_ICMS Alíquota do ICMS.
+   * @param r07_VL_ICMS_SUM Valor do ICMS ou do ICMS ST
+   * @param r08_VL_OUTROS Outros valores
+   * @return
+   * @throws RFWException
+   */
+  public static SPEDFiscalC197 addC197(SPEDFiscalC195 rc195, String r02_COD_AJ, String r03_DESCR_COMPL_AJ, String r04_COD_ITEM, BigDecimal r05_VL_BC_ICMS_SUM, BigDecimal r06_ALIQ_ICMS, BigDecimal r07_VL_ICMS_SUM, BigDecimal r08_VL_OUTROS) throws RFWException {
+    SPEDFiscalC197 rc197 = rc195.getRc197().get(r02_COD_AJ);
+    if (rc197 == null) {
+      rc197 = new SPEDFiscalC197(rc195.getSpedFile());
+      rc195.getRc197().put(r02_COD_AJ, rc197);
+      rc197.setR02_COD_AJ(r02_COD_AJ);
+      rc197.setR03_DESCR_COMPL_AJ(r03_DESCR_COMPL_AJ);
+      rc197.setR04_COD_ITEM(r04_COD_ITEM);
+      rc197.setR05_VL_BC_ICMS(BigDecimal.ZERO);
+      rc197.setR06_ALIQ_ICMS(r06_ALIQ_ICMS);
+      rc197.setR07_VL_ICMS(BigDecimal.ZERO);
+      rc197.setR08_VL_OUTROS(r08_VL_OUTROS);
+    }
+
+    if (r05_VL_BC_ICMS_SUM != null) rc197.setR05_VL_BC_ICMS(rc197.getR05_VL_BC_ICMS().add(r05_VL_BC_ICMS_SUM));
+    if (r07_VL_ICMS_SUM != null) rc197.setR07_VL_ICMS(rc197.getR07_VL_ICMS().add(r07_VL_ICMS_SUM));
+    return rc197;
   }
 
   /**
